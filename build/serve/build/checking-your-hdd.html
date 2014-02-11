@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checking your HDD</title>
+  <meta name="author" content="Matthias Günther" >
+  <meta name="description" content="Checking your HDD is a good choice"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+
+  <link href="/css/bootstrap.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/bootstrap-responsive.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/base.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/pygments.css" rel="stylesheet" media="screen, projection">
+
+  <link href="http://feeds.feedburner.com/guenther" rel="alternate" type="application/rss+xml" title="RSS feed of Matthias Günther">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="span5">
+          <span id="title">
+            <a href="/index.html">wikimatze</a>
+          </span>
+        </div>
+        <div class="span7">
+          <nav>
+            <ul class="nav nav-pills">
+              <li><a href="http://feeds.feedburner.com/guenther" target="_blank"><img src="/images/rss.png" alt="RSS"></a></li>
+              <li><a href="https://twitter.com/wikimatze" target="_blank"><img src="/images/twitter.png" alt="Twitter"></a></li>
+              <li><a href="https://github.com/matthias-guenther" target="_blank"><img src="/images/github.png" alt="GitHub"></a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/talks.html">Talks</a></li>
+              <li><a href="/projects.html">Projects</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+<!--
+    <div id="ribbon">
+      <a href="https://github.com/matthias-guenther" target="_blank">Fork me on Github</a>
+    </div>
+    -->
+
+    <div class="row-fluid">
+      <div class="span10 offset1">
+        
+        <header><h1>Checking your HDD</h1></header>
+        
+        <article class="post">
+  <header>
+    <div class="author">
+      Posted on <time datetime="2012-07-12" pubdate>2012-07-12</time>
+    </div>
+    <div class="right">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="wikimatze">Tweet</a>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <a href="http://twitter.com/wikimatze" class="twitter-follow-button" data-show-count="false">Follow wikimatze</a>
+    <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+</div>
+
+
+    <div class="clearer"></div>
+  </header>
+  <div class="clearer"></div>
+  <blockquote>
+  <p>Do one thing and do it well.</p>
+  <strong>Unix Philosophy</strong>
+</blockquote>
+
+
+<p><em>This article describes a tool for testing your HDD on a daily basis and how can you fill it completely with zeros or
+random numbers to check it for broken sectors.</em></p>
+
+<p>I was spending a whole day installing and configuring 4 different operating systems on my new Desktop PC &ndash; didn&rsquo;t
+virtualize my Windows because I wanted to use it for gaming (especially <a href="http://fallout.bethsoft.com/">Fallout 3</a>).
+After four weeks the disasters happened: My hard disk drive was broken. Before spending a whole installing your new
+systems, it is worth spending a day to check your new HDD (<em>Hard Disk Drive</em>).</p>
+
+<h2>Symptoms of a breaking HDD</h2>
+
+<p>If you encounter any of the following things you can be sure that your HDD will break soon:</p>
+
+<ul>
+<li>working with Blue Screens and occasionally system fall downs</li>
+<li>problems with installing new OS &ndash; even on Knoppix</li>
+<li>overwriting the harddisk completely</li>
+<li>blinking LED even if you are not working &ndash; is a sign that the HDD disk is writing the content into still valid sectors</li>
+</ul>
+
+
+<h2>Checking your new HDD with smartools</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Smartmontools">Smartmontools</a> is an analysis tool for Linux/Unix systems which allows you
+to check your hard disk &ndash; even on your regular usage. The program consists of two parts: <code>smartctl</code> (checking and
+evaluating HDD parameters) and <code>smartd</code> (is daemon to check your HDD on a regularly state).</p>
+
+<p>Install the tool with the following command:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo apt-get install smartmontools
+</code></pre></div>
+
+
+<h2>Using smartctl for HDD diagnosing</h2>
+
+<p>To get an overview of your new HDD please perform:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo smartctl -H /dev/sda
+</code></pre></div>
+
+
+<p>Important of the output is the parameter <strong>&ldquo;passed&rdquo;</strong>, it tells you that the test is over:</p>
+
+<div class="highlight"><pre><code class="bash">smartctl 5.41 2011-06-09 r3365 <span class="o">[</span>i686-linux-3.2.0-23-generic<span class="o">]</span> <span class="o">(</span><span class="nb">local </span>build<span class="o">)</span>
+Copyright <span class="o">(</span>C<span class="o">)</span> 2002-11 by Bruce Allen, http://smartmontools.sourceforge.net
+
+<span class="o">===</span> START OF INFORMATION <span class="nv">SECTION</span> <span class="o">===</span>
+Device Model:     ST500DM002-1BD142
+Serial Number:    Z2ARNP4C
+LU WWN Device Id: 5 000c50 04079c23c
+Firmware Version: KC45
+User Capacity:    500,107,862,016 bytes <span class="o">[</span>500 GB<span class="o">]</span>
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Device is:        Not in smartctl database <span class="o">[</span><span class="k">for </span>details use: -P showall<span class="o">]</span>
+ATA Version is:   8
+ATA Standard is:  ATA-8-ACS revision 4
+Local Time is:    Thu Jul 12 06:54:59 2012 CEST
+SMART support is: Available - device has SMART capability.
+SMART support is: <span class="nv">Enabled</span>
+
+<span class="o">===</span> START OF READ SMART DATA <span class="nv">SECTION</span> <span class="o">===</span>
+SMART overall-health self-assessment <span class="nb">test </span>result: PASSED
+
+General SMART Values:
+Offline data collection status:  <span class="o">(</span>0x82<span class="o">)</span> Offline data collection activity
+          was completed without error.
+          Auto Offline Data Collection: Enabled.
+Self-test execution status:      <span class="o">(</span>   0<span class="o">)</span> The previous self-test routine completed
+          without error or no self-test has ever
+          been run.
+Total <span class="nb">time </span>to <span class="nb">complete </span>Offline
+data collection:    <span class="o">(</span>  600<span class="o">)</span> seconds.
+Offline data collection
+capabilities:        <span class="o">(</span>0x7b<span class="o">)</span> SMART execute Offline immediate.
+          Auto Offline data collection on/off support.
+          Suspend Offline collection upon new
+          command.
+          Offline surface scan supported.
+          Self-test supported.
+          Conveyance Self-test supported.
+          Selective Self-test supported.
+SMART capabilities:            <span class="o">(</span>0x0003<span class="o">)</span> Saves SMART data before entering
+          power-saving mode.
+          Supports SMART auto save timer.
+Error logging capability:        <span class="o">(</span>0x01<span class="o">)</span> Error logging supported.
+          General Purpose Logging supported.
+Short self-test routine
+recommended polling <span class="nb">time</span>:    <span class="o">(</span>   1<span class="o">)</span> minutes.
+Extended self-test routine
+recommended polling <span class="nb">time</span>:    <span class="o">(</span>  81<span class="o">)</span> minutes.
+Conveyance self-test routine
+recommended polling <span class="nb">time</span>:    <span class="o">(</span>   2<span class="o">)</span> minutes.
+SCT capabilities:          <span class="o">(</span>0x303f<span class="o">)</span> SCT Status supported.
+          SCT Error Recovery Control supported.
+          SCT Feature Control supported.
+          SCT Data Table supported.
+
+SMART Attributes Data Structure revision number: 10
+Vendor Specific SMART Attributes with Thresholds:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  1 Raw_Read_Error_Rate     0x000f   107   099   006    Pre-fail  Always       -       12627760
+  3 Spin_Up_Time            0x0003   100   100   000    Pre-fail  Always       -       0
+  4 Start_Stop_Count        0x0032   100   100   020    Old_age   Always       -       76
+  5 Reallocated_Sector_Ct   0x0033   100   100   036    Pre-fail  Always       -       0
+  7 Seek_Error_Rate         0x000f   064   060   030    Pre-fail  Always       -       2705616
+  9 Power_On_Hours          0x0032   100   100   000    Old_age   Always       -       84
+ 10 Spin_Retry_Count        0x0013   100   100   097    Pre-fail  Always       -       0
+ 12 Power_Cycle_Count       0x0032   100   100   020    Old_age   Always       -       74
+183 Runtime_Bad_Block       0x0032   100   100   000    Old_age   Always       -       0
+184 End-to-End_Error        0x0032   100   100   099    Old_age   Always       -       0
+187 Reported_Uncorrect      0x0032   100   100   000    Old_age   Always       -       0
+188 Command_Timeout         0x0032   100   100   000    Old_age   Always       -       0
+189 High_Fly_Writes         0x003a   100   100   000    Old_age   Always       -       0
+190 Airflow_Temperature_Cel 0x0022   061   049   045    Old_age   Always       -       39 <span class="o">(</span>Min/Max 22/39<span class="o">)</span>
+194 Temperature_Celsius     0x0022   039   051   000    Old_age   Always       -       39 <span class="o">(</span>0 21 0 0<span class="o">)</span>
+195 Hardware_ECC_Recovered  0x001a   045   039   000    Old_age   Always       -       12627760
+197 Current_Pending_Sector  0x0012   100   100   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0010   100   100   000    Old_age   Offline      -       0
+199 UDMA_CRC_Error_Count    0x003e   200   200   000    Old_age   Always       -       0
+240 Head_Flying_Hours       0x0000   100   253   000    Old_age   Offline      -       110127256436820
+241 Total_LBAs_Written      0x0000   100   253   000    Old_age   Offline      -       3616779477
+242 Total_LBAs_Read         0x0000   100   253   000    Old_age   Offline      -       1189576021
+
+SMART Error Log Version: 1
+No Errors Logged
+
+SMART Self-test log structure revision number 1
+Num  Test_Description    Status                  Remaining  LifeTime<span class="o">(</span>hours<span class="o">)</span>  LBA_of_first_error
+<span class="c"># 1  Conveyance offline  Completed without error       00%         2         -</span>
+<span class="c"># 2  Extended offline    Aborted by host               90%         2         -</span>
+<span class="c"># 3  Conveyance offline  Completed without error       00%         2         -</span>
+<span class="c"># 4  Short offline       Completed without error       00%         1         -</span>
+<span class="c"># 5  Extended offline    Aborted by host               40%         1         -</span>
+<span class="c"># 6  Short offline       Aborted by host               80%         1         -</span>
+
+SMART Selective self-test log data structure revision number 1
+ SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
+    1        0        0  Not_testing
+    2        0        0  Not_testing
+    3        0        0  Not_testing
+    4        0        0  Not_testing
+    5        0        0  Not_testing
+Selective self-test flags <span class="o">(</span>0x0<span class="o">)</span>:
+  After scanning selected spans, <span class="k">do </span>NOT <span class="nb">read</span>-scan remainder of disk.
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+</code></pre></div>
+
+
+<p>You can perform longer tests of your harddisk with:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo smartctl -t long /dev/sda
+</code></pre></div>
+
+
+<p>Depending on the size of your HDD, it takes some time. For checking a whole 500 GB the program runs about 80 minutes.</p>
+
+<p>It is even possible to check if your HDD has damage incurred during transporting the drive with the <code>conveyance</code> option:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo smartctl -t conveyance /dev/sda
+</code></pre></div>
+
+
+<h2>Performing long time diagnostic with smartd</h2>
+
+<p>The first step is to give the daemon the permission to run checks in the background:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>vim /etc/default/smartmontools
+&gt; <span class="nv">start_smartd</span><span class="o">=</span>yes
+</code></pre></div>
+
+
+<p>Find the line with and uncomment it:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># uncomment to start smartd on system startup¬</span>
+<span class="c">#start_smartd=yes¬</span>
+</code></pre></div>
+
+
+<p>The configuration file for the daemon can be found under <code>/etc/smartd.conf</code>. Here only one line is sufficient to check
+all HDDs:</p>
+
+<div class="highlight"><pre><code class="bash">DEVICESCAN -m root@&lt;your-os-name&gt; -M <span class="nb">exec</span> /usr/share/smartmontools/smartd-runner
+</code></pre></div>
+
+
+<p>Let&rsquo;s get through each line step-by-step:</p>
+
+<ul>
+<li><code>DEVICESCAN</code>: will scan all HDDs in the range between <code>/dev/hd[a-I] .. /dev/sd[a-z]</code>, which support SMART</li>
+<li><code>-m matthias.guenther@wikimatze.de</code>: in case of an error, an email will be sent to this address</li>
+<li><code>-M</code>: the frequency of emails departure
+
+<ul>
+<li><code>-M exec</code>: don&rsquo;t send testmails</li>
+<li><code>-M test</code>: send a testmail (when using this option, you must leave out the <code>/usr/share/smartmontools/smartd-runner</code>)</li>
+<li><code>-M daily</code>: send daily reports</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Now it&rsquo;s time to test our configuration:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>smartd -q onecheck
+</code></pre></div>
+
+
+<p>You can check your internal mails with <code>$ sudo mail</code> (you need install <a href="http://www.postfix.org/">Postfix</a> on your OS)
+and rebooting the daemon:</p>
+
+<div class="highlight"><pre><code class="bash">/etc/init.d/smartmontools restart
+</code></pre></div>
+
+
+<p>If you want to have a graphical client for this tool, you need to run:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo apt-get install gsmartcontrol
+</code></pre></div>
+
+
+<p>You need then to start the program in sudo mode to detect all HDDs <code>sudo gsmartcontrol</code>.</p>
+
+<h2>Checking the whole space on your HDD</h2>
+
+<p>You know these tiny small <code>dd</code> commands? No, it&rsquo;s time to learn and understand them. They are very handy to fill your
+your whole HDD with lovely zeros and ones.</p>
+
+<p><code>dd</code> stands for <strong>data definition</strong>. It has direct access on the harddisk and can read boot sectors &ndash; it is even used to
+create iso files of CDs.</p>
+
+<h3>Writing zeros or random numbers</h3>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda
+</code></pre></div>
+
+
+<p>Take from the <strong>input file</strong> (<code>if</code>) the zeros (<code>/dev/zero</code>) and write them on the <strong>output file</strong> (<code>of</code>) <code>/dev/sda</code>. If
+the command has written the whole hard disk, it will end.</p>
+
+<h3>Speeding up the process with faster writing</h3>
+
+<p>Normally, each block of the hard disk has the size of 512 KB. To set the blocksize on 1 MB (1024 KB), we can speed up
+the writing speed with the factor two. We can achieve do this with the <code>bs</code> option.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1024
+</code></pre></div>
+
+
+<h3>Jump over errors</h3>
+
+<p><code>dd</code> will end, if it detects a broken sector. With the <code>conv=noerror</code> option, <code>dd</code> will write till the HDD is full even
+over broken sectors:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">conv</span><span class="o">=</span>noerror <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1024
+</code></pre></div>
+
+
+<p>Other useful parameters are <code>notrunc</code> (write the output file completely) or <code>sync</code> (write with the full length).</p>
+
+<h3>Running the dd command with status display</h3>
+
+<p>We can use the <a href="http://manpages.ubuntu.com/manpages/dapper/man1/pv.1.html">pv</a> command to monitor the progress of data
+through a pipe. First we need to install it:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo apt-get install pv
+</code></pre></div>
+
+
+<p>To get an overview about how many MB or GB have already be written, use the following command:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>/dev/random <span class="nv">conv</span><span class="o">=</span>notrunc,sync <span class="nv">bs</span><span class="o">=</span>1024 | pv &gt; /dev/sda
+</code></pre></div>
+
+
+<h2>Conclusion</h2>
+
+<p>A broken HDD is a bad thing, but if you know the symptoms it saves you a lot of time because you you know that you have
+to buy new hardware. Always have backup on an external HDD so that you can easily replace you data.</p>
+
+<p>It is good to run a couple of tests before you start implementing your whole system.</p>
+
+<h2>Further reading</h2>
+
+<ul>
+<li><a href="http://sourceforge.net/apps/trac/smartmontools/wiki">smartmontools project page</a></li>
+<li><a href="https://help.ubuntu.com/community/Smartmontools">smartmontools help on Ubuntu</a></li>
+</ul>
+
+
+  <aside>
+    You can write a comment below or <a href="http://wikimatze.wufoo.com/forms/z7x3x5/">send me an email</a>.
+    <br />
+    <div class="whoring">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'wikimatze'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+  </aside>
+</article>
+
+
+      </div>
+    </div>
+
+    <footer>
+      <nav>
+        &copy; Matthias Günther
+        &bull;
+        <a href="/contact.html">contact</a>
+        &bull;
+        <a href="/follow.html">follow</a>
+        &bull;
+        <a href="/reading.html">books</a>
+        &bull;
+        <a rel="nofollow" href="/imprint.html">imprint</a>
+        &bull;
+        <a rel="nofollow" href="/colophon.html">colophon</a>
+        &bull;
+        <a rel="nofollow" href="/donate.html">surprise me</a>
+        <span id="last-build">last build: 5-7-2013</span>
+      </nav>
+    </footer>
+  </div> <!-- container-centered-->
+
+  <!-- jQuery library -->
+  <script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+
+  <!-- Add fancyBox -->
+  <link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
+
+  <!-- Optionally add helpers - button, thumbnail and/or media -->
+  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox(
+          {
+          wrapCSS    : 'fancybox-custom',
+          closeClick : true,
+
+          helpers : {
+            title : {
+              type : 'inside'
+            },
+            overlay : {
+              css : {
+                'background-color' : '#eee'
+              }
+            }
+          }
+        });
+     });
+   </script>
+
+  <!-- google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2870917-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+</html>

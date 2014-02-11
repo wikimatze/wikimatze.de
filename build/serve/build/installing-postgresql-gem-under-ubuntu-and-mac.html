@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Installing PostgreSQL gem under Ubuntu and Mac</title>
+  <meta name="author" content="Matthias Günther" >
+  
+  <meta name="description" content="Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, and enjoys making cakes.">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+
+  <link href="/css/bootstrap.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/bootstrap-responsive.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/base.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/pygments.css" rel="stylesheet" media="screen, projection">
+
+  <link href="http://feeds.feedburner.com/guenther" rel="alternate" type="application/rss+xml" title="RSS feed of Matthias Günther">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="span5">
+          <span id="title">
+            <a href="/index.html">wikimatze</a>
+          </span>
+        </div>
+        <div class="span7">
+          <nav>
+            <ul class="nav nav-pills">
+              <li><a href="http://feeds.feedburner.com/guenther" target="_blank"><img src="/images/rss.png" alt="RSS"></a></li>
+              <li><a href="https://twitter.com/wikimatze" target="_blank"><img src="/images/twitter.png" alt="Twitter"></a></li>
+              <li><a href="https://github.com/matthias-guenther" target="_blank"><img src="/images/github.png" alt="GitHub"></a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/talks.html">Talks</a></li>
+              <li><a href="/projects.html">Projects</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+<!--
+    <div id="ribbon">
+      <a href="https://github.com/matthias-guenther" target="_blank">Fork me on Github</a>
+    </div>
+    -->
+
+    <div class="row-fluid">
+      <div class="span10 offset1">
+        
+        <header><h1>Installing PostgreSQL gem under Ubuntu and Mac</h1></header>
+        
+        <article class="post">
+  <header>
+    <div class="author">
+      Posted on <time datetime="2012-02-26" pubdate>2012-02-26</time>
+    </div>
+    <div class="right">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="wikimatze">Tweet</a>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <a href="http://twitter.com/wikimatze" class="twitter-follow-button" data-show-count="false">Follow wikimatze</a>
+    <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+</div>
+
+
+    <div class="clearer"></div>
+  </header>
+  <div class="clearer"></div>
+  <p><em>This article describes how to install the postgresql gem (called &lsquo;pg&rsquo;) under your local machine.  The installation
+process is not trivial because you need to install the right packages: For Ubuntu/Linux you only need to install the
+right packages and for Mac you need to specify the correct path.</em></p>
+
+<p>I checked out a new rails app called <a href="http://www.rhok.org/node/20654">Broken lifts</a>. Broken lifts in public
+transportation are annoying and limit the mobility of people in wheelchairs. The app provides status information from
+different operators on one page and shows how well they are performing.</p>
+
+<p>Ones I checked out the project I have detected that it uses <a href="http://www.rhok.org/node/20654">PostgreSQL</a> as their
+database driver.  So far I have never worked with it and I run into a couple of problems to get it running.</p>
+
+<h2>The problem</h2>
+
+<p>A small <code>$gem install pg</code> brought me the following error message:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>gem install pg
+Building native extensions.  This could take a <span class="k">while</span>...
+/Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/site_ruby/1.9.1/rubygems/ext/builder.rb:48: warning: Insecure world writable dir /Users/helex/bin in PATH, mode 040777
+ERROR:  Error installing pg:
+    ERROR: Failed to build gem native extension.
+
+        /Users/helex/.rbenv/versions/1.9.2-p290/bin/ruby extconf.rb
+checking <span class="k">for </span>pg_config... no
+No pg_config... trying anyway. If building fails, please try again with
+ --with-pg-config<span class="o">=</span>/path/to/pg_config
+checking <span class="k">for </span>libpq-fe.h... no
+Can<span class="s1">&#39;t find the &#39;</span>libpq-fe.h header
+<span class="se">\*\*\*</span> extconf.rb failed <span class="se">\*\*\*</span>
+Could not create Makefile due to some reason, probably lack of
+necessary libraries and/or headers.  Check the mkmf.log file <span class="k">for </span>more
+details.  You may need configuration options.
+
+Provided configuration options:
+  --with-opt-dir
+  --without-opt-dir
+  --with-opt-include
+  --without-opt-include<span class="o">=</span><span class="k">${</span><span class="nv">opt</span><span class="p">-dir</span><span class="k">}</span>/include
+  --with-opt-lib
+  --without-opt-lib<span class="o">=</span><span class="k">${</span><span class="nv">opt</span><span class="p">-dir</span><span class="k">}</span>/lib
+  --with-make-prog
+  --without-make-prog
+  --srcdir<span class="o">=</span>.
+  --curdir
+  --ruby<span class="o">=</span>/Users/helex/.rbenv/versions/1.9.2-p290/bin/ruby
+  --with-pg
+  --without-pg
+  --with-pg-dir
+  --without-pg-dir
+  --with-pg-include
+  --without-pg-include<span class="o">=</span><span class="k">${</span><span class="nv">pg</span><span class="p">-dir</span><span class="k">}</span>/include
+  --with-pg-lib
+  --without-pg-lib<span class="o">=</span><span class="k">${</span><span class="nv">pg</span><span class="p">-dir</span><span class="k">}</span>/lib
+  --with-pg-config
+  --without-pg-config
+  --with-pg_config
+  --without-pg_config
+
+
+Gem files will remain installed in /Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/pg-0.13.2 <span class="k">for </span>inspection.
+Results logged to /Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/pg-0.13.2/ext/gem_make.out
+</code></pre></div>
+
+
+<p>What relevant about the mess up there is the following part:</p>
+
+<div class="highlight"><pre><code class="bash">checking <span class="k">for </span>pg_config... no
+No pg_config... trying anyway. If building fails, please try again with
+ --with-pg-config<span class="o">=</span>/path/to/pg_config
+checking <span class="k">for </span>libpq-fe.h... no
+</code></pre></div>
+
+
+<p>Ruby can&rsquo;t find the relevant setting of the PostgreSQL installation. Let&rsquo;s change this!</p>
+
+<h2>Solution for Mac</h2>
+
+<ul>
+<li>install PostgreSQL library as described on the <a href="http://www.postgresql.org/download/macosx/">PostgreSQL page</a> (opening
+the <code>*.dmg</code> file will install a bunch of stuff, so don&rsquo;t be afraid of the amount of steps you have to perform)</li>
+<li>check if you can find the installation open it under <code>/Library/PostgreSQL/x.y</code> &ndash; where x.y stands for the version you
+installed</li>
+</ul>
+
+
+<p>Say you want to install the PostgreSQL manually with a <code>gem install</code> &ndash; you have to perform the following command</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/Library/PostgreSQL/9.1/bin gem install pg
+</code></pre></div>
+
+
+<p>If you want to install it with <a href="http://gembundler.com/">Bundle</a>, run the following command</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>sudo <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/Library/PostgreSQL/9.1/bin bundle install
+</code></pre></div>
+
+
+<p>Please change the <strong>9.1</strong> with the version you have installed. Thats it!</p>
+
+<h2>Solution for Ubuntu/Linux</h2>
+
+<p>It is easier because you only have to install the right packages:</p>
+
+<div class="highlight"><pre><code class="bash">sudo apt-get install postgresql
+sudo apt-get install libpq-dev
+</code></pre></div>
+
+
+<p>Now <code>gem install pg</code> should work.</p>
+
+<h2>Conclusion</h2>
+
+<p>It can be a really pain if you want to install gems and don&rsquo;t have the right dependencies on your machine but if you
+initially invest some time on the problem, you have your enlightenment.</p>
+
+  <aside>
+    You can write a comment below or <a href="http://wikimatze.wufoo.com/forms/z7x3x5/">send me an email</a>.
+    <br />
+    <div class="whoring">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'wikimatze'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+  </aside>
+</article>
+
+
+      </div>
+    </div>
+
+    <footer>
+      <nav>
+        &copy; Matthias Günther
+        &bull;
+        <a href="/contact.html">contact</a>
+        &bull;
+        <a href="/follow.html">follow</a>
+        &bull;
+        <a href="/reading.html">books</a>
+        &bull;
+        <a rel="nofollow" href="/imprint.html">imprint</a>
+        &bull;
+        <a rel="nofollow" href="/colophon.html">colophon</a>
+        &bull;
+        <a rel="nofollow" href="/donate.html">surprise me</a>
+        <span id="last-build">last build: 5-7-2013</span>
+      </nav>
+    </footer>
+  </div> <!-- container-centered-->
+
+  <!-- jQuery library -->
+  <script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+
+  <!-- Add fancyBox -->
+  <link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
+
+  <!-- Optionally add helpers - button, thumbnail and/or media -->
+  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox(
+          {
+          wrapCSS    : 'fancybox-custom',
+          closeClick : true,
+
+          helpers : {
+            title : {
+              type : 'inside'
+            },
+            overlay : {
+              css : {
+                'background-color' : '#eee'
+              }
+            }
+          }
+        });
+     });
+   </script>
+
+  <!-- google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2870917-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+</html>

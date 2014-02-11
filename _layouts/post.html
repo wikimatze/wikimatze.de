@@ -1,0 +1,19 @@
+---
+layout: layout
+---
+<article class="post">
+  <header>
+    <div class="author">
+      Posted on <time datetime="{{page.date | date:"%Y-%m-%d"}}" pubdate>{{page.date | date:"%Y-%m-%d"}}</time>
+    </div>
+    {% include sharing.html %}
+    <div class="clearer"></div>
+  </header>
+  <div class="clearer"></div>
+  {{ content }}
+  <br>
+  <aside>
+    {% include comments.html %}
+  </aside>
+</article>
+

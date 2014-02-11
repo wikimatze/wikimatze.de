@@ -1,0 +1,45 @@
+markdown: rdiscount
+pygments: true
+permalink: /:title.html
+rdiscount:
+  extensions: [smart]
+
+destination: _site
+
+exclude:
+- _drafts
+- Gemfile
+- Gemfile.lock
+- plugins
+- knowledge.md
+- Rakefile
+
+# page stats
+build: 1-19-2014
+images: 59
+htmlpages: 234
+links: 407
+
+
+# github stats
+zimki: 2012-07-26
+sweetie: 2012-07-26
+
+
+# bitbucket stats
+pmwiki-dropcaps-recipe: 2013-01-20
+pmwiki-headlineimage-recipe: 2013-01-20
+pmwiki-linkicons-recipe: 2013-01-20
+pmwiki-syntaxlove-recipe: 2013-01-20
+pmwiki-twitter-recipe: 2012-07-27
+css-hacks: 2013-02-04
+haskell-lang: 2013-01-26
+go-lang: 2013-01-26
+rails-sample-app: 2013-01-26
+ruby-scripts: 2013-01-26
+vocabularly: 2013-01-26
+styles: 2013-01-26
+presentations: 2014-01-11
+windows setup: 2013-01-27
+iso25: 2012-11-19
+vim-autocomplpop: 2013-07-17

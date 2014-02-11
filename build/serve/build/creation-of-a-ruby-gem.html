@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creation of a ruby gem</title>
+  <meta name="author" content="Matthias Günther" >
+  
+  <meta name="description" content="Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, and enjoys making cakes.">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+
+  <link href="/css/bootstrap.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/bootstrap-responsive.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/base.css" rel="stylesheet" media="screen, projection">
+  <link href="/css/pygments.css" rel="stylesheet" media="screen, projection">
+
+  <link href="http://feeds.feedburner.com/guenther" rel="alternate" type="application/rss+xml" title="RSS feed of Matthias Günther">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="span5">
+          <span id="title">
+            <a href="/index.html">wikimatze</a>
+          </span>
+        </div>
+        <div class="span7">
+          <nav>
+            <ul class="nav nav-pills">
+              <li><a href="http://feeds.feedburner.com/guenther" target="_blank"><img src="/images/rss.png" alt="RSS"></a></li>
+              <li><a href="https://twitter.com/wikimatze" target="_blank"><img src="/images/twitter.png" alt="Twitter"></a></li>
+              <li><a href="https://github.com/matthias-guenther" target="_blank"><img src="/images/github.png" alt="GitHub"></a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/talks.html">Talks</a></li>
+              <li><a href="/projects.html">Projects</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+<!--
+    <div id="ribbon">
+      <a href="https://github.com/matthias-guenther" target="_blank">Fork me on Github</a>
+    </div>
+    -->
+
+    <div class="row-fluid">
+      <div class="span10 offset1">
+        
+        <header><h1>Creation of a ruby gem</h1></header>
+        
+        <article class="post">
+  <header>
+    <div class="author">
+      Posted on <time datetime="2012-06-07" pubdate>2012-06-07</time>
+    </div>
+    <div class="right">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-count="none" data-via="wikimatze">Tweet</a>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <a href="http://twitter.com/wikimatze" class="twitter-follow-button" data-show-count="false">Follow wikimatze</a>
+    <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+</div>
+
+
+    <div class="clearer"></div>
+  </header>
+  <div class="clearer"></div>
+  <blockquote>
+  <p>Everything should be made as simple as possible, but not simple.</p>
+  <strong>Albert Einstein</strong>
+</blockquote>
+
+
+<p><em>This article describes the crafting of a Ruby gem and decipher the mysterious GemSpec file.</em></p>
+
+<p>The situation: For <a href="http://jekyllrb.com/">Jekyll</a> I wanted to get an overview of how many pages, links, when the last
+build was, how many images I used in my blog, and when I lastly updated my
+<a href="https://bitbucket.org/wikimatze/">bitbucket repositories</a>. But before we dive deep into the creation, I will explain
+what a gem is and how you get started with writing your own gem. Don&rsquo;t be afraid if you are writing a gem that already
+exists, your goal is to learn how to write a gem (and of course trying out new things).</p>
+
+<h2>Ruby Gem</h2>
+
+<p>A ruby gem is a self contained Ruby application which is packed as software. It can be downloaded and then used in other
+programs.  Gems extends the core Ruby language through functions that are commonly used and may be of usage by other
+programmers. Many gems provides command line operations and help to automate tasks. Not all gems needs to contain a
+binary, like my <a href="https://github.com/matthias-guenther/sweetie">sweetie gem</a>. You can just through in the functionality
+provided by the gem to use it for your own programs.</p>
+
+<h2>Basic structure of a Gem</h2>
+
+<p>Below is a typical structure of gem:</p>
+
+<pre><code>.
+├── README.md
+├── Rakefile
+├── lib
+│   ├── sweetie
+│   │   ├── bitbucket.rb
+│   │   ├── conversion.rb
+│   │   └── helper.rb
+│   │   ...
+│   └── sweetie.rb
+│   ...
+├── spec
+│   ├── sweetie_bitbucket_spec.rb
+│   └── sweetie_conversion_spec.rb
+│   ...
+└── sweetie.gemspec
+</code></pre>
+
+<p>A typical gem consists of the main class file (like <em>sweetie.rb</em>). This file contains other ruby-files (normally a list
+of <em>require</em> statements). The <em>README.md</em> briefly explains what the gem does, how to install it, explains the license,
+and should include small use cases for the gem (please checkout the
+<a href="https://github.com/matthias-guenther/sweetie/blob/master/README.md">README</a> of the sweetie gem to see what I mean). The
+<em>sweetie.gemspec</em> file contains meta-information like who invented the gem, declare runtime environment dependencies,
+and so on.  Additionally a gem should have test-files, so that other people can contribute to the Gem without damaging
+the main functionality.</p>
+
+<h2>Gemfile structure</h2>
+
+<p>First of all we create a <em>Gemfile</em> which defines important informations for the <a href="http://rubygems.org/">rubygems.org</a>
+website. The site shows the author, the sources, the homepage, and some statistics (e.g. how often the gem was
+installed) &ndash; and by the way, it&rsquo;s a nice place to sniff in the code of other hackers.</p>
+
+<p>Here is an example <code>sweetie.gemspec</code>:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="vg">$:</span><span class="o">.</span><span class="n">push</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s2">&quot;../lib&quot;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">)</span>
+<span class="nb">require</span> <span class="s1">&#39;sweetie/version&#39;</span>
+
+<span class="ss">Gem</span><span class="p">:</span><span class="ss">:Specification</span><span class="o">.</span><span class="n">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">s</span><span class="o">|</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">name</span>             <span class="o">=</span> <span class="s1">&#39;sweetie&#39;</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">version</span>          <span class="o">=</span> <span class="ss">Sweetie</span><span class="p">:</span><span class="ss">:VERSION</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">date</span>             <span class="o">=</span> <span class="s1">&#39;2012-06-05&#39;</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">authors</span>          <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;Matthias Guenther&#39;</span><span class="o">]</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">email</span>            <span class="o">=</span> <span class="s1">&#39;matthias.guenther@wikimatze.de&#39;</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">homepage</span>         <span class="o">=</span> <span class="s1">&#39;https://github.com/matthias-guenther/sweetie&#39;</span>
+
+  <span class="n">s</span><span class="o">.</span><span class="n">summary</span>          <span class="o">=</span> <span class="sx">%q{Be short and precice!}</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">description</span>      <span class="o">=</span> <span class="sx">%q{Here you can write more and describe detailed features!}</span>
+
+  <span class="n">s</span><span class="o">.</span><span class="n">files</span>            <span class="o">=</span> <span class="sb">`git ls-files`</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">test_files</span>       <span class="o">=</span> <span class="sb">`git ls-files -- {test,spec,features}/*`</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">require_paths</span>    <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;lib&quot;</span><span class="o">]</span>
+
+  <span class="n">s</span><span class="o">.</span><span class="n">extra_rdoc_files</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;README.md&quot;</span><span class="o">]</span>
+
+  <span class="n">s</span><span class="o">.</span><span class="n">add_runtime_dependency</span> <span class="s1">&#39;nokogiri&#39;</span><span class="p">,</span> <span class="s2">&quot;&gt;= 1.4.6&quot;</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">add_runtime_dependency</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="s2">&quot;&gt;= 1.6.1&quot;</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s1">&#39;rake&#39;</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s1">&#39;rspec&#39;</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s1">&#39;yard&#39;</span>
+<span class="k">end</span>
+</code></pre></div>
+
+
+<p>Let&rsquo;s explain the stuff which aren&rsquo;t obvious:</p>
+
+<ul>
+<li><code>$:.push</code>: magic line that ensures &ldquo;../lib&rdquo; is in the load path</li>
+<li><code>require 'sweetie/version'</code>: we need this line, because the module <code>sweetie/version.rb</code> contains the version number of
+the gem</li>
+<li><code>s.files</code>: uses a clever git command which lists all files under version-control &ndash; these files are directly included
+in the gem</li>
+<li><code>s.test_files</code>: again, a clever git listing command with ruby&rsquo;s <code>split()</code> method &ndash; files that are used for testing the
+gem (the line supports <a href="https://github.com/test-unit/test-unit">TestUnit</a>,
+<a href="https://github.com/seattlerb/minitest">MiniTest</a>, <a href="https://github.com/notahat/machinist">Machinist</a>,
+<a href="https://github.com/rspec/rspec">RSpec</a>, <a href="http://cukes.info/">Cucumber</a>, and others</li>
+<li><code>s.require_paths</code>: these paths will be added to <em>$LOAD_PATH</em> when the gem is activated</li>
+<li><code>s.summary</code>: short summary of the gem&rsquo;s description => will be displayed when running <code>gem list -d</code></li>
+<li><code>s.description</code>: A long description of this gem => it goes more into detail than <code>s.summary</code></li>
+<li><code>s.extra_rdoc_files</code>: here you can add files which can be used for the <a href="http://rubydoc.info">RubyDoc</a> site &ndash; here the
+.gemspec <em>README.md</em> is the &ldquo;main homepage&rdquo; of the generated documentation</li>
+<li><code>s.add_runtime_dependency</code>: additional gems that will be installed when using this gem</li>
+<li><code>s.add_development_dependency</code>: additional gems needed when hacking on the gem (e.g.
+<a href="http://en.wikipedia.org/wiki/Rake_%28software%29">Rake</a> is used for building and deploying the gem)</li>
+</ul>
+
+
+<h2>Building and Installing the Gem</h2>
+
+<p>Once you have created some code (it doesn&rsquo;t matter how small the code is, except it must be valid and tested ruby code),
+you can (and should) build it on your local machine before making it public:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="err">$</span> <span class="n">gem</span> <span class="n">build</span> <span class="n">sweetie</span><span class="o">.</span><span class="n">gemspec</span>
+<span class="o">=&gt;</span> <span class="no">Successfully</span> <span class="n">built</span> <span class="no">RubyGem</span>
+  <span class="ss">Name</span><span class="p">:</span> <span class="n">sweetie</span>
+  <span class="ss">Version</span><span class="p">:</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span>
+  <span class="ss">File</span><span class="p">:</span> <span class="n">sweetie</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="n">gem</span>
+</code></pre></div>
+
+
+<p>Now you can install the gem <em>local</em> with the following command:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">sweetie</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="n">gem</span>
+</code></pre></div>
+
+
+<p>And test the installation with:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="err">$</span> <span class="n">gem</span> <span class="n">list</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">sweetie</span>
+<span class="err">$</span> <span class="n">irb</span>
+<span class="o">&gt;&gt;</span> <span class="nb">require</span> <span class="s1">&#39;sweetie&#39;</span>
+<span class="o">=&gt;</span> <span class="kp">true</span>
+</code></pre></div>
+
+
+<p>It&rsquo;s working and you can experiment with the script locally.</p>
+
+<h2>Publishing your gem</h2>
+
+<p>The time has come to make your gem public &ndash; so that they can other hackers help. First, you need to register on
+<a href="http://rubygems.org/">rubygems.org</a>. After that you can push the gem there with one simple command:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">gem</span> <span class="n">push</span> <span class="n">sweetie</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="n">gem</span>
+<span class="no">Pushing</span> <span class="n">gem</span> <span class="n">to</span> <span class="no">RubyGems</span><span class="o">.</span><span class="n">org</span><span class="o">.</span><span class="n">.</span><span class="o">.</span>
+<span class="no">Successfully</span> <span class="n">registered</span> <span class="ss">gem</span><span class="p">:</span> <span class="n">sweetie</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>If you want to check if your gem is online, the console is your friend:</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">gem</span> <span class="n">list</span> <span class="o">-</span><span class="n">r</span> <span class="n">sweetie</span>
+
+<span class="o">.</span><span class="n">.</span><span class="o">.</span>
+
+<span class="n">sweetie</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>This will print all the gems which fit to the specified gem.</p>
+
+<h2>Conclusion</h2>
+
+<p>It is very easy to write an gem for ruby. Start small, create a repository on <a href="https://github.com/">GitHub</a> get
+something similar to <em>hello world</em> running, test your code with , and create a briefly documentation
+(read <a href="http://zachholman.com/posts/documentation/">zach holman documentation talk</a> to see why) about what the gem does,
+and give small examples. After this test your gem, deploy it on <a href="http://rubygems.org/">rubygems.org</a> and spread the word
+about your accomplished on <a href="http://www.twitter.com/">twitter</a> &ndash; time to drink a beer!</p>
+
+<h2>Further reading</h2>
+
+<ul>
+<li><a href="http://guides.rubygems.org/make-your-own-gem/">Great article on rubygems.org</a></li>
+<li><a href="http://rakeroutes.com/blog/lets-write-a-gem-part-one/">Writing a ruby gem part one</a></li>
+<li><a href="http://rakeroutes.com/blog/lets-write-a-gem-part-two/">Writing a ruby gem part two</a></li>
+<li><a href="http://guides.rubygems.org/specification-reference/">Gemspec specification</a></li>
+</ul>
+
+
+  <aside>
+    You can write a comment below or <a href="http://wikimatze.wufoo.com/forms/z7x3x5/">send me an email</a>.
+    <br />
+    <div class="whoring">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'wikimatze'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+
+  </aside>
+</article>
+
+
+      </div>
+    </div>
+
+    <footer>
+      <nav>
+        &copy; Matthias Günther
+        &bull;
+        <a href="/contact.html">contact</a>
+        &bull;
+        <a href="/follow.html">follow</a>
+        &bull;
+        <a href="/reading.html">books</a>
+        &bull;
+        <a rel="nofollow" href="/imprint.html">imprint</a>
+        &bull;
+        <a rel="nofollow" href="/colophon.html">colophon</a>
+        &bull;
+        <a rel="nofollow" href="/donate.html">surprise me</a>
+        <span id="last-build">last build: 5-7-2013</span>
+      </nav>
+    </footer>
+  </div> <!-- container-centered-->
+
+  <!-- jQuery library -->
+  <script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+
+  <!-- Add fancyBox -->
+  <link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
+
+  <!-- Optionally add helpers - button, thumbnail and/or media -->
+  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $(".fancybox").fancybox(
+          {
+          wrapCSS    : 'fancybox-custom',
+          closeClick : true,
+
+          helpers : {
+            title : {
+              type : 'inside'
+            },
+            overlay : {
+              css : {
+                'background-color' : '#eee'
+              }
+            }
+          }
+        });
+     });
+   </script>
+
+  <!-- google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2870917-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+</body>
+</html>
