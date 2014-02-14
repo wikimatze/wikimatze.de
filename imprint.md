@@ -7,7 +7,7 @@ Accordance with § 5 TMG:
 
 Matthias Günther
 
-Alboinstraße 37
+Alboinstr. 37
 
 12103 Berlin
 
