@@ -1,15 +1,16 @@
 ---
 layout: layout
 ---
-<article class="post">
+<article>
   <header>
     <div class="author">
       Posted on <time datetime="{{page.date | date:"%Y-%m-%d"}}" pubdate>{{page.date | date:"%Y-%m-%d"}}</time>
+      {% if page.update %}, updated <time>{{ page.update }}</time> {% endif %}
     </div>
     {% include sharing.html %}
-    <div class="clearer"></div>
+    <div class="clearfix"></div>
   </header>
-  <div class="clearer"></div>
+  <div class="clearfix"></div>
   {{ content }}
   <br>
   <aside>
