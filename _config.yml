@@ -13,6 +13,7 @@ exclude:
 - plugins
 - knowledge.md
 - Rakefile
+- bin
 
 # page stats
 build: 1-19-2014
