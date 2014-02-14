@@ -3,13 +3,14 @@ layout: layout
 title: Projects
 meta-description: List of Open Source projects created by Matthias Günther
 ---
+
 ## sweetie (ruby gem)
 
 <section class="lastupdate">
   Last update {{ site.sweetie }}
 </section>
 
-<div class="clearer"></div>
+<div class="clearfix"></div>
 
 [Sweetie](https://rubygems.org/gems/sweetie) - Counts the links, images, number of html pages, and
 last-build time of a [jekyll project](http://jekyllrb.com)
@@ -23,7 +24,7 @@ last-build time of a [jekyll project](http://jekyllrb.com)
   Last update {{ site.zimki }}
 </section>
 
-<div class="clearer"></div>
+<div class="clearfix"></div>
 
 [Zimki](https://rubygems.org/gems/zimki) - Converts file written in the zim Desktop Wiki format and
 converts them to textile.
@@ -46,7 +47,7 @@ a markdown document in an extra window.
   Last update {{ site.pmwiki-dropcaps-recipe }}
 </section>
 
-<div class="clearer"></div>
+<div class="clearfix"></div>
 
 [Dropcaps](http://www.pmwiki.org/wiki/Cookbook/Dropcaps) - Make the first letter of a
 text big.
@@ -60,7 +61,7 @@ text big.
   Last update {{ site.pmwiki-headlineimage-recipe }}
 </section>
 
-<div class="clearer"></div>
+<div class="clearfix"></div>
 
 <a href="http://farm8.staticflickr.com/7213/7284689512_f855d570b6.jpg" title="Headline recipe for pmwiki" class="fancybox"><img src="http://farm8.staticflickr.com/7213/7284689512_f855d570b6_n.jpg" class="center" alt="Headline recipe for pmwiki"/></a>
 
@@ -76,7 +77,7 @@ title-attribute of an image directly on the image.
   Last update {{ site.pmwiki-syntaxlove-recipe }}
 </section>
 
-<div class="clearer"></div>
+<div class="clearfix"></div>
 
 <a href="http://farm9.staticflickr.com/8005/7284689280_87ac2f7271_b.jpg" title="Syntaxlove recipe for pmwiki" class="fancybox"><img src="http://farm9.staticflickr.com/8005/7284689280_87ac2f7271_z.jpg" class="center" alt="Syntaxlove recipe for pmwiki"/></a>
 
@@ -95,7 +96,7 @@ the cache.
   Last update {{ site.pmwiki-twitter-recipe }}
 </section>
 
-<div class="clearer"></div>
+<div class="clearfix"></div>
 
 <a href="http://farm9.staticflickr.com/8162/7284689208_f21d51eb35_b.jpg" title="Twitter recipe for pmwiki" class="fancybox"><img src="http://farm9.staticflickr.com/8162/7284689208_f21d51eb35_z.jpg" class="center" alt="Twitter recipe for pmwiki"/></a>
 
@@ -111,7 +112,7 @@ website.
   Last update {{ site.pmwiki-linkicons-recipe }}
 </section>
 
-<div class="clearer"></div>
+<div class="clearfix"></div>
 
 <a href="http://farm9.staticflickr.com/8011/7284599918_342e65a2bd.jpg" title="Linkicons recipe for pmwiki" class="fancybox"><img src="http://farm9.staticflickr.com/8011/7284599918_342e65a2bd.jpg" class="center" alt="Linkicons recipe for pmwiki"/></a>
 
