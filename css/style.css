@@ -1,0 +1,138 @@
+@font-face {
+  font-family: 'FFFTusjBold';
+  src: url('fonts/tusj/FFF_Tusj-webfont.eot');
+  src: url('fonts/tusj/FFF_Tusj-webfont.eot?#iefix') format('embedded-opentype'),
+       url('fonts/tusj/FFF_Tusj-webfont.woff') format('woff'),
+       url('fonts/tusj/FFF_Tusj-webfont.ttf') format('truetype'),
+       url('fonts/tusj/FFF_Tusj-webfont.svg#FFFTusjBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2 {
+  margin: 50px -30px 20px -30px;
+  padding: 10px 30px 10px 25px;
+  border-left: 5px solid #eee;
+}
+
+h3 {
+  margin: 50px -30px 20px -27px;
+  padding: 15px 30px;
+  border-left: 3px solid #eee;
+}
+
+ul.square, ul.circle, ul.disc { margin-left: 25px; }
+ul { list-style: square outside; }
+ul.circle { list-style: circle outside; }
+ul.disc { list-style: disc outside; }
+ul ul, ul { margin: 4px 0 5px 30px; }
+
+ol ol { margin: 4px 0 5px 30px; }
+
+a {
+  color: #0048a2;
+}
+
+a:hover {
+  color: #3366cc;
+  text-decoration: none;
+}
+
+#title {
+  font: 400 0.5em 'FFFTusjBold', Arial, sans-serif;
+  letter-spacing: -0.1em;
+  text-transform: uppercase;
+  height: 1.15em;
+}
+
+#title a {
+  color: #BDBBBB;
+  text-decoration: none;
+  -webkit-transition: color 2s;
+  -moz-transition: color 2s;
+  -o-transition: color 2s;
+  -ms-transition: color 2s;
+  transition: color 2s;
+}
+
+img {
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  -moz-box-shadow: 4px 4px 36px #282b1f;
+  -webkit-box-shadow: 4px 4px 36px #282b1f;
+  box-shadow: 4px 4px 36px #282b1f;
+}
+
+#title a:hover {
+  color: black;
+}
+
+.related {
+  margin-top: 10px;
+}
+
+.related ul {
+  padding: 25px 0 25px 0;
+}
+
+.related li {
+  list-style: none;
+  padding: 5px 0px;
+  margin: 0;
+  color: #777;
+  border-bottom: 1px solid #eee;
+}
+
+.related li:last-child {
+  border-bottom: none;
+}
+
+.small {
+  width: 45%;
+  margin: 30px 0;
+}
+
+.related li span {
+  float: right;
+}
+
+.related a {
+  text-decoration: none;
+}
+
+
+.lead {
+  border-bottom: 1px dotted rgb(204, 204, 204);
+  margin-bottom: 10px;
+}
+
+.author {
+  font-size: 80%;
+  color: #bdbbbb;
+  margin: 0 0 1em 0;
+  float: left;
+}
+
+a.fancybox {
+  margin: 30px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lastupdate {
+  font-size: 80%;
+  color: #bdbbbb;
+  margin: 0 0 1em 0;
+  float: right;
+  clear: both;
+}
+
+footer {
+  border-top: 1px solid #bdbbbb;
+}
+
