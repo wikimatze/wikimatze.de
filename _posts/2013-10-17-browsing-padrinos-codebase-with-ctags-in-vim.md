@@ -1,5 +1,5 @@
 ---
-layout: post_new
+layout: post
 title: Browsing Padrino's Code Base With Ctags in Vim
 description: Use ctags to browser Padrino's code base
 ---
