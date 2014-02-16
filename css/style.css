@@ -135,6 +135,20 @@ a.fancybox {
   clear: both;
 }
 
+/* last commits plugin */
+.github-commits-list {
+  list-style: none;
+}
+
+.github-user, .github-commit {
+  padding-right: 10px;
+}
+
+.github-user img {
+  margin-right: 10px;
+}
+/* */
+
 footer {
   border-top: 1px solid #bdbbbb;
 }

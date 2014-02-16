@@ -33,7 +33,6 @@
 
   <script src="/js/libs/modernizr-2.6.2.min.js"></script>
 </head>
-
 <body>
   <div class="navbar row" id="nav2">
     <a class="toggle" gumby-trigger="#nav2 > ul" href="#"><i class="icon-menu"></i></a>
@@ -107,11 +106,20 @@
   <script>
   if(!window.jQuery) {
     if(!oldieCheck) {
-      document.write('<script src="js/libs/jquery-2.0.2.min.js"><\/script>');
+      document.write('<script src="/js/libs/jquery-2.0.2.min.js"><\/script>');
     } else {
-      document.write('<script src="js/libs/jquery-1.10.1.min.js"><\/script>');
+      document.write('<script src="/js/libs/jquery-1.10.1.min.js"><\/script>');
     }
   }
+  </script>
+
+  <script src="/js/github-commits-widget.js"></script>
+
+  <script>
+$(function() {
+    $('#github-commits').githubInfoWidget(
+      { user: 'matthias-guenther', repo: 'padrino-book', branch: 'user-profile', last: 5, limitMessageTo: 30 });
+    });
   </script>
 
   <!--
