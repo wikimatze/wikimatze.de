@@ -107,11 +107,14 @@ img {
   margin-bottom: 10px;
 }
 
-.author {
+.author, .hierarchy, .tags {
   font-size: 75%;
   color: #bdbbbb;
   margin: 0 0 1em 0;
-  float: left;
+}
+
+.hierarchy, .tags {
+  font-size: 85%;
 }
 
 a.fancybox {
