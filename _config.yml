@@ -5,6 +5,7 @@ rdiscount:
   extensions: [smart]
 
 destination: _site
+base_url: "http://wikimatze.de"
 
 exclude:
 - _drafts
