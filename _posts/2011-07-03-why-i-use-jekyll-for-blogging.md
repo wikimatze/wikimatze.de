@@ -60,6 +60,7 @@ Other files can put on the root directory like an `atom.xml` file (for RSS feed)
 
 
 {% highlight html %}
+
 ---
 layout: layout
 ---
@@ -110,22 +111,7 @@ Here is the main template for my blog.
   {% if page.meta-description %}<meta name="description" content="{{ page.meta-description }}"> {% else %}
   <meta name="description" content="Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, and enjoys making cakes.">
   {% endif %}
-
-  <meta name="keywords" content="wikimatze padrinobook" />
-  <meta name="author" content="humans.txt">
-
-  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-  <link rel="stylesheet" href="/css/gumby.css" media="screen, projection">
-
-  <link rel="stylesheet" href="/css/style.css" media="screen, projection">
-  <link rel="stylesheet" href="/css/pygments.css" media="screen, projection">
-
-  <link href="http://feeds.feedburner.com/guenther" rel="alternate" type="application/rss+xml" title="RSS feed of Matthias Günther">
-
-  <script src="/js/libs/modernizr-2.6.2.min.js"></script>
+  ...
 </head>
 
 <body>
@@ -137,13 +123,7 @@ Here is the main template for my blog.
       </span>
     </h1>
     <ul class="eight columns">
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/talks.html">Talks</a></li>
-      <li><a href="/projects.html">Projects</a></li>
-      <li><a href="http://feeds.feedburner.com/guenther" target="_blank"><i class="icon-rss"></i></a></li>
-      <li><a href="https://twitter.com/wikimatze" target="_blank"><i class="icon-twitter"></i></a></li>
-      <li><a href="https://github.com/matthias-guenther" target="_blank"><i class="icon-github"></i></a></li>
-      <li><a class="switch" gumby-trigger="#modal1" href="#"><i class="icon-mail"></i></a></li>
+      ...
     </ul>
   </div>
 
@@ -162,14 +142,7 @@ Here is the main template for my blog.
       <div class="row">
         <div class="ten columns centered">
           <h2>Contact</h2>
-          <p>If you have something to say about the things you find on
-          this web presence, don't hesitate to write me:
-
-          <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#116;&#116;&#104;&#105;&#97;&#115;&#64;&#119;&#105;&#107;&#105;&#109;&#97;&#116;&#122;&#101;&#46;&#100;&#101;">&#109;&#97;&#116;&#116;&#104;&#105;&#97;&#115;&#64;&#119;&#105;&#107;&#105;&#109;&#97;&#116;&#122;&#101;&#46;&#100;&#101;</a>
-          </p>
-          <p class="btn primary medium">
-            <a href="#" class="switch" gumby-trigger="|#modal1">Close Modal</a>
-          </p>
+          ...
         </div>
       </div>
     </div>
@@ -177,18 +150,7 @@ Here is the main template for my blog.
 
   <footer class="row">
     <nav>
-      &copy; Matthias Günther
-      &bull;
-      <a href="/follow.html">follow</a>
-      &bull;
-      <a href="/reading.html">reading</a>
-      &bull;
-      <a rel="nofollow" href="/imprint.html">imprint</a>
-      &bull;
-      <a rel="nofollow" href="/colophon.html">colophon</a>
-      &bull;
-      <a rel="nofollow" href="/donate.html">surprise me</a>
-      <span class="lastupdate">last build: {{ site.build }}</span>
+      ...
     </nav>
   </footer>
 
@@ -216,66 +178,7 @@ Here is the main template for my blog.
   Include gumby.js followed by UI modules followed by gumby.init.js
   Or concatenate and minify into a single file -->
   <script gumby-touch="/js/libs" src="js/libs/gumby.js"></script>
-  <script src="/js/libs/ui/gumby.retina.js"></script>
-  <script src="/js/libs/ui/gumby.fixed.js"></script>
-  <script src="/js/libs/ui/gumby.skiplink.js"></script>
-  <script src="/js/libs/ui/gumby.toggleswitch.js"></script>
-  <script src="/js/libs/ui/gumby.checkbox.js"></script>
-  <script src="/js/libs/ui/gumby.radiobtn.js"></script>
-  <script src="/js/libs/ui/gumby.tabs.js"></script>
-  <script src="/js/libs/ui/gumby.navbar.js"></script>
-  <script src="/js/libs/ui/jquery.validation.js"></script>
-  <script src="/js/libs/gumby.init.js"></script>
-
-  <!-- Add fancyBox -->
-  <link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
-
-  <!-- Optionally add helpers - button, thumbnail and/or media -->
-  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
-
-  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-        $(".fancybox").fancybox(
-          {
-          wrapCSS    : 'fancybox-custom',
-          closeClick : true,
-
-          helpers : {
-            title : {
-              type : 'inside'
-            },
-            overlay : {
-              css : {
-                'background-color' : '#eee'
-              }
-            }
-          }
-        });
-     });
-   </script>
-
-  <!-- Piwik -->
-  <script type="text/javascript">
-    var _paq = _paq || [];
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u=(("https:" == document.location.protocol) ? "https" : "http") + "://wikimatze.de/piwik//";
-      _paq.push(['setTrackerUrl', u+'piwik.php']);
-      _paq.push(['setSiteId', 1]);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
-      g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-    })();
-
-  </script>
-  <noscript><p><img src="http://wikimatze.de/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
-  <!-- End Piwik Code -->
-  </body>
+  ...
 </html>
 
 {% endhighlight %}
@@ -291,5 +194,5 @@ Sass building. This is very handy when changing the layout.
 
 Look on [other pages](https://github.com/mojombo/jekyll/wiki/Sites) what is possible with Jekyll. You can learn
 many new things by looking at other Jekyll blogs and copy what you need. I love to write a little bit and after I
-finished an article perform `rake dy` to upload my blog.
+finished an article perform `rake d` to upload my blog.
 
