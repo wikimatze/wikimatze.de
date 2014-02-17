@@ -2,13 +2,13 @@
 layout: post
 title: Method alias in ruby
 description: Method alias in ruby help you to apply the DRY-principle
-update: 2014-02-14
+update: 2014-02-17
 categories: ['ruby', 'programming']
 ---
 
-In ruby you can create aliases for a method and variable name. This can be helpful if you want to override the behavior
+You can create aliases for a method and variable name in ruby. This can be helpful if you want to override the behavior
 of some method without changing the origin implementation of it. `alias_method` take a `new_name` as a copy name of the
-*old_name* and it has the following syntax.
+`old_name` and it has the following syntax.
 
 
 {% highlight ruby %}
@@ -46,35 +46,40 @@ davi.capital
 
 ## What is the difference between `alias` and `alias_method`
 
-`alias` is more general than `alias_method` and can be used to create an alias for global variable, regular expression
-backreference (like `$&`) or an existing method. Class variables, local variables, instance variables and constants may
-not be aliased.
+`Alias` will looks at the value of self lexically where the aliased keyword lies. `Alias_method` use the value of self
+during runtime which may be a subclass where the call is lexically located. Consider the following example to
+understand what I mean:
 
 
 {% highlight ruby %}
 
-def khemri_city
-  puts "Nehekhara"
+class A
+  def self.swap
+    alias bar foo
+  end
+  def foo; "A foo"; end
 end
-
-alias :orig_khemri_city :khemri_city
-
-def khemri_city
-  puts "Nehekhara new"
+class B < A
+  def foo; "B foo"; end
+  swap
 end
+puts B.new.bar
+# => "A foo"
 
-orig_khemri_city
-khemri_city
-
-# output
-"Nehekhara"
-"Nehekhara new"
+class Y
+  def self.swap
+    alias_method :bar, :foo
+  end
+  def foo; "Y foo"; end
+end
+class Z < Y
+  def foo; "Z foo"; end
+  swap
+end
+puts Z.new.bar
+# => "Z foo"
 
 {% endhighlight %}
-
-
-`alias_method` must return must be called on a method. So `alias` is more general than
-`alias_method`.
 
 
 ## Conclusion
@@ -124,6 +129,6 @@ end
 
 ## Further reading
 
-- [alias_method](http://www.ruby-doc.org/core/classes/Module.html#M000447)
-- [alias](http://ruby.about.com/od/rubyfeatures/a/aliasing.html)
+- [alias](http://ruby-doc.org/stdlib-1.9.1/libdoc/rdoc/rdoc/RDoc/Alias.html)
+- [alias_method](http://www.ruby-doc.org/core-2.1.0/Module.html#method-i-alias_method)
 
