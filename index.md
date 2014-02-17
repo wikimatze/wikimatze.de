@@ -3,12 +3,17 @@ layout: layout
 description: Writings, and talks by {{ site.name }}. Günther works at MyHammer, loves painting Warhammer figures, writing, giving talks, and enjoys making cakes.
 ---
 
-I'm currently writing a book about the web framework [Padrino](http://www.padrinorb.com/).
+<a href="https://leanpub.com/padrino" title="Padrino book" class="center" target="_blank"><img class="padrino" src="http://farm4.staticflickr.com/3815/12568020363_42ce06330a_o.png" alt="Padrino book"/></a>
 
-<a href="https://leanpub.com/padrino" title="Padrino book" class="left" target="_blank"><img class="padrino" src="http://farm9.staticflickr.com/8363/8437372665_bbb190e5ed.jpg" alt="Padrino book"/></a>
+I'm currently writing a book about the web framework [Padrino](http://www.padrinorb.com/).  You can learn more about the book under [padrinobook.com](http://padrinobook.com).
 
 
-<h3>Recent articles</h3>
+### Recent commits
+
+<div id="github-commits"></div>
+
+
+### Recent articles
 
 <div class="related">
   <ul>
