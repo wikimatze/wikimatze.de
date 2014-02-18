@@ -3,6 +3,7 @@ layout: post
 title: Why I use Jekyll for blogging
 description: Jekyll is the new way for writing blog-posts in markdown for programmers
 update: 2014-02-14
+categories: ['writing']
 ---
 
 For several years I want to write and tried many different platforms like [WordPress](http://wordpress.org/)

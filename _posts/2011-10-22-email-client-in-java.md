@@ -2,6 +2,7 @@
 layout: post
 title: Mail Client in Java
 description: My first piece of software - an email client
+update: 2014-02-18
 categories: ['programming', 'howto']
 ---
 
@@ -11,7 +12,7 @@ categories: ['programming', 'howto']
 </blockquote>
 
 During the summer term 2007 we had the task to create a [Thunderbird](http://www.mozilla.org/en-US/thunderbird) like
-mail client [Java](http://www.java.com/de/download/manual.jsp).  The GUI should be created either with
+email client [Java](http://www.java.com/de/download/manual.jsp).  The GUI should be created either with
 [Swing](http://java.sun.com/docs/books/tutorial/uiswing/) or
 [AWT](http://java.sun.com/javase/6/docs/technotes/guides/awt/). Beside the graphical implementation, we had to check and
 study the functionality of [POP3](http://en.wikipedia.org/wiki/Post_Office_Protocol) and
@@ -22,16 +23,13 @@ functionality was done with plain old *sockets* to get a feeling how POP3 and SM
 
 After we a running function the basic functions of the mail client, we had to implement some extra-functions like
 attachments (mime parts in an email) or the handling of emails with drag-and-drop. I implemented this big project with
-the help of [NetBeans](http://netbeans.org/).
+the help of [NetBeans IDE](http://netbeans.org/).
 
 
 ## Images
 
 By means of the following images I will describe the basic layout of my email client.
 
-<a href="" title="title" class="fancybox"><img src="small_image" class="center" alt="title"/></a>
-
-<div class="caption"></div>
 
 <a href="http://farm8.staticflickr.com/7228/7257429146_a8e69185f7_b.jpg" title="The basic surface when the program starts.  If you press on the upper task bar a drag-and-drop menu will open." class="fancybox"><img src="http://farm8.staticflickr.com/7228/7257429146_a8e69185f7_z.jpg" class="center" alt="The basic surface when the program starts.  If you press on the upper task bar a drag-and-drop menu will open."/></a>
 
@@ -54,7 +52,7 @@ By means of the following images I will describe the basic layout of my email cl
 <div class="caption">Drag-and-Drop window to manage emails.</div>
 
 
-## Installation for Netbeans
+## Installation for NetBeans
 
 - get the [sources from github](https://github.com/matthias-guenther/mailclient)
 - extract the *javamail-1.4.zip* => this package contains a Java library for handling emails
@@ -72,7 +70,7 @@ By means of the following images I will describe the basic layout of my email cl
   guess how to change the data)
 - the directory *Inbox MG* saves all read mails of the user MG, further accounts have to be created each in an own
   directory
-- *MailApi.java* is not necessary for the mail client, this will just be used to check the correctness of the POP3
+- *MailApi.java* is not necessary for the mail client, this will be used to check the correctness of the POP3
   settings via the terminal
 - main cause of error messages:
   - wrong paths to your project
@@ -85,18 +83,16 @@ By means of the following images I will describe the basic layout of my email cl
 This project was my first big piece of software and I used all my gathered knowledge about Java. The classes are not
 bug-free, manually tested, has a size over 1000 LOCs, has absolute paths, and the function are sometimes very big. In
 the end it was just hacking down the software without using certain patterns or careful development with clean code. I
-tested my code with `System.out.println` and I lost so much time with this stupid testing. One good thing I did: I
+tested my code with `System.out.println` and I lost much time with this stupid testing. One good thing I did: I
 created comments and was able to get the program running even after two year.
 
 
 Nowadays programming methodologies like [Agile](http://en.wikipedia.org/wiki/Agile_software_development),
 Rapid-Prototyping or Model-Driven development together with the framework Rails let you develop my application with much
-more less effort and is more maintainable by driving the Test-Driven way, so you can refactor your code and don't need
-to manual test part of your basis.
+more less effort and is more maintainable by driving the Test-Driven way- you can refactor your code and don't need
+to manual test part of your basis if you have tests available.
 
 
 This project shows that it is possible to develop modular software in Java but in even greater projects it is easy to
-get lost in the lost in Java code if you don't rely on a framework.  It is even difficult to setup the project in
-different IDE - today you can use [Vagrant](http://vagrantup.com/) to create an environment which can be deployed easily
-as Virtual images on different platforms.
+get lost in the lost in Java code if you don't rely on a framework.
 
