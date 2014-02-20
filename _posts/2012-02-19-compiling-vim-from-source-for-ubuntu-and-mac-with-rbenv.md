@@ -1,25 +1,20 @@
 ---
 layout: post
 title: Compiling Vim from source for Ubuntu and Mac with ruby and python support
-description: Compiling Vim from source for Ubuntu and Mac with ruby and python support
+description: Compiling Vim from source for Ubuntu and Mac with ruby and python support.
+update: 2014-02-20
 categories: ['vim', 'linux', 'ruby', 'howto']
 ---
 
-*This article describes how to build [Vim](http://www.vim.org/) (vim and gvim) from the source and compile it against a
-predefined version of [ruby](http://www.ruby-lang.org/en/) installed with
-[rbenv](https://github.com/sstephenson/rbenv/). In the first chapter I'm describing how to build it from source for
-Ubuntu. The second part describes how to build for [MacVim](https://github.com/b4winckler/macvim/).*
+*This article describes how to build [Vim](http://www.vim.org/) (vim and gvim) from the source and compile it against a predefined version of [ruby](http://www.ruby-lang.org/en/) installed with [rbenv](https://github.com/sstephenson/rbenv/). In the first chapter I'm describing how to build it from source for Ubuntu. The second part describes how to build for [MacVim](https://github.com/b4winckler/macvim/).*
 
 
-By installing Vim with ruby support from the sources, it is build against the system wide installation of ruby.  If you
-already installed Vim and/or ruby with `sudo apt-get install vim` (or `sudo apt-get install ruby`) or with `brew install
-vim` (e.g.  `brew install ruby`) if you are using OS X, remove it completely from your system to install the latest
-version of Vim.
+By installing Vim with ruby support from the sources, it is build against the system wide installation of ruby.  If you already installed Vim and/or ruby with `sudo apt-get install vim` (or `sudo apt-get install ruby`) or with `brew install vim` (e.g.  `brew install ruby`) if you are using OS X, remove it completely from your system to install the latest version of Vim.
 
 
 ## Install rbenv
 
-I'm installing *rbenv* on different machines so I created the following script (named *rbenv_install.sh*) to install
+I'm installing *rbenv* on different machines I created the following script (named *rbenv_install.sh*) to install
 **ruby 1.9.2-p320**:
 
 
@@ -61,9 +56,6 @@ $ ruby -v
 {% endhighlight %}
 
 
-The crowd applauds.
-
-
 ## Get the latest version of Python
 
 This will be put in the `$HOME/lib` folder:
@@ -71,15 +63,18 @@ This will be put in the `$HOME/lib` folder:
 
 {% highlight bash %}
 
-$ mkdir $HOME/lib
-$ cd $HOME/Downloads
-$ wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
-$ tar xjvf Python-2.7.3.tar.bz2
-$ cd Python-2.7.3
-$ ./configure --prefix=$HOME/lib
-$ make && make install
-$ make inclinstall # install headers, otherwise Vim won't have Python support
-$ hash -r
+cd /tmp
+wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
+tar xjvf Python-2.7.3.tar.bz2
+cd Python-2.7.3
+./configure --prefix=$HOME
+make && make install
+make inclinstall
+hash -r
+
+# cleanup
+cd /tmp && rm -rf Python-2.7.3
+
 
 {% endhighlight %}
 
@@ -94,24 +89,13 @@ unzip it:
 {% highlight bash %}
 
 $ cd $HOME/Downloads
-$ wget ftp://ftp.vim.org/pub/vim/unix/vim-7.3.tar.bz2
-$ tar -xjvf vim-7.3.tar.bz2
+$ wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
+$ tar -xjvf vim-7.4.tar.bz2
 
 {% endhighlight %}
 
 
-You can also get the latest Vim version from the git repository with the following command:
-
-
-{% highlight bash %}
-
-$ cd $HOME/Downloads
-$ git clone https://github.com/b4winckler/vim
-$ cd vim
-$ git tag -l
-$ git checkout v7-3-548
-
-{% endhighlight %}
+You can also get the latest Vim version from the git repository [https://github.com/b4winckler/vim](https://github.com/b4winckler/vim) and checkout the latest tag you want to have.
 
 
 ## Compiling Vim and Gvim
@@ -129,25 +113,27 @@ $ sudo apt-get install libncurses-dev libgnome2-dev \
 {% endhighlight %}
 
 
-Since we are now having the Vim sources under `$HOME/Downloads/vim` it's time to start the compilation. First we need to
-configure our compilation:
+Next, we need to configure the compilation and make the install:
 
 
 {% highlight bash %}
 
-$ cd $HOME/Downloads/vim
-$ ./configure --prefix=/usr/local \
-    --enable-gui=no \
-    --without-x \
-    --disable-nls \
-    --with-tlib=ncurses \
-    --enable-multibyte \
-    --enable-rubyinterp \
-    --enable-pythoninterp \
-    --with-python-config-dir=$HOME/lib/python2.7/config/ \
-    --with-mac-arch=x86_64 \
-    --with-features=huge \
-    --enable-gui=gnome2
+cd ~/git-repositories/vim && git checkout v7-4-183 && git clean -f
+
+./configure --prefix=/usr/local \
+  --without-x \
+  --disable-nls \
+  --enable-gui=no \
+  --enable-multibyte \
+  --enable-rubyinterp \
+  --enable-luainterp \
+  --enable-pythoninterp \
+  --with-python-config-dir=$HOME/lib/python2.7/config \
+  --enable-gui=gnome2 \
+  --with-features=huge \
+  --with-tlib=ncurses \
+
+sudo make && sudo make install && sudo make clean
 
 {% endhighlight %}
 
@@ -175,18 +161,7 @@ checking Ruby header files... /home/mg/.rbenv/versions/1.9.2-p320/include/ruby-1
 {% endhighlight %}
 
 
-If you can't see the lovely **Ok**, your Vim compilation will probably not have ruby support. After that we can build
-the configuration, install, and clean everything up:
-
-
-{% highlight bash %}
-
-$ cd ~/Downloads/vim
-$ make
-$ sudo make install
-$ sudo make clean
-
-{% endhighlight %}
+If you can't see the lovely **Ok**, your Vim compilation will probably not have ruby support. Maybe you have not installed ruby the right way or some packages are missing on your machine.
 
 
 ## Check the installation
