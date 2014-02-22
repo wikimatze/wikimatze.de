@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Checking your HDD
-meta-description: Checking your HDD is a good choice.
+meta-description: Checking your Hard Disk Drive is a good choice.
 update: 2014-02-22
 categories: ['howto', 'linux', 'learning']
 ---
