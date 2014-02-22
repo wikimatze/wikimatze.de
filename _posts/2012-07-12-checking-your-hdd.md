@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Checking your HDD
-meta-description: Checking your HDD is a good choice
+meta-description: Checking your HDD is a good choice.
+update: 2014-02-22
 categories: ['howto', 'linux', 'learning']
 ---
 
@@ -15,10 +16,10 @@ categories: ['howto', 'linux', 'learning']
 random numbers to check it for broken sectors.*
 
 
-I was spending a whole day installing and configuring 4 different operating systems on my new Desktop PC - didn't
+I was spending a whole day installing and configuring 4 different operating systems on my new Desktop PC - I didn't
 virtualize my Windows because I wanted to use it for gaming (especially [Fallout 3](http://fallout.bethsoft.com/)).
-After four weeks the disasters happened: My hard disk drive was broken. Before spending a whole installing your new
-systems, it is worth spending a day to check your new HDD (*Hard Disk Drive*).
+After four weeks the disasters happened: My hard disk drive (HDD)was broken. Before spending a whole installing your new
+systems, it is worth spending a day to check your new HDD.
 
 
 ## Symptoms of a breaking HDD
@@ -55,30 +56,72 @@ To get an overview of your new HDD please perform:
 
 {% highlight bash %}
 
-$ sudo smartctl -H /dev/sda
+$ sudo smartctl -A /dev/sda
 
 {% endhighlight %}
 
 
-Important of the output is the parameter **"passed"**, it tells you that the test is over:
+The `-A` options says that it will only print the vendor specific informations:
+
+
+{% highlight bash %}
+$ sudo smartctl -A /dev/sda
+smartctl 6.2 2013-04-20 r3812 [i686-linux-3.11.0-15-generic] (local build)
+Copyright (C) 2002-13, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART Attributes Data Structure revision number: 1
+Vendor Specific SMART Attributes with Thresholds:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  5 Reallocated_Sector_Ct   0x0033   100   100   010    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0032   099   099   000    Old_age   Always       -       199
+ 12 Power_Cycle_Count       0x0032   099   099   000    Old_age   Always       -       114
+177 Wear_Leveling_Count     0x0013   099   099   000    Pre-fail  Always       -       9
+179 Used_Rsvd_Blk_Cnt_Tot   0x0013   100   100   010    Pre-fail  Always       -       0
+181 Program_Fail_Cnt_Total  0x0032   100   100   010    Old_age   Always       -       0
+182 Erase_Fail_Count_Total  0x0032   100   100   010    Old_age   Always       -       0
+183 Runtime_Bad_Block       0x0013   100   100   010    Pre-fail  Always       -       0
+187 Uncorrectable_Error_Cnt 0x0032   100   100   000    Old_age   Always       -       0
+190 Airflow_Temperature_Cel 0x0032   055   055   000    Old_age   Always       -       45
+195 ECC_Error_Rate          0x001a   200   200   000    Old_age   Always       -       0
+199 CRC_Error_Count         0x003e   100   100   000    Old_age   Always       -       0
+235 POR_Recovery_Count      0x0012   099   099   000    Old_age   Always       -       8
+241 Total_LBAs_Written      0x0032   099   099   000    Old_age   Always       -       2076944882
+
+{% endhighlight %}
+
+By using the following command
 
 
 {% highlight bash %}
 
-smartctl 5.41 2011-06-09 r3365 [i686-linux-3.2.0-23-generic] (local build)
-Copyright (C) 2002-11 by Bruce Allen, http://smartmontools.sourceforge.net
+$ sudo smartctl --all /dev/sda
+
+{% endhighlight %}
+
+
+you will get all any information about your harddisk:
+
+
+{% highlight bash %}
+
+$ smartctl --all /dev/sda
+smartctl 6.2 2013-04-20 r3812 [i686-linux-3.11.0-15-generic] (local build)
+Copyright (C) 2002-13, Bruce Allen, Christian Franke, www.smartmontools.org
 
 === START OF INFORMATION SECTION ===
-Device Model:     ST500DM002-1BD142
-Serial Number:    Z2ARNP4C
-LU WWN Device Id: 5 000c50 04079c23c
-Firmware Version: KC45
-User Capacity:    500,107,862,016 bytes [500 GB]
-Sector Sizes:     512 bytes logical, 4096 bytes physical
-Device is:        Not in smartctl database [for details use: -P showall]
-ATA Version is:   8
-ATA Standard is:  ATA-8-ACS revision 4
-Local Time is:    Thu Jul 12 06:54:59 2012 CEST
+Model Family:     Samsung based SSDs
+Device Model:     Samsung SSD 840 PRO Series
+Serial Number:    S1ATNEAD710430B
+LU WWN Device Id: 5 002538 5503e9703
+Firmware Version: DXM05B0Q
+User Capacity:    256.060.514.304 bytes [256 GB]
+Sector Size:      512 bytes logical/physical
+Rotation Rate:    Solid State Device
+Device is:        In smartctl database [for details use: -P show]
+ATA Version is:   ACS-2, ATA8-ACS T13/1699-D revision 4c
+SATA Version is:  SATA 3.1, 6.0 Gb/s (current: 6.0 Gb/s)
+Local Time is:    Sat Feb 22 08:38:14 2014 CET
 SMART support is: Available - device has SMART capability.
 SMART support is: Enabled
 
@@ -86,92 +129,78 @@ SMART support is: Enabled
 SMART overall-health self-assessment test result: PASSED
 
 General SMART Values:
-Offline data collection status:  (0x82) Offline data collection activity
-          was completed without error.
-          Auto Offline Data Collection: Enabled.
-Self-test execution status:      (   0) The previous self-test routine completed
-          without error or no self-test has ever
-          been run.
+Offline data collection status:  (0x00)	Offline data collection activity
+					was never started.
+					Auto Offline Data Collection: Disabled.
+Self-test execution status:      ( 244)	Self-test routine in progress...
+					40% of test remaining.
 Total time to complete Offline
-data collection:    (  600) seconds.
+data collection: 		(53956) seconds.
 Offline data collection
-capabilities:        (0x7b) SMART execute Offline immediate.
-          Auto Offline data collection on/off support.
-          Suspend Offline collection upon new
-          command.
-          Offline surface scan supported.
-          Self-test supported.
-          Conveyance Self-test supported.
-          Selective Self-test supported.
-SMART capabilities:            (0x0003) Saves SMART data before entering
-          power-saving mode.
-          Supports SMART auto save timer.
-Error logging capability:        (0x01) Error logging supported.
-          General Purpose Logging supported.
+capabilities: 			 (0x53) SMART execute Offline immediate.
+					Auto Offline data collection on/off support.
+					Suspend Offline collection upon new
+					command.
+					No Offline surface scan supported.
+					Self-test supported.
+					No Conveyance Self-test supported.
+					Selective Self-test supported.
+SMART capabilities:            (0x0003)	Saves SMART data before entering
+					power-saving mode.
+					Supports SMART auto save timer.
+Error logging capability:        (0x01)	Error logging supported.
+					General Purpose Logging supported.
 Short self-test routine
-recommended polling time:    (   1) minutes.
+recommended polling time: 	 (   2) minutes.
 Extended self-test routine
-recommended polling time:    (  81) minutes.
-Conveyance self-test routine
-recommended polling time:    (   2) minutes.
-SCT capabilities:          (0x303f) SCT Status supported.
-          SCT Error Recovery Control supported.
-          SCT Feature Control supported.
-          SCT Data Table supported.
+recommended polling time: 	 (  20) minutes.
+SCT capabilities: 	       (0x003d)	SCT Status supported.
+					SCT Error Recovery Control supported.
+					SCT Feature Control supported.
+					SCT Data Table supported.
 
-SMART Attributes Data Structure revision number: 10
+SMART Attributes Data Structure revision number: 1
 Vendor Specific SMART Attributes with Thresholds:
 ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
-  1 Raw_Read_Error_Rate     0x000f   107   099   006    Pre-fail  Always       -       12627760
-  3 Spin_Up_Time            0x0003   100   100   000    Pre-fail  Always       -       0
-  4 Start_Stop_Count        0x0032   100   100   020    Old_age   Always       -       76
-  5 Reallocated_Sector_Ct   0x0033   100   100   036    Pre-fail  Always       -       0
-  7 Seek_Error_Rate         0x000f   064   060   030    Pre-fail  Always       -       2705616
-  9 Power_On_Hours          0x0032   100   100   000    Old_age   Always       -       84
- 10 Spin_Retry_Count        0x0013   100   100   097    Pre-fail  Always       -       0
- 12 Power_Cycle_Count       0x0032   100   100   020    Old_age   Always       -       74
-183 Runtime_Bad_Block       0x0032   100   100   000    Old_age   Always       -       0
-184 End-to-End_Error        0x0032   100   100   099    Old_age   Always       -       0
-187 Reported_Uncorrect      0x0032   100   100   000    Old_age   Always       -       0
-188 Command_Timeout         0x0032   100   100   000    Old_age   Always       -       0
-189 High_Fly_Writes         0x003a   100   100   000    Old_age   Always       -       0
-190 Airflow_Temperature_Cel 0x0022   061   049   045    Old_age   Always       -       39 (Min/Max 22/39)
-194 Temperature_Celsius     0x0022   039   051   000    Old_age   Always       -       39 (0 21 0 0)
-195 Hardware_ECC_Recovered  0x001a   045   039   000    Old_age   Always       -       12627760
-197 Current_Pending_Sector  0x0012   100   100   000    Old_age   Always       -       0
-198 Offline_Uncorrectable   0x0010   100   100   000    Old_age   Offline      -       0
-199 UDMA_CRC_Error_Count    0x003e   200   200   000    Old_age   Always       -       0
-240 Head_Flying_Hours       0x0000   100   253   000    Old_age   Offline      -       110127256436820
-241 Total_LBAs_Written      0x0000   100   253   000    Old_age   Offline      -       3616779477
-242 Total_LBAs_Read         0x0000   100   253   000    Old_age   Offline      -       1189576021
+  5 Reallocated_Sector_Ct   0x0033   100   100   010    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0032   099   099   000    Old_age   Always       -       199
+ 12 Power_Cycle_Count       0x0032   099   099   000    Old_age   Always       -       114
+177 Wear_Leveling_Count     0x0013   099   099   000    Pre-fail  Always       -       9
+179 Used_Rsvd_Blk_Cnt_Tot   0x0013   100   100   010    Pre-fail  Always       -       0
+181 Program_Fail_Cnt_Total  0x0032   100   100   010    Old_age   Always       -       0
+182 Erase_Fail_Count_Total  0x0032   100   100   010    Old_age   Always       -       0
+183 Runtime_Bad_Block       0x0013   100   100   010    Pre-fail  Always       -       0
+187 Uncorrectable_Error_Cnt 0x0032   100   100   000    Old_age   Always       -       0
+190 Airflow_Temperature_Cel 0x0032   055   055   000    Old_age   Always       -       45
+195 ECC_Error_Rate          0x001a   200   200   000    Old_age   Always       -       0
+199 CRC_Error_Count         0x003e   100   100   000    Old_age   Always       -       0
+235 POR_Recovery_Count      0x0012   099   099   000    Old_age   Always       -       8
+241 Total_LBAs_Written      0x0032   099   099   000    Old_age   Always       -       2077259002
 
 SMART Error Log Version: 1
 No Errors Logged
 
 SMART Self-test log structure revision number 1
-Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
-# 1  Conveyance offline  Completed without error       00%         2         -
-# 2  Extended offline    Aborted by host               90%         2         -
-# 3  Conveyance offline  Completed without error       00%         2         -
-# 4  Short offline       Completed without error       00%         1         -
-# 5  Extended offline    Aborted by host               40%         1         -
-# 6  Short offline       Aborted by host               80%         1         -
+No self-tests have been logged.  [To run self-tests, use: smartctl -t]
+
 
 SMART Selective self-test log data structure revision number 1
- SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
-    1        0        0  Not_testing
-    2        0        0  Not_testing
-    3        0        0  Not_testing
-    4        0        0  Not_testing
-    5        0        0  Not_testing
+ SPAN    MIN_LBA    MAX_LBA  CURRENT_TEST_STATUS
+    1          0          0  Not_testing
+    2          0          0  Not_testing
+    3          0          0  Not_testing
+    4          0          0  Not_testing
+    5          0          0  Not_testing
+  255  203828736  203894271  Read_scanning was never started
 Selective self-test flags (0x0):
   After scanning selected spans, do NOT read-scan remainder of disk.
 If Selective self-test is pending on power-up, resume after 0 minute delay.
 
+
 {% endhighlight %}
 
 
-You can perform longer tests of your harddisk with:
+Important of the output is the parameter **"PASSED"**, it tells you that the test is over. You can perform longer tests of your harddisk with:
 
 
 {% highlight bash %}
@@ -211,8 +240,8 @@ Find the line with and uncomment it:
 
 {% highlight bash %}
 
-# uncomment to start smartd on system startup¬
-#start_smartd=yes¬
+# uncomment to start smartd on system startup
+# start_smartd=yes
 
 {% endhighlight %}
 
@@ -223,7 +252,7 @@ all HDDs:
 
 {% highlight bash %}
 
-DEVICESCAN -m root@<your-os-name> -M exec /usr/share/smartmontools/smartd-runner
+DEVICESCAN -m matthias@wikimatze.de -M exec /usr/share/smartmontools/smartd-runner
 
 {% endhighlight %}
 
@@ -231,25 +260,14 @@ DEVICESCAN -m root@<your-os-name> -M exec /usr/share/smartmontools/smartd-runner
 Let's get through each line step-by-step:
 
 - `DEVICESCAN`: will scan all HDDs in the range between `/dev/hd[a-I] .. /dev/sd[a-z]`, which support SMART
-- `-m matthias.guenther@wikimatze.de`: in case of an error, an email will be sent to this address
+- `-m matthias@wikimatze.de`: in case of an error, an email will be sent to this address
 - `-M`: the frequency of emails departure
   - `-M exec`: don't send testmails
   - `-M test`: send a testmail (when using this option, you must leave out the `/usr/share/smartmontools/smartd-runner`)
-  - `-M daily`: send daily reports
+  - `-M daily`: send daily reports Now it's time to test our configuration: {% highlight bash %} $ smartd -q onecheck {% endhighlight %}
 
 
-Now it's time to test our configuration:
-
-
-{% highlight bash %}
-
-$ smartd -q onecheck
-
-{% endhighlight %}
-
-
-You can check your internal mails with `$ sudo mail` (you need install [Postfix](http://www.postfix.org/) on your OS)
-and rebooting the daemon:
+You can check your internal mails with `$ sudo mail` (you need install [Postfix](http://www.postfix.org/) on your OS) and rebooting the daemon:
 
 
 {% highlight bash %}
@@ -270,7 +288,6 @@ $ sudo apt-get install gsmartcontrol
 
 
 You need then to start the program in sudo mode to detect all HDDs `sudo gsmartcontrol`.
-
 
 
 ## Checking the whole space on your HDD
@@ -350,7 +367,8 @@ $ dd if=/dev/random conv=notrunc,sync bs=1024 | pv > /dev/sda
 ## Conclusion
 
 A broken HDD is a bad thing, but if you know the symptoms it saves you a lot of time because you you know that you have
-to buy new hardware. Always have backup on an external HDD so that you can easily replace you data.
+to buy new hardware. Always have backup on an external HDD to have a save data replacement.
+
 
 It is good to run a couple of tests before you start implementing your whole system.
 
