@@ -2,7 +2,8 @@
 layout: post
 title: Creation of a ruby gem
 description: Every start is difficult - even with Ruby
-categories: ['ruby']
+update: 2014-02-22
+categories: ['ruby', 'programming']
 ---
 
 <blockquote>
@@ -10,23 +11,22 @@ categories: ['ruby']
   <strong>Albert Einstein</strong>
 </blockquote>
 
-*This article describes the crafting of a Ruby gem and decipher the mysterious GemSpec file.*
+*This article describes the crafting of a Ruby gem.*
 
 
 The situation: For [Jekyll](http://jekyllrb.com/) I wanted to get an overview of how many pages, links, when the last
 build was, how many images I used in my blog, and when I lastly updated my
-[bitbucket repositories](https://bitbucket.org/wikimatze/). But before we dive deep into the creation, I will explain
+[Bitbucket repositories](https://bitbucket.org/wikimatze/). But before we dive deep into the creation, I will explain
 what a gem is and how you get started with writing your own gem. Don't be afraid if you are writing a gem that already
-exists, your goal is to learn how to write a gem (and of course trying out new things).
+exists, your goal is to learn how to write a gem.
 
 
 ## Ruby Gem
 
-A ruby gem is a self contained Ruby application which is packed as software. It can be downloaded and then used in other
+A Ruby gem is a self contained Ruby application which is packed as software. It can be downloaded and then used in other
 programs.  Gems extends the core Ruby language through functions that are commonly used and may be of usage by other
 programmers. Many gems provides command line operations and help to automate tasks. Not all gems needs to contain a
-binary, like my [sweetie gem](https://github.com/matthias-guenther/sweetie). You can just through in the functionality
-provided by the gem to use it for your own programs.
+binary, like my [sweetie gem](https://github.com/matthias-guenther/sweetie).
 
 
 ## Basic structure of a Gem
@@ -52,18 +52,17 @@ Below is a typical structure of gem:
     └── sweetie.gemspec
 
 
-A typical gem consists of the main class file (like *sweetie.rb*). This file contains other ruby-files (normally a list
-of *require* statements). The *README.md* briefly explains what the gem does, how to install it, explains the license,
+A typical gem consists of the main class file (like `sweetie.rb`). This file contains other ruby-files (normally a list
+of *require* statements). The `README.md` briefly explains what the gem does, how to install it, explains the license,
 and should include small use cases for the gem (please checkout the
 [README](https://github.com/matthias-guenther/sweetie/blob/master/README.md) of the sweetie gem to see what I mean). The
-*sweetie.gemspec* file contains meta-information like who invented the gem, declare runtime environment dependencies,
-and so on.  Additionally a gem should have test-files, so that other people can contribute to the Gem without damaging
-the main functionality.
+`sweetie.gemspec` file contains meta-information like who invented the gem, declare runtime environment dependencies,
+etc. A gem should have test-files, that other people can contribute to the Gem without damaging the main functionality.
 
 
 ## Gemfile structure
 
-First of all we create a *Gemfile* which defines important informations for the [rubygems.org](http://rubygems.org/)
+First of all we create a `Gemfile` which defines important informations for the [rubygems.org](http://rubygems.org/)
 website. The site shows the author, the sources, the homepage, and some statistics (e.g. how often the gem was
 installed) - and by the way, it's a nice place to sniff in the code of other hackers.
 
@@ -106,29 +105,22 @@ end
 Let's explain the stuff which aren't obvious:
 
 
-- `$:.push`: magic line that ensures "../lib" is in the load path
-- `require 'sweetie/version'`: we need this line, because the module `sweetie/version.rb` contains the version number of
-  the gem
-- `s.files`: uses a clever git command which lists all files under version-control - these files are directly included
-  in the gem
-- `s.test_files`: again, a clever git listing command with ruby's `split()` method - files that are used for testing the
-  gem (the line supports [TestUnit](https://github.com/test-unit/test-unit),
-  [MiniTest](https://github.com/seattlerb/minitest), [Machinist](https://github.com/notahat/machinist),
-  [RSpec](https://github.com/rspec/rspec), [Cucumber](http://cukes.info/), and others
-- `s.require_paths`: these paths will be added to *$LOAD_PATH* when the gem is activated
-- `s.summary`: short summary of the gem's description => will be displayed when running `gem list -d`
-- `s.description`: A long description of this gem => it goes more into detail than `s.summary`
-- `s.extra_rdoc_files`: here you can add files which can be used for the [RubyDoc](http://rubydoc.info) site - here the
-  .gemspec *README.md* is the "main homepage" of the generated documentation
-- `s.add_runtime_dependency`: additional gems that will be installed when using this gem
-- `s.add_development_dependency`: additional gems needed when hacking on the gem (e.g.
-  [Rake](http://en.wikipedia.org/wiki/Rake_%28software%29) is used for building and deploying the gem)
+- `$:.push` - magic line that ensures "../lib" is in the load path
+- `require 'sweetie/version'` - we need this line, because the module `sweetie/version.rb` contains the version number of the gem
+- `s.files` -  uses a clever git command which lists all files under version-control - these files are directly included in the gem
+- `s.test_files` - again, a clever git listing command with ruby's `split()` method - files that are used for testing the gem (the line supports [TestUnit](https://github.com/test-unit/test-unit), [MiniTest](https://github.com/seattlerb/minitest), [Machinist](https://github.com/notahat/machinist), [RSpec](https://github.com/rspec/rspec), [Cucumber](http://cukes.info/), and others
+- `s.require_paths` - these paths will be added to *$LOAD_PATH* when the gem is activated
+- `s.summary` - short summary of the gem's description => will be displayed when running `gem list -d`
+- `s.description` - a long description of this gem => it goes more into detail than `s.summary`
+- `s.extra_rdoc_files` - here you can add files which can be used for the [RubyDoc](http://rubydoc.info) site - here the .gemspec *README.md* is the "main homepage" of the generated documentation
+- `s.add_runtime_dependency` - additional gems that will be installed when using this gem
+- `s.add_development_dependency` - additional gems needed when hacking on the gem (e.g.  [Rake](http://en.wikipedia.org/wiki/Rake_%28software%29) is used for building and deploying the gem)
 
 
 ## Building and Installing the Gem
 
 Once you have created some code (it doesn't matter how small the code is, except it must be valid and tested ruby code),
-you can (and should) build it on your local machine before making it public:
+you should build it on your local machine before making it public:
 
 
 {% highlight ruby %}
@@ -142,7 +134,7 @@ $ gem build sweetie.gemspec
 {% endhighlight %}
 
 
-Now you can install the gem *local* with the following command:
+Now you can install the gem *locally*:
 
 
 {% highlight ruby %}
@@ -170,8 +162,7 @@ It's working and you can experiment with the script locally.
 
 ## Publishing your gem
 
-The time has come to make your gem public - so that they can other hackers help. First, you need to register on
-[rubygems.org](http://rubygems.org/). After that you can push the gem there with one simple command:
+First, you need to register on [rubygems.org](http://rubygems.org/). After that you can push the gem there with one simple command:
 
 
 {% highlight ruby %}
@@ -203,9 +194,9 @@ This will print all the gems which fit to the specified gem.
 ## Conclusion
 
 
-It is very easy to write an gem for ruby. Start small, create a repository on [GitHub](https://github.com/) get
+It is easy to write an gem for ruby. Start small, create a repository on [GitHub](https://github.com/) get
 something similar to *hello world* running, test your code with , and create a briefly documentation
-(read [zach holman documentation talk](http://zachholman.com/posts/documentation/) to see why) about what the gem does,
+(read [Zach Holman documentation talk](http://zachholman.com/posts/documentation/) to see why) about what the gem does,
 and give small examples. After this test your gem, deploy it on [rubygems.org](http://rubygems.org/) and spread the word
 about your accomplished on [twitter](http://www.twitter.com/) - time to drink a beer!
 
