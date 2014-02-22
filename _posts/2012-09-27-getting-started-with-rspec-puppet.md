@@ -2,7 +2,7 @@
 layout: post
 title: Getting started with RSpec Puppet
 meta-description: Testing your server manifests give you confidence in your server
-hackernews: http://news.ycombinator.com/item?id=4579545
+update: 2014-02-22
 categories: ['ruby', 'howto']
 ---
 
@@ -17,13 +17,14 @@ edit things and to find certain errors. This article presents your the basic of 
 Puppet modules in a BDD way.
 
 
+<a href="http://farm9.staticflickr.com/8291/7804199724_37c12fbbc0_b.jpg" title="Prevention of bad code with tests." class="fancybox"><img src="http://farm8.staticflickr.com/8291/7804199724_37c12fbbc0_z.jpg" class="center" alt="Prevention of bad code with tests."/></a>
+
+<div class="caption">Prevention of bad code with tests.</div>
+
+
 ## The tools
 
-The [rspec-puppet gem](https://rubygems.org/gems/rspec-puppet/) is the
-[Gem](http://docs.rubygems.org/read/chapter/1#page22) setup to get started. It install the `rspec-puppet-init` command
-which automatically sets up the basic settings for testing. As a text tool we want to use
-[puppet-lint](http://rubygems.org/gems/puppet-lint/): This tool checks your Puppet manifests against the Puppet Labs
-style guide and alert you to any discrepancies => you have now your constant feedback loop when writing code.
+The [rspec-puppet gem](https://rubygems.org/gems/rspec-puppet/) is the [Gem](http://docs.rubygems.org/read/chapter/1#page22) setup to get started. It install the `rspec-puppet-init` command which automatically sets up the basic settings for testing. As a text tool we want to use [puppet-lint](http://rubygems.org/gems/puppet-lint/): This tool checks your Puppet manifests against the [Puppet Labs style guide](http://docs.puppetlabs.com/guides/style_guide.html) and alert you to any discrepancies => you have now your constant feedback loop when writing code.
 
 
 Run the following commands to install the gem:
@@ -53,9 +54,8 @@ Let's assume, we have the following puppet file:
 {% highlight ruby %}
 
 # manifests/init.pp
-
 class git::init {
- include git:: package
+  include git:: package
 }
 
 {% endhighlight %}
@@ -75,13 +75,12 @@ WARNING: unquoted resource title on line 10
 
 ## Setting up the environment
 
-The next step is to clone the *puppet boilerplate* repository. It's perfekt for creating a initial skeletton for a new
-module .  After we get the code, we run a script which guides you through the process of creating a new module:
+The next step is to clone the [puppet boilerplate repository](https://github.com/andreashaerter/puppet-boilerplate-modules) . It's perfect for creating a initial skeleton for a new module. After we get the code, we run a script which guides you through the process of creating a new module:
 
 
 {% highlight bash %}
 
-$ git clone git://github.com/bitkollektiv/puppet-boilerplate-modules.git
+$ git clone https://github.com/andreashaerter/puppet-boilerplate-modules.git
 $ ./puppet-boilerplate-modules/newmodule.sh
 
 {% endhighlight %}
@@ -101,14 +100,17 @@ $ rm -rf files/ templates/
 {% endhighlight %}
 
 
-The cleanup is necessary to get you focused on the basics of testing (of course documentation, README, and so on are
-important but not when you are going to learn something new). Now, your file structure should look like the following.
+The cleanup is necessary to get you focused on the basics of testing. Now, your file structure should look like the following.
 
 
-    `-- manifests
-        |-- init.pp
-        |-- package.pp
-        `-- params.pp
+{% highlight bash %}
+
+-- manifests
+    |-- init.pp
+    |-- package.pp
+    |-- params.pp
+
+{% endhighlight %}
 
 
 This structure follows the **package, config, and service** (okay, we have `params.pp` instead of `service.pp` but this
@@ -171,13 +173,12 @@ runpath of your specs when you run `rspec`.
 
 First, we want to test that the class `git::package` is created in `manifests/init.pp` manifests. All we need to do is
 to create a spec named `init_spec.rb` in the `spec/classes` directory. To make it testable, we need to define a scope
-for our `init.pp` manifest
+for our `init.pp` manifest.
 
 
 {% highlight ruby %}
 
 # manifests/init.pp
-
 class git::init {
   class { 'git::package': }
 }
@@ -191,7 +192,6 @@ Let's do the test for it:
 {% highlight ruby %}
 
 # spec/classes/init_spec.rb
-
 require 'spec_helper'
 
 describe "git::init" do
@@ -201,7 +201,7 @@ end
 {% endhighlight %}
 
 
-Now it's time to run our test: (**Remember to run `rake spec` always from the root directory of your module)**
+**Remember:** Run `rake spec` always from the root directory of your module!
 
 
 {% highlight bash %}
@@ -230,18 +230,13 @@ rspec ./spec/classes/init_spec.rb:4 # git::init
 {% endhighlight %}
 
 
-<a href="http://farm9.staticflickr.com/8291/7804199724_37c12fbbc0_b.jpg" title="Prevention of bad code with tests." class="fancybox"><img src="http://farm8.staticflickr.com/8291/7804199724_37c12fbbc0_z.jpg" class="center" alt="Prevention of bad code with tests."/></a>
-
-<div class="caption">Prevention of bad code with tests.</div>
-
-Duh, it's red, what should we do? The catalogue does not contain a class `git::packagee`. Gosh, it's just a typo in our
+Duh, it's red, what should we do? The catalogue does not contain a class `git::packagee`. Gosh, it's a typo in our
 `init_spec.rb` file. Let's fix this:
 
 
 {% highlight ruby %}
 
 # spec/classes/init_spec.rb
-
 require 'spec_helper'
 
 describe "git::init" do
@@ -271,7 +266,7 @@ Finished in 0.03963 seconds
 It's green and running - perfect.
 
 
-## Testing the creation of a package with a type
+## Testing the creation of a package with an attribute
 
 Since we are now sure, that the `package` manifests is integrated, it's time to write a test, that we have the
 `git-core` package in our package manifests. Let's write `spec/classes/install_spec.rb`:
@@ -280,22 +275,19 @@ Since we are now sure, that the `package` manifests is integrated, it's time to 
 {% highlight ruby %}
 
 # spec/classes/package_spec.pp
-
 require 'spec_helper'
 
 describe 'git::package' do
 
   context 'install git-core' do
-    it { should contain_package('git-core')
-    }
+    it { should contain_package('git-core')}
   end
-
 end
 
 {% endhighlight %}
 
 
-The `contains_<resource>` *matcher* will test if the manifest contains a particular puppet resource.
+The `contains\_<resource>` *matcher* will test if the manifest contains a particular puppet resource.
 
 
 And run the tests again with `rake spec` form the root directory of your module:
@@ -336,7 +328,6 @@ Let's edit `manifests/package.pp` file:
 {% highlight ruby %}
 
 # manifests/package.pp
-
 class git::package {
   package { 'git-core':}
 }
@@ -372,7 +363,6 @@ failing test first:
 {% highlight ruby %}
 
 # spec/classes/package_spec.pp
-
 require 'spec_helper'
 
 describe 'git::package' do
@@ -382,14 +372,11 @@ describe 'git::package' do
          .with_ensure('latest')
     }
   end
-
 end
-
 {% endhighlight %}
 
 
-The `with_*` and `without_*` *matcher* can test the presence or absence of the parameter of resources. Run our tests, to
-see they are failing:
+The `with\_*` and `without\_*` *matcher* can test the presence or absence of the parameter of resources. Run our tests, to see they are failing:
 
 
 {% highlight bash %}
@@ -500,17 +487,14 @@ Finished in 0.20158 seconds
 {% endhighlight %}
 
 
-Your catalogue is still valid. Have beer because you have written your first tests for puppet and refactored your first
-manifest.
+Your catalog is still valid. Have beer because you have written your first tests for puppet and refactored your first manifest.
 
 
 ## Conclusion
 
 Testing is important - even or especially with the environment settings for your systems. It take some time to get used
 to it and you will find it in the beginning very cumbersome to write the code double. But when you are writing 4000
-lines of code long manifest you will be happy to have structure, and confidence in your code with ya lovely tests.
-
-Testing is good and saves your ass, especially the but of your company!
+lines of code long manifest you will be happy to have structure, and confidence in your code with your lovely tests.
 
 
 ## Further reading
