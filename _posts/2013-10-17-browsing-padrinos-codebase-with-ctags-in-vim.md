@@ -2,32 +2,34 @@
 layout: post
 title: Browsing Padrino's Code Base With Ctags in Vim
 description: Use ctags to browser Padrino's code base
+update: 2014-02-23
+categories: ['padrino', 'vim']
 ---
+
 {% include leanpub.html %}
 
 
 Working effectively with ctags has been a topic I avoided for a long time because I was too lazy to invest the time to learn about it.
 
-I was working on my application and needed to constantly consult [Padrino's API docs](http://www.padrinorb.com/api/index.html) in the browser. It would have been more effective if I could do the searching directly in [Padrino's code on GitHub](https://github.com/padrino/padrino-framework). Even better would be if I didn't have to leave the terminal and could stay in the flow of coding.  It's possible with `ctags`!
+I was working on my application and needed to constantly consult [Padrino's API docs](http://www.padrinorb.com/api/index.html) in the browser. It would have been more effective if I could do the searching directly in [Padrino's code](https://github.com/padrino/padrino-framework). Even better would be if I didn't have to leave the terminal and could stay in the flow of coding. It's possible with `ctags`!
 
 
 ## What is ctags
 
-[ctags](http://ctags.sourceforge.net/ "ctags") is a tool which make it easy for you to shift rapidly through code.
+[Ctags](http://ctags.sourceforge.net/ "ctags") is a tool which make it easy for you to shift rapidly through code.
 It does this by indexing classes, methods, variables and other things. All this information is stored in a `tags` file - one line in this file contains one tag.
 
 
-ctags makes it easy to browse a large code base like [Padrino](http://www.padrinorb.com/ "Padrino"), where you might not know the project layout and class/method definitions.  Being able to jump forward and backward between variables, classes, modules, and methods is essential in getting to know a code base.
+Ctags is the tool to browse a large code base like [Padrino](http://www.padrinorb.com/ "Padrino"), where you might not know the project layout and class/method definitions.  Being able to jump forward and backward between variables, classes, modules, and methods is essential in getting to know a code base.
 
 
 ## Installing ctags
 
-Depending on your operation system, you can install it easily using the package manager:
+Depending on your operation system, you can install it on Ubuntu/Debian with the following packages:
 
 
 {% highlight bash %}
 
-# For example, in Debian or Ubuntu:
 $ sudo apt-get install exuberant-ctags
 
 {% endhighlight %}
@@ -38,13 +40,15 @@ Why I'm installing `exuberant-ctags` instead of `ctags`? *Ctags* was originally 
 
 ## Generating ctags for the Padrino's code base
 
-Just clone [Padrino](https://github.com/padrino/padrino-framework) and run the following command at the root of the project:
+Clone [Padrino](https://github.com/padrino/padrino-framework) and run the following command at the root of the project:
 
 
 {% highlight bash %}
+
 $ git clone https://github.com/padrino/padrino-framework
 $ cd padrino-framework
 $ ctags -R .
+
 {% endhighlight %}
 
 
@@ -53,17 +57,23 @@ The command will run recursively through the directory and will tag all sources 
 
 
 {% highlight bash %}
+
 ctags: Warning: ignoring null tag in padrino-admin/lib/padrino-admin/generators/templates/assets/javascripts/bootstrap/bootstrap.min.js
+
 {% endhighlight %}
 
 
 Okay, we are actually interested in all the things, except [JavaScript](https://en.wikipedia.org/wiki/JavaScript "Javascript"). Let's exclude those files with the following command:
 
 
+{% highlight bash %}
+
     $ ctags -R --exclude="*.js" .
 
+{% endhighlight %}
 
-If you are done with the command you have a `tags` file created in the current directory - there is no output if everything went well. Let's open the generated `tags` file and try to understand the basic nature of the file:
+
+If you are done with the command, you have a `tags` file created in the current directory. Let's open the generated `tags` file and try to understand the basic nature of the file:
 
 
 {% highlight ruby %}
@@ -150,19 +160,14 @@ end
 
 
 Now press `<C-]>`- you'll directly to the `Server` class in the `padrino-core/lib/padrino-core/server.rb` file. Awesome,
-that is just what you know now what you want to know and you can jump back to your previous position with `<C-t>` or
-`<C-o>`.
+that is what you know now what you want to know and you can jump back to your previous position with `<C-o>` or
+`<C-t>`.
 
 
-You can also jump to the tag you want the commandline mode in Vim and use the [:tag](http://vimdoc.sourceforge.net/htmldoc/tagsrch.html#:tag "Vim :tag")
-command. Type in the name of the class or method you want to jump to. For example, if you type in
-`:tag Padrino` you will jump to a tag. But you already have a suspicion that `Padrino` exists in more than one
-file. You may think this is a mistake but ctags keeps up a list of all the tags you have explored so far.
+You can also jump to the tag you want the commandline mode in Vim and use the [:tag](http://vimdoc.sourceforge.net/htmldoc/tagsrch.html#:tag "Vim :tag") command. Type in the name of the class or method you want to jump to. For example, if you type in `:tag Padrino` you will jump to a tag. But you already have a suspicion that `Padrino` exists in more than one file. You may think this is a mistake but ctags keeps up a list of all the tags you have explored so far.
 
 
-If you searched after `:tag Padrino` again you can message line beyond in your command window: `tag 1 of 81 or more`.
-There are 81 browsable matchings tags available. Per default Vim will take the first matching tag if your search for the
-first time in your vim session after `:tag Padrino`. Use `:tselect` followed by a number to jump to the tag you want:
+If you searched after `:tag Padrino` again you can message line beyond in your command window: `tag 1 of 81 or more`.  There are 81 searchable matchings tags available. Per default Vim will take the first matching tag if your search for the first time in your vim session after `:tag Padrino`. Use `:tselect` followed by a number to jump to the tag you want:
 
 
 {% highlight ruby %}
@@ -182,13 +187,13 @@ first time in your vim session after `:tag Padrino`. Use `:tselect` followed by 
 {% endhighlight %}
 
 
-So you can chose what you want to have. There a bunch of more commands you can use to navigate multiple tags
+You can chose what you want to have. There a bunch of more commands you can use to navigate multiple tags:
 
 
-- `:tnext (or :tn)`: goes to the next tag in the `:tselect` list
-- `:tprev (or :tp)`: goes to the previous tag in the `:tselect` list
-- `:tfirst (or :tf)`: goes to the first tag in the `:tselect` list
-- `:tlast (or :tl)`: goes to the last tag in the `:tselect` list
+- `:tnext (or :tn)` - Goes to the next tag in the `:tselect` list.
+- `:tprev (or :tp)` - Goes to the previous tag in the `:tselect` list.
+- `:tfirst (or :tf)` - Goes to the first tag in the `:tselect` list.
+- `:tlast (or :tl)` - Goes to the last tag in the `:tselect` list.
 
 
 Before going to add the tags for the Padrino project as well as any other sources you are using on your project, we need
@@ -196,30 +201,35 @@ to understand how we can get a big tag file of all our installed gems and after 
 only need.
 
 
-## Generating Ctag for all installed gems
+## Ctag for installed gems
 
 Let's say you are using [rbenv](https://github.com/sstephenson/rbenv "rbenv") to manage your ruby versions and you want
 to get a global tag file of all your installed gems. Please run the following command:
 
 
-    ctags -R -f gems.tag * ~/.rbenv/versions/<your-ruby-version>/lib
+{% highlight bash %}
+
+$ ctags -R -f gems.tag * ~/.rbenv/versions/<your-ruby-version>/lib
+
+{% endhighlight %}
 
 
-I have 200 installed gems on my system (use `gem list | wc -l`) and it took around 7 seconds to generate a tag file with over 200.000 lines. The chances are high that you have errors in your `tags` file occur and I really don't want to load such a big tag file into my vim session. Please note, that the generated tag file `gems.tag` instead of `tags`.
+I have ove 269 installed gems on my system (use `gem list | wc -l`) and it took around 7 seconds to generate a tag file with over 200.000 lines. The chances are high that you have errors in your `tags` file occur and I really don't want to load such a big tag file into my vim session. Please note, that the generated tag file `gems.tag` instead of `tags`.
 
 
 ## Generating Ctags project specific ones gems
 
-If you think about a ruby project, it is very likely that you will have `Gemfile` with all the specified extensions you
-need for your project. My friend [Andrew Radev](http://andrewradev.com/2011/06/08/vim-and-ctags/ "Andrew Radev") has created a small [ruby snippet](https://gist.github.com/893236 "ruby snippet") that uses [Bundler API](http://bundler.io/ "Bundler
-API") for retrieving the used Gemfile in your project and builds a tag file. Instead of using the script you can also
-perform the following one-liner on the route of your application:
+If you think about a ruby project, it is very likely that you will have `Gemfile` with all the specified extensions you need for your project. [Andrew Radev](http://andrewradev.com/2011/06/08/vim-and-ctags/ "Andrew Radev") has created a [ruby snippet](https://gist.github.com/893236 "ruby snippet") that uses [Bundler API](http://bundler.io/ "Bundler API") for retrieving the used Gemfile in your project and builds a tag file. Instead of using the script you can also perform the following one-liner on the route of your application:
 
 
-    ctags -R -f gems.tags `bundle show --paths`
+{% highlight bash %}
+
+ctags -R -f gems.tags `bundle show --paths`
+
+{% endhighlight %}
 
 
-Let's say you have a Padrino project (like my [Job Vacancy](https://github.com/matthias-guenther/job-vacancy)) with the following `Gemfile`:
+You have a Padrino project (like my [Job Vacancy](https://github.com/matthias-guenther/job-vacancy)) with the following `Gemfile` for example:
 
 
 {% highlight ruby %}
@@ -266,19 +276,22 @@ gem 'padrino', :git => "git://github.com/padrino/padrino-framework.git"
 `bundle show --paths` will print the absolute path of the used Gems in the following form:
 
 
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/open4-1.3.0
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-admin
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-cache
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-core
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-gen
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-helpers
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-mailer
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-sprockets-8f4f6150b2d9
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/polyglot-0.3.3
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/pry-0.9.12
-    /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2
+{% highlight sh %}
 
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/open4-1.3.0
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-admin
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-cache
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-core
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-gen
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-helpers
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-mailer
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-sprockets-8f4f6150b2d9
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/polyglot-0.3.3
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/pry-0.9.12
+/home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2
+
+{% endhighlight %}
 
 When you start vim in the root of your project, it will only load the `tags` file but not the `gems.tags` file. Just
 open the commandline in vim and type in `:set tags+=gems.tags`.
@@ -288,14 +301,21 @@ If you find yourself doing it over and over again for different project, you hav
 `.vimrc`
 
 
-    set tags=tags,./tags,gems.tags,./gems.tags
+{% highlight vim %}
+
+set tags=tags,./tags,gems.tags,./gems.tags
+
+{% endhighlight %}
 
 
-Vim will search for the file named `tags`, starting with the directory of the current file. Since padrino is seperated into different parts you want to jump to the parent directory to find the tag files so you have to enable [uppward search](http://vimdoc.sourceforge.net/htmldoc/editing.html#file-searching) with the `;` symbol at the end of the search term:
+Vim will search for the file named `tags`, starting with the directory of the current file. Since padrino is seperated into different parts you want to jump to the parent directory to find the tag files so you have to enable [uppward search](http://vimdoc.sourceforge.net/htmldoc/editing.html#file-searching) with the `;` symbol at the end of the search term
 
 
-    set tags=./tags;,./gems.tags;
+{% highlight vim %}
 
+set tags=./tags;,./gems.tags;
+
+{% endhighlight %}
 
 
 and then recursively to the directory one level above, till it either locates the `tags` file or reaches the
@@ -305,7 +325,7 @@ root directory. It will do exactly the same for the `gems.tags` file.
 ## Autogenerate tags with Autotags.vim
 
 During the coding you are going to change the name of the method or class and have to generate the tags by hand.
-Do you really want to leave the terminal and generate the tags on your own? Tada, there is [Autotags.vim](http://www.vim.org/scripts/script.php?script_id=1343 "Autotags vim plugin"). It deletes all tags that are no longer present and calls `ctags -a` to append the new tags to your existing tag file. To try it out, just create a new directory with a the following class definition inside the file:
+Do you really want to leave the terminal and generate the tags on your own? Tada, there is [Autotags.vim](http://www.vim.org/scripts/script.php?script_id=1343 "Autotags vim plugin"). It deletes all tags that are no longer present and calls `ctags -a` to append the new tags to your existing tag file. To try it out, create a new directory with a the following class definition inside the file:
 
 
 {% highlight ruby %}
