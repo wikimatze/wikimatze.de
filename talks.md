@@ -10,7 +10,7 @@ meta-description: Talks given by Matthias Günther
     <span>October, 2012</span>
   </li>
   <li>
-    <a href="/talk/first-vim-novice-workshop-of-vimberlin.html">Buffer, quickfix windows, :Ack - does this work together?</a>
+    <a href="/talk/buffer-quickfix-windows-ack.html">Buffer, quickfix windows, :Ack - does this work together?</a>
     <span>September, 2012</span>
   </li>
   <li>

@@ -146,6 +146,33 @@ a.fancybox {
   clear: both;
 }
 
+.style {
+  margin: 20px -30px -45px -30px;
+  text-align: center;
+}
+.style .color, .style .typeface {
+  width: 100px;
+  display: inline-block;
+  margin: 5px;
+  font-size: 12px;
+  box-shadow: 0 0 3px #ccc;
+  border-radius: 3px;
+}
+.style .typeface b {
+  background-color: #fbfbfb;
+  display: block;
+  width: 100px;
+  height: 19px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #eee;
+  color: #ccc;
+}
+
+.clear {
+  height: 50px;
+}
+
+
 /* last commits plugin */
 .github-commits-list {
   list-style: none;
