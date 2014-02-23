@@ -1,6 +1,6 @@
 ---
 layout: reading
-title: Practices of an Agile Developper
+title: Practices of an Agile Developer
 ---
 
 - p 1 software is like surfing dynamic ever changing environment

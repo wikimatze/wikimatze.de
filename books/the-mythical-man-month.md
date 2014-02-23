@@ -11,10 +11,9 @@ title: The Mythical Man Month by Frederick P. Brooks
 - p 64: "*Never go to see with two chronometers; take one or three.*" old saying
 - p 67: Causes of fruitless outcomes from meetings
 - p 78: The purpose of organizations is to reduce the amount of communication and coordination necessary
-- p 111: Conway's law: "Organizations which design systems are constrained to produce systems which are copies of the
-  communication structures of these organizations."
-- p 115 "*It is a common sense to take a method and try it. If it fails, admit it frankly and try another. But above
-  all, try something.*" Roosevelt
+- p 111: Conway's law: "*Organizations which design systems are constrained to produce systems which are copies of the
+  communication structures of these organizations.*"
+- p 115 "*It is a common sense to take a method and try it. If it fails, admit it frankly and try another. But above all, try something.*" Roosevelt
 - p 116: first systems build are not good enough but you need them to know what can be done better next time
 - p 117: Plan the System for Change => loose coupling
 - p 121: More users will find more bugs

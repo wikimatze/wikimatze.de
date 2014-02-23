@@ -2,16 +2,16 @@
 layout: reading
 title: Peopleware
 ---
+
 - p xiii: Wisdom of adage: "Build one to throw away" that means after done something you how you
   should have really done it
 - p 4: The major problems of our work are not so much technology as sociological in nature.
 - p 8: encourage people to make some errors
 - p 11: Think of the catalyst => a person which motivates people and made them more productive
 - p 16: Overtime is like sprinting: It make some sense for the last hundreds yards of the marathon
-  for those with any energy left, but if you start sprinting in the first mile, you're just wasting
-  time
+  for those with any energy left, but if you start sprinting in the first mile, you're wasting time
 - p 17: you need to take a turnover into account whenever you set to gain higher productivity
-- p 18: People under time pressure don't work better - they just work faster
+- p 18: People under time pressure don't work better - they work faster
 - p 20: Workers kept under extreme time pressure will begin to sacrifice quality
 - p 21: The market doesn't give a damn about that much quality
 - p 29: Organizational busy work tensed to expand to fill the working day
@@ -26,7 +26,7 @@ title: Peopleware
 - p 57: hiding out for work because the normal work environment is to loud
 - p 59: **Gilbs Law**: Anything you need to quantify can be measured in some way that is superior to
   not measuring it at all
-- p 63: people need the **flow mode** to get really started to work so don't interrupt them to much
+- p 63: people need the **flow mode** to get really started to work don't interrupt them to much
 - p 66: E-factor = uninterrupted hours/Body-present hours
 - p 99: **Entroppy is always increasing in the organisation**
   - entropy stands for sameness and the more an organization has the less potential is there to

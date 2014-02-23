@@ -27,7 +27,7 @@ title: Unkuendbar by Susanne Reinker
   Überfliegerwissen aus der Uni heraushängen lassen und Eitel wirken
 - p 30: auch Routineaufgaben gut machen, denn jemand, der eine Aufgabe gelangweilt erfüllt, macht jede Menge
   Schlamperei-Fehler
-- p 31 auf Kollegenrituale achten
+- p 31: auf Kollegenrituale achten
 - p 37: **Stimmungsbarometer** stabil halten => gute Laune ist wichtiger als Leistung
 - p 38: Kollegialität ist erkennbar durch Hilfsbereitschaft, Zuverlässigkeit, Kompromissbereitschaft und Loyalität
 - p 39: Kritik: nur unter 4 Augen, immer am konkreten Fall machen anstatt eine globale Persönlichkeitsanalyse

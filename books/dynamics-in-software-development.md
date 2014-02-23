@@ -3,8 +3,8 @@ layout: reading
 title: Dynamics In Software Development by Jim McCarthy
 ---
 
-- this book will give you hints how to ship software just more in time
-- *“More people have ascended bodily into heaven than shipped great software on time”*
+- this book will give you hints how to ship software more in time
+- *"More people have ascended bodily into heaven than shipped great software on time"*
 - Intellect come from CCEE: creativity, cleverness, efficiency and elegance
 - p 5-6: He talks very much about intellectual property and how much brainpower is needed for great software
 - *"ship this evil software and bring this unholy misery to an end"*
@@ -16,7 +16,7 @@ title: Dynamics In Software Development by Jim McCarthy
   - the development
 - things you must cover in your organization/team (to can divide them but you need at least one person for it): program
   management, QA, Development, Marketing, Documentation/User Education
-- *"It’s a waste of time to try to sort out ownership"*
+- *"It's a waste of time to try to sort out ownership"*
 - unvarnished truth telling of someone other gives you a challenging and keep you highly motivated if you are a fighter
   nature
 - p 20: the power of focus and limiting
@@ -57,5 +57,5 @@ title: Dynamics In Software Development by Jim McCarthy
 - p 124: Each milestone needs a story
 - p 125: dog food manufactures should eat their own dog food
 - p 141: *"Never trade a bad date for an equally bad date."*
-- p 152: just break the rules to make your team happy - *"Developers love to rebel against authority and structure."*
+- p 152: break the rules to make your team happy - *"Developers love to rebel against authority and structure."*
 
