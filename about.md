@@ -18,7 +18,7 @@ I love Open Source ([GitHub](https://github.com/matthias-guenther/ "GitHub"),
 [speakerdeck](https://speakerdeck.com/wikimatze "Speakerdeck")).
 
 
-Under [books](/reading.html "books") you can find the latest stuff I'm reading or [follow](/follow.html) me.
+Under [books](/reading.html "books") you can find the latest stuff I'm reading.
 
 
 ## Painting figures
