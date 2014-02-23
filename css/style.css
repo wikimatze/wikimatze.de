@@ -27,6 +27,10 @@ ul.circle { list-style: circle outside; }
 ul.disc { list-style: disc outside; }
 ul ul, ul { margin: 4px 0 5px 30px; }
 
+p {
+  margin-bottom: 25px;
+}
+
 ol ol { margin: 4px 0 5px 30px; }
 
 a {
@@ -125,6 +129,13 @@ a.fancybox {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.caption {
+  color: #aaaaaa;
+  font-size: 15px;
+  margin-bottom: 10px;
+  text-align: right;
 }
 
 .lastupdate {

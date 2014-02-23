@@ -94,8 +94,6 @@ layout: layout
 title: Tags
 ---
 
-<h2>Tags</h2>
-
   HTML
 
   site.categories.sort.each do |category, posts|
