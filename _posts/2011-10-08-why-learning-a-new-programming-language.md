@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Why learning a new programming language
-description: Is it worth learning something, widen your horizon and get another view? Yes,
-categories: ['learning']
+description: Is it worth learning something, widen your horizon and get another view? Yes!
+update: 2014-02-17
+categories: ['learning', 'programming']
 ---
 
 "Why should you start learning a new programming language" was the questions I asked me in the 2011?  Nowadays we are
-all to busy to try new things, to expand our horizon. After reading the Pragmatic solving problems In the following
-chapter I will explain you, how I learned programming languages.
+all too busy to try out new things, to expand our horizon. In the following chapter I will explain you, how I learned programming languages.
 
 
 ## In the beginning there was Turbo Pascal
@@ -23,11 +23,11 @@ then put them into a function and print line the outcome.  Here are some code sn
 
 Turbo Pascal was my first procedural language and later during my studies I learned in a lecture about compiler
 construction that this language was developed 1970 by Niklaus Wirth (whom I admire for building such easy and effective
-techniques like the recursive descendant, but thats another tale). If you want to have this retro feeling just check
+techniques like the recursive descendant, but thats another tale). If you want to have this retro feeling check
 out Ubuntu resources (or other things if you want to stay up).
 
 
-The following images show the "IDE". It has few options with fancy looking buttons and no options-overload.
+The following images show the **IDE**. It has few options with fancy looking buttons and no options-overload.
 
 <a href="http://farm8.staticflickr.com/7240/7257427894_93694bded3_b.jpg" title="Nice blue environment." class="blog fancybox"><img src="http://farm8.staticflickr.com/7240/7257427894_93694bded3_z.jpg" class="center" alt="Nice blue environment."/></a>
 
@@ -56,14 +56,14 @@ interests in programming because the age of **warhammer** or **video games**.
 When I started my studies of computer science I knew I had still no programming experience and during my first year I
 had to learn Java. It was quite good and quite bad if you ask my. The good things about it was that I had to learn an
 exhausting new methodologies: OOP, Interfaces, Recursion, Inheritance, Encapsulation, Polymorphism and many other
-concept. I was lost, I just wanted to learn how to write simple programs and no one could tell me, why I have to write
+concept. I was lost, I wanted to learn how to write simple programs and no one could tell me, why I have to write
 this *public static void main (String args[])* to start my program. My fellow students told my that I was an absolute
 newbie (they were actually right).
 
 
 Chad Fowler wrote in his book **The Passionate Programmer**: "Always be the worst guy in every band you're in." I
 actually was it and in now time I made great progresses. But some aspects of Java hit my but: It was so long to express
-simple things, so much overhead with static, private and so on. To what I mean have a look on the following code:
+simple things, so much overhead with static, private etc. To what I mean have a look on the following code:
 
 
 {% highlight java %}
@@ -88,7 +88,6 @@ class Socke {
 }
 
 public class NewClass {
-
   public static void main(String args[]) {
     Socke stinki = new Socke();
     stinki.farbe = "schwarz";
@@ -106,8 +105,7 @@ or refactor it. I thought that I could understand my "well" written mail client 
 
 
 For another term I looked on C++. It was good to see how pointer (or *references*) are working, how you must allocate
-your memory (Java has it's ) and generics (or *templates*) for your data structures. I nearly learned something new, C++
-is like Java, it's OOP and you can program procedural if you like to. Have a look on some code:
+your memory (Java has it's ) and generics (or *templates*) for your data structures. C++ is like Java, it's OOP and you can program procedural if you like to. Have a look on some code:
 
 
 {% highlight cpp %}
@@ -165,7 +163,7 @@ int main(){
 
 ## Enlightenment with Ruby
 
-Normally I'm not the guy how runs after every hype but I haven't found so far my beloved programming language. Why not
+Normally I'm not the guy how runs after every hype but I haven't found my beloved programming language. Why not
 risk a look. And then there was this 'Whosh' (think DC Comics). You could program in different styles, could design
 your own languages (called DSL) and this nifty framework Ruby on Rails (RoR) with Test-Driven Development (TDD),
 Behavior Driven Development (BDD), Continuous Integration (CI) and many more things. These things sound a like a
@@ -173,7 +171,7 @@ mystery for me, but just get started and see how "easy" you can use it with RoR.
 
 
 It was a very hard steady learning curve but it was more pleasantly then just go to the candy shop and get what you want
-for nothing. You have to invest much time. But look for yourself on ruby - it looks like a natural language. Just look
+for nothing. You have to invest much time. But look for yourself on ruby - it looks like a natural language. Look
 at a script I wrote to tag MP3:
 
 
@@ -228,14 +226,11 @@ end
 
 ## Automating tasks
 
-I resisted very long to learn the bash, but there were so many tasks over the years which I didn't do because t gives me
-the heebie-jeebies to do the same thing over and over again. After one weekend studying the open book "The Linux Command
-Line" by William E. Shotts I caught fire.  For a long time I messed my desktop up with tons of images with ugly names,
-so I wrote a script to change this.
+I resisted very long to learn the bash, but there were so many tasks over the years which I didn't do because it gives me the heebie-jeebies to do the same thing over and over again. After one weekend studying the open book "The Linux Command Line" by William E. Shotts I caught fire.  For a long time I messed my desktop up with tons of images with ugly names, so I wrote a script to change this.
 
 
 I have a bunch of images with ugly name, so I wrote a script to change this.  Each command has it's purpose you have to
-learn its syntax. Here is some sample code (pretty neat):
+learn its syntax. Here is some sample code:
 
 
 {% highlight sh %}
@@ -256,7 +251,7 @@ Rakefile (the modern version of make written completely in ruby):
 
 desc "Create a directory for the compiled classes"
 task :create_class_directory do
-  system 'mkdir -p classes' # overwrite the directory if it exist
+  system 'mkdir -p classes'
 end
 
 desc "compile the plugin and put the files in the directory"
@@ -295,8 +290,6 @@ task :test => [:create_environment_complete] do
   system 'scalac -Xplugin:divbyzero.jar Example.scala'
 end
 
-# ...
-
 {% endhighlight %}
 
 
@@ -304,7 +297,7 @@ end
 
 I learned this language for my diploma-thesis, otherwise I still wouldn't put a thumb on FP. So far I must say that it
 was a good decision to learn an functional language. Scala showed me how to use *chained function*, *anonymous
-functions*, *currying*, type bounds and many more constructs. In the beginning my head howls like a steam-tank, there
+functions*, *currying*, *type bounds* and many more constructs. In the beginning my head howls like a steam-tank, there
 was so much new terrain for me that I need several breaks to get used to it. After many hours of happy cramming I got
 surprisingly insights in doing OOP better. That was is, what the Pragmatic Programmers were preaching. To get new
 insight in a technology you have to regard it's counterpart. Don't hesitate to do something you would never do, you gain

@@ -3,34 +3,32 @@ layout: reading
 title: The Timeless Way of Building by Christopher Alexander
 ---
 
-- p 7: good software can just made by people who are close to the subject
+- p 7: good software can made by people who are close to the subject
 - p 9: every person has the dream to create something great
 - p 11: "patterns are emerging from certain combinator processes"
 - p 14: "like every living process, it is a pattern which builds order out of nothing"
-- p 14–15: "we are afraid of chaos and think of more methods will save us from that"
+- p 14-15: "we are afraid of chaos and think of more methods will save us from that"
 - p 16: fear solution => learn the relationship between ourselves and our surroundings
 - p 26: "It is never twice the same, because it always take its shape from the particular place in which it occurs"
 - p 26: "A system has quality only if you have a feeling for it"
 - p 36: `quality without a name`: when it fits some abstract image perfect
-- p 47: "One man is free at that one instant when you see in him a certain smile and you know he is himself, and
-  perfectly at home within himself"
+- p 47: "One man is free at that one instant when you see in him a certain smile and you know he is himself, and perfectly at home within himself"
 - p 48: "Each of us faces the fear of letting go"
-- p 49: If you are near your dead you are doing things against you feared every time so much
-- p 52; keep up the moments when a man is laughing because he is not on guard and his most important forces show
-  themselves
+- p 49: If you are near your dead you are doing things against you feared every time
+- p 52; keep up the moments when a man is laughing because he is not on guard and his most important forces show themselves
 - p 52: "We cannot be aware of these most precious moments when they are actually happening"
 - p 65 "The equipment of a house changes the whole experience of a building"
 - p 66: "An unique event can change our lives completely (or leave its mark)"
 - p 70: `action` and `space` are forming patterns of events in space
-- p 95: "Each building gets its character from just the patterns which keep on repeating there"
-- `resume of chapter 5` (p 105): Every building and every town is made of patterns which repeat themselves throughout
-  its fabric, and that it gets its character from just those patterns of which it is made"
+- p 95: "Each building gets its character from the patterns which keep on repeating there"
+- `resume of chapter 5` (p 105):
+  - Every building and every town is made of patterns which repeat themselves throughout its fabric, and that it gets its character from those patterns of which it is made"
 - p 107: "Play and eat together to become more productive"
 - p 111: "people are drawn to light"
 - p 115: "problems are conflicts for us"
 - p 120: "a pattern dies when it fails to provide a framework in which forces can resolve themselves"
 - p 122: "we have the quality without a name when we are most intense, most happy, most wholehearted"
-- resume of chapter 6 (p 122):
+- `resume of chapter 6` (p 122):
   - The quality without a name in us, our liveliness, our thirst for life, depends directly on the patterns in the
     world, and the extent to which they have this quality themselves
   - Patterns which live, release this quality in us
@@ -38,7 +36,7 @@ title: The Timeless Way of Building by Christopher Alexander
 - p 129: "through the process of adaption, we are destroying some other part of ourselves"
 - p 134: "A building in which all the patterns are alive has no disturbing forces"
 - p 147: "patterns repeat themselves but no configuration of the surroundings at anyplace and time is always the same"
-- p 160: "The quality of life is just like that: it cannot be made, but only generated"
+- p 160: "The quality of life is like that: it cannot be made, but only generated"
 - p 164: "In each town , each building and each garden must be shaped by an autonomous process"
 - p 166: "Is a code, like the genetic code, fore human acts of building? Yes, it takes the form of language"
 - p 174: "each room is a little different according to the view"
@@ -65,7 +63,7 @@ title: The Timeless Way of Building by Christopher Alexander
 - p 253: **Context => System of forces => Configuration**
 - p 261: "patterns are like invariants even if there are millions of solutions for one problem"
 - p 262: "making abstractions which are powerful and deep is hard"
-- p 267: "if you can’t draw a diagram of the patterns, it isn’t a pattern"
+- p 267: "if you can't draw a diagram of the patterns, it isn't a pattern"
 - p 315: "Each pattern is modified by its position in the language as a whole \* p 338:"a living language must
   constantly be re-created in each persons mind"
 - p 343: "a common pattern language is defined by a pool of patterns"

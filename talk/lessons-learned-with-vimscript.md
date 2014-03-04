@@ -8,27 +8,20 @@ Your first experience with Vim scripts is the vimrc file. Vim reads it when it s
 talks presents the basics of Vimscript and shows you some pitfalls.
 
 
-## Slides
-
-<script src="http://speakerdeck.com/embed/4f6c15ebdd3637001f012f32.js"></script>
-
-You can find the slides on [heroku](http://lessons-learned-with-vimscript.heroku.com) or
-on [speakerdeck](https://speakerdeck.com/u/wikimatze/p/lessons-learned-with-vimscript).
+<script async class="speakerdeck-embed" data-id="4f6c15ebdd3637001f012f32" data-ratio="1.3509234828496" src="//speakerdeck.com/assets/embed.js"></script>
 
 
-## Notes
+You can find the slides on [speakerdeck](https://speakerdeck.com/u/wikimatze/p/lessons-learned-with-vimscript) and the
+sources unde [Bitbucket](https://bitbucket.org/wikimatze/presentations/src/189ada3e4596).
 
-<div class="color">
-  <div class="white" style="background-color: #757449">#757449</div>
-  <div style="background-color: #EBE54D">#EBE54D</div>
-  <div style="background-color: #E2DF9A">#E2DF9A</div>
-  <div style="background-color: #FF0051">#FF0051</div>
-  <div style="background-color: #FF9900">#FF9900</div>
-</div>
-
-<div class="clearer"></div>
-
-- Software: [showoff](https://github.com/schacon/showoff)
-- Typface: [Yanone Kaffesatz](http://www.yanone.de/typedesign/kaffeesatz/)
-- Source: [Bitbucket](https://bitbucket.org/wikimatze/presentations/src/189ada3e4596)
+<section class="style">
+  <div class="color" style="border-top: 20px solid #757449">#757449</div>
+  <div class="color" style="border-top: 20px solid #EBE54D">#EBE54D</div>
+  <div class="color" style="border-top: 20px solid #E2DF9A">#E2DF9A</div>
+  <div class="color" style="border-top: 20px solid #FF0051">#FF0051</div>
+  <div class="color" style="border-top: 20px solid #FF9900">#FF9900</div>
+  <div class="typeface"><b>Typeface</b><a href="http://www.yanone.de/typedesign/kaffeesatz/">Yanone Kaffesatz</a></div>
+  <div class="typeface"><b>Software</b><a href="https://github.com/schacon/showoff">showoff</a></div>
+  <div class="clear"></div>
+</section>
 

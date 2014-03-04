@@ -9,12 +9,12 @@ title: On Writting Well by William Zinsser
 - p 35: "Readers hear what they are hearing"
 - p 52: "Think small => decide what comes of your subject you're going to bite off; be content to core, write it well
   and then stop"
-- p 55: readers want to know, what is in for them => so write a good lead"
+- p 55: readers want to know, what is in for them => write a good lead
 - p 63: know when to stop an article
 - p 64: "The perfect end should be for the readers slightly a surprise and yet seems exactly right."
 - p 65: the end should be remind to the begin
 - p 73: mood => to change the mood before the start of the previous section
-- p 73: stop using but and never start a sentence with however
+- p 73: stop using but and never start a sentence with 'however'
 - p 74: no using of I'd because it my stand for I would or I had
 - p 79: "Just delete ugly looking sentences and don't try to fix them because it's often faster to rewrite them"
 - p 83: "Rewriting is the essence of writing well"

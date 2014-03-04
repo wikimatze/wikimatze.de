@@ -5,6 +5,7 @@ rdiscount:
   extensions: [smart]
 
 destination: _site
+base_url: "http://wikimatze.de"
 
 exclude:
 - _drafts
@@ -13,6 +14,7 @@ exclude:
 - plugins
 - knowledge.md
 - Rakefile
+- bin
 
 # page stats
 build: 1-19-2014

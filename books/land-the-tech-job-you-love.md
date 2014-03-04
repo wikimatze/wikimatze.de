@@ -2,7 +2,6 @@
 layout: reading
 title: Land The Tech Job You Love by Andy Lester
 ---
-
 - "Life is to short for a job you don't love"
 - The Foundations of Job search
   - be honest with yourself
@@ -17,7 +16,7 @@ title: Land The Tech Job You Love by Andy Lester
 - Larry Wall: "The three virtues of programmer are laziness, impatience and hubris"
 - p 39: sections of Your resume
   - contact block: name, email, phone-number, street-address
-  - professional summary: just think of 20 seconds elevator pitch and describe you with goods words
+  - professional summary: think of 20 seconds elevator pitch and describe you with goods words
   - work experience
   - education
   - achievements outside of work
@@ -32,7 +31,7 @@ title: Land The Tech Job You Love by Andy Lester
   - presentation is content
 - p 67~68 general guidelines for resume
   - name must be the first thing to read
-  - just use two fonts: sans-serif for headings and serif like Times new Roman for everything else
+  - use two fonts: sans-serif for headings and serif like Times new Roman for everything else
   - body text size between 9 - 12
   - if you are writing a summary make the important words bold
 - p 72: "Stand back from your work as much as you can"
@@ -47,11 +46,11 @@ title: Land The Tech Job You Love by Andy Lester
 - p 117: don't tell your salary and it's no blame to say it's confidential
 - p 126: use working examples (code) of your work => you are serious about the job
 - p 194: what you can do to get faster informed if you get the job
-- p 195: wait a week after the interview of better just ask direct after the interview when you will be informed
+- p 195: wait a week after the interview of better ask direct after the interview when you will be informed
 - p 200: how to create a reference sheet => these things are good for **reference checker**
-- p 201: **the job offer** => do not accept the offer yet, just check the circumstances
+- p 201: **the job offer** => do not accept the offer yet, check the circumstances
 - p 203: negotiate the offer => the best way to negotiate salary is not to negotiate
-- p 207: **how to gracefully quit your job** (don't explain your departure, just leave a letter), don't take a
+- p 207: **how to gracefully quit your job** (don't explain your departure, leave a letter), don't take a
   counteroffer, be well remembered in your old position
 - p 209: **avoid the Exit Interview** there is nothing you can gain from
 - p 213: *nobody stays at their job forever these days*

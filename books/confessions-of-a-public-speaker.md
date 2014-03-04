@@ -24,7 +24,7 @@ title: Confession of a Public Speaker
   - have a need they hope you will satisfy
   - desire to meet other people interested in the subject
 - p 59: **eating the microphone** - its the moment when the audience confidence in having its met had lost!
-- p 60 prepare well for a talk in four points:
+- p 60: prepare well for a talk in four points:
   1. take a strong position in the title.
   2. think carefully about your specific audience.
   3. make your specific points as concise as possible.
@@ -37,7 +37,7 @@ title: Confession of a Public Speaker
   solve in the next 30-60 seconds.
 - p 118: most speakers evaluations are useless because the most valuable data is missing: How is your scoring in
   comparison to other speakers
-- p 120 the speaker must match the audience
+- p 120: the speaker must match the audience
 - p 120: good feedback questions
   - How did my presentation compare to others?
   - What one change would have most improved my presentation?

@@ -2,6 +2,7 @@
 layout: post
 title: SMART principle
 description: Projects are good to play with something new
+update: 2014-02-20
 categories: ['learning']
 ---
 
@@ -13,12 +14,11 @@ I recently read the book [Pragmatic Programmer](http://pragprog.com/the-pragmati
 Thomas](http://en.wikipedia.org/wiki/Dave_Thomas_programmer) explained the *SMART* principle. SMART is an acronym and
 each character of the principle has the following meaning:
 
-- **S** (*specific goal*) - what is the goal of the new project you want to start
-- **M** (*measurable*) - list all the features you need to accomplish to start the project
-- **A** (*action*) - when will you start
-- **R** (*realistic*) - is the project small enough to finish it in the specified time frame
-  demanded time frame
-- **T** (*time*) - in the beginning of July 2012 everything should be fine
+- **S** (*specific goal*): What is the goal of the new project you want to start.
+- **M** (*measurable*): List all the features you need to accomplish to start the project.
+- **A** (*action*):  When will you start.
+- **R** (*realistic*): Is the project small enough to finish it in the specified time frame demanded time frame.
+- **T** (*time*): In the beginning of July 2012 everything should be fine.
 
 
 ## Putting theory into practice
@@ -26,10 +26,10 @@ each character of the principle has the following meaning:
 Late in 2011, I started a new and personally ambitious project: Writing an eBook about the great web framework
 [Padrino](http://www.padrinorb.com/ "Padrino"). In a first step, I created a rough road map, about what I wanted to
 write and which topics should be covered. After writing the intro section and pushing the resources to
-[github](https://github.com/matthias-guenther/padrino-book "github") I did something very crazy and mentioned
-**@padrinorb** in one of my tweets and this was it -- the authors of the framework motivated me with with writing the
-book. They retweeted every small progress I made with the project and through that I got further pull requests and even
-a bunch of interested followers who are watching the project.
+[GitHub](https://github.com/matthias-guenther/padrino-book "GitHub") I did something very crazy and mentioned
+[@padrinorb](https://twitter.com/padrinorb) in one of my tweets and this was it -- the authors of the framework
+motivated me with with writing the book. They retweeted every small progress I made with the project and through
+that I got further pull requests and even a bunch of interested followers who are watching the project.
 
 <img src="https://img.skitch.com/20111105-d9cjedpatps5wch3g5bbi6u1km.jpg" class="center" alt="Beginning of something great"/>
 
@@ -37,10 +37,11 @@ a bunch of interested followers who are watching the project.
 
 Let's see how I can formulate the Book project with SMART:
 
+
 - **S** (*specific goal*) - I want to learn how to write a eBook easily about Padrino web framework
 - **M** (*measurable*)
   - create a roadmap about the topics of the book
-  - find a method to write book in one format and export the as pdf, epub, mobi, and HTML format
+  - find a method to write book in one format and export the as PDF, EPUB, MOBI, and HTML format
   - get really involved in Open source community and communicate with them
   - find an audience and get help from other people
 - **A** (*action*)
@@ -52,6 +53,7 @@ Let's see how I can formulate the Book project with SMART:
     period
 - **T** (*time*)
   - till February 2012 everything should be finished
+
 
 I set up the frame of SMART goals and developed a rough plan - that's all you need to let come your dreams true.
 
@@ -70,7 +72,7 @@ deepen my writing experience. I'm glad to hear your opinion (or contribution) to
 ## Conclusion
 
 SMART is great if you want to start in small steps to begin with something completely new, learn much about it, and
-report (for example, I'm using the twitter Hashtag **#dailywriting**) about the progress you made.
+report (for example, I'm using the twitter Hashtag **#dailywriting, #padrinobook**) about the progress you made.
 
 {% include thanks_sebastian.html %}
 

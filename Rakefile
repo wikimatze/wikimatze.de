@@ -53,7 +53,7 @@ task :staging do
 end
 
 desc 'Deploy'
-task :d do
+task :d => [:generate] do
   require 'sweetie'
 
   say '1. Sweetie - time to update stats ..', :green
@@ -74,6 +74,51 @@ task :s do
   system 'rm -rf _site'
   system 'jekyll build'
   system 'jekyll serve --watch'
+end
+
+# Credit for this goes to https://gist.github.com/alexyoung/143571
+desc 'Create tag page'
+task :generate do
+  say 'Generating tags...', :green
+  require 'rubygems'
+  require 'jekyll'
+  include Jekyll::Filters
+
+  options = Jekyll.configuration({})
+  site = Jekyll::Site.new(options)
+  site.read_posts('')
+
+  html =<<-HTML
+---
+layout: layout
+title: Tags
+---
+
+  HTML
+
+  site.categories.sort.each do |category, posts|
+  html << <<-HTML
+  <h3 id="#{category}">#{category}</h3>
+  HTML
+
+  html << '<ul class="posts">'
+  posts.each do |post|
+  post_data = post.to_liquid
+  html << <<-HTML
+  <li>
+  <div>#{date_to_string post.date}</div>
+  <a href="#{post.url}">#{post_data['title']}</a>
+  </li>
+  HTML
+  end
+  html << '</ul>'
+  end
+
+  File.open('tags.html', 'w+') do |file|
+  file.puts html
+  end
+
+  puts 'Done.'
 end
 
 task :default => :start

@@ -2,6 +2,7 @@
 layout: post
 title: Global Coderetreat 2011 in Berlin
 description: My first coderetreat experience
+update: 2014-02-20
 categories: ['learning', 'programming']
 ---
 
@@ -21,18 +22,12 @@ simple design, it is best to setup goals for your retreat to get most out of it.
 what I achieved in each session:
 
 
-1. Being a mentor of TDD: I taught [dedan](https://github.com/dedan) how to use TDD, why TDD helps you to think about
-   your design.
+1. Being a mentor of TDD: I taught [dedan](https://github.com/dedan) how to use TDD, why TDD helps you to think about your design.
 2. Being a mentor of BDD: Showing a fellow Rubyist how to do BDD.
-3. Doing something completely stupid: I played *evil coder* and *ping-pong pairing* with
-   [@tilosoenke](http://twitter.com/#!/tilosoenke) - we couldn't communicate with words, only with code, one writing
-   tests and other the implementation of the tests.
-4. Discuss about names: We said together and discussed about right names for methods, variables, and classes. We
-   concluded that good names saves you scary comments in your code.
+3. Doing something completely stupid: I played *evil coder* and *ping-pong pairing* with [@tilosoenke](http://twitter.com/#!/tilosoenke) - we couldn't communicate with words, only with code, one writing tests and other the implementation of the tests.
+4. Discuss about names: We said together and discussed about right names for methods, variables, and classes. We concluded that good names saves you scary comments in your code.
 5. Explain Ruby to a Java-Programmer.
-6. Being mentored about Lisp: We solved the whole 'Game of Live' in common
-   [Lisp](http://en.wikipedia.org/wiki/Lisp_(programming_language)) , while
-   [@HansHuebener](http://twitter.com/#!/hanshuebner) explained me the strength and beauty Common Lisp.
+6. Being mentored about Lisp: We solved the whole 'Game of Live' in common [Lisp](http://en.wikipedia.org/wiki/Lisp_(programming_language)) , while [@HansHuebener](http://twitter.com/#!/hanshuebner) explained me the strength and beauty Common Lisp.
 
 
 ## Conclusion

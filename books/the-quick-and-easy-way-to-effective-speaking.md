@@ -6,7 +6,7 @@ title: The Quick and Easy Way of Effective Speaking
   process
 - p 160: "War is simple enough in its conception but unfortunately complicated in its execution." - Marshal Foch
 - p 161: "don't try to imitate other - be yourself"
-- p 163: audience must feel that there is a message being delivered straight from the mind and heart being deliverd
+- p 163: audience must feel that there is a message being delivered straight from the mind and heart being delivered
   straight from the speaker to their minds and hearts
 - p 175: gather facts to introduce the speaker: **TIS**
   - **T**: topic - subject of the speakers talk
@@ -18,9 +18,9 @@ title: The Quick and Easy Way of Effective Speaking
 - p 189: state an arresting fact
 - p 191: If you want to interest your listeners don't begin with an introduction. Begin by leaping right into the heart
   of your story
-- p 196: avoid funny story openingo
-- p 200: use of analogy is a nice tecnique for supporting a main idea
-- p 302 use support material to your talk's ideas:
+- p 196: avoid funny story openings
+- p 200: use of analogy is a nice technique for supporting a main idea
+- p 302: use support material to your talk's ideas:
   - clear and vivid
       - incidents
       - comparisons, and demonstrations

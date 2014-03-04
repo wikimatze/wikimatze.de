@@ -1,12 +1,12 @@
 ---
 layout: layout
-title: Recently read
-meta-description: Listing recently read books with own notes
+title: Recently Read
+meta-description: Listing recently read books with my notes.
 ---
 
 ## 2014
 
-- [](http://pragprog.com/book/pad/practices-of-an-agile-developer) by [Venkat Subramaniam](http://www.agiledeveloper.com/) and [Andy Hunt](http://blog.toolshed.com/) [(own notes)](books/practices-of-an-agile-developper.md)
+- [Practices of an Agile Developer:](http://pragprog.com/book/pad/practices-of-an-agile-developer) by [Venkat Subramaniam](http://www.agiledeveloper.com/) and [Andy Hunt](http://blog.toolshed.com/) [(own notes)](books/practices-of-an-agile-developer.html)
 
 
 ## 2013

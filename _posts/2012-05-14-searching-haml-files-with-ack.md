@@ -2,6 +2,7 @@
 layout: post
 title: Searching Haml files with ack
 description: Ack is great for searching files but you need to extend it
+update: 2014-02-20
 categories: ['vim']
 ---
 
@@ -19,8 +20,12 @@ typed string "Übreschrift" and would like to replace it with the correct versio
 Why couldn't I find the file with that content? Was I in the wrong directory? No:
 
 
-    $pwd
-    -> $HOME/git-repositories/brokenlifts
+{% highlight sh %}
+
+$ pwd
+-> $HOME/git-repositories/brokenlifts
+
+{% endhighlight %}
 
 
 Did I used the wrong pattern? No, I searched after the right word "Übreschrift". Did I used the wrong command?  No, I
@@ -48,8 +53,7 @@ Now my search worked and I got hits in `*.html.haml` files for searching the ter
 
 ## Further refinements
 
-Since I'm working with Rails there are other file types like `sass, erb, less, scss, ..` I would like to include into
-the search:
+Since I'm working with Rails there are other file types like `sass, erb, less, scss, ..` I would like to include into the search:
 
 
 {% highlight sh %}
@@ -67,8 +71,10 @@ And there might be directories I don't want to have in my search path. Let's ign
 
 {% highlight sh %}
 
---type-set
-ignorables=.log,.tmp,.pdf
+# ignore certain file types
+--type-set=ignorables=.log,.tmp,.pdf
+
+# ignore whole directories
 --ignore-dir=vendor
 --ignore-dir=log
 --ignore-dir=tmp
@@ -78,7 +84,7 @@ ignorables=.log,.tmp,.pdf
 {% endhighlight %}
 
 
-If you would like to see the specified files for your grep environment search, just use `ack --help types` - this will
+If you would like to see the specified files for your grep environment search, use `ack --help types` - this will
 print all information you need. Here is an example:
 
 
@@ -103,37 +109,7 @@ $ ack --help types
   --[no]hh           .h
   --[no]html         .htm .html .shtml .xhtml .html.erb .html.haml .haml
   --[no]ignorables   .log .tmp .pdf
-  --[no]java         .java .properties
-  --[no]js           .js
-  --[no]jsp          .jsp .jspx .jhtm .jhtml
-  --[no]lisp         .lisp .lsp
-  --[no]lua          .lua
-  --[no]make         Makefiles
-  --[no]mason        .mas .mhtml .mpl .mtxt
-  --[no]objc         .m .h
-  --[no]objcpp       .mm .h
-  --[no]ocaml        .ml .mli
-  --[no]parrot       .pir .pasm .pmc .ops .pod .pg .tg
-  --[no]perl         .pl .pm .pod .t
-  --[no]php          .php .phpt .php3 .php4 .php5 .phtml
-  --[no]plone        .pt .cpt .metadata .cpy .py
-  --[no]python       .py
-  --[no]rake         Rakefiles
-  --[no]ruby         .rb .rhtml .rjs .rxml .erb .rake
-  --[no]scala        .scala
-  --[no]scheme       .scm .ss
-  --[no]shell        .sh .bash .csh .tcsh .ksh .zsh
-  --[no]skipped      Files, but not directories, normally skipped by ack (default: off)
-  --[no]smalltalk    .st
-  --[no]sql          .sql .ctl
-  --[no]tcl          .tcl .itcl .itk
-  --[no]tex          .tex .cls .sty
-  --[no]text         Text files, as defined by Perl's -T op (default: off)
-  --[no]tt           .tt .tt2 .ttml
-  --[no]vb           .bas .cls .frm .ctl .vb .resx
-  --[no]vim          .vim
-  --[no]xml          .xml .dtd .xslt .ent
-  --[no]yaml         .yaml .yml
+...
 
 {% endhighlight %}
 

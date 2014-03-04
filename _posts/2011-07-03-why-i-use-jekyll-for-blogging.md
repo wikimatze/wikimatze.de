@@ -2,11 +2,13 @@
 layout: post
 title: Why I use Jekyll for blogging
 description: Jekyll is the new way for writing blog-posts in markdown for programmers
+update: 2014-02-14
+categories: ['writing']
 ---
 
-For several years I wante to write and tried many different platforms like [wordpress](http://wordpress.org/)
+For several years I want to write and tried many different platforms like [WordPress](http://wordpress.org/)
 [blogger](http://www.blogger.com), or [tumblr](http://www.tumblr.com/). The main problem which kept me away from writing
-was just the fact, that every time I want to write I just had to do it in a new environment and not in my favorite
+was just the fact, that every time I want to write I had to do it in a new environment and not in my favorite
 editor [vim](http://www.vim.org/). Every system gives me the freedom to extend it in several ways but in the end it
 didn't provide me the freedom to change every tiny piece I want.  With [jekyll](http://jekyllrb.com/) I can use my
 favorite text editor and it really "**turned me into a text monster**". This description sounds like a holy grail, but
@@ -18,18 +20,17 @@ let me explain its abilities in the following sections.
 Jekyll is a static site generator written in [ruby](http://www.ruby-lang.org/en/). It generates static html pages. The
 page is presented through several templates and then fires the whole site, were articles are written in a text markup
 language like [Textile](http://redcloth.org/textile) or [Markdown](http://daringfireball.net/projects/markdown/) through
-the [liquid converters](http://www.liquidmarkup.org/) to generate fully generated compiled website.  Don't think that it
-will be so easy for you to do it. First of all you have to learn either Textile or Markdown.  I chose textile for
-writing my posts because I use Markdown to create the README files for my github account.
+the [liquid converters](http://www.liquidmarkup.org/) to generate fully generated compiled website. Don't think that it
+will be easy for you to do it. First of all you have to learn either Textile or Markdown. I chose textile for
+writing my posts because I use Markdown to create the README files for my GitHub account.
 
 
 ## Setting up the environment
 
-You need to have a valid ruby and [ruby gems](http://rubygems.org/) installation on your machine. A simple `gem install
-jekyll` will install the following gems:
+You need to have a valid ruby and [ruby gems](http://rubygems.org/) installation on your machine. A simple `gem install jekyll` will install the following gems:
 
 
-- [directory_watcher](https://github.com/TwP/directory_watcher): gives a list of files which change in some intervals
+- [directory\_watcher](https://github.com/TwP/directory_watcher): gives a list of files which change in some intervals
 - [liquid](https://github.com/Shopify/liquid): rendering templates in a safe manner
 - [open4](https://github.com/ahoward/open4): creates a child process to handle `pid`, `stdout`, etc.
 - [maruku](): (Markdown interpreter
@@ -55,7 +56,7 @@ Here is the basic layout of a typical Jekyll project:
   also possible to define own variables which can be used as global things on other pages.
 
 
-Other files can just put on the root directory like an `atom.xml` file (for RSS feed) or `404.html` page. For example my
+Other files can put on the root directory like an `atom.xml` file (for RSS feed) or `404.html` page. For example my
 `post.html` has the following layout:
 
 
@@ -64,142 +65,122 @@ Other files can just put on the root directory like an `atom.xml` file (for RSS 
 ---
 layout: layout
 ---
-<article class="post" role="main">
+<article>
   <header>
-    <section class="author">
-    Posted by <a href="http://twitter.com/wikimatze" class="newwindow" title="{{ site.author }}">{{ site.author }}</a> on <time>{{ page.date | date:"%b" }} {{ page.date | date:"%d" }}, {{page.date | date:"%Y"}} </time>
-    </section>
-    {% include clearer.html %}
+    <div class="author">
+      Posted on <time datetime="{{page.date | date:"%Y-%m-%d"}}" pubdate>{{page.date | date:"%Y-%m-%d"}}</time>
+    </div>
+    {% include sharing.html %}
+    <div class="clearfix"></div>
   </header>
+  <div class="clearfix"></div>
   {{ content }}
-  {% include clearer.html %}
-  <footer>
-  {% include author.html %}
-  </footer>
+  <br>
+  <aside>
+    {% include comments.html %}
+  </aside>
 </article>
 
 {% endhighlight %}
 
 
-The lines between `---` mark a special [Yaml Front Matter](https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter)
+The lines between `---` mark a special [Yaml Front Matter](http://jekyllrb.com/docs/frontmatter/)
 This block is treated as a special block in Jekyll and can contain different components. The `{{content}}` stands for
 the content of a post entry.
 
 
-## Creating a layout
+## Creating the layout
 
 Here is the main template for my blog.
 
 
 {% highlight html %}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  {% if page.title %}
-    <title>{{ page.title }}</title>
-  {% else %}
-    <title>{{ site.fullname }}</title>
+  <meta charset="utf-8">
+
+  <title>{% if page.title %}{{ page.title}}{% else %}Matthias Günther{% endif %}</title>
+
+  {% if page.meta-description %}<meta name="description" content="{{ page.meta-description }}"> {% else %}
+  <meta name="description" content="Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, and enjoys making cakes.">
   {% endif %}
-  <meta name="author" content="{{ site.fullname }}" />
-  <meta name="description" content="Writings, talks and pictures by {{ site.fullname }}. Günther works at MyHammer, loves painting Warhammer figures, and enjoys making cakes." />
-  <link rel="alternate" type="application/rss+xml" href="{{ site.feedurl }}" />
-  <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
-  <meta name="robots" content="noodp, nodyr" />
-  <link rel="stylesheet" href="/css/stylesheets/base.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="/css/stylesheets/syntax.css" type="text/css" />
-  <link rel="stylesheet" href="/css/stylesheets/print.css" type="text/css" media="print" />
-  <link rel="shortcut icon" href="http://farm8.staticflickr.com/7078/7284507972_a7aa341781_t.jpg" type="image/x-icon" />
-  <link rel="canonical" href="{{ page.url }}" />
-  <link href="{{ site.feedurl }}" rel="alternate" title="Blog of {{ site.fullname}}" type="application/atom+xml" />
+  ...
 </head>
 
 <body>
-  <div id="site" class="round">
-    <a href="{{ site.ineturl }}{{ page.url }}#top" id="top"></a>
-
-    <header id="page-header" role="banner">
-      <span id="sitetitle">
+  <div class="navbar row" id="nav2">
+    <a class="toggle" gumby-trigger="#nav2 > ul" href="#"><i class="icon-menu"></i></a>
+    <h1 class="four columns logo">
+      <span id="title">
         <a href="/index.html">wikimatze</a>
       </span>
-      {% if page.tagline %}
-        <span id="tagline"> &raquo; {{ page.tagline }} </span>
-      {% endif %}
-      <nav id="navigation">
-        <ul>
-          <li><a href="/about.html">about</a></li>
-          <li><a href="/projects.html">projects</a></li>
-          <li><a href="/contact.html">contact</a></li>
-          <li><a href="/follow.html">follow</a></li>
-          <li><a href="/blog.html">blog</a></li>
-          <li><a href="/talks.html">talks</a></li>
-          <li><a href="/books.html">books</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    {% include clearer.html %}
-    <div id="ribbon">
-      <a href="https://github.com/matthias-guenther" rel="me" target="_blank">Fork me on Github</a>
-    </div>
-    <div class="seperator"></div>
-    {% include clearer.html %}
-  {% if page.title %}
-    <h1>{{ page.title }}</h1>
-  {% endif %}
-    {{ content }}
-
-    <footer id="page-footer" role="contentinfo">
-      <nav>
-        &copy;2012 {{ site.fullname }}
-        &bull;
-        <a rel="nofollow" href="{{ site.ineturl }}{{ page.url }}#top">top</a>
-        &bull;
-        <a rel="nofollow" href="{{ site.feedurl }}">RSS</a>
-        &bull;
-        <a rel="nofollow" href="/imprint.html">imprint</a>
-        &bull;
-        <a rel="nofollow" href="/colophon.html">colophon</a>
-        &bull;
-        <a rel="nofollow" href="/donate.html">surprise me</a>
-        <span id="last-build">last build: {{ site.build }}</span>
-      </nav>
-    </footer>
-
+    </h1>
+    <ul class="eight columns">
+      ...
+    </ul>
   </div>
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+  <div class="row">
+    <div class="push_one ten columns">
+    {% if page.title %}
+    <header><h1 class="lead">{{ page.title }}</h1></header>
+    {% endif %}
+    {{ content }}
+    </div>
+  </div>
 
-  <!-- Add fancyBox -->
-  <link rel="stylesheet" href="/js/fancybox/jquery.fancybox.css?v=2.0.6" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/jquery.fancybox.pack.js?v=2.0.6"></script>
+  <div class="modal" id="modal1">
+    <div class="content">
+      <a class="close switch" gumby-trigger="|#modal1"><i class="icon-cancel" /></i></a>
+      <div class="row">
+        <div class="ten columns centered">
+          <h2>Contact</h2>
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Optionaly add button and/or thumbnail helpers -->
-  <link rel="stylesheet" href="/js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.0.6" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/helpers/jquery.fancybox-buttons.js?v=2.0.6"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-        $(".fancybox").fancybox(
-          {
-          wrapCSS    : 'fancybox-custom',
-          closeClick : true,
+  <footer class="row">
+    <nav>
+      ...
+    </nav>
+  </footer>
 
-          helpers : {
-            title : {
-              type : 'inside'
-            },
-            overlay : {
-              css : {
-                'background-color' : '#eee'
-              }
-            }
-          }
-        });
-     });
-   </script>
-</body>
+  <!-- Grab Google CDN's jQuery, fall back to local if offline -->
+  <!-- 2.0 for modern browsers, 1.10 for .oldie -->
+  <script>
+  var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/\soldie\s/g));
+  if(!oldieCheck) {
+    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
+  } else {
+    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
+  }
+  </script>
+  <script>
+  if(!window.jQuery) {
+    if(!oldieCheck) {
+      document.write('<script src="js/libs/jquery-2.0.2.min.js"><\/script>');
+    } else {
+      document.write('<script src="js/libs/jquery-1.10.1.min.js"><\/script>');
+    }
+  }
+  </script>
+
+  <!--
+  Include gumby.js followed by UI modules followed by gumby.init.js
+  Or concatenate and minify into a single file -->
+  <script gumby-touch="/js/libs" src="js/libs/gumby.js"></script>
+  ...
+</html>
 
 {% endhighlight %}
 
@@ -212,7 +193,7 @@ Sass building. This is very handy when changing the layout.
 
 ## Conclusion
 
-Just look on [other pages](https://github.com/mojombo/jekyll/wiki/Sites) what is possible with Jekyll. You can learn
+Look on [other pages](https://github.com/mojombo/jekyll/wiki/Sites) what is possible with Jekyll. You can learn
 many new things by looking at other Jekyll blogs and copy what you need. I love to write a little bit and after I
-finished an article just perform `rake deploy` to upload my blog.
+finished an article perform `rake d` to upload my blog.
 

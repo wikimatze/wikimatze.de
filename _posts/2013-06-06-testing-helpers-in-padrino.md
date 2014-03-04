@@ -2,13 +2,15 @@
 layout: post
 title: Testing Helpers in Padrino
 description: Testing Helpers in Padrino is hard but possible
+update: 2014-02-23
+categories: ['padrino', 'ruby', 'programming']
 ---
+
 {% include leanpub.html %}
 
 I always was wondering how to test helpers in Padrino and to be honest I postponed this problem for a long time. But
 this morning I reached the point in my book where I was writing helper with many methods without testing them. When
-something like this happened you have stop going and spend time to solve this problem. This is how I spend my morning
-today before going to work.
+something like this happened you have stop going and spend time to solve this problem.
 
 
 ## The Problem
@@ -17,6 +19,7 @@ Let's say you have a typical Padrino helper:
 
 
 {% highlight ruby %}
+
 # app/helpers/users_helper.rb
 
 JobVacancy::App.helpers do
@@ -28,7 +31,7 @@ end
 {% endhighlight %}
 
 
-That perfect and you can use the `foo` method anywhere in you controllers and views. But what happened if your helper
+You can use the `foo` method anywhere in you controllers and views. But what happened if your helper
 is getting more and more complex like the following one:
 
 
@@ -143,8 +146,7 @@ JobVacancy::App.helpers UsersHelper
 {% endhighlight %}
 
 
-You can still use the `foo` method everywhere in your views and controller. But now you've got a big plus. You can test
-it.
+You can still use the `foo` method everywhere in your views and controller. But now you've got a big plus. You can test it.
 
 
 ## Prepare the Spec
@@ -211,5 +213,5 @@ $ rspec spec/app/helpers
 {% endhighlight %}
 
 
-I'm quiet sure that there is a better way to write the spec. If you know a way, please let me know and I'll mark your
-idea as a reference to this post.
+I'm quiet sure that there is a better way to write the spec. If you know a way, please let me know.
+

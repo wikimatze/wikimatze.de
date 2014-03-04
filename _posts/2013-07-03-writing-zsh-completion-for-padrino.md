@@ -2,15 +2,13 @@
 layout: post
 title: Writing Zsh Completion for Padrino
 description: Writing your zsh completion function isn't difficult.
+update: 2014-02-23
+categories: ['padrino', 'zsh']
 ---
+
 {% include leanpub.html %}
 
-I'm a user of the [Z shell (zsh)](http://en.wikipedia.org/wiki/Z_shell). It is easy to customize your prompt and to have
-more abilities for tab completion of the most used programs with this shell. If you are lazy or new to a new command line
-tool with a huge amount of options, this will help you in the beginning to remember the commands.  When you use
-[git](http://en.wikipedia.org/wiki/Git_(software) you can press tab to see all available options you have in the
-current context. The same functions aren't available for [Padrino](http://www.padrinorb.com/) and this is how I came to
-this article.
+I'm a user of the [Z shell (zsh)](http://en.wikipedia.org/wiki/Z_shell). It is easy to customize your prompt and to have more abilities for tab completion of the most used programs with this shell. If you are lazy or new to a new command line tool with a huge amount of options, this will help you in the beginning to remember the commands.  When you use [git](http://en.wikipedia.org/wiki/Git_(software) you can press tab to see all available options you have in the current context. The same functions aren't available for [Padrino](http://www.padrinorb.com/) and this is how I came to this article.
 
 
 ## Start Small with Basic tmuxinator Completion
@@ -49,7 +47,6 @@ Let's implement the `hello-tmux` and `version` commands for the tmuxinator gem. 
 {% highlight bash %}
 
 #compdef tmuxinator
-
 _tmuxinator() {
   local -a commands
   commands=(
@@ -69,7 +66,7 @@ _tmuxinator
 {% endhighlight %}
 
 
-Now reload your shell with `exec zsh` and type in `$ tmuxinator <Tab>`. Voila, you've written you first
+Now reload your shell with `exec zsh` and type in `$ tmuxinator <Tab>`. Voilà, you've written you first
 autocompletion. I will explain part of the code in the next chapters in case you don't know each detail of the code.
 
 
@@ -81,17 +78,12 @@ First of all we need to specify the name of the command for which we want to hav
 {% highlight bash %}
 
 #compdef padrino
-
 typeset -A opt_args
 
 {% endhighlight %}
 
 
-Please note, that the first line must be comment with the `compdef` command followed by the name of the command. With
-the help of the `typeset` command we can set and display attributes and values for shell parameters. The `-A` options
-says, that names we pass into the autocomplete function refers to
-[associative array parameters](http://linux.die.net/man/1/zshparam). `opt_args` makes it possible to add command-line
-options like `-d` or `-f` for our associative array.
+Please note, that the first line must be comment with the `compdef` command followed by the name of the command. With the help of the `typeset` command we can set and display attributes and values for shell parameters. The `-A` options says, that names we pass into the autocomplete function refers to [associative array parameters](http://linux.die.net/man/1/zshparam). `opt_args` makes it possible to add command-line options like `-d` or `-f` for our associative array.
 
 
 Next, we are going to define the inputs of our function. We need this to be able to define states in order to get the
@@ -111,8 +103,8 @@ _arguments -C \
 
 The `_arguments` function is used to give a complete specification for a command whose arguments follow
 standard UNIX option and argument conventions.  `_arguments` returns status zero if it was able to add matches and
-non-zero otherwise. The option `-C` makes it possible to modify the `curcontext`. With the help of the
-`curcontext` parameter it is possible to keep track of the current context. This will be used later in our
+non-zero otherwise. The option `-C` makes it possible to modify the `curcontext` parameter. With the help of
+`curcontext` it is possible to keep track of the current context. This will be used later in our
 big state machine like case construct.
 
 
@@ -126,7 +118,7 @@ arguments when the action is evaluated.
 
 ## Padrino Generators
 
-Everything is set and we need to define Padrino's command for autocompletion. Basically, Padrino uses the `g` option to
+Everything is set and we need to define Padrino's command for autocompletion. Padrino uses the `g` option to
 specify the command for using a [generator](http://www.padrinorb.com/guides/generators). After we are in this context we
 can chose a generator like *controller, mailer, migration, model, plugin* or *project*. Depending which generator we
 take, we can use different, context specific arguments like `-a` for the *mailer* generator to create a mailer for the
@@ -167,14 +159,9 @@ return 1;
 Let's go through the parts:
 
 
-- `case "$state"`: The beginning of our state statement. The `$state` variable is used for tracking the current state we
-  are in.
-- `local commands`: Definition of a variable which is assigned as a list of strings for our completion function. After
-  the name of the command follows the explanation of the command.
-- `_describe -t`: The `describe` functions associates completions with description. All it does is taking our previously
-  defined commands as a list variable `commands` for zsh compsys function and return 0 to indicate that error occurs. The `-t`
-  option specify the tag we want to use we want to use in our describe function. In our case we are tagging the local
-  commands for the completions.
+- `case "$state"` - The beginning of our state statement. The `$state` variable is used for tracking the current state we are in.
+- `local commands` - Definition of a variable which is assigned as a list of strings for our completion function. After the name of the command follows the explanation of the command.
+- `_describe -t` - The `describe` functions associates completions with description. All it does is taking our previously defined commands as a list variable `commands` for zsh compsys function and return 0 to indicate that error occurs. The `-t` option specify the tag we want to use we want to use in our describe function. In our case we are tagging the local commands for the completions.
 
 
 Now we know that we are going to use a generator we need to find out which generator want to use in the completion.
@@ -221,7 +208,7 @@ return 1
 
 The code above follows nearly the same syntax as the `cmds` command before. The last thing we need to handle are the
 optional arguments for each generate state, as defined `*:: :->args` (imagine this thing as the default or else branch
-of your controll structure):
+of your control structure):
 
 
 {% highlight bash %}
@@ -284,18 +271,12 @@ return 1
 {% endhighlight %}
 
 
-If our second inline parameter `$line[2]` is `controller` then we have the `-d, -n`, and `-r` options. One the other
-hand if the second inline parameter is `mailer` the options `-a, -d, -n`, and `-r`. You can find the whole implementation
-code under [GitHub](https://github.com/matthias-guenther/padrino-zsh-completion).
+If our second inline parameter `$line[2]` is `controller` then we have the `-d, -n`, and `-r` options. One the other hand if the second inline parameter is `mailer` the options `-a, -d, -n`, and `-r` are available. You can find the whole implementation code under [GitHub](https://github.com/matthias-guenther/padrino-zsh-completion).
 
 
 ## Conclusion
 
-The benefit of writing funtion completions for zsh is that it is available on nearly every platform. All you need is
-to have the zsh installed on your machine - there are no other dependencies. Documentation about writing is available but
-there aren't many practical examples. Look and learn from other how used it and then experiment with it. After some
-time you'll get the smell how to do it. And please, if you are writing something complex, write a blog post about your
-completion function to help other getting into it.
+The benefit of writing function completions for zsh is that it is available on nearly every platform. All you need is to have the zsh installed on your machine - there are no other dependencies. Documentation about writing is available but there aren't many practical examples. Look and learn from other how used it and then experiment with it. After some time you'll get the smell how to do it. And please, if you are writing something complex, write a blog post about your completion function to help other getting into it.
 
 
 ## Further Reading

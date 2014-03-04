@@ -2,25 +2,25 @@
 layout: post
 title: Using Sprockets to Manage the Asset Pipeline in Padrino
 description: Learn how to use Sprockets in Padrino
+update: 2014-02-22
+categories: ['padrino', 'ruby', 'programming']
 ---
 {% include leanpub.html %}
 
 
 [Sprockets](https://github.com/sstephenson/sprockets) are a way to manage serving your assets like CSS, and JavaScript
 compiling all the different files in one summarized file for each type. They make it easy to take advantage to use a
-preprocessor to write your assests with [Sass](http://sass-lang.com/), [Coffesscript](http://coffeescript.org/), or
+preprocessor to write your assets with [Sass](http://sass-lang.com/), [Coffesscript](http://coffeescript.org/), or
 [LESS](http://lesscss.org/).
 
 
 To implement Sprockets in Padrino there the following strategies:
 
 
-- [rake-pipeline](https://github.com/livingsocial/rake-pipeline): Define filters that transforms directory trees.
-- [grunt](http://gruntjs.com/): Set a task to compile and manage assets in JavaScript.
-- [sinatra-assetpack](https://github.com/rstacruz/sinatra-assetpack): Let's you define you assets transparently in
-  Sinatra.
-- [padrino-sprockets](https://github.com/nightsailer/padrino-sprockets): Integrate sprockets with Padrino in the Rails
-  way.
+- [rake-pipeline](https://github.com/livingsocial/rake-pipeline) - Define filters that transforms directory trees.
+- [grunt](http://gruntjs.com/) - Set a task to compile and manage assets in JavaScript.
+- [sinatra-assetpack](https://github.com/rstacruz/sinatra-assetpack) - Let's you define you assets transparently in Sinatra.
+- [padrino-sprockets](https://github.com/nightsailer/padrino-sprockets) - Integrate sprockets with Padrino in the Rails way.
 
 
 ## Padrino Sprockets
@@ -28,7 +28,7 @@ To implement Sprockets in Padrino there the following strategies:
 First we will create a new Padrino app:
 
 
-{% highlight bash %}
+{% highlight sh %}
 
 $ padrino g project job-vacancy -d activerecord -t rspec -s jquery -e erb -a sqlite
 
@@ -77,6 +77,7 @@ end
 
 {% endhighlight %}
 
+
 Next we need to determine the order of the loaded CSS files:
 
 
@@ -100,7 +101,7 @@ Next we need to determine the order of the loaded CSS files:
 {% endhighlight %}
 
 
-First we are loading the `bootstrap` default css, then `bootstrap-response`, and finally our customized `site` CSS. The
+First we are loading the `bootstrap` default CSS, then `bootstrap-response`, and finally our customized `site` CSS. The
 `require_self` loads the file itself, to define the order that the files are loaded. This is helpful if you want to
 check the order of the loaded CSS as a comment above your application without ever have to look into the source of it.
 

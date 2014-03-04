@@ -23,17 +23,17 @@ title: Getting things done
   - (5) *do*
 - p 41: "Everything should be made as simple as possible, but not simple" - Albert Einstein
 - p 46: "The weekly review" is important to keep your mind clean :D
-- p 48: **Three models for making action choices** => I will just explain the two of them because
+- p 48: **Three models for making action choices** => I will explain the two of them because
   the third has no benefits for me
-  - 1. The Four-Criteria Model for Choosing Actions in the moment
-    - 1. Context
-    - 2. Time available
-    - 3. Energy available
-    - 4. Priority
-  - 2. **Threefold model for evaliating daily work**
-    - 1. Doing predefined work
-    - 2. Doing work as it shows up
-    - 3. Defining your work
+  -  The Four-Criteria Model for Choosing Actions in the moment
+      - Context
+      - Time available
+      - Energy available
+      - Priority
+  - **Threefold model for evaluating daily work**
+    - Doing predefined work
+    - Doing work as it shows up
+    - Defining your work
 - p 56: **natural planning model**
   - a) Defining principles (what are the standards and value, after which your handling) and
     principles (get answers to the ‘why' questions. Benefits: it motivates; it clarifies focus, it

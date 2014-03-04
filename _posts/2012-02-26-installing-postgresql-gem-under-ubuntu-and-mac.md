@@ -1,27 +1,28 @@
 ---
 layout: post
 title: Installing PostgreSQL gem under Ubuntu and Mac
-description: Guide how to install PostgreSQL under Ubuntu and Mac
+description: Guide how to install PostgreSQL under Ubuntu and Mac.
+update: 2014-02-20
 categories: ['howto']
 ---
 
 *This article describes how to install the postgresql gem (called 'pg') under your local machine.  The installation
-process is not trivial because you need to install the right packages: For Ubuntu/Linux you only need to install the
-right packages and for Mac you need to specify the correct path.*
+process is not trivial because you need to install the right packages under Ubuntu/Linux or set the specify the correct
+path for Mac.*
 
 
-I checked out a new rails app called [Broken lifts](http://www.rhok.org/node/20654). Broken lifts in public
+I checked out a new rails app called [Brokenlifts](https://github.com/sozialhelden/brokenlift). Brokenlifts in public
 transportation are annoying and limit the mobility of people in wheelchairs. The app provides status information from
 different operators on one page and shows how well they are performing.
 
 
 Ones I checked out the project I have detected that it uses [PostgreSQL](http://www.rhok.org/node/20654) as their
-database driver.  So far I have never worked with it and I run into a couple of problems to get it running.
+database driver. I have never worked with it and I run into a couple of problems to get it running.
 
 
 ## The problem
 
-A small `$gem install pg` brought me the following error message:
+A `$ gem install pg` brought me the following error message:
 
 
 {% highlight bash %}
@@ -99,12 +100,12 @@ Ruby can't find the relevant setting of the PostgreSQL installation. Let's chang
   installed
 
 
-Say you want to install the PostgreSQL manually with a `gem install` - you have to perform the following command
+Say you want to install the PostgreSQL manually with a `gem install` - you have to perform the following command:
 
 
 {% highlight bash %}
 
-$ sudo PATH=$PATH:/Library/PostgreSQL/9.1/bin gem install pg
+$ sudo PATH=$PATH:/Library/PostgreSQL/x.y/bin gem install pg
 
 {% endhighlight %}
 
@@ -114,12 +115,12 @@ If you want to install it with [Bundle](http://gembundler.com/), run the followi
 
 {% highlight bash %}
 
-$ sudo PATH=$PATH:/Library/PostgreSQL/9.1/bin bundle install
+$ sudo PATH=$PATH:/Library/PostgreSQL/x.y/bin bundle install
 
 {% endhighlight %}
 
 
-Please change the **9.1** with the version you have installed. Thats it!
+Please change the **x.y** with the version you have installed. Thats it!
 
 
 ## Solution for Ubuntu/Linux

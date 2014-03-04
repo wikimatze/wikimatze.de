@@ -2,6 +2,7 @@
 layout: post
 title: Speaking at Ruby Midwest 2013
 description: Giving my first talk on a tech conference
+update: 2014-02-22
 categories: ['talk']
 ---
 
@@ -15,5 +16,5 @@ talk at a conference.
 
 [Ruby Midwest 2013](http://www.rubymidwest.com/) will be held in [Kansas City](http://www.kansascity.com/), 5th and 6th
 of April. [Michael Feather](http://www.twitter.com/mfeathers) and [James Edward Grey II](http://www.twitter.com/JEG2) are giving keynotes and I will receive the opportunity to meet them.
- If you attent the conference as well, let us get in touch.
+ If you attend the conference as well, let us get in touch.
 
