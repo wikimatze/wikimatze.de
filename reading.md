@@ -1,6 +1,6 @@
 ---
 layout: layout
-title: Recently read
+title: Recently Read
 meta-description: Listing recently read books with my notes.
 ---
 

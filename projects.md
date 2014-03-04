@@ -1,10 +1,10 @@
 ---
 layout: layout
 title: Projects
-meta-description: List of Open Source projects created by Matthias Günther
+meta-description: List of Open Source projects created by Matthias Günther.
 ---
 
-## sweetie (ruby gem)
+## Sweetie (Ruby Gem)
 
 <section class="lastupdate">
   Last update {{ site.sweetie }}
@@ -12,13 +12,12 @@ meta-description: List of Open Source projects created by Matthias Günther
 
 <div class="clearfix"></div>
 
-[Sweetie](https://rubygems.org/gems/sweetie) - Counts the links, images, number of html pages, and
-last-build time of a [jekyll project](http://jekyllrb.com)
+[Sweetie](https://rubygems.org/gems/sweetie) - Counts the links, images, number of html pages, and last-build time of a [jekyll project](http://jekyllrb.com).
 
-- **Source:** [source sweetie](https://github.com/matthias-guenther/sweetie)
+- **Source:** [sweetie](https://github.com/matthias-guenther/sweetie)
 
 
-## zimki (ruby gem)
+## Zimki (Ruby Gem)
 
 <section class="lastupdate">
   Last update {{ site.zimki }}
@@ -26,22 +25,20 @@ last-build time of a [jekyll project](http://jekyllrb.com)
 
 <div class="clearfix"></div>
 
-[Zimki](https://rubygems.org/gems/zimki) - Converts file written in the zim Desktop Wiki format and
-converts them to textile.
+[Zimki](https://rubygems.org/gems/zimki) - Converts file written in the zim Desktop Wiki format and converts them to textile.
 
-- **Source:** [source zimki](https://github.com/matthias-guenther/zimki)
-
-
-## Tocdown (vim plugin)
-
-[Tocdown](http://www.vim.org/scripts/script.php?script_id=3856) - Display the headlines of
-a markdown document in an extra window.
-
-- **Source:** [source tocdown](https://github.com/matthias-guenther/tocdown)
-- **Screencast** [screencast about tocdown](http://www.screenr.com/zvos)
+- **Source:** [zimki](https://github.com/matthias-guenther/zimki)
 
 
-## Dropcaps (pmwiki plugin)
+## Tocdown (Vim Plugin)
+
+[Tocdown](http://www.vim.org/scripts/script.php?script_id=3856) - Display the headlines of a markdown document in an extra window.
+
+- **Source:** [tocdown](https://github.com/matthias-guenther/tocdown)
+- **Screencast** [tocdown](http://www.screenr.com/zvos)
+
+
+## Dropcaps (Pmwiki Plugin)
 
 <section class="lastupdate">
   Last update {{ site.pmwiki-dropcaps-recipe }}
@@ -49,13 +46,12 @@ a markdown document in an extra window.
 
 <div class="clearfix"></div>
 
-[Dropcaps](http://www.pmwiki.org/wiki/Cookbook/Dropcaps) - Make the first letter of a
-text big.
+[Dropcaps](http://www.pmwiki.org/wiki/Cookbook/Dropcaps) - Make the first letter of a text big.
 
-- **Demo:** [demo link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.DropCaps)
+- **Demo:** [link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.DropCaps)
 
 
-## Headlineimage (pmwiki plugin)
+## Headlineimage (Pmwiki Plugin)
 
 <section class="lastupdate">
   Last update {{ site.pmwiki-headlineimage-recipe }}
@@ -65,13 +61,12 @@ text big.
 
 <a href="http://farm8.staticflickr.com/7213/7284689512_f855d570b6.jpg" title="Headline recipe for pmwiki" class="fancybox"><img src="http://farm8.staticflickr.com/7213/7284689512_f855d570b6_n.jpg" class="center" alt="Headline recipe for pmwiki"/></a>
 
-[Headlineimage](http://www.pmwiki.org/wiki/Cookbook/HeadlineImage) - Display the
-title-attribute of an image directly on the image.
+[Headlineimage](http://www.pmwiki.org/wiki/Cookbook/HeadlineImage) - Display the title-attribute of an image directly on the image.
 
-- **Demo:** [demo link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.Headlineimage)
+- **Demo:** [link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.Headlineimage)
 
 
-## Syntaxlove (pmwiki plugin)
+## Syntaxlove (Pmwiki Plugin)
 
 <section class="lastupdate">
   Last update {{ site.pmwiki-syntaxlove-recipe }}
@@ -81,16 +76,12 @@ title-attribute of an image directly on the image.
 
 <a href="http://farm9.staticflickr.com/8005/7284689280_87ac2f7271_b.jpg" title="Syntaxlove recipe for pmwiki" class="fancybox"><img src="http://farm9.staticflickr.com/8005/7284689280_87ac2f7271_z.jpg" class="center" alt="Syntaxlove recipe for pmwiki"/></a>
 
-[Syntaxlove](http://www.pmwiki.org/wiki/Cookbook/Syntaxlove) -
-[Alex Gorbatchev](http://alexgorbatchev.com/SyntaxHighlighter) has written a wonderful JavaScript
-for syntax highlighting. This technique is used by many blogs out there and I converted it for
-pmwiki. By clicking on the source code on a page you can load them for printing or just copy it in
-the cache.
+[Syntaxlove](http://www.pmwiki.org/wiki/Cookbook/Syntaxlove) - [Alex Gorbatchev](http://alexgorbatchev.com/SyntaxHighlighter) has written a wonderful JavaScript for syntax highlighting. This technique is used by many blogs out there and I converted it for pmwiki. By clicking on the source code on a page you can load them for printing or copy it in the cache.
 
-- **Demo:** [demo link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.Syntaxlove)
+- **Demo:** [link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.Syntaxlove)
 
 
-## Twitter (pmwiki plugin)
+## Twitter (Pmwiki Plugin)
 
 <section class="lastupdate">
   Last update {{ site.pmwiki-twitter-recipe }}
@@ -103,7 +94,7 @@ the cache.
 [Twitter](http://www.pmwiki.org/wiki/Cookbook/Twitter) - Display "Tweets" and "Twipics" on the
 website.
 
-- **Demo:** [demo link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.Twitter)
+- **Demo:** [link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.Twitter)
 
 
 ### Linkicons
@@ -121,10 +112,10 @@ link, corresponding symbols are added at the end of the text of the links.  This
 identification the relevant links. The images are all from in this recipe are from
 [famfam](http://www.famfamfam.com).
 
-- **Demo:** [demo link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.Linkicons)
+- **Demo:** [link](http://pmwiki.wikimatze.de/pmwiki-2.2.5/pmwiki.php?n=Main.Linkicons)
 
 
-## Clockwise-Consulting (Webdesign and implementation)
+## Clockwise-Consulting (Webdesign And Implementation)
 
 <a href="http://farm8.staticflickr.com/7240/7284690144_abb5849b80_b.jpg" title="Website of clockwise-consulting" class="fancybox"><img src="http://farm8.staticflickr.com/7240/7284690144_abb5849b80_z.jpg" class="center" alt="Website of clockwise-consulting"/></a>
 
@@ -136,12 +127,12 @@ website.
 - [clockwise-consulting](http://www.clockwise-consulting.de)
 
 
-## Campusradio Jena (Webdesign and implementation)
+## Campusradio Jena (Webdesign And Implementation)
 
 <a href="http://farm9.staticflickr.com/8166/7284688770_746fe6c8ab_b.jpg" title="Website of Campusradio Jena" class="fancybox"><img src="http://farm9.staticflickr.com/8166/7284688770_746fe6c8ab_z.jpg" class="center" alt="Website of Campusradio Jena"/></a>
 
-Campusradio Jena was incapacitated due to an update of their hosting company for two months (September till October
-2009). The requirements were:
+Campusradio Jena was incapacitated due to an update of their hosting company for two months (September till October 2009). The requirements were:
+
 
 - Podcast
 - Media Player for Radiostream (without loading additional plugins)
@@ -162,10 +153,10 @@ After several hours of training with the editors of campusradio Jena, the websit
 - **Link:** [campusradio-jena](http://www.campusradio-jena.de)
 - Implemented 2009 [pmwiki](http://www.pmwiki.org), [blueprintcss](http://blueprintcss.org) and technical adviser since
   2011
-- **Current status:** The site was replaced with wordpress in August 2011.
+- **Current status:** The site was replaced with Wordpress in August 2011.
 
 
-### Computer Science Student Representatives of Jena (Webdesign and implementation)
+### Computer Science Student Representatives Of Jena (Webdesign And Implementation)
 
 <a href="http://farm8.staticflickr.com/7104/7284689428_2157086f0e_b.jpg" title="Website of Computer Science Jena" class="fancybox"><img src="http://farm8.staticflickr.com/7104/7284689428_2157086f0e_z.jpg" class="center" alt="Website of Computer Science Jena"/></a>
 
@@ -181,10 +172,9 @@ but also from editors of news - the wiki engine pmwiki was used.
 - **Current status:** The site was replaced with wordpress in April 2011
 
 
-## Logo for Department Evenings 2009/2010 of Computer Science at FSU Student Council
+## Logo for Department Evenings 2009/2010 Of Computer Science At FSU Student Council
 
 <a href="http://farm9.staticflickr.com/8002/7284689342_e600775b9a_z.jpg" title="Department Evenings 2009/2010 of computer science at FSU Student Council" class="fancybox"><img src="http://farm9.staticflickr.com/8002/7284689342_e600775b9a_z.jpg" class="center" alt="Department Evenings 2009/2010 of computer science at FSU Student Council"/></a>
 
-The logo appeared on all events and was only changed according to the various themes of this event. The image was
-created with [inkscape](http://www.inkscape.org).
+The logo appeared on all events and was only changed according to the various themes of this event. The image was created with [inkscape](http://www.inkscape.org).
 

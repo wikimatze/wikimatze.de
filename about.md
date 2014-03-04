@@ -9,7 +9,7 @@ title: About Matthias
 I'm writing about things that arouse my interest like [Ruby](http://www.ruby-lang.org/en/), [Vim](http://www.vim.org/),
 [Padrino](http://www.padrinorb.com/), and [Linux](http://www.linux.org/).  I also like playing with
 new technologies like [Pomodoro](http://www.pomodorotechnique.com/ "Pomodoro"). Besides, it's my
-passion to marvelous pictures with [Canon EOS 1100](http://www.flickr.com/photos/wikimatze/ "Canon").
+passion to take marvelous pictures with [Canon EOS 1100](http://www.flickr.com/photos/wikimatze/ "Canon").
 
 
 I love Open Source ([GitHub](https://github.com/matthias-guenther/ "GitHub"),
@@ -21,10 +21,9 @@ I love Open Source ([GitHub](https://github.com/matthias-guenther/ "GitHub"),
 Under [books](/reading.html "books") you can find the latest stuff I'm reading.
 
 
-## Painting figures
+## Painting Figures
 
-Since my early early childhood I fall in love with painting small figures. I spend endless hours with painting them and
-still have so much fun developing new skills and techniques for painting them. See the following examples:
+Since my early childhood I have fallen in love with painting small figures. I have spent endless hours with painting them and still have much fun developing new skills and techniques for painting them. Take a look at the following examples:
 
 
 <a href="http://farm6.static.flickr.com/5284/5354844860_983e94aeb7_b.jpg" title="Dwarf Commando" class="fancybox"><img class="big center" src="http://farm6.staticflickr.com/5284/5354844860_983e94aeb7_z.jpg" /></a>
@@ -41,10 +40,7 @@ still have so much fun developing new skills and techniques for painting them. S
 More of them can be found on [flickr account](http://www.flickr.com/search/?q=warhammer+wikimatze&z=e "flickr wikimatze").
 
 
-## Follow me
-
-Like nearly everyone today, I'm active in various social networking sites. There are some to spend only a few seconds
-and other which have longer (some lifetime) appeal for your patience. Here is a list where you can find me:
+## Follow Me
 
 - [Bitbucket](https://bitbucket.org/wikimatze)
 - [flickr](http://www.flickr.com/photos/wikimatze)
@@ -58,7 +54,6 @@ and other which have longer (some lifetime) appeal for your patience. Here is a 
 - [SpeakerRate](http://speakerrate.com/speakers/121601)
 - [twitter (@wikimatze)](http://twitter.com/wikimatze)
 - [tumblr](http://wikimatze.tumblr.com/)
+- [xing](http://www.xing.com/profile/Matthias_Guenther31)
 - [vimeo](http://vimeo.com/wikimatze)
-
-If we know each in personal, we can connect each other on [xing](http://www.xing.com/profile/Matthias_Guenther31).
 

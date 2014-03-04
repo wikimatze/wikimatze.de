@@ -8,12 +8,12 @@ description: Writings, and talks by {{ site.name }}. Günther works at MyHammer,
 I'm currently writing a book about the web framework [Padrino](http://www.padrinorb.com/).  You can learn more about the book under [padrinobook.com](http://padrinobook.com).
 
 
-### Recent commits
+### Recent Commits
 
 <div id="github-commits"></div>
 
 
-### Recent articles
+### Recent Articles
 
 <div class="related">
   <ul>
