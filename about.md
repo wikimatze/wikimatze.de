@@ -56,4 +56,5 @@ More of them can be found on [flickr account](http://www.flickr.com/search/?q=wa
 - [tumblr](http://wikimatze.tumblr.com/)
 - [xing](http://www.xing.com/profile/Matthias_Guenther31)
 - [vimeo](http://vimeo.com/wikimatze)
+- [coderbits](https://coderbits.com/wikimatze)
 
