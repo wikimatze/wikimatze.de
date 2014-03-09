@@ -1,7 +1,7 @@
 require 'rake'
 require 'colorator'
 
-posts_dir = '_posts'
+posts_dir = '_drafts'
 
 def say(text, color=:magenta)
   n = { :bold => 1, :red => 31, :green => 32, :yellow => 33, :blue => 34, :magenta => 35 }.fetch(color, 0)
@@ -12,16 +12,14 @@ desc "New post in #{posts_dir}"
 task :p do
   require 'fileutils'
   require 'stringex'
-  require './_plugins/titlecase.rb'
 
   say "What should we call this post for now?"
   name = STDIN.gets.chomp
 
   date = Time.now.to_s.split(" ").first
 
-  mkdir_p "#{posts_dir}"
-  title = "#{name.gsub(/&/,'&amp;').titlecase}"
-  filename = "_posts/#{date}-#{name.to_url}.md"
+  title = "#{name.gsub(/&/,'&amp;')}"
+  filename = "#{posts_dir}/#{date}-#{name.to_url}.md"
   say "Created new post: #{filename}", :green
 
   post_content = <<-MARKDOWN
