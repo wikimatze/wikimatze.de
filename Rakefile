@@ -3,24 +3,19 @@ require 'colorator'
 
 posts_dir = '_drafts'
 
-def say(text, color=:magenta)
-  n = { :bold => 1, :red => 31, :green => 32, :yellow => 33, :blue => 34, :magenta => 35 }.fetch(color, 0)
-  puts "\e[%dm%s\e[0m" % [n, text]
-end
-
 desc "New post in #{posts_dir}"
 task :p do
   require 'fileutils'
   require 'stringex'
 
-  say "What should we call this post for now?"
+  puts "What should we call this post for now?".bold.magenta
   name = STDIN.gets.chomp
 
   date = Time.now.to_s.split(" ").first
 
   title = "#{name.gsub(/&/,'&amp;')}"
   filename = "#{posts_dir}/#{date}-#{name.to_url}.md"
-  say "Created new post: #{filename}", :green
+  puts "Created new post: #{filename}".bold.green
 
   post_content = <<-MARKDOWN
 ---
@@ -43,28 +38,28 @@ end
 
 desc 'Staging'
 task :staging do
-  say '# building the site ..', :green
-  say '# deploying the site ..', :green
+  puts '# building the site ..'.green
+  puts '# deploying the site ..'.green
 
   system "rsync -vru -e \"ssh\" --del ?site/* xa6195@xa6.serverdomain.org:/home/www/iso25/"
-  say '# Please refer to http://iso25.wikimatze.de to visit the staging system', :green
+  puts '# Please refer to http://iso25.wikimatze.de to visit the staging system'.green
 end
 
 desc 'Deploy'
 task :d => [:generate] do
   require 'sweetie'
 
-  say '1. Sweetie - time to update stats ..', :green
+  puts '1. Sweetie - time to update stats ..'.green
   Sweetie::Conversion.conversion
   Sweetie::Bitbucket.bitbucket("wikimatze")
 
-  say '2. Building jekyll ..', :green
+  puts '2. Building jekyll ..'.green
   system 'jekyll build'
 
-  say '3. Deploying site with lovely rsync ..', :green
+  puts '3. Deploying site with lovely rsync ..'.green
   system "rsync -vru -e \"ssh\" --del ?site/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
 
-  say '4. Done!', :green
+  puts '4. Done!'.green
 end
 
 desc 'Startup Jekyll'
@@ -77,7 +72,7 @@ end
 # Credit for this goes to https://gist.github.com/alexyoung/143571
 desc 'Create tag page'
 task :generate do
-  say 'Generating tags...', :green
+  puts 'Generating tags...'.green
   require 'rubygems'
   require 'jekyll'
   include Jekyll::Filters
