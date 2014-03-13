@@ -5,8 +5,10 @@ description: Learn how to use Sprockets in Padrino
 update: 2014-02-22
 categories: ['padrino', 'ruby', 'programming']
 ---
+
 {% include leanpub.html %}
 
+{% include newsletter.html %}
 
 [Sprockets](https://github.com/sstephenson/sprockets) are a way to manage serving your assets like CSS, and JavaScript
 compiling all the different files in one summarized file for each type. They make it easy to take advantage to use a
@@ -179,4 +181,6 @@ module JobVacancy
 end
 
 {% endhighlight %}
+
+{% include newsletter.html %}
 

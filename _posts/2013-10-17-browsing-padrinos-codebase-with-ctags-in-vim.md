@@ -8,6 +8,7 @@ categories: ['padrino', 'vim']
 
 {% include leanpub.html %}
 
+{% include newsletter.html %}
 
 Working effectively with ctags has been a topic I avoided for a long time because I was too lazy to invest the time to learn about it.
 
@@ -368,4 +369,6 @@ if the Ctrlp doesn't provide you enough hits, please use `:tselect`.
 - [Good introduction](http://blog.stwrt.ca/2012/10/31/vim-ctags)
 - [Specialize ctags for ruby](http://andrewradev.com/2011/06/08/vim-and-ctags/)
 - [Browsing programs with tags](http://vim.wikia.com/wiki/Browsing_programs_with_tags)
+
+{% include newsletter.html %}
 

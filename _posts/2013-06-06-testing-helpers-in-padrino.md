@@ -8,6 +8,8 @@ categories: ['padrino', 'ruby', 'programming']
 
 {% include leanpub.html %}
 
+{% include newsletter.html %}
+
 I always was wondering how to test helpers in Padrino and to be honest I postponed this problem for a long time. But
 this morning I reached the point in my book where I was writing helper with many methods without testing them. When
 something like this happened you have stop going and spend time to solve this problem.
@@ -214,4 +216,6 @@ $ rspec spec/app/helpers
 
 
 I'm quiet sure that there is a better way to write the spec. If you know a way, please let me know.
+
+{% include newsletter.html %}
 

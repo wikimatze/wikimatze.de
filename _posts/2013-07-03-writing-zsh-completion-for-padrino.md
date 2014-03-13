@@ -8,6 +8,9 @@ categories: ['padrino', 'zsh']
 
 {% include leanpub.html %}
 
+{% include newsletter.html %}
+
+
 I'm a user of the [Z shell (zsh)](http://en.wikipedia.org/wiki/Z_shell). It is easy to customize your prompt and to have more abilities for tab completion of the most used programs with this shell. If you are lazy or new to a new command line tool with a huge amount of options, this will help you in the beginning to remember the commands.  When you use [git](http://en.wikipedia.org/wiki/Git_(software) you can press tab to see all available options you have in the current context. The same functions aren't available for [Padrino](http://www.padrinorb.com/) and this is how I came to this article.
 
 
@@ -286,3 +289,4 @@ The benefit of writing function completions for zsh is that it is available on n
 - [zsh-completion repositories on GitHub](https://github.com/zsh-users/zsh-completions)
 - [padrino zsh completion on GitHub](https://github.com/matthias-guenther/padrino-zsh-completion)
 
+{% include newsletter.html %}
