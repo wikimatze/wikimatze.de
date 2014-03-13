@@ -33,7 +33,7 @@ p {
 
 ol ol { margin: 4px 0 5px 30px; }
 
-a {
+a, a.newsletter {
   color: #0048a2;
 }
 
@@ -150,6 +150,7 @@ a.fancybox {
   margin: 20px -30px -45px -30px;
   text-align: center;
 }
+
 .style .color, .style .typeface {
   width: 100px;
   display: inline-block;
@@ -158,6 +159,7 @@ a.fancybox {
   box-shadow: 0 0 3px #ccc;
   border-radius: 3px;
 }
+
 .style .typeface b {
   background-color: #fbfbfb;
   display: block;
