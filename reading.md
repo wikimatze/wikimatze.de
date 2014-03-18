@@ -25,6 +25,7 @@ meta-description: Listing recently read books with my notes.
   by Dale Carnegie [(own notes)](/books/the-quick-and-easy-way-to-effective-speaking.html)
 - [Working Effectively with Legacy Code](http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052)
   by Michael Feathers [(own notes)](/books/working-effectively-with-legacy-code.html)
+- [The Linux Command Line](http://gd.tuwien.ac.at/linuxcommand.org/tlcl.php) by William Shotts
 
 
 ## 2012
