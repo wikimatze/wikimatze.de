@@ -60,9 +60,6 @@ a:hover {
 }
 
 img {
-  -moz-border-radius: 1em;
-  -webkit-border-radius: 1em;
-  border-radius: 1em;
   -moz-box-shadow: 4px 4px 36px #282b1f;
   -webkit-box-shadow: 4px 4px 36px #282b1f;
   box-shadow: 4px 4px 36px #282b1f;
