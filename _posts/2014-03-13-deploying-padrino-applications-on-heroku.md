@@ -2,7 +2,7 @@
 layout: post
 title: Deploying Padrino Applications On Heroku
 description: Beside writing an application it is very important to know how you can deploy it
-categories: ['padrino', 'zsh']
+categories: ['padrino', 'ruby']
 ---
 
 {% include leanpub.html %}
@@ -12,7 +12,7 @@ categories: ['padrino', 'zsh']
 I was always asking myself how I can use cloud services like [heroku](http://www.heroku.com/) to deploy Padrino applications without having an own server.
 
 
-In this post I'm going to show you how you can a simple "Hello Padrino" app on heroku.ones without and ones with
+In this post I'm going to show you how you can a simple "Hello Padrino" app on heroku - ones without and ones with
 database interactions.
 
 

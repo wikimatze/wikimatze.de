@@ -2,7 +2,7 @@
 layout: post
 title: Using Sprockets to Manage the Asset Pipeline in Padrino
 description: Learn how to use Sprockets in Padrino
-update: 2014-02-22
+update: 2014-03-14
 categories: ['padrino', 'ruby', 'programming']
 ---
 
@@ -55,9 +55,9 @@ Next we need to move all our assets from the public folder in the assets folder:
 
 $ cd <path-to-your-padrino-app>
 $ mkdir -p app/assets
-$ mv app/public/javascript app/assets
-$ mv app/public/stylesheets app/assets
-$ mv app/public/images app/assets
+$ mv public/javascript app/assets
+$ mv public/stylesheets app/assets
+$ mv public/images app/assets
 
 {% endhighlight %}
 
@@ -135,7 +135,7 @@ Now, we can clean up the include statements in our application template:
 
 {% highlight html %}
 
-# app/views/application.erb
+# app/views/layouts/application.erb
 
 <!DOCTYPE html>
 <html lang="en-US">
