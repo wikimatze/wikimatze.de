@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'fileutils'   , '0.7'
 gem 'highline'    , '1.6.20'
-gem 'jekyll'      , '1.4.3'
+gem 'jekyll'      , '1.5.0'
 gem 'liquid'      , '2.5.5'
 gem 'pygments.rb' , '0.5.4'
 gem 'rake'        , '10.1.0'

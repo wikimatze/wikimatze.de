@@ -114,4 +114,4 @@ title: Tags
   puts 'Done.'
 end
 
-task :default => :start
+task :default => :s
