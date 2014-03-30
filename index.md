@@ -1,5 +1,5 @@
 ---
-layout: layout
+layout: default
 description: Writings, and talks by {{ site.name }}. Günther works at MyHammer, loves painting Warhammer figures, writing, giving talks, and enjoys making cakes.
 ---
 

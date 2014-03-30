@@ -1,5 +1,5 @@
 ---
-layout: layout
+layout: default
 title: Buffer, quickfix windows, :Ack - does this work together?
 meta-description: Buffer, quickfix windows, :Ack - does this work together? was held by Matthias Günther on the 2nd vimberlin meetup
 ---

@@ -62,7 +62,7 @@ Other files can put on the root directory like an `atom.xml` file (for RSS feed)
 {% highlight html %}
 
 ---
-layout: layout
+layout: default
 ---
 <article>
   <header>

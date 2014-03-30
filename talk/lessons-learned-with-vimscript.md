@@ -1,5 +1,5 @@
 ---
-layout: layout
+layout: default
 title: Lessons learned with Vimscript
 meta-description: Lessons learned with Vimscript was held by Matthias Günther on the vimberlin meetup in March, 2012.
 ---
