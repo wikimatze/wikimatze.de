@@ -69,9 +69,11 @@ task :minify do
   gumby = CSSminify.compress(File.open('css/gumby.css'))
   style = CSSminify.compress(File.open('css/style.css'))
   pygments = CSSminify.compress(File.open('css/pygments.css'))
+  fancybox_buttons = CSSminify.compress(File.open('js/fancybox/source/helpers/jquery.fancybox-buttons.css'))
+  fancybox_thumbs = CSSminify.compress(File.open('js/fancybox/source/helpers/jquery.fancybox-thumbs.css'))
 
   File.open('css/application.css', 'w') do |file|
-    file.write(gumby << style << pygments)
+    file.write(gumby << style << pygments << fancybox_buttons << fancybox_thumbs)
   end
 
   puts 'Done ..'.green
