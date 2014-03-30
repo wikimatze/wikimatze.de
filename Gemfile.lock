@@ -7,6 +7,7 @@ GEM
     colorator (0.1)
     commander (4.1.6)
       highline (~> 1.6.11)
+    cssminify (1.0.2)
     fast-stemmer (1.0.2)
     ffi (1.9.3)
     fileutils (0.7)
@@ -62,6 +63,7 @@ PLATFORMS
 
 DEPENDENCIES
   colorator (= 0.1.0)
+  cssminify (= 1.0.2)
   fileutils (= 0.7)
   highline (= 1.6.20)
   jekyll (= 1.5.0)

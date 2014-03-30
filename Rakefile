@@ -21,7 +21,6 @@ task :p do
 ---
 layout: post
 title: TITLE
-description:
 ---
 
 
@@ -46,7 +45,7 @@ task :staging do
 end
 
 desc 'Deploy'
-task :d => [:generate] do
+task :d => [:generate, :minify] do
   require 'sweetie'
 
   puts '1. Sweetie - time to update stats ..'.green
@@ -60,6 +59,22 @@ task :d => [:generate] do
   system "rsync -vru -e \"ssh\" --del ?site/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
 
   puts '4. Done!'.green
+end
+
+desc 'Minify css'
+task :minify do
+  puts 'Minify css and merge it into one file ..'.yellow
+  require 'cssminify'
+
+  gumby = CSSminify.compress(File.open('css/gumby.css'))
+  style = CSSminify.compress(File.open('css/style.css'))
+  pygments = CSSminify.compress(File.open('css/pygments.css'))
+
+  File.open('css/application.css', 'w') do |file|
+    file.write(gumby << style << pygments)
+  end
+
+  puts 'Done ..'.green
 end
 
 desc 'Startup Jekyll'
@@ -83,7 +98,7 @@ task :generate do
 
   html =<<-HTML
 ---
-layout: layout
+layout: default
 title: Tags
 ---
 
