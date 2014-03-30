@@ -351,9 +351,9 @@ Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
 # Rewrite "www.example.com -> example.com".
 
 <IfModule mod_rewrite.c>
-  RewriteCond %{HTTPS} !=on
-  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-  RewriteRule ^(.*)\.html$ $1 [R=301,L]
+  RewriteEngine on
+  RewriteCond %{HTTP_HOST} ^www.wikimatze.de$ [NC]
+  RewriteRule ^(.*)$ http://wikimatze.de/$1 [R=301,L]
 </IfModule>
 
 # ----------------------------------------------------------------------
