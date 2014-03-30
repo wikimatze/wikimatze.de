@@ -351,9 +351,22 @@ Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
 # Rewrite "www.example.com -> example.com".
 
 <IfModule mod_rewrite.c>
-  RewriteEngine on
-  RewriteCond %{HTTP_HOST} ^www.wikimatze.de$ [NC]
+  RewriteEngine On
+
+  # www.wikimatze.de -> wikimatze.de => prevent duplicate content
+  RewriteCond %{HTTP_HOST} ^www.wikimatze\.de$ [NC]
   RewriteRule ^(.*)$ http://wikimatze.de/$1 [R=301,L]
+
+  # Remove all *.html ending to have a better URL structure
+  RewriteCond %{SCRIPT_FILENAME}/ -d
+  RewriteCond %{SCRIPT_FILENAME}.html !-f
+  RewriteRule [^/]$ %{REQUEST_URI}/ [R=301,L]
+
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
+  RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+  RewriteCond %{SCRIPT_FILENAME}.html -f
+  RewriteRule [^/]$ %{REQUEST_URI}.html [QSA,L]
 </IfModule>
 
 # ----------------------------------------------------------------------
