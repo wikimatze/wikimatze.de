@@ -15,7 +15,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <link rel="stylesheet" href="/css/application.css" media="screen, projection">
   <link href="http://feeds.feedburner.com/guenther" rel="alternate" type="application/rss+xml" title="RSS feed of Matthias Günther">
-  <script src="/js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
   <div class="navbar row" id="nav2">
@@ -77,81 +76,10 @@
     </nav>
   </footer>
 
-  <!-- Grab Google CDN's jQuery, fall back to local if offline -->
-  <!-- 2.0 for modern browsers, 1.10 for .oldie -->
-  <script>
-  var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/\soldie\s/g));
-  if(!oldieCheck) {
-    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
-  } else {
-    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
-  }
-  </script>
-  <script>
-  if(!window.jQuery) {
-    if(!oldieCheck) {
-      document.write('<script src="/js/libs/jquery-2.0.2.min.js"><\/script>');
-    } else {
-      document.write('<script src="/js/libs/jquery-1.10.1.min.js"><\/script>');
-    }
-  }
-  </script>
-
-  <script src="/js/github-commits-widget.js"></script>
-
-  <script>
-$(function() {
-    $('#github-commits').githubInfoWidget(
-      { user: 'matthias-guenther', repo: 'padrinobook', branch: 'master', last: 5, limitMessageTo: 30 });
-    });
-  </script>
-
-  <!--
-  Include gumby.js followed by UI modules followed by gumby.init.js
-  Or concatenate and minify into a single file -->
-  <script gumby-touch="/js/libs" src="js/libs/gumby.js"></script>
-  <script src="/js/libs/ui/gumby.toggleswitch.js"></script>
-  <!--
-  <script src="/js/libs/ui/gumby.retina.js"></script>
-  <script src="/js/libs/ui/gumby.fixed.js"></script>
-  <script src="/js/libs/ui/gumby.skiplink.js"></script>
-  <script src="/js/libs/ui/gumby.checkbox.js"></script>
-  <script src="/js/libs/ui/gumby.radiobtn.js"></script>
-  <script src="/js/libs/ui/gumby.tabs.js"></script>
-  <script src="/js/libs/ui/gumby.navbar.js"></script>
-  <script src="/js/libs/ui/jquery.validation.js"></script>
-  -->
-  <script src="/js/libs/gumby.init.js"></script>
+  <script src="/js/application.js"></script>
 
   <!-- Add fancyBox -->
   <link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
-
-  <!-- Optionally add helpers - button, thumbnail and/or media -->
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
-
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-        $(".fancybox").fancybox(
-          {
-          wrapCSS    : 'fancybox-custom',
-          closeClick : true,
-
-          helpers : {
-            title : {
-              type : 'inside'
-            },
-            overlay : {
-              css : {
-                'background-color' : '#eee'
-              }
-            }
-          }
-        });
-     });
-   </script>
 
   <!-- Piwik -->
   <script type="text/javascript">
