@@ -45,7 +45,7 @@ task :staging do
 end
 
 desc 'Deploy'
-task :d => [:generate, :minify] do
+task :d => [:generate, :minifycss, :minifyjs] do
   require 'sweetie'
 
   puts '1. Sweetie - time to update stats ..'.green
@@ -62,9 +62,10 @@ task :d => [:generate, :minify] do
 end
 
 desc 'Minify css'
-task :minify do
-  puts 'Minify css and merge it into one file ..'.yellow
+task :minifycss do
   require 'cssminify'
+
+  puts 'Minify css and merge it into one file ..'.yellow
 
   gumby = CSSminify.compress(File.open('css/gumby.css'))
   style = CSSminify.compress(File.open('css/style.css'))
@@ -74,6 +75,36 @@ task :minify do
 
   File.open('css/application.css', 'w') do |file|
     file.write(gumby << style << pygments << fancybox_buttons << fancybox_thumbs)
+  end
+
+  puts 'Done ..'.green
+end
+
+desc 'Minify js'
+task :minifyjs do
+  require 'uglifier'
+
+  puts 'Minify js and merge it into one file ..'.yellow
+
+  jquery = Uglifier.compile(File.open('js/libs/jquery-2.0.2.min.js'))
+
+  modernizr = Uglifier.compile(File.open('js/libs/modernizr-2.6.2.min.js'))
+  github_commits = Uglifier.compile(File.open('js/github-commits-widget.js'))
+  gumby = Uglifier.compile(File.open('js/libs/gumby.js'))
+  gumby_toggleswitch = Uglifier.compile(File.open('js/libs/ui/gumby.toggleswitch.js'))
+  gumby_init = Uglifier.compile(File.open('js/libs/gumby.init.js'))
+
+  fancybox_pack = Uglifier.compile(File.open('js/fancybox/source/jquery.fancybox.pack.js'))
+  fancybox_buttons = Uglifier.compile(File.open('js/fancybox/source/helpers/jquery.fancybox-buttons.js'))
+  fancybox_media = Uglifier.compile(File.open('js/fancybox/source/helpers/jquery.fancybox-media.js'))
+  fancybox_thumbs = Uglifier.compile(File.open('js/fancybox/source/helpers/jquery.fancybox-thumbs.js'))
+
+  github_widget_configuration = Uglifier.compile(File.read('js/github-commits-widget-configuration.js'))
+  fancybox_configuration = Uglifier.compile(File.read('js/fancybox-configuration.js'))
+
+
+  File.open("js/application.js", "w") do |file|
+    file.write (modernizr << jquery << github_commits << gumby << gumby_toggleswitch << gumby_init << fancybox_pack << fancybox_buttons << fancybox_media << fancybox_thumbs << github_widget_configuration << fancybox_configuration)
   end
 
   puts 'Done ..'.green
