@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Method alias in ruby
-description: Method alias in ruby help you to apply the DRY-principle
-update: 2014-02-17
+update: 2014-03-30
 categories: ['ruby', 'programming']
 ---
 

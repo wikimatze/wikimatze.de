@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Writing Zsh Completion for Padrino
-description: Writing your zsh completion function isn't difficult.
-update: 2014-02-23
+update: 2014-03-30
 categories: ['padrino', 'zsh']
 ---
 

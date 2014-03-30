@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Testing Helpers in Padrino
-description: Testing Helpers in Padrino is hard but possible
-update: 2014-02-23
+update: 2014-03-30
 categories: ['padrino', 'ruby', 'programming']
 ---
 

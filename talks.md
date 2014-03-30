@@ -1,7 +1,6 @@
 ---
-layout: layout
+layout: default
 title: Talks
-meta-description: Talks given by Matthias Günther
 ---
 
 <ul class="talk-listing">

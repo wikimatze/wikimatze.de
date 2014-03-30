@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Github Two-Factor Authentication Failed For HTTPS
-description: Keep on pushing changes with 2FA on Github
-categories: ['git', 'learning']
+update: 2014-03-30
 ---
 
 I heard from [GitHub's Two-Factor Authentication](https://github.com/blog/1614-two-factor-authentication) nearly a couple of days ago when I was reading my RSS feed. I enabled it and couldn't push to any of my repositories anymore. Learn in this blog post how to fix it.

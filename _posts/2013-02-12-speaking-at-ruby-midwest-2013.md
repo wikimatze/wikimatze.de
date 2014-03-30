@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Speaking at Ruby Midwest 2013
-description: Giving my first talk on a tech conference
-update: 2014-02-22
+update: 2014-03-30
 categories: ['talk']
 ---
 

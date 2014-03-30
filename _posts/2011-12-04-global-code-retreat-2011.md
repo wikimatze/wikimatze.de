@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Global Coderetreat 2011 in Berlin
-description: My first coderetreat experience
-update: 2014-02-20
+update: 2014-03-30
 categories: ['learning', 'programming']
 ---
 

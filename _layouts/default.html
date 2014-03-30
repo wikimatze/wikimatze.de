@@ -8,30 +8,13 @@
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-
-  <title>{% if page.title %}{{ page.title}}{% else %}Matthias Günther{% endif %}</title>
-
-  {% if page.meta-description %}<meta name="description" content="{{ page.meta-description }}"> {% else %}
-  <meta name="description" content="Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, and enjoys making cakes.">
-  {% endif %}
-
-  <meta name="keywords" content="wikimatze padrinobook" />
+  <title>{% if page.title %}{{ page.title}}{% else %}Matthias Günther{% endif %}</title>{% if page.description %}<meta name="description" content="{{ page.description }}"> {% endif %}
   <meta name="author" content="humans.txt">
-
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-  <link rel="stylesheet" href="/css/gumby.css" media="screen, projection">
-
-  <link rel="stylesheet" href="/css/style.css" media="screen, projection">
-  <link media="only screen and (max-device-width: 480px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/pygments.css" media="screen, projection">
-
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <link rel="stylesheet" href="/css/application.css" media="screen, projection">
   <link href="http://feeds.feedburner.com/guenther" rel="alternate" type="application/rss+xml" title="RSS feed of Matthias Günther">
-
-  <script src="/js/libs/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
   <div class="navbar row" id="nav2">
@@ -93,83 +76,8 @@
     </nav>
   </footer>
 
-  <!-- Grab Google CDN's jQuery, fall back to local if offline -->
-  <!-- 2.0 for modern browsers, 1.10 for .oldie -->
-  <script>
-  var oldieCheck = Boolean(document.getElementsByTagName('html')[0].className.match(/\soldie\s/g));
-  if(!oldieCheck) {
-    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"><\/script>');
-  } else {
-    document.write('<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"><\/script>');
-  }
-  </script>
-  <script>
-  if(!window.jQuery) {
-    if(!oldieCheck) {
-      document.write('<script src="/js/libs/jquery-2.0.2.min.js"><\/script>');
-    } else {
-      document.write('<script src="/js/libs/jquery-1.10.1.min.js"><\/script>');
-    }
-  }
-  </script>
-
-  <script src="/js/github-commits-widget.js"></script>
-
-  <script>
-$(function() {
-    $('#github-commits').githubInfoWidget(
-      { user: 'matthias-guenther', repo: 'padrinobook', branch: 'master', last: 5, limitMessageTo: 30 });
-    });
-  </script>
-
-  <!--
-  Include gumby.js followed by UI modules followed by gumby.init.js
-  Or concatenate and minify into a single file -->
-  <script gumby-touch="/js/libs" src="js/libs/gumby.js"></script>
-  <script src="/js/libs/ui/gumby.toggleswitch.js"></script>
-  <!--
-  <script src="/js/libs/ui/gumby.retina.js"></script>
-  <script src="/js/libs/ui/gumby.fixed.js"></script>
-  <script src="/js/libs/ui/gumby.skiplink.js"></script>
-  <script src="/js/libs/ui/gumby.checkbox.js"></script>
-  <script src="/js/libs/ui/gumby.radiobtn.js"></script>
-  <script src="/js/libs/ui/gumby.tabs.js"></script>
-  <script src="/js/libs/ui/gumby.navbar.js"></script>
-  <script src="/js/libs/ui/jquery.validation.js"></script>
-  -->
-  <script src="/js/libs/gumby.init.js"></script>
-
-  <!-- Add fancyBox -->
+  <script src="/js/application.js"></script>
   <link rel="stylesheet" href="/js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
-
-  <!-- Optionally add helpers - button, thumbnail and/or media -->
-  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
-
-  <link rel="stylesheet" href="/js/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
-  <script type="text/javascript" src="/js/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-        $(".fancybox").fancybox(
-          {
-          wrapCSS    : 'fancybox-custom',
-          closeClick : true,
-
-          helpers : {
-            title : {
-              type : 'inside'
-            },
-            overlay : {
-              css : {
-                'background-color' : '#eee'
-              }
-            }
-          }
-        });
-     });
-   </script>
 
   <!-- Piwik -->
   <script type="text/javascript">

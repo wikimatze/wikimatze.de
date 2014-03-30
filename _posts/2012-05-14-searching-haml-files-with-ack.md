@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Searching Haml files with ack
-description: Ack is great for searching files but you need to extend it
-update: 2014-02-20
+update: 2014-03-30
 categories: ['vim']
 ---
 

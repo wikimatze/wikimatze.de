@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Benefits of Scala
-description: Overview of the main features of Scala
-update: 2014-02-18
+update: 2014-03-30
 categories: ['programming']
 ---
 
