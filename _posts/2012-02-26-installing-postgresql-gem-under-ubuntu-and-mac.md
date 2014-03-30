@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Installing PostgreSQL gem under Ubuntu and Mac
-description: Guide how to install PostgreSQL under Ubuntu and Mac.
-update: 2014-02-20
+update: 2014-03-30
 categories: ['howto']
 ---
 

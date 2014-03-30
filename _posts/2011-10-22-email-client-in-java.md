@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Mail Client in Java
-description: My first piece of software - an email client
-update: 2014-02-18
+update:  2014-03-30
 categories: ['programming', 'howto']
 ---
 

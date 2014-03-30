@@ -1,8 +1,7 @@
 ---
 layout: post
 title: My Talk at Ruby Midwest 2013
-description: wikimatze's First conference talk at Ruby Midwest 2013
-update: 2014-02-22
+update: 2014-03-30
 categories: ['talk']
 ---
 

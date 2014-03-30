@@ -8,13 +8,8 @@
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-
   <title>{% if page.title %}{{ page.title}}{% else %}Matthias Günther{% endif %}</title>
-
-  {% if page.meta-description %}<meta name="description" content="{{ page.meta-description }}"> {% else %}
-  <meta name="description" content="Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, and enjoys making cakes.">
-  {% endif %}
-
+  {% if page.description %}<meta name="description" content="{{ page.description }}"> {% endif %}
   <meta name="keywords" content="wikimatze padrinobook" />
   <meta name="author" content="humans.txt">
 

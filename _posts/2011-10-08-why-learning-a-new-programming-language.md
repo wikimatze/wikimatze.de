@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Why learning a new programming language
-description: Is it worth learning something, widen your horizon and get another view? Yes!
-update: 2014-02-17
+update: 2014-03-30
 categories: ['learning', 'programming']
 ---
 

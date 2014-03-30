@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Getting started with RSpec Puppet
-meta-description: Testing your server manifests give you confidence in your server
-update: 2014-02-22
+update: 2014-03-30
 categories: ['ruby', 'howto']
 ---
 

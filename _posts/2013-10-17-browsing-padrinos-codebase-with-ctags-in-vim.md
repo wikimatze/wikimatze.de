@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Browsing Padrino's Code Base With Ctags in Vim
-description: Use ctags to browser Padrino's code base
-update: 2014-02-23
+update: 2014-03-30
 categories: ['padrino', 'vim']
 ---
 

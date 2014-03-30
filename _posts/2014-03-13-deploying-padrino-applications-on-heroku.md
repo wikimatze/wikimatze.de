@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deploying Padrino Applications On Heroku
-description: Beside writing an application it is very important to know how you can deploy it
+update: 2014-03-30
 categories: ['padrino', 'ruby']
 ---
 

@@ -1,8 +1,7 @@
 ---
 layout: post
-title: Creation of a ruby gem
-description: Every start is difficult - even with Ruby
-update: 2014-02-22
+title: Creation of a Ruby Gem
+update: 2014-03-30
 categories: ['ruby', 'programming']
 ---
 

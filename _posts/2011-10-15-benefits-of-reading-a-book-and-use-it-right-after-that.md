@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Benefits of reading a book - and use it right after that
-description: Make notes after reading a book - you can't remember everything
-update: 2014-02-17
+update: 2014-03-30
 categories: ['learning', 'reading']
 ---
 

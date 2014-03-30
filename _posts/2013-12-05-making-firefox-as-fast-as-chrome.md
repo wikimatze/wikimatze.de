@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Making Firefox as Fast as Chrome
-description: Make the beloved Firefox browser as fast as Chrome
-update: 2014-02-23
+update: 2014-03-30
 categories: ['howto', 'browser']
 ---
 

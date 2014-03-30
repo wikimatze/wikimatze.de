@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Using Sprockets to Manage the Asset Pipeline in Padrino
-description: Learn how to use Sprockets in Padrino
-update: 2014-03-14
+update: 2014-03-30
 categories: ['padrino', 'ruby', 'programming']
 ---
 

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: SMART principle
-description: Projects are good to play with something new
-update: 2014-02-20
+update: 2014-03-30
 categories: ['learning']
 ---
 

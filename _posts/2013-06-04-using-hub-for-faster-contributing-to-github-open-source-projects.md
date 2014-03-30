@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Using Hub for Faster Contributing to GitHub Open-Source Projects
-description: Learn how you can faster work with Open-Source projects.
-update: 2014-02-22
+update: 2014-03-30
 categories: ['howto', 'programming', 'learning']
 ---
 *Ever wondering how you can easily fork and contribute to an Open-Source project without forking a repository manually

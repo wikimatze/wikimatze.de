@@ -1,7 +1,6 @@
 ---
 layout: layout
 title: Projects
-meta-description: List of Open Source projects created by Matthias Günther.
 ---
 
 ## Sweetie (Ruby Gem)
@@ -176,5 +175,6 @@ but also from editors of news - the wiki engine pmwiki was used.
 
 <a href="http://farm9.staticflickr.com/8002/7284689342_e600775b9a_z.jpg" title="Department Evenings 2009/2010 of computer science at FSU Student Council" class="fancybox"><img src="http://farm9.staticflickr.com/8002/7284689342_e600775b9a_z.jpg" class="center" alt="Department Evenings 2009/2010 of computer science at FSU Student Council"/></a>
 
-The logo appeared on all events and was only changed according to the various themes of this event. The image was created with [inkscape](http://www.inkscape.org).
+The logo appeared on all events and was only changed according to the various themes of this event. The image was
+created with [inkscape](http://www.inkscape.org).
 

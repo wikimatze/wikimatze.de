@@ -1,7 +1,6 @@
 ---
 layout: layout
 title: Recently Read
-meta-description: Listing recently read books with my notes.
 ---
 
 ## 2014

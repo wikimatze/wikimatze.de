@@ -1,8 +1,7 @@
 ---
 layout: post
 title: Why I use Jekyll for blogging
-description: Jekyll is the new way for writing blog-posts in markdown for programmers
-update: 2014-02-14
+update: 2014-03-30
 categories: ['writing']
 ---
 
