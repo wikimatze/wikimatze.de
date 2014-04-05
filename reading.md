@@ -5,6 +5,7 @@ title: Recently Read
 
 ## 2014
 
+- [Scrum Guide](https://www.scrum.org/Scrum-Guide)
 - [Erfolgreich mit Scrum - Einflussfaktor Personalmanagement](http://www.amazon.de/Erfolgreich-mit-Scrum-Einflussfaktor-Personalmanagement/dp/3446425152) by Boris Gloger and André Häusling [(notes)](books/erfolgreich-mit-scrum.html)
 - [Designed For Use](http://pragprog.com/book/lmuse/designed-for-use) by [Lukas Mathis](http://ignorethecode.net/blog/) [(notes)](books/designed-for-use.html)
 - [Practices of an Agile Developer:](http://pragprog.com/book/pad/practices-of-an-agile-developer) by [Venkat Subramaniam](http://www.agiledeveloper.com/) and [Andy Hunt](http://blog.toolshed.com/) [(notes)](books/practices-of-an-agile-developer.html)
