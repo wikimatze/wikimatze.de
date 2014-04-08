@@ -48,17 +48,17 @@ desc 'Deploy'
 task :d => [:generate, :minifycss, :minifyjs] do
   require 'sweetie'
 
-  puts '1. Sweetie - time to update stats ..'.green
+  puts 'Sweetie - time to update stats ..'.green
   Sweetie::Conversion.conversion
   Sweetie::Bitbucket.bitbucket("wikimatze")
 
-  puts '2. Building jekyll ..'.green
+  puts 'Building jekyll ..'.green
   system 'jekyll build'
 
-  puts '3. Deploying site with lovely rsync ..'.green
+  puts 'Deploying site with lovely rsync ..'.green
   system "rsync -vru -e \"ssh\" --del ?site/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
 
-  puts '4. Done!'.green
+  puts 'Done!'.green
 end
 
 desc 'Minify css'
