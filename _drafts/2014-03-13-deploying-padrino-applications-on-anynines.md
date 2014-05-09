@@ -8,14 +8,12 @@ categories: ['padrino', 'zsh']
 {% include leanpub.html %}
 
 
-
 (Note: This post is tested with [padrino 0.12.0](http://www.padrinorb.com/blog/padrino-0-12-0-activesupport-4-rewritten-reloader-smarter-rendering-and-loads-more), and [a9s 1.2.0](http://rubygems.org/gems/a9s/versions/1.2.0) gem)
 
 
 ## Installing The Gem
 
-
-**Getting anynines gem called a9s:**
+Getting anynines gem called a9s:
 
 
 {% highlight bash %}
@@ -24,56 +22,29 @@ $ gem install a9s
 Fetching: a9s-1.2.0.gem (100%)
 Successfully installed a9s-1.2.0
 Parsing documentation for a9s-1.2.0
-Installing ri documentation for a9s-1.2.0
 Done installing documentation for a9s after 0 seconds
 1 gem installed
 
 {% endhighlight %}
 
 
-## Hello World In Anynines
+## Hello Padrino In Anynines
 
 Creating a new app:
 
 
 {% highlight bash %}
 
-$ padrino generate project hello-world-anynines
-      create
-      create  .gitignore
-      create  config.ru
-      create  config/apps.rb
-      create  config/boot.rb
-      create  public/favicon.ico
-      create  public/images
-      create  public/javascripts
-      create  public/stylesheets
-      create  tmp
-      create  .components
-      create  app
-      create  app/app.rb
-      create  app/controllers
-      create  app/helpers
-      create  app/views
-      create  app/views/layouts
-      create  Gemfile
-      create  Rakefile
-    skipping  orm component...
-    skipping  test component...
-    skipping  mock component...
-    skipping  script component...
-    applying  slim (renderer)...
-       apply  renderers/slim
-      insert  Gemfile
-    skipping  stylesheet component...
-   identical  .components
-       force  .components
-       force  .components
+$ padrino generate project padrino-hello-world-anynines
+    create
+    create  .gitignore
+    ...
+     force  .components
 
 =================================================================
-hello-world-anynines is ready for development!
+padrino-hello-world-anynines is ready for development!
 =================================================================
-$ cd ./hello-world-anynines
+$ cd ./padrino-hello-world-anynines
 $ bundle
 =================================================================
 
@@ -85,7 +56,7 @@ The next part is to create a route in `app/app.rb`:
 
 {% highlight ruby %}
 
-module HelloWorldHeroku
+module PadrinoHelloWorldAnynines
   class App < Padrino::Application
     ...
     get "/" do
@@ -97,7 +68,7 @@ end
 {% endhighlight %}
 
 
-First of all, we need to login:
+Before we are going to upload our application you need to sign up for a new account on [anynines](http://www.anynines.com/signups/new). After that you can login:
 
 
 {% highlight bash %}
@@ -107,19 +78,19 @@ target: https://api.de.a9s.eu
 
 Email> matthias@wikimatze.de
 
-Password> **********
+Password> ...
 
 Authenticating... OK
 
 {% endhighlight %}
 
 
-Next, we set up the target:
+Set up the target:
 
 
 {% highlight bash %}
 
-$ cf target https://api.de.a9s.eu
+$ cf target
 Setting target to https://api.de.a9s.eu... OK
 
 Target Information (where will apps be pushed):
@@ -130,23 +101,45 @@ Target Information (where will apps be pushed):
 {% endhighlight %}
 
 
-Next, we want to push our application:
+Push the application:
 
 
 {% highlight bash %}
 
 $ cf push
-Name> test
+Name> padrino-hello-world-anynines
+
+Instances> 1
+
+1: 128M
+2: 256M
+3: 512M
+4: 1G
+Memory Limit> 256M
+
+Creating padrino-hello-world-anynines... OK
+
+1: padrino-hello-world-anynines
+2: none
+Subdomain> padrino-hello-world-anynines
+
+1: de.a9sapp.eu
+2: none
+Domain> de.a9sapp.eu
+
+Creating route padrino-hello-world-anynines.de.a9sapp.eu... OK
+Binding padrino-hello-world-anynines.de.a9sapp.eu to padrino-hello-world-anynines... OK
+
+Create services for application?> n
+
+Bind other services to application?> n
 
 Save configuration?> y
 
 Saving to manifest.yml... OK
-Uploading test... OK
-Stopping test... OK
-
-Preparing to start test... OK
+Uploading padrino-hello-world-anynines... OK
+Preparing to start padrino-hello-world-anynines... OK
 -----> Downloaded app package (12K)
------> Downloaded app buildpack cache (7.6M)
  !
  !     Gemfile.lock required. Please check it in.
  !
@@ -158,233 +151,95 @@ Preparing to start test... OK
         from /var/vcap/packages/dea_next/buildpacks/lib/buildpack.rb:55:in `chdir'
         from /var/vcap/packages/dea_next/buildpacks/lib/buildpack.rb:55:in `stage_application'
         from /var/vcap/packages/dea_next/buildpacks/bin/run:10:in `<main>'
-Checking status of app 'test'...Application failed to stage
+Checking status of app 'padrino-hello-world-anynines'...Application failed to stage
 
 {% endhighlight %}
 
 
-Error, so anynines needs to have a `Gemfile.lock` file in the root folder:
+Error, anynines needs to have a `Gemfile.lock`:
 
 
 {% highlight bash %}
 
 $ bundle
-Fetching gem metadata from https://rubygems.org/...........
+Fetching gem metadata from https://rubygems.org/.........
 Fetching additional metadata from https://rubygems.org/..
 Resolving dependencies...
-Using rake (10.1.1)
-Using i18n (0.6.9)
-Using minitest (4.7.5)
-Installing multi_json (1.9.0)
-Installing atomic (1.1.15)
-Installing thread_safe (0.2.0)
-Using tzinfo (0.3.38)
-Installing activesupport (4.0.3)
-Using bundler (1.5.1)
-Using rack (1.5.2)
-Using url_mount (0.2.1)
-Installing http_router (0.11.1)
-Using mime-types (1.25.1)
-Installing polyglot (0.3.4)
-Using treetop (1.4.15)
-Using mail (2.5.4)
-Using moneta (0.7.20)
-Using rack-protection (1.5.2)
-Using tilt (1.4.1)
-Using sinatra (1.4.4)
-Using thor (0.17.0)
-Using padrino-core (0.12.0)
-Using padrino-helpers (0.12.0)
-Using padrino-admin (0.12.0)
-Using padrino-cache (0.12.0)
-Using padrino-gen (0.12.0)
-Using padrino-mailer (0.12.0)
-Using padrino (0.12.0)
-Using temple (0.6.7)
-Using slim (2.0.2)
+Using rake (10.3.1)
+...
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 {% endhighlight %}
 
 
-Now let's try it again:
+Let's try it again:
 
 
 {% highlight bash %}
 
 $ cf push
-Using manifest file manifest.yml
+Uploading padrino-hello-world-anynines... OK
+Stopping padrino-hello-world-anynines... OK
 
-Uploading test... OK
-Stopping test... OK
-
-Preparing to start test... OK
+Preparing to start padrino-hello-world-anynines... OK
 -----> Downloaded app package (12K)
------> Downloaded app buildpack cache (7.6M)
 -----> Downloaded app package (12K)
------> Downloaded app buildpack cache (7.6M)
 -----> Using Ruby version: ruby-1.9.3
 -----> Installing dependencies using Bundler version 1.3.2
        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin --deployment
-gem metadata from https://rubygems.org/..
-       Using rake (10.1.1)
-       Using i18n (0.6.9)
-       Installing minitest (4.7.5)
-       Installing multi_json (1.9.0)
-       Installing atomic (1.1.15)
-       Installing thread_safe (0.2.0)
-       Installing tzinfo (0.3.38)
-       Installing activesupport (4.0.3)
-       Using rack (1.5.2)
-       Using url_mount (0.2.1)
-       Installing http_router (0.11.1)
-       Using mime-types (1.25.1)
-       Installing polyglot (0.3.4)
-       Using treetop (1.4.15)
-       Using mail (2.5.4)
-       Installing moneta (0.7.20)
-       Using rack-protection (1.5.2)
-       Using tilt (1.4.1)
-       Using sinatra (1.4.4)
-       Using thor (0.17.0)
-       Installing padrino-core (0.12.0)
-       Installing padrino-helpers (0.12.0)
-       Installing padrino-admin (0.12.0)
-       Installing padrino-cache (0.12.0)
-       Using bundler (1.3.2)
-       Installing padrino-gen (0.12.0)
-       Installing padrino-mailer (0.12.0)
-       Installing padrino (0.12.0)
-       Using temple (0.6.7)
-       Using slim (2.0.2)
+tps://rubygems.org/.........
+       Fetching gem metadata from https://rubygems.org/..
+       Installing rake (10.3.1)
+       ...
        Your bundle is complete! It was installed into ./vendor/bundle
        Cleaning up the bundler cache.
-       Removing padrino-gen (0.11.4)
-       Removing padrino-core (0.11.4)
-       Removing padrino (0.11.4)
-       Removing polyglot (0.3.3)
-       Removing padrino-mailer (0.11.4)
-       Removing padrino-admin (0.11.4)
-       Removing padrino-cache (0.11.4)
-       Removing http_router (0.11.0)
-       Removing activesupport (3.2.16)
-       Removing padrino-helpers (0.11.4)
-       Removing multi_json (1.8.4)
 -----> Writing config/database.yml to read from DATABASE_URL
 -----> WARNINGS:
        You have not declared a Ruby version in your Gemfile.
        To set your Ruby version add this line to your Gemfile:"
        ruby '1.9.3'"
        # See https://devcenter.heroku.com/articles/ruby-versions for more information."
-gem metadata from https://rubygems.org/..
-       Using rake (10.1.1)
-       Using i18n (0.6.9)
-       Installing minitest (4.7.5)
-       Installing multi_json (1.9.0)
-       Installing atomic (1.1.15)
-       Installing thread_safe (0.2.0)
-       Installing tzinfo (0.3.38)
-       Installing activesupport (4.0.3)
-       Using rack (1.5.2)
-       Using url_mount (0.2.1)
-       Installing http_router (0.11.1)
-       Using mime-types (1.25.1)
-       Installing polyglot (0.3.4)
-       Using treetop (1.4.15)
-       Using mail (2.5.4)
-       Installing moneta (0.7.20)
-       Using rack-protection (1.5.2)
-       Using tilt (1.4.1)
-       Using sinatra (1.4.4)
-       Using thor (0.17.0)
-       Installing padrino-core (0.12.0)
-       Installing padrino-helpers (0.12.0)
-       Installing padrino-admin (0.12.0)
-       Installing padrino-cache (0.12.0)
-       Using bundler (1.3.2)
-       Installing padrino-gen (0.12.0)
-       Installing padrino-mailer (0.12.0)
-       Installing padrino (0.12.0)
-       Using temple (0.6.7)
-       Using slim (2.0.2)
+tps://rubygems.org/.........
+       Fetching gem metadata from https://rubygems.org/..
+       Installing rake (10.3.1)
+       ...
        Your bundle is complete! It was installed into ./vendor/bundle
        Cleaning up the bundler cache.
-       Removing padrino-gen (0.11.4)
-       Removing padrino-core (0.11.4)
-       Removing padrino (0.11.4)
-       Removing polyglot (0.3.3)
-       Removing padrino-mailer (0.11.4)
-       Removing padrino-admin (0.11.4)
-       Removing padrino-cache (0.11.4)
-       Removing http_router (0.11.0)
-       Removing activesupport (3.2.16)
-       Removing padrino-helpers (0.11.4)
-       Removing multi_json (1.8.4)
 -----> Writing config/database.yml to read from DATABASE_URL
 -----> WARNINGS:
        You have not declared a Ruby version in your Gemfile.
        To set your Ruby version add this line to your Gemfile:"
        ruby '1.9.3'"
        # See https://devcenter.heroku.com/articles/ruby-versions for more information."
-Checking status of app 'test'...
+Checking status of app 'padrino-hello-world-anynines'....
   1 of 1 instances running (1 running)
-Push successful! App 'test' available at testt.de.a9sapp.eu
+Push successful! App 'padrino-hello-world-anynines' available at padrino-hello-world-anynines.de.a9sapp.eu
 
 {% endhighlight %}
 
 
-If you now call [http://testt.de.a9sapp.eu/](http://testt.de.a9sapp.eu/) you can see the "Hello world" in the browser.
+If you now visit [padrino-hello-world-anynines.de.a9sapp.eu](http://padrino-hello-world-anynines.de.a9sapp.eu/) you can see the "Hello Padrino" in the browser.
 
 
+You find the code of this application on [GitHub](https://github.com/matthias-guenther/padrino-hello-world-anynines).
 
-## Database Deployments With Anynines
 
+## Hello Padrino In Anynines With MySQL
 
 Let's create a new application:
 
 
 {% highlight bash %}
 
-$ padrino g project hello-world-anynines-mysql -d activerecord -a mysql
+$ padrino g project project padrino-hello-world-anynines-mysql -d activerecord -a mysql
     create
     create  .gitignore
-    create  config.ru
-    create  config/apps.rb
-    create  config/boot.rb
-    create  public/favicon.ico
-    create  public/images
-    create  public/javascripts
-    create  public/stylesheets
-    create  tmp
-    create  .components
-    create  app
-    create  app/app.rb
-    create  app/controllers
-    create  app/helpers
-    create  app/views
-    create  app/views/layouts
-    create  Gemfile
-    create  Rakefile
-  applying  activerecord (orm)...
-     apply  orms/activerecord
-    insert  Gemfile
-    insert  Gemfile
-    insert  app/app.rb
-    create  config/database.rb
-  skipping  test component...
-  skipping  mock component...
-  skipping  script component...
-  applying  slim (renderer)...
-     apply  renderers/slim
-    insert  Gemfile
-  skipping  stylesheet component...
- identical  .components
-     force  .components
+    ...
      force  .components
 
 =================================================================
-hello-world-anynines-mysql is ready for development!
+padrino-hello-world-anynines-mysql is ready for development!
 =================================================================
 $ cd ./hello-world-anynines-mysql
 $ bundle
@@ -403,23 +258,20 @@ target: https://api.de.a9s.eu
 
 Email> matthias@wikimatze.de
 
-Password> **********
+Password> ....
 
 Authenticating... OK
 
 {% endhighlight %}
 
 
-Next we need to see the credentials for one of our databases:
-
-
-Now, we are ready to deploy our app:
+Now we need to setup a MySQL database:
 
 
 {% highlight bash %}
 
 $ cf push
-Name> anynines-padrino-mysql
+Name> padrino-hello-world-anynines-mysql
 
 Instances> 1
 
@@ -429,18 +281,18 @@ Instances> 1
 4: 1G
 Memory Limit> 256M
 
-Creating anynines-padrino-mysql... OK
+Creating padrino-hello-world-anynines-mysql... OK
 
-1: anynines-padrino-mysql
+1: padrino-hello-world-anynines-mysql
 2: none
-Subdomain> anynines-padrino-mysql
+Subdomain> padrino-hello-world-anynines-mysql
 
 1: de.a9sapp.eu
 2: none
 Domain> de.a9sapp.eu
 
-Creating route anynines-padrino-mysql.de.a9sapp.eu... OK
-Binding anynines-padrino-mysql.de.a9sapp.eu to anynines-padrino-mysql... OK
+Creating route padrino-hello-world-anynines-mysql.de.a9sapp.eu... OK
+Binding padrino-hello-world-anynines-mysql.de.a9sapp.eu to padrino-hello-world-anynines-mysql... OK
 
 Create services for application?> y
 
@@ -454,14 +306,15 @@ Create services for application?> y
 8: user-provided , via
 What kind?> 3
 
-Name?> mysql-e26e2
+Name?> mysql-e4298
 
-1: Pluto-free: Shared VM, shared DB: free plan
-2: Venus-20: Shared: 2 GB Ram, 20 GB Storage
-Which plan?> 1
+1: Mercury-5: Shared: 512 MB Ram, 5 GB Storage
+2: Pluto-free: Shared VM, shared DB: free plan
+3: Venus-20: Shared: 2 GB Ram, 20 GB Storage
+Which plan?> 2
 
-Creating service mysql-e26e2... OK
-Binding mysql-e26e2 to anynines-padrino-mysql... OK
+Creating service mysql-e4298... OK
+Binding mysql-e4298 to padrino-hello-world-anynines-mysql... OK
 Create another service?> n
 
 Bind other services to application?> n
@@ -469,50 +322,17 @@ Bind other services to application?> n
 Save configuration?> y
 
 Saving to manifest.yml... OK
-Uploading anynines-padrino-mysql... OK
-Preparing to start anynines-padrino-mysql... OK
------> Downloaded app package (12K)
------> Downloaded app package (12K)
+Uploading padrino-hello-world-anynines-mysql... OK
+Preparing to start padrino-hello-world-anynines-mysql... OK
+-----> Downloaded app package (16K)
+-----> Downloaded app package (16K)
 -----> Using Ruby version: ruby-1.9.3
 -----> Installing dependencies using Bundler version 1.3.2
        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin --deployment
 tps://rubygems.org/.........
        Fetching gem metadata from https://rubygems.org/..
-       Installing rake (10.1.1)
-       Installing i18n (0.6.9)
-       Installing minitest (4.7.5)
-       Installing multi_json (1.9.0)
-       Installing atomic (1.1.16)
-       Installing thread_safe (0.2.0)
-       Installing tzinfo (0.3.39)
-       Installing activesupport (4.0.4)
-       Installing builder (3.1.4)
-       Installing activemodel (4.0.4)
-       Installing activerecord-deprecated_finders (1.0.3)
-       Installing arel (4.0.2)
-       Installing activerecord (4.0.4)
-       Installing rack (1.5.2)
-       Installing url_mount (0.2.1)
-       Installing http_router (0.11.1)
-       Installing mime-types (1.25.1)
-       Installing polyglot (0.3.4)
-       Installing treetop (1.4.15)
-       Installing mail (2.5.4)
-       Installing moneta (0.7.20)
-       Installing mysql2 (0.3.15)
-       Installing rack-protection (1.5.2)
-       Installing tilt (1.4.1)
-       Installing sinatra (1.4.4)
-       Installing thor (0.17.0)
-       Installing padrino-core (0.12.0)
-       Installing padrino-helpers (0.12.0)
-       Installing padrino-admin (0.12.0)
-       Installing padrino-cache (0.12.0)
-       Using bundler (1.3.2)
-       Installing padrino-gen (0.12.0)
-       Installing padrino-mailer (0.12.0)
-       Installing padrino (0.12.0)
-       Installing temple (0.6.7)
+       Installing rake (10.3.1)
+       ...
        Installing slim (2.0.2)
        Your bundle is complete! It was installed into ./vendor/bundle
        Cleaning up the bundler cache.
@@ -524,41 +344,8 @@ tps://rubygems.org/.........
        # See https://devcenter.heroku.com/articles/ruby-versions for more information."
 tps://rubygems.org/.........
        Fetching gem metadata from https://rubygems.org/..
-       Installing rake (10.1.1)
-       Installing i18n (0.6.9)
-       Installing minitest (4.7.5)
-       Installing multi_json (1.9.0)
-       Installing atomic (1.1.16)
-       Installing thread_safe (0.2.0)
-       Installing tzinfo (0.3.39)
-       Installing activesupport (4.0.4)
-       Installing builder (3.1.4)
-       Installing activemodel (4.0.4)
-       Installing activerecord-deprecated_finders (1.0.3)
-       Installing arel (4.0.2)
-       Installing activerecord (4.0.4)
-       Installing rack (1.5.2)
-       Installing url_mount (0.2.1)
-       Installing http_router (0.11.1)
-       Installing mime-types (1.25.1)
-       Installing polyglot (0.3.4)
-       Installing treetop (1.4.15)
-       Installing mail (2.5.4)
-       Installing moneta (0.7.20)
-       Installing mysql2 (0.3.15)
-       Installing rack-protection (1.5.2)
-       Installing tilt (1.4.1)
-       Installing sinatra (1.4.4)
-       Installing thor (0.17.0)
-       Installing padrino-core (0.12.0)
-       Installing padrino-helpers (0.12.0)
-       Installing padrino-admin (0.12.0)
-       Installing padrino-cache (0.12.0)
-       Using bundler (1.3.2)
-       Installing padrino-gen (0.12.0)
-       Installing padrino-mailer (0.12.0)
-       Installing padrino (0.12.0)
-       Installing temple (0.6.7)
+       Installing rake (10.3.1)
+       ...
        Installing slim (2.0.2)
        Your bundle is complete! It was installed into ./vendor/bundle
        Cleaning up the bundler cache.
@@ -568,10 +355,9 @@ tps://rubygems.org/.........
        To set your Ruby version add this line to your Gemfile:"
        ruby '1.9.3'"
        # See https://devcenter.heroku.com/articles/ruby-versions for more information."
-Checking status of app 'anynines-padrino-mysql'...
-  0 of 1 instances running (1 starting)
+Checking status of app 'padrino-hello-world-anynines-mysql'....
   1 of 1 instances running (1 running)
-Push successful! App 'anynines-padrino-mysql' available at anynines-padrino-mysql.de.a9sapp.eu
+Push successful! App 'padrino-hello-world-anynines-mysql' available at padrino-hello-world-anynines-mysql.de.a9sapp.eu
 
 {% endhighlight %}
 
@@ -582,7 +368,7 @@ Next, we need to find out the credentials for our database:
 {% highlight bash %}
 
 $ cf tunnel
-1: mysql-e26e2
+1: mysql-e4298
 Which service instance?> 1
 
 1: none
@@ -597,14 +383,57 @@ Waiting for local tunnel to become available... OK
 {% endhighlight %}
 
 
-I need to install a proper mysql client with `sudo apt-get install mysql-client-5.5`. Now we need to get the credentials
-of the database:
+You need to install a proper MySQL client like `mysql-client-5.5` under Ubuntu and try it again:
 
 
 {% highlight bash %}
 
 $ cf tunnel
-1: mysql-e26e2
+
+1: mysql-e4298
+Which service instance?> 1
+
+1: none
+2: mysql
+3: mysqldump
+Which client would you like to start?> 2
+
+Opening tunnel on port 10000... FAILED
+Time of crash:
+  2014-05-06 06:53:52 +0200
+
+RuntimeError: Remote tunnel helper is unaware of mysql-e4298!
+
+cf-5.4.3/lib/tunnel/tunnel.rb:222:in `get_connection_info'
+cf-5.4.3/lib/tunnel/tunnel.rb:35:in `open!'
+cf-5.4.3/lib/tunnel/plugin.rb:41:in `block in tunnel'
+interact-0.5.2/lib/interact/progress.rb:98:in `with_progress'
+cf-5.4.3/lib/tunnel/plugin.rb:40:in `tunnel'
+mothership-0.5.1/lib/mothership/base.rb:66:in `run'
+mothership-0.5.1/lib/mothership/command.rb:72:in `block in invoke'
+mothership-0.5.1/lib/mothership/command.rb:86:in `instance_exec'
+mothership-0.5.1/lib/mothership/command.rb:86:in `invoke'
+mothership-0.5.1/lib/mothership/base.rb:55:in `execute'
+cf-5.4.3/lib/cf/cli.rb:195:in `block (2 levels) in execute'
+cf-5.4.3/lib/cf/cli.rb:206:in `save_token_if_it_changes'
+cf-5.4.3/lib/cf/cli.rb:194:in `block in execute'
+cf-5.4.3/lib/cf/cli.rb:123:in `wrap_errors'
+cf-5.4.3/lib/cf/cli.rb:190:in `execute'
+mothership-0.5.1/lib/mothership.rb:45:in `start'
+cf-5.4.3/bin/cf:18:in `<top (required)>'
+/home/wikimatze/.gem/ruby/2.1.0/bin/cf:23:in `load'
+/home/wikimatze/.gem/ruby/2.1.0/bin/cf:23:in `<main>'
+
+{% endhighlight %}
+
+
+This can happen, and another try:
+
+
+{% highlight bash %}
+
+$ cf tunnel
+1: mysql-e4298
 Which service instance?> 1
 
 1: none
@@ -615,7 +444,7 @@ Which client would you like to start?> 2
 Opening tunnel on port 10000... OK
 Waiting for local tunnel to become available... OK
 Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 523597
+Your MySQL connection id is 1565127
 Server version: 5.5.29-rel29.4 Percona Server with XtraDB (GPL), Release rel29.4, Revision 401
 
 Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
@@ -631,10 +460,14 @@ mysql> show databases;
 | Database                          |
 +-----------------------------------+
 | information_schema                |
-| d52372f354f604616a03cce4680a8e126 |
+| d59423f34f20f4878a9ab9b2b886cf4a6 |
 +-----------------------------------+
-2 rows in set (0.30 sec)
+2 rows in set (0.34 sec)
 
+mysql> use d59423f34f20f4878a9ab9b2b886cf4a6
+Database changed
+mysql> show tables;
+Empty set (0.34 sec)
 mysql> exit
 
 {% endhighlight %}
@@ -645,7 +478,8 @@ But what we really need are the credentials:
 
 {% highlight bash %}
 
-1: mysql-e26e2
+cf tunnel
+1: mysql-e4298
 Which service instance?> 1
 
 1: none
@@ -656,10 +490,10 @@ Which client would you like to start?> 1
 Opening tunnel on port 10000... OK
 
 Service connection info:
-  username : utpQSWCohARgN
-  password : ps8YnASnVGJIS
-  name     : d52372f354f604616a03cce4680a8e126
-  uri      : mysql://utpQSWCohARgN:ps8YnASnVGJIS@10.12.0.6:3307/d52372f354f604616a03cce4680a8e126
+  username : uy343uAqNYg0z
+  password : pbSSWIxA6JF19
+  name     : d59423f34f20f4878a9ab9b2b886cf4a6
+  uri      : mysql://uy343uAqNYg0z:pbSSWIxA6JF19@10.12.0.6:3307/d59423f34f20f4878a9ab9b2b886cf4a6
 
 
 Open another shell to run command-line clients or
@@ -669,8 +503,8 @@ Press Ctrl-C to exit...
 {% endhighlight %}
 
 
-
-And now edit `config/database.rb` with the following settings:
+With that, we ca add these credentials to the `config/database.rb` settings. Don't take the variables because chances
+are high that you make mistakes. Instead try to use the `ENV["VCAP_SERVICES"]` variables:
 
 
 {% highlight bash %}
@@ -679,16 +513,28 @@ ActiveRecord::Base.configurations[:production] = {
   :adapter   => 'mysql2',
   :encoding  => 'utf8',
   :reconnect => true,
-  :database  => 'd52372f354f604616a03cce4680a8e126',
+  :database  => JSON.parse(ENV["VCAP_SERVICES"])["mysql-5.5"].first['credentials']['name'],
   :pool      => 5,
-  :username  => 'utpQSWCohARgN',
-  :password  => 'ps8YnASnVGJIS',
-  :host      => '10.12.0.6',
-  :socket    => '/tmp/mysql.sock'
+  :username  => JSON.parse(ENV["VCAP_SERVICES"])["mysql-5.5"].first['credentials']['username'],
+  :password  => JSON.parse(ENV["VCAP_SERVICES"])["mysql-5.5"].first['credentials']['password'],
+  :host      => JSON.parse(ENV["VCAP_SERVICES"])["mysql-5.5"].first['credentials']['hostname'],
+  :port      => JSON.parse(ENV["VCAP_SERVICES"])["mysql-5.5"].first['credentials']['port']
 }
 
 {% endhighlight %}
 
+
+Create a user model:
+
+
+{% highlight bash %}
+
+$ padrino g model users name:string email:text
+  apply  orms/activerecord
+  create  models/users.rb
+  create  db/migrate/001_create_users.rb
+
+{% endhighlight %}
 
 
 And run the migrations:
@@ -696,59 +542,28 @@ And run the migrations:
 
 {% highlight bash %}
 
-$ cf push --command "PADRINO_ENV=production bundle exec rake ar:migrate"
+$ cf push --command 'RACK_ENV=production bundle exec rake ar:migrate && bundle exec padrino start -p $PORT -h $VCAP_APP_HOST'
+
 Using manifest file manifest.yml
 
 Not applying manifest changes without --reset
 
-Uploading anynines-padrino-mysql... OK
+Uploading padrino-hello-world-anynines-mysql... OK
 Changes:
-  command: '' -> 'PADRINO_ENV=production bundle exec rake ar:migrate'
-Updating anynines-padrino-mysql... OK
-Stopping anynines-padrino-mysql... OK
+  command: '' -> 'RACK_ENV=production bundle exec rake ar:migrate && bundle exec padrino start -p $PORT -h $VCAP_APP_HOST'
+Updating padrino-hello-world-anynines-mysql... OK
+Stopping padrino-hello-world-anynines-mysql... OK
 
-Preparing to start anynines-padrino-mysql... OK
+Preparing to start padrino-hello-world-anynines-mysql... OK
 -----> Downloaded app package (16K)
------> Downloaded app buildpack cache (9.9M)
+-----> Downloaded app buildpack cache (11M)
 -----> Downloaded app package (16K)
------> Downloaded app buildpack cache (9.9M)
-r version 1.3.2
+-----> Downloaded app buildpack cache (11M)
+-----> Using Ruby version: ruby-1.9.3
+-----> Installing dependencies using Bundler version 1.3.2
        Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin --deployment
-       Using rake (10.1.1)
-       Using i18n (0.6.9)
-       Using minitest (4.7.5)
-       Using multi_json (1.9.0)
-       Using atomic (1.1.16)
-       Using thread_safe (0.2.0)
-       Using tzinfo (0.3.39)
-       Using activesupport (4.0.4)
-       Using builder (3.1.4)
-       Using activemodel (4.0.4)
-       Using activerecord-deprecated_finders (1.0.3)
-       Using arel (4.0.2)
-       Using activerecord (4.0.4)
-       Using rack (1.5.2)
-       Using url_mount (0.2.1)
-       Using http_router (0.11.1)
-       Using mime-types (1.25.1)
-       Using polyglot (0.3.4)
-       Using treetop (1.4.15)
-       Using mail (2.5.4)
-       Using moneta (0.7.20)
-       Using mysql2 (0.3.15)
-       Using rack-protection (1.5.2)
-       Using tilt (1.4.1)
-       Using sinatra (1.4.4)
-       Using thor (0.17.0)
-       Using padrino-core (0.12.0)
-       Using padrino-helpers (0.12.0)
-       Using padrino-admin (0.12.0)
-       Using padrino-cache (0.12.0)
-       Using bundler (1.3.2)
-       Using padrino-gen (0.12.0)
-       Using padrino-mailer (0.12.0)
-       Using padrino (0.12.0)
-       Using temple (0.6.7)
+       Using rake (10.3.1)
+       ...
        Using slim (2.0.2)
        Your bundle is complete! It was installed into ./vendor/bundle
        Cleaning up the bundler cache.
@@ -758,19 +573,107 @@ r version 1.3.2
        To set your Ruby version add this line to your Gemfile:"
        ruby '1.9.3'"
        # See https://devcenter.heroku.com/articles/ruby-versions for more information."
------> Uploading droplet (27M)
-Checking status of app 'anynines-padrino-mysql'...
+Checking status of app 'padrino-hello-world-anynines-mysql'....
   0 of 1 instances running (1 starting)
   0 of 1 instances running (1 starting)
-  0 of 1 instances running (1 starting)
-  0 of 1 instances running (1 starting)
-  0 of 1 instances running (1 starting)
-  0 of 1 instances running (1 crashing)
-Push unsuccessful.
-TIP: The system will continue to attempt restarting all requested app instances that have crashed. Try 'cf app' to monitor app status. To troubleshoot crashes, try 'cf events' and 'cf crashlogs'.
+  1 of 1 instances running (1 running)
+Push successful! App 'padrino-hello-world-anynines-mysql' available at padrino-hello-world-anynines-mysql.de.a9sapp.eu
 
 {% endhighlight %}
 
 
-You can find the code https://github.com/matthias-guenther/hello-world-padrino-anynines-mysql
+First, the migration will be applied and then the application will be started.
+
+
+Now we can check if the `users` table is in our database:
+
+
+{% highlight bash %}
+
+$ cf tunnel
+1: mysql-e4298
+Which service instance?> 1
+
+1: none
+2: mysql
+3: mysqldump
+Which client would you like to start?> 2
+
+Opening tunnel on port 10000... OK
+Waiting for local tunnel to become available... OK
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1570790
+Server version: 5.5.29-rel29.4 Percona Server with XtraDB (GPL), Release rel29.4, Revision 401
+
+Copyright (c) 2000, 2013, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use d59423f34f20f4878a9ab9b2b886cf4a6
+Database changed
+mysql> show tables;
++---------------------------------------------+
+| Tables_in_d59423f34f20f4878a9ab9b2b886cf4a6 |
++---------------------------------------------+
+| schema_migrations                           |
+| users                                       |
++---------------------------------------------+
+2 rows in set (0.33 sec)
+
+mysql> SHOW COLUMNS FROM users;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| email      | text         | YES  |     | NULL    |                |
+| created_at | datetime     | YES  |     | NULL    |                |
+| updated_at | datetime     | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.34 sec)
+
+
+mysql> INSERT INTO users (name, email) VALUES('Matthias Günther', 'matthias@wikimatze.de');
+Query OK, 1 row affected (0.35 sec)
+
+mysql> SELECT * FROM users;
++----+-------------------+-----------------------+------------+------------+
+| id | name              | email                 | created_at | updated_at |
++----+-------------------+-----------------------+------------+------------+
+|  1 | Matthias Günther  | matthias@wikimatze.de | NULL       | NULL       |
++----+-------------------+-----------------------+------------+------------+
+1 row in set (0.36 sec)
+
+{% endhighlight %}
+
+
+Finally, let's create a view with the entries in `app/app.rb`:
+
+
+{% highlight ruby %}
+
+module PadrinoHelloWorldAnyninesMysql
+  class App < Padrino::Application
+    ...
+    get "/" do
+      wikimatze = Users.find(1)
+      "Hello #{wikimatze.name}, I know you email: #{wikimatze.email}"
+    end
+  end
+end
+
+{% endhighlight %}
+
+
+If you now call [padrino-hello-world-anynines-mysql.de.a9sapp.eu/](http://padrino-hello-world-anynines-mysql.de.a9sapp.eu/) you can see the "Hello Matthias Günther, I know your email: matthias@wikimatze.de" in your browser.
+
+
+You find the code of this application on [GitHub](https://github.com/matthias-guenther/padrino-hello-world-anynines-mysql).
 
