@@ -17,7 +17,7 @@ First we need to generate keys and when you come to the step to create the passp
 to create enough entropy for the key:
 
 
-{% highlight bash %}
+```bash
 
 $  gpg --gen-key
 
@@ -71,12 +71,12 @@ generator a better chance to gain enough entropy.
 ++++++++++.++++++++++++++++++++...++++++++++++++++++++++++++++++++++++++++.+++++.++++++++++++++++++++.+++++.++++++++++++++++++++..+++++..+++++.+++++.++++++++++>+++++.+++++.......................>+++++..........<.+++++...............................................>+++++......<.+++++......................................>+++++...........<+++++.............................................................................+++++^^^
 gpg: key D64C14E5 marked as ultimately trusted
 public and secret key created and signed.
-{% endhighlight %}
+```
 
 
 ## Encryption and Decryption
 
-{% highlight bash %}
+```bash
 
 $ vi document.txt
 $ gpg --encrypt --armour
@@ -84,12 +84,12 @@ $ gpg --encrypt --armour
     -o document.asc document.txt
 $ rm document.txt
 
-{% endhighlight %}
+```
 
 
 Now your file have an encrypted file `document.asc` which looks like:
 
-{% highlight bash %}
+```bash
 
 -----BEGIN PGP MESSAGE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
@@ -110,30 +110,30 @@ fIvM/5YED4+ZlNXmqsNYMrEoPD94FyLSMMduUE/9T7SSgKiGywBt
 =AQI2
 -----END PGP MESSAGE-----
 
-{% endhighlight %}
+```
 
 
 You can view and edit this file with:
 
 
-{% highlight bash %}
+```bash
 
 $ gpg --decrypt -o document.txt document.asc
 $ vim document.txt
 
-{% endhighlight %}
+```
 
 
 After you are done with your editing you need to encrypt your file again:
 
 
-{% highlight bash %}
+```bash
 
 $ gpg --encrypt --armour
     -r matthias.guenther@wikimatze.de
     -o document.asc document.txt
 
-{% endhighlight %}
+```
 
 
 Now it we are fine and everything is working.

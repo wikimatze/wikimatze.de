@@ -68,7 +68,7 @@ installed) - and by the way, it's a nice place to sniff in the code of other hac
 Here is an example `sweetie.gemspec`:
 
 
-{% highlight ruby %}
+```ruby
 
 $:.push File.expand_path("../lib", __FILE__)
 require 'sweetie/version'
@@ -97,7 +97,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'yard'
 end
 
-{% endhighlight %}
+```
 
 
 Let's explain the stuff which aren't obvious:
@@ -121,7 +121,7 @@ Once you have created some code (it doesn't matter how small the code is, except
 you should build it on your local machine before making it public:
 
 
-{% highlight ruby %}
+```ruby
 
 $ gem build sweetie.gemspec
 => Successfully built RubyGem
@@ -129,30 +129,30 @@ $ gem build sweetie.gemspec
   Version: 1.0.0
   File: sweetie-1.0.0.gem
 
-{% endhighlight %}
+```
 
 
 Now you can install the gem *locally*:
 
 
-{% highlight ruby %}
+```ruby
 
 $ gem install sweetie-1.0.0.gem
 
-{% endhighlight %}
+```
 
 
 And test the installation with:
 
 
-{% highlight ruby %}
+```ruby
 
 $ gem list | grep sweetie
 $ irb
 >> require 'sweetie'
 => true
 
-{% endhighlight %}
+```
 
 
 It's working and you can experiment with the script locally.
@@ -163,19 +163,19 @@ It's working and you can experiment with the script locally.
 First, you need to register on [rubygems.org](http://rubygems.org/). After that you can push the gem there with one simple command:
 
 
-{% highlight ruby %}
+```ruby
 
 gem push sweetie-1.0.0.gem
 Pushing gem to RubyGems.org...
 Successfully registered gem: sweetie (1.0.0)
 
-{% endhighlight %}
+```
 
 
 If you want to check if your gem is online, the console is your friend:
 
 
-{% highlight ruby %}
+```ruby
 
 gem list -r sweetie
 
@@ -183,7 +183,7 @@ gem list -r sweetie
 
 sweetie (1.0.0)
 
-{% endhighlight %}
+```
 
 
 This will print all the gems which fit to the specified gem.

@@ -9,15 +9,15 @@ of some method without changing the origin implementation of it. `alias_method` 
 `old_name` and it has the following syntax.
 
 
-{% highlight ruby %}
+```ruby
 
 alias_method (new_name, old_name)
 
-{% endhighlight %}
+```
 
 A small example:
 
-{% highlight ruby %}
+```ruby
 
 class Davi
   def capital
@@ -39,7 +39,7 @@ davi.capital
 "Karaz-a-Karak rebuild"
 "Karaz-a-Karak"
 
-{% endhighlight %}
+```
 
 
 ## What is the difference between `alias` and `alias_method`
@@ -49,7 +49,7 @@ during runtime which may be a subclass where the call is lexically located. Cons
 understand what I mean:
 
 
-{% highlight ruby %}
+```ruby
 
 class A
   def self.swap
@@ -77,7 +77,7 @@ end
 puts Z.new.bar
 # => "Z foo"
 
-{% endhighlight %}
+```
 
 
 ## Conclusion
@@ -89,7 +89,7 @@ order to maintain backward compatibility `alias_method` are used in plugins, ext
 Here the duplicated variant:
 
 
-{% highlight ruby %}
+```ruby
 
 class UsersController < ApplicationController
   def home
@@ -105,13 +105,13 @@ class UsersController < ApplicationController
   end
 end
 
-{% endhighlight %}
+```
 
 
 The DRY variant:
 
 
-{% highlight ruby %}
+```ruby
 
 class UsersController < ApplicationController
   def home
@@ -122,7 +122,7 @@ class UsersController < ApplicationController
   alias_method :search, :home
 end
 
-{% endhighlight %}
+```
 
 
 ## Further reading

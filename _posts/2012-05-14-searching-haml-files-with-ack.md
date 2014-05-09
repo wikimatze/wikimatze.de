@@ -18,12 +18,12 @@ typed string "Übreschrift" and would like to replace it with the correct versio
 Why couldn't I find the file with that content? Was I in the wrong directory? No:
 
 
-{% highlight sh %}
+```bash
 
 $ pwd
 -> $HOME/git-repositories/brokenlifts
 
-{% endhighlight %}
+```
 
 
 Did I used the wrong pattern? No, I searched after the right word "Übreschrift". Did I used the wrong command?  No, I
@@ -38,12 +38,12 @@ will get the output of all files ack will go through - and this command didn't d
 I created the `$HOME/.ackrc` and added the entries to include these special filename:
 
 
-{% highlight sh %}
+```bash
 
 --type-add
 html=.html.haml
 
-{% endhighlight %}
+```
 
 
 Now my search worked and I got hits in `*.html.haml` files for searching the term "Übreschrift".
@@ -54,20 +54,20 @@ Now my search worked and I got hits in `*.html.haml` files for searching the ter
 Since I'm working with Rails there are other file types like `sass, erb, less, scss, ..` I would like to include into the search:
 
 
-{% highlight sh %}
+```bash
 
 --type-add
 html=.html.erb,.html.haml,.haml
 --type-add
 css=.sass,.less,.scss
 
-{% endhighlight %}
+```
 
 
 And there might be directories I don't want to have in my search path. Let's ignore them and speed up our search:
 
 
-{% highlight sh %}
+```bash
 
 # ignore certain file types
 --type-set=ignorables=.log,.tmp,.pdf
@@ -79,14 +79,14 @@ And there might be directories I don't want to have in my search path. Let's ign
 --ignore-dir=doc
 --ignore-dir=coverage
 
-{% endhighlight %}
+```
 
 
 If you would like to see the specified files for your grep environment search, use `ack --help types` - this will
 print all information you need. Here is an example:
 
 
-{% highlight sh %}
+```bash
 
 $ ack --help types
 =>
@@ -109,7 +109,7 @@ $ ack --help types
   --[no]ignorables   .log .tmp .pdf
 ...
 
-{% endhighlight %}
+```
 
 
 ## Further reading

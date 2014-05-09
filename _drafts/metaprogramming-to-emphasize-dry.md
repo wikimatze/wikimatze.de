@@ -7,7 +7,7 @@ published: false
 You can use metaprogramming[^metaprogramming] to become a better code when you have controllers, where you have
 reoccurring method. Let's examine the following piece of code:
 
-{% highlight ruby %}
+```ruby
 
 class Dwarf < ActiveRecord::Base
 
@@ -25,13 +25,13 @@ class Dwarf < ActiveRecord::Base
     end
 end
 
-{% endhighlight %}
+```
 
 Right, the methods differ only in the `:status` symbol. We use the `define_method` to refactor this
 code in a better way:
 
 
-{% highlight ruby %}
+```ruby
 
 class Dwarf < ActiveRecord::Base
   STATUS = %w(slayer, king, bearer)
@@ -44,7 +44,7 @@ class Dwarf < ActiveRecord::Base
     end
   end
 end
-{% endhighlight %}
+```
 
 Now the code is easy to extend or to remove status from the array, the methods are then generated on
 the fly.

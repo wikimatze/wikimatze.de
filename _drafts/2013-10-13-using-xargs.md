@@ -7,7 +7,7 @@ description:
 
 Running into the following situation:
 
-{% highlight bash %}
+```bash
 
 $ pgrep chromium
   4175
@@ -45,7 +45,7 @@ $ pgrep chromium
   31115
   31151
   31459
-{% endhighlight %}
+```
 
 
 Then how can I kill all running processes very easily?

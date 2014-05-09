@@ -14,7 +14,7 @@ objects with their attributes initialized.
 Let's start with a `Struct` that defines the basic layout of a Dwarf.
 
 
-{% highlight ruby %}
+```ruby
 
 require 'ostruct2'
 
@@ -26,24 +26,24 @@ dawi.age = 120
 >> dawi
 => #<OpenStruct name="Gotrek Gurnisson", clan="Slayer", age=120>
 
-{% endhighlight %}
+```
 
 
 Since OpenStruct emplys a Hash, it can even initialized with one
 
 
-{% highlight code %}
+```ruby
 
 dawi = OpenStruct.new(:name => "Gotrek Gurnisson", :clan => "Slayer", :age => 120)
 
-{% endhighlight %}
+```
 
 
 If you want to remove a field from the struct, you have to run the `delete_field(name)` method. Otherwise, the method will be
 still there:
 
 
-{% highlight ruby %}
+```ruby
 
 
 dawi_one = OpenStruct.new(:name => "Gotrek Gurnisson", :clan => "Slayer", :age => 120)
@@ -58,7 +58,7 @@ dawi_one.delete_field(:age)
 dawi_one == dawi_two
 => true
 
-{% endhighlight %}
+```
 
 
 ## Reading a YAML file and saving the attributes in a Struct object
@@ -66,19 +66,19 @@ dawi_one == dawi_two
 First we define some YAML file:
 
 
-{% highlight ruby %}
+```ruby
 # data.yml
 
 title: Small Test
 date: 21.10.2012
 
-{% endhighlight %}
+```
 
 
 And the code to transform the data from the YAML file in a struct
 
 
-{% highlight ruby %}
+```ruby
 
 require 'yaml'
 require 'ostruct2'
@@ -90,7 +90,7 @@ data_container = OpenStruct.new(data_hash)
 data_container.inspect
 => "#<OpenStruct title="Small Test", date="21.10.2012">"
 
-{% endhighlight %}
+```
 
 
 ## Conclusion

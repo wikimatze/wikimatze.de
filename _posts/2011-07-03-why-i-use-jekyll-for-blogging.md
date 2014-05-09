@@ -58,7 +58,7 @@ Other files can put on the root directory like an `atom.xml` file (for RSS feed)
 `post.html` has the following layout:
 
 
-{% highlight html %}
+```html
 
 ---
 layout: default
@@ -79,7 +79,7 @@ layout: default
   </aside>
 </article>
 
-{% endhighlight %}
+```
 
 
 The lines between `---` mark a special [Yaml Front Matter](http://jekyllrb.com/docs/frontmatter/)
@@ -92,7 +92,7 @@ the content of a post entry.
 Here is the main template for my blog.
 
 
-{% highlight html %}
+```html
 
 <!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
@@ -180,7 +180,7 @@ Here is the main template for my blog.
   ...
 </html>
 
-{% endhighlight %}
+```
 
 
 I'm using the meta-language [Sass](http://sass-lang.com/) to create my CSS. There is one problem with Sass: You have to

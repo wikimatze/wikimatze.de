@@ -4,7 +4,7 @@ description:
 ---
 **
 
-{% highlight ruby %}
+```ruby
 
 require 'rest-client'
 require 'json'
@@ -79,7 +79,7 @@ unless ARGV[0].empty?
   end
 end
 
-{% endhighlight %}
+```
 ## Conclusion
 
 

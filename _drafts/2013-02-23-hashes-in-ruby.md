@@ -12,11 +12,11 @@ Hashes are fast you have constant time to look up an element.
 
 ## Examples
 
-{% highlight ruby %}
+```ruby
 
 {}.class # => Hash
 
-{% endhighlight %}
+```
 
 
 The keys of a hash are separated from their values with a hash rocket `=>`. The key is on the left side of the

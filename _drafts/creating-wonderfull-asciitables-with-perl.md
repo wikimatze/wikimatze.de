@@ -21,7 +21,7 @@ $t->addRow(2,'Dummy product 2',21.2);
 $t->addRow(3,'Dummy product 3',12.3);
 $t->addRowLine();
 print $t;
-{% endhighlight %}
+```
 
 This will produce the wonderful output:
 
@@ -33,7 +33,7 @@ This will produce the wonderful output:
 |  2 | Dummy product 2 |  21.2 |
 |  3 | Dummy product 3 |  12.3 |
 '----+-----------------+-------'
-{% endhighlight %}
+```
 
 Thats all I wanted and it isn't so difficult to use.
 

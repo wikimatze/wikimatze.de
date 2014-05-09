@@ -12,7 +12,7 @@ them, you happy about ebery piece of information you can get about them.
 
 How not to do it:
 
-{% highlight ruby %}
+```ruby
 
 class City < ActiveRecord::Base
   has_one :bookkeeper
@@ -41,11 +41,11 @@ class CityController < ApplicationController
     end
   end
 end
-{% endhighlight %}
+```
 
 Now the a far more better method with the `accepts_nested_attributes` method:
 
-{% highlight ruby %}
+```ruby
 
 class City < ActiveRecord::Base
   has_one :bookkeeper
@@ -68,12 +68,12 @@ class CityController < ApplicationController
   end
 end
 
-{% endhighlight %}
+```
 
 Now the City model takes care of saving the bookkeeper model. Note that we have used about a one-to-one
 association [^association]. You can use this attribute also in a one-to-many association:
 
-{% highlight ruby %}
+```ruby
 
 class City < ActiveRecord::Base
   has_many :bookkeepers
@@ -84,7 +84,7 @@ class Bookkeeper < ActiveRecord::Base
   belongs_to :city
 end
 
-{% endhighlight %}
+```
 
 
 ## Conclusion ##

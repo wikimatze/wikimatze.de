@@ -19,7 +19,7 @@ the command must begin with an underscore and needs to be in your [fpath](http:/
 enable this feature in your `.zshrc`:
 
 
-{% highlight bash %}
+```bash
 
 # folder of all of your autocomplete functions
 fpath=($HOME/.zsh-completions $fpath)
@@ -28,24 +28,24 @@ fpath=($HOME/.zsh-completions $fpath)
 autoload -U compinit
 compinit
 
-{% endhighlight %}
+```
 
 
 Before going on, you need to install the tmuxinator gem with:
 
 
-{% highlight bash %}
+```bash
 
 $ gem install tmuxinator
 
-{% endhighlight %}
+```
 
 
 Let's implement the `hello-tmux` and `version` commands for the tmuxinator gem. Inside your
 `~/.zsh-completions/_tmuxinator` file:
 
 
-{% highlight bash %}
+```bash
 
 #compdef tmuxinator
 _tmuxinator() {
@@ -64,7 +64,7 @@ _tmuxinator() {
 
 _tmuxinator
 
-{% endhighlight %}
+```
 
 
 Now reload your shell with `exec zsh` and type in `$ tmuxinator <Tab>`. Voilà, you've written you first
@@ -76,12 +76,12 @@ autocompletion. I will explain part of the code in the next chapters in case you
 First of all we need to specify the name of the command for which we want to have for Padrino's autocompletion:
 
 
-{% highlight bash %}
+```bash
 
 #compdef padrino
 typeset -A opt_args
 
-{% endhighlight %}
+```
 
 
 Please note, that the first line must be comment with the `compdef` command followed by the name of the command. With the help of the `typeset` command we can set and display attributes and values for shell parameters. The `-A` options says, that names we pass into the autocomplete function refers to [associative array parameters](http://linux.die.net/man/1/zshparam). `opt_args` makes it possible to add command-line options like `-d` or `-f` for our associative array.
@@ -91,7 +91,7 @@ Next, we are going to define the inputs of our function. We need this to be able
 context in which we are during our completion:
 
 
-{% highlight bash %}
+```bash
 
 _arguments -C \
   '1:cmd:->cmds' \
@@ -99,7 +99,7 @@ _arguments -C \
   '*:: :->args' \
 && ret=0
 
-{% endhighlight %}
+```
 
 
 The `_arguments` function is used to give a complete specification for a command whose arguments follow
@@ -129,7 +129,7 @@ specified sub application or the `-d` option for defining the orm adapter when u
 The first argument in Padrino autocompletion, `1:cmd:->cmds`, is created with the help of a case statement:
 
 
-{% highlight bash %}
+```bash
 
 #compdef padrino
 
@@ -154,7 +154,7 @@ ease;
 
 return 1;
 
-{% endhighlight %}
+```
 
 
 Let's go through the parts:
@@ -169,7 +169,7 @@ Now we know that we are going to use a generator we need to find out which gener
 This is the `'2:generators:->generator_lists'` part of the `_arguments` function:
 
 
-{% highlight bash %}
+```bash
 
 #compdef padrino
 
@@ -204,7 +204,7 @@ esac
 
 return 1
 
-{% endhighlight %}
+```
 
 
 The code above follows nearly the same syntax as the `cmds` command before. The last thing we need to handle are the
@@ -212,7 +212,7 @@ optional arguments for each generate state, as defined `*:: :->args` (imagine th
 of your control structure):
 
 
-{% highlight bash %}
+```bash
 
 #compdef padrino
 
@@ -269,7 +269,7 @@ esac
 
 return 1
 
-{% endhighlight %}
+```
 
 
 If our second inline parameter `$line[2]` is `controller` then we have the `-d, -n`, and `-r` options. One the other hand if the second inline parameter is `mailer` the options `-a, -d, -n`, and `-r` are available. You can find the whole implementation code under [GitHub](https://github.com/matthias-guenther/padrino-zsh-completion).

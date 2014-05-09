@@ -28,28 +28,28 @@ To implement Sprockets in Padrino there the following strategies:
 First we will create a new Padrino app:
 
 
-{% highlight sh %}
+```bash
 
 $ padrino g project job-vacancy -d activerecord -t rspec -s jquery -e erb -a sqlite
 
-{% endhighlight %}
+```
 
 
 We are using the **padrino-sprockets** gem. Let's add it to our Gemfile:
 
 
-{% highlight ruby %}
+```ruby
 
 # Gemfile
 gem 'padrino-sprockets', :require => ['padrino/sprockets'], :git => 'git://github.com/nightsailer/padrino-sprockets.git'
 
-{% endhighlight %}
+```
 
 
 Next we need to move all our assets from the public folder in the assets folder:
 
 
-{% highlight bash%}
+```bash
 
 $ cd <path-to-your-padrino-app>
 $ mkdir -p app/assets
@@ -57,13 +57,13 @@ $ mv public/javascript app/assets
 $ mv public/stylesheets app/assets
 $ mv public/images app/assets
 
-{% endhighlight %}
+```
 
 
 Now we have to register Padrino-Sprockets in this application:
 
 
-{% highlight ruby %}
+```ruby
 
 # app/app.rb
 module JobVacancy
@@ -75,13 +75,13 @@ module JobVacancy
   end
 end
 
-{% endhighlight %}
+```
 
 
 Next we need to determine the order of the loaded CSS files:
 
 
-{% highlight css %}
+```css
 
 # app/assets/stylesheets/application.css
 /*
@@ -98,7 +98,7 @@ Next we need to determine the order of the loaded CSS files:
  *= require site
 */
 
-{% endhighlight %}
+```
 
 
 First we are loading the `bootstrap` default CSS, then `bootstrap-response`, and finally our customized `site` CSS. The
@@ -109,7 +109,7 @@ check the order of the loaded CSS as a comment above your application without ev
 Next let's have a look into our JavaScript files:
 
 
-{% highlight javascript %}
+```javascript
 
 # app/assets/javascript/application.js
 
@@ -121,7 +121,7 @@ Next let's have a look into our JavaScript files:
 //
 //= require_tree .
 
-{% endhighlight %}
+```
 
 
 The interesting thing here is the `require_tree .` option. This option tells Sprockets to include all
@@ -131,7 +131,7 @@ JavaScript files in the assets folder with no specific order.
 Now, we can clean up the include statements in our application template:
 
 
-{% highlight html %}
+```html
 
 # app/views/layouts/application.erb
 
@@ -143,7 +143,7 @@ Now, we can clean up the include statements in our application template:
   <%= javascript_include_tag '/assets/application' %>
 </head>
 
-{% endhighlight %}
+```
 
 
 ## Enable Compression for CSS and JavaScript
@@ -153,7 +153,7 @@ Now we want to enable compression for our CSS and JavaScript files. For CSS comp
 [Uglifier](https://github.com/lautis/uglifier). We need to add these these Gems in our `Gemfiles`:
 
 
-{% highlight ruby %}
+```ruby
 
 # Gemfile
 ...
@@ -161,13 +161,13 @@ gem 'padrino-sprockets', :require => 'padrino/sprockets', :git => 'git://github.
 gem 'uglifier', '2.1.1'
 gem 'yui-compressor', '0.9.6'
 
-{% endhighlight %}
+```
 
 
 And finally we need to enable minifying in our production environment:
 
 
-{% highlight ruby %}
+```ruby
 
 # app/app.rb
 module JobVacancy
@@ -178,7 +178,7 @@ module JobVacancy
   end
 end
 
-{% endhighlight %}
+```
 
 {% include newsletter.html %}
 

@@ -11,26 +11,26 @@ code in the models to keep our controllers clean and sexy. In other words: You c
 fragments `aa aa` in your app by defining them in your models. Instead of calling
 in your app by defining them in your models. Instead of calling
 
-{% highlight ruby %}
+```ruby
 
 Article.find(:all, :order => 'created_at desc')
 
-{% endhighlight %}
+```
 
 you can specify in your Article model a *named_scope* in the following way
 
-{% highlight ruby %}
+```ruby
 
 named_scope :famous, :oder => 'created_at desc'
 
-{% endhighlight %}
+```
 
 
 ## Small example
 
 We have the following code:
 
-{% highlight ruby %}
+```ruby
 
 class ArticleController < ApplicationController
   def index
@@ -40,11 +40,11 @@ class ArticleController < ApplicationController
   end
 end
 
-{% endhighlight %}
+```
 
 Now puts the conditions in the *Article* model:
 
-{% highlight ruby %}
+```ruby
 
 class Article < ActiveRecord::Base
   named_scope :published, :conditiond => { ... }
@@ -52,11 +52,11 @@ class Article < ActiveRecord::Base
                       :order => 'created_at desc'
 end
 
-{% endhighlight %}
+```
 
 Then in your controller you can use:
 
-{% highlight ruby %}
+```ruby
 
 class ArticleController < ApplicationController
   def index
@@ -65,7 +65,7 @@ class ArticleController < ApplicationController
   end
 end
 
-{% endhighlight %}
+```
 
 In my eyes, this looks more comfortable :D.
 

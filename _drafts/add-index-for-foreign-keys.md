@@ -12,7 +12,7 @@ keys.
 Migration without an index
 
 
-{% highlight ruby %}
+```ruby
 
 class CreateClans < ActiveRecord::Migration
   def self.up
@@ -28,13 +28,13 @@ class CreateClans < ActiveRecord::Migration
   end
 end
 
-{% endhighlight %}
+```
 
 
 And now with index:
 
 
-{% highlight ruby %}
+```ruby
 
 class CreateClans < ActiveRecord::Migration
   def self.up
@@ -53,7 +53,7 @@ class CreateClans < ActiveRecord::Migration
   end
 end
 
-{% endhighlight %}
+```
 
 
 ## Conclusion

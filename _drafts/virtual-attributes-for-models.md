@@ -12,7 +12,7 @@ you don't need them in your database, it's a good practise to use virtual attrib
 
 We have the following code example:
 
-{% highlight ruby %}
+```ruby
 % form_for @user do |form|
   = form.text_field :name
   = form.text_field :email
@@ -25,12 +25,12 @@ class ContactController < ApplicationController
     @user.email = params[:email]
   end
 end
-{% endhighlight %}
+```
 
 This is not the spirit of the MVC[^mvc], it is not the task of the controller to assign values to
 the model. The model is happy for to get something to do.
 
-{% highlight ruby %}
+```ruby
 
 class Contact < ActiveRecord::Base
   def email
@@ -55,7 +55,7 @@ class ContactController < ApplicationController
     @user = User.create(params[:user])
   end
 end
-{% endhighlight %}
+```
 
 There is some duplication inside this method, but I will have to clean this up
 

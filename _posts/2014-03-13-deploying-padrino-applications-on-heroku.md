@@ -20,7 +20,7 @@ database interactions.
 
 ## Installing Heroku
 
-{% highlight bash %}
+```bash
 
 $ gem install heroku
 Fetching: heroku-3.4.2.gem (100%)
@@ -33,28 +33,28 @@ Installing ri documentation for heroku-3.4.2
 Done installing documentation for heroku after 1 seconds
 1 gem installed
 
-{% endhighlight %}
+```
 
 
 Hmm, the method above is working but I highly recommend you to follow the installations instructions from [toolbelt.heroku.com](https://toolbelt.heroku.com/) page:
 
 
-{% highlight bash %}
+```bash
 
 $ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
-{% endhighlight %}
+```
 
 
 To check if everything went well, you can run the following command:
 
 
-{% highlight bash %}
+```bash
 
 $ heroku version
 heroku-toolbelt/3.4.1 (i686-linux) ruby/1.9.3
 
-{% endhighlight %}
+```
 
 
 ## Hello World
@@ -62,7 +62,7 @@ heroku-toolbelt/3.4.1 (i686-linux) ruby/1.9.3
 Creating a new app:
 
 
-{% highlight bash %}
+```bash
 
 $ padrino generate project hello-world-heroku
     create
@@ -103,13 +103,13 @@ $ cd ./hello-world-heroku
 $ bundle
 =================================================================
 
-{% endhighlight %}
+```
 
 
 The next part is to create a route in `app/app.rb`:
 
 
-{% highlight ruby %}
+```ruby
 
 module HelloWorldHeroku
   class App < Padrino::Application
@@ -120,7 +120,7 @@ module HelloWorldHeroku
   end
 end
 
-{% endhighlight %}
+```
 
 
 Next, you need to setup your account on [heroku.com](https://id.heroku.com/login):
@@ -139,13 +139,13 @@ Initialize an empty git repository, make an initial commit, and add the heroku r
 
 
 
-{% highlight bash %}
+```bash
 
 $ cd hello-world-heroku
 $ git init && git add . && git commit -m "Initial commit"
 $ git remote add heroku git@heroku.com:hello-world-padrino.git
 
-{% endhighlight %}
+```
 
 
 <a href="http://farm3.staticflickr.com/2332/13108476374_7870beaf76_c.jpg" title="The Path You Need" class="fancybox"><img src="http://farm3.staticflickr.com/2332/13108476374_601991fd40_o.png" class="center" alt="The Path You Need"/></a>
@@ -155,7 +155,7 @@ $ git remote add heroku git@heroku.com:hello-world-padrino.git
 When everything is setup in the right way, you need to push:
 
 
-{% highlight bash %}
+```bash
 
 $ git push --set-upstream heroku master
   Initializing repository, done.
@@ -226,7 +226,7 @@ $ git push --set-upstream heroku master
    * [new branch]      master -> master
   Branch master set up to track remote branch master from heroku.
 
-{% endhighlight %}
+```
 
 
 If you now call [hello-world-herokuapp.com](http://hello-world-padrino.herokuapp.com/) you can see it and your done.
@@ -241,7 +241,7 @@ You can find the code for this application on [GitHub padrino-hello-world-heroku
 Let's create a new application:
 
 
-{% highlight bash %}
+```bash
 
 $ padrino g project hello-world-heroku-postgres -d activerecord -a postgres
     create
@@ -287,7 +287,7 @@ $ cd ./hello-world-heroku-postgres
 $ bundle
 =================================================================
 
-{% endhighlight %}
+```
 
 
 Go to your app and select under "Resources" the "Get Add-ons" link and chose the "Heroku Postgres" addon with the help:
@@ -300,7 +300,7 @@ Go to your app and select under "Resources" the "Get Add-ons" link and chose the
 You can also run the following command which does the same:
 
 
-{% highlight bash %}
+```bash
 
 $ heroku addons:add heroku-postgresql
 
@@ -311,28 +311,28 @@ Database has been created and is available
  ! data from another database with pgbackups:restore.
 Use `heroku addons:docs heroku-postgresql` to view documentation.
 
-{% endhighlight %}
+```
 
 
 Hmmm, let's go into the help:
 
 
-{% highlight bash %}
+```bash
 
 $ heroku addons:docs heroku-postgresql
 
-{% endhighlight %}
+```
 
 
 It will open the URL [https://devcenter.heroku.com/articles/heroku-postgresql](https://devcenter.heroku.com/articles/heroku-postgresql). Calling:
 
 
-{% highlight bash %}
+```bash
 
 $ heroku config | grep HEROKU_POSTGRESQL
 HEROKU_POSTGRESQL_TEAL_URL: postgres://yxkscmfxkhsvfd:hnGMVRPWmBQ06Bi3ujqP21Orl4@ec2-79-125-21-60.eu-west-1.compute.amazonaws.com:5432/dev751q4jd401b
 
-{% endhighlight %}
+```
 
 
 gives us the host URL, the user, the port, as well as the password. You can get the same information under the URL [https://postgres.heroku.com/databases](https://postgres.heroku.com/databases).
@@ -341,7 +341,7 @@ gives us the host URL, the user, the port, as well as the password. You can get 
 Since we now have the information about our database, it's time to edit `config/database.rb`:
 
 
-{% highlight ruby %}
+```ruby
 
 ActiveRecord::Base.configurations[:production] = {
   :adapter   => 'postgresql',
@@ -352,13 +352,13 @@ ActiveRecord::Base.configurations[:production] = {
   :port      => 5432
 }
 
-{% endhighlight %}
+```
 
 
 Now, it's time to push our app on heroku:
 
 
-{% highlight bash %}
+```bash
 
 $ git push heroku master
 Initializing repository, done.
@@ -434,26 +434,26 @@ Total 22 (delta 4), reused 0 (delta 0)
 To git@heroku.com:hello-world-heroku-postgres.git
  * [new branch]      master -> master
 
-{% endhighlight %}
+```
 
 
 Now let's create a model:
 
 
-{% highlight bash %}
+```bash
 
 $ padrino g model users name:string email:text
    apply  orms/activerecord
   create  models/users.rb
   create  db/migrate/001_create_users.rb
 
-{% endhighlight %}
+```
 
 
 Before pushing our changes we need to run the migrations:
 
 
-{% highlight bash %}
+```bash
 
 $ heroku run rake db:migrate
 Running `rake db:migrate` attached to terminal... up, run.1057
@@ -462,23 +462,23 @@ Running `rake db:migrate` attached to terminal... up, run.1057
    -> 0.0234s
 ==  CreateUsers: migrated (0.0236s) ===========================================
 
-{% endhighlight %}
+```
 
 
 Now we need to create some data with the following query:
 
 
-{% highlight bash %}
+```bash
 
 INSERT INTO users (name, email) VALUES ('Matthias', 'matthias@wikimatze.de');
 
-{% endhighlight %}
+```
 
 
 Next we need to edit our view `app/app.rb`:
 
 
-{% highlight ruby %}
+```ruby
 
 module HelloWorldHeroku
   class App < Padrino::Application
@@ -490,7 +490,7 @@ module HelloWorldHeroku
   end
 end
 
-{% endhighlight %}
+```
 
 
 After pushing the changes, you can call [http://hello-world-heroku-postgres.herokuapp.com](http://hello-world-heroku-postgres.herokuapp.com) and see the lovely output.

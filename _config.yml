@@ -1,8 +1,10 @@
-markdown: kramdown
+markdown: redcarpet
+
 highlighter: pygments
 permalink: /:title
 rdiscount:
   extensions: [smart]
+timezone: DE
 
 destination: _site
 base_url: "http://wikimatze.de"
@@ -10,13 +12,17 @@ base_url: "http://wikimatze.de"
 author: Matthias Günther
 
 exclude:
-- _drafts
-- Gemfile
-- Gemfile.lock
-- plugins
-- knowledge.md
-- Rakefile
-- bin
+  - _drafts
+  - Gemfile
+  - Gemfile.lock
+  - plugins
+  - knowledge.md
+  - Rakefile
+  - bin
+
+
+include:
+  - .htaccess
 
 
 # yaml default setup

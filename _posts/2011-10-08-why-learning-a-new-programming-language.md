@@ -64,7 +64,7 @@ actually was it and in now time I made great progresses. But some aspects of Jav
 simple things, so much overhead with static, private etc. To what I mean have a look on the following code:
 
 
-{% highlight java %}
+```java
 
 class Socke {
 
@@ -95,7 +95,7 @@ public class NewClass {
   }
 }
 
-{% endhighlight %}
+```
 
 
 Ok, you may say: "It's quite readably" but wait until you have written, about several kilo of LOCs and want to maintain
@@ -106,8 +106,7 @@ For another term I looked on C++. It was good to see how pointer (or *references
 your memory (Java has it's ) and generics (or *templates*) for your data structures. C++ is like Java, it's OOP and you can program procedural if you like to. Have a look on some code:
 
 
-{% highlight cpp %}
-
+```cpp
 /*
 * 2.1
 * Author: Matthias Guenther
@@ -156,7 +155,7 @@ int main(){
   return 0;
 }
 
-{% endhighlight %}
+```
 
 
 ## Enlightenment with Ruby
@@ -173,7 +172,7 @@ for nothing. You have to invest much time. But look for yourself on ruby - it lo
 at a script I wrote to tag MP3:
 
 
-{% highlight ruby %}
+```ruby
 
 require "mp3info"
 
@@ -219,7 +218,8 @@ Dir["#{base_directory}**/*.mp3"].each do |mp3|
     puts "#{output[-1]} ... converted [#{mp3_track.tag.album}]"
   end
 end
-{% endhighlight %}
+
+```
 
 
 ## Automating tasks
@@ -231,7 +231,7 @@ I have a bunch of images with ugly name, so I wrote a script to change this.  Ea
 learn its syntax. Here is some sample code:
 
 
-{% highlight sh %}
+```bash
 
 #!/bin/bash
 z=`ls | wc -l`
@@ -239,13 +239,13 @@ z=0
 
 for i in *.jpg; do z=$[$z+1]; mv "$i" ${i##*.jpg}$z\_$1.jpg; echo $i ; done # replace watermark_ (prefix)
 
-{% endhighlight %}
+```
 
 
 It's like Lego, you have these and that, plug it together to create something new. For my diploma thesis I create a
 Rakefile (the modern version of make written completely in ruby):
 
-{% highlight ruby %}
+```ruby
 
 desc "Create a directory for the compiled classes"
 task :create_class_directory do
@@ -288,7 +288,7 @@ task :test => [:create_environment_complete] do
   system 'scalac -Xplugin:divbyzero.jar Example.scala'
 end
 
-{% endhighlight %}
+```
 
 
 ## Head Scratching With Scala
@@ -305,7 +305,7 @@ experience and more confidence in your profession.
 Here is some of Scala code:
 
 
-{% highlight scala %}
+```scala
 
 class Reference[T] {
   private var contents: T = _
@@ -321,7 +321,7 @@ object IntegerReference {
   }
 }
 
-{% endhighlight %}
+```
 
 
 ## Conclusion

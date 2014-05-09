@@ -6,7 +6,7 @@ description: Getting back the beauty of a git diff
 Recently running `git diff README.md` gave me the following strange output:
 
 
-{% highlight bash %}
+```bash
 
 ESC[1;30mdiff --git a/mappings.md b/mappings.mdESC[m
 ESC[1;30mindex 2fcd88b..fb73590 100644ESC[m
@@ -23,7 +23,7 @@ ESC[1;32m+ESC[mESC[1;32m  def word a 'i'ESC[m
    `&` indicates, that the flags from the previous :substitute command should be reusedESC[m
 - (1/1) Line 1/13
 
-{% endhighlight %}
+```
 
 
 Instead of showing nicely colored output, it escaped all the sequences. I played around a little with the diff tools
@@ -31,7 +31,7 @@ but this was not the root of the problem. In fact it was a pagers problem. Runni
 me back my colors:
 
 
-{% highlight bash %}
+```bash
 
 diff --git a/README.md b/README.md
 index 85a8fba..4e8a9b3 100644
@@ -45,28 +45,28 @@ index 85a8fba..4e8a9b3 100644
  I'm always eager to learn, but I can't remember everything. Here is the list of the plugins I'm using - it is a reminder
  of the most important commands and settings for each plugin.
 
-{% endhighlight %}
+```
 
 
 But I want to use a pager. So I wanted to check my git settings `git config --list | grep pager` and there was entry.
 Instead I want to use `less` as my default pager:
 
 
-{% highlight bash %}
+```bash
 
 $ git config --global core.pager less
 
-{% endhighlight %}
+```
 
 
 But this didn't solve my issue. I then set page to `cat` and it worked
 
 
-{% highlight bash %}
+```bash
 
 $ git config --global core.pager cat
 
-{% endhighlight %}
+```
 
 
 

@@ -28,34 +28,34 @@ smells.
 
 Add the gem to your `Gemfile`:
 
-{% highlight ruby %}
+```ruby
 
 gem 'simplecov', '~> 0.7.1'
 
-{% endhighlight %}
+```
 
 
 Next, I want to start the code coverage generation every time I run the tests. So we need to add the following line to
 the `spec_helper.rb`:
 
 
-{% highlight ruby %}
+```ruby
 
 require 'simplecov'
 SimpleCov.start
 
-{% endhighlight %}
+```
 
 
 And that's all. Next time when you run the tests you can detect lines with the following output:
 
 
-{% highlight bash %}
+```bash
 
 Coverage report generated for RSpec to git-repositories/job-vacancy/coverage. 209 / 252 LOC (82.94%) covered.
 /
 
-{% endhighlight %}
+```
 
 
 After all tests have been passed, you can see the output in the `coverage` directory in the root of your directory:
@@ -73,7 +73,7 @@ Clicking on a single class will give you a brief overview which lines are not te
 It is also possible to divide parts of your application into several groups. Add options to the `Simplecov.start` block:
 
 
-{% highlight ruby %}
+```ruby
 
 SimpleCov.start do
   add_group "Models", "app/models"
@@ -82,7 +82,7 @@ SimpleCov.start do
   add_group "Mailers", "app/mailers"
 end
 
-{% endhighlight %}
+```
 
 
 <a href="http://farm8.staticflickr.com/7302/13240489074_f8fce593fb_o.png" title="Simplecov grouped output" class="fancybox"><img src="http://farm8.staticflickr.com/7302/13240489074_d38bff94b8_c.jpg" class="big center" alt="Simplecov grouped output"/></a>
@@ -93,17 +93,17 @@ end
 Add the following line to your `Gemfile`:
 
 
-{% highlight ruby %}
+```ruby
 
 gem 'metric_fu'
 
-{% endhighlight %}
+```
 
 
 When this is done you need to start the `metric_fu` command from your commandline:
 
 
-{% highlight bash %}
+```bash
 
 $ wikimatze~/git-repositories/job-vacancy: metric_fu
 ******* STARTING METRIC reek
@@ -130,13 +130,13 @@ $ wikimatze~/git-repositories/job-vacancy: metric_fu
 *****Generating graphs for tmp/metric_fu/_data/20140318.yml
 all done
 
-{% endhighlight %}
+```
 
 
 It will generate a `tmp/metric_fu` directory with the following contents:
 
 
-{% highlight bash %}
+```bash
 
 tmp/metric_fu
 ├── _data
@@ -187,7 +187,7 @@ tmp/metric_fu
 
 4 directories, 41 files
 
-{% endhighlight %}
+```
 
 
 The following metrics are created by

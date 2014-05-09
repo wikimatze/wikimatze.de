@@ -40,11 +40,11 @@ evaluating HDD parameters) and `smartd` (is daemon to check your HDD on a regula
 Install the tool with the following command:
 
 
-{% highlight bash %}
+```bash
 
 $ sudo apt-get install smartmontools
 
-{% endhighlight %}
+```
 
 
 ## Using smartctl for HDD diagnosing
@@ -52,17 +52,17 @@ $ sudo apt-get install smartmontools
 To get an overview of your new HDD please perform:
 
 
-{% highlight bash %}
+```bash
 
 $ sudo smartctl -A /dev/sda
 
-{% endhighlight %}
+```
 
 
 The `-A` options says that it will only print the vendor specific informations:
 
 
-{% highlight bash %}
+```bash
 $ sudo smartctl -A /dev/sda
 smartctl 6.2 2013-04-20 r3812 [i686-linux-3.11.0-15-generic] (local build)
 Copyright (C) 2002-13, Bruce Allen, Christian Franke, www.smartmontools.org
@@ -86,22 +86,22 @@ ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_
 235 POR_Recovery_Count      0x0012   099   099   000    Old_age   Always       -       8
 241 Total_LBAs_Written      0x0032   099   099   000    Old_age   Always       -       2076944882
 
-{% endhighlight %}
+```
 
 By using the following command
 
 
-{% highlight bash %}
+```bash
 
 $ sudo smartctl --all /dev/sda
 
-{% endhighlight %}
+```
 
 
 you will get all any information about your harddisk:
 
 
-{% highlight bash %}
+```bash
 
 $ smartctl --all /dev/sda
 smartctl 6.2 2013-04-20 r3812 [i686-linux-3.11.0-15-generic] (local build)
@@ -194,18 +194,17 @@ Selective self-test flags (0x0):
   After scanning selected spans, do NOT read-scan remainder of disk.
 If Selective self-test is pending on power-up, resume after 0 minute delay.
 
-
-{% endhighlight %}
+```
 
 
 Important of the output is the parameter **"PASSED"**, it tells you that the test is over. You can perform longer tests of your harddisk with:
 
 
-{% highlight bash %}
+```bash
 
 $ sudo smartctl -t long /dev/sda
 
-{% endhighlight %}
+```
 
 
 Depending on the size of your HDD, it takes some time. For checking a whole 500 GB the program runs about 80 minutes.
@@ -213,11 +212,11 @@ Depending on the size of your HDD, it takes some time. For checking a whole 500 
 It is even possible to check if your HDD has damage incurred during transporting the drive with the `conveyance` option:
 
 
-{% highlight bash %}
+```bash
 
 $ sudo smartctl -t conveyance /dev/sda
 
-{% endhighlight %}
+```
 
 
 ## Performing long time diagnostic with smartd
@@ -225,34 +224,34 @@ $ sudo smartctl -t conveyance /dev/sda
 The first step is to give the daemon the permission to run checks in the background:
 
 
-{% highlight bash %}
+```bash
 
 $ vim /etc/default/smartmontools
 > start_smartd=yes
 
-{% endhighlight %}
+```
 
 
 Find the line with and uncomment it:
 
 
-{% highlight bash %}
+```bash
 
 # uncomment to start smartd on system startup
 # start_smartd=yes
 
-{% endhighlight %}
+```
 
 
 The configuration file for the daemon can be found under `/etc/smartd.conf`. Here only one line is sufficient to check
 all HDDs:
 
 
-{% highlight bash %}
+```bash
 
 DEVICESCAN -m matthias@wikimatze.de -M exec /usr/share/smartmontools/smartd-runner
 
-{% endhighlight %}
+```
 
 
 Let's get through each line step-by-step:
@@ -262,27 +261,27 @@ Let's get through each line step-by-step:
 - `-M`: the frequency of emails departure
   - `-M exec`: don't send testmails
   - `-M test`: send a testmail (when using this option, you must leave out the `/usr/share/smartmontools/smartd-runner`)
-  - `-M daily`: send daily reports Now it's time to test our configuration: {% highlight bash %} $ smartd -q onecheck {% endhighlight %}
+  - `-M daily`: send daily reports Now it's time to test our configuration: `bash $ smartd -q onecheck`
 
 
 You can check your internal mails with `$ sudo mail` (you need install [Postfix](http://www.postfix.org/) on your OS) and rebooting the daemon:
 
 
-{% highlight bash %}
+```bash
 
 /etc/init.d/smartmontools restart
 
-{% endhighlight %}
+```
 
 
 If you want to have a graphical client for this tool, you need to run:
 
 
-{% highlight bash %}
+```bash
 
 $ sudo apt-get install gsmartcontrol
 
-{% endhighlight %}
+```
 
 
 You need then to start the program in sudo mode to detect all HDDs `sudo gsmartcontrol`.
@@ -300,11 +299,11 @@ create iso files of CDs.
 ### Writing zeros or random numbers
 
 
-{% highlight bash %}
+```bash
 
 $ dd if=/dev/zero of=/dev/sda
 
-{% endhighlight %}
+```
 
 
 Take from the **input file** (`if`) the zeros (`/dev/zero`) and write them on the **output file** (`of`) `/dev/sda`. If
@@ -317,11 +316,11 @@ Normally, each block of the hard disk has the size of 512 KB. To set the blocksi
 the writing speed with the factor two. We can achieve do this with the `bs` option.
 
 
-{% highlight bash %}
+```bash
 
 $ dd if=/dev/zero of=/dev/sda bs=1024
 
-{% endhighlight %}
+```
 
 
 ### Jump over errors
@@ -330,11 +329,11 @@ $ dd if=/dev/zero of=/dev/sda bs=1024
 over broken sectors:
 
 
-{% highlight bash %}
+```bash
 
 $ dd if=/dev/zero conv=noerror of=/dev/sda bs=1024
 
-{% endhighlight %}
+```
 
 Other useful parameters are `notrunc` (write the output file completely) or `sync` (write with the full length).
 
@@ -345,21 +344,21 @@ We can use the [pv](http://manpages.ubuntu.com/manpages/dapper/man1/pv.1.html) c
 through a pipe. First we need to install it:
 
 
-{% highlight bash %}
+```bash
 
 $ sudo apt-get install pv
 
-{% endhighlight %}
+```
 
 
 To get an overview about how many MB or GB have already be written, use the following command:
 
 
-{% highlight bash %}
+```bash
 
 $ dd if=/dev/random conv=notrunc,sync bs=1024 | pv > /dev/sda
 
-{% endhighlight %}
+```
 
 
 ## Conclusion

@@ -8,17 +8,17 @@ control. The most common ones are for me `.*.sw*`, `.DS_Store`, `log/**/*` or `t
 yourself and you can put those file in a global gitignore file with the following command:
 
 
-{% highlight bash %}
+```bash
 
 git config --global core.excludesfile ~/.gitignore
 
-{% endhighlight %}
+```
 
 
 It will create an entry in your `~/.gitconfig` file like the following:
 
 
-{% highlight bash %}
+```bash
 
 [user]
   name = Matthias Guenther
@@ -30,13 +30,13 @@ It will create an entry in your `~/.gitconfig` file like the following:
   autocrlf = input
   excludesfile = ~/.gitignore
   pager = cat
-{% endhighlight %}
+```
 
 
 My personal `.gitignore` has the following contents:
 
 
-{% highlight bash %}
+```bash
 
 ----------
 | Jekyll |
@@ -89,6 +89,6 @@ yankring.txt
 ._*
 Thumbs.db
 
-{% endhighlight %}
+```
 
 

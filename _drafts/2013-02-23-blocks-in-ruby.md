@@ -9,13 +9,13 @@ Blocks are what we call a proc when we pass it into a method
 
 You can pass blocks into methods by using the ampersand (&)operator:
 
-{% highlight ruby %}
+```ruby
 
 def bla(&block)
   block.call.downcase
 end
 
-{% endhighlight %}
+```
 
 
 ## Conclusion

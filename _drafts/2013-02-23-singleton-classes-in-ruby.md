@@ -5,7 +5,7 @@ description:
 **
 
 
-{% highlight ruby %}
+```ruby
 
 alone = Object.new
 
@@ -24,7 +24,7 @@ end
 alone.test
 alone.juhu
 
-{% endhighlight %}
+```
 
 
 ## Conclusion
