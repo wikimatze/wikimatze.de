@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Git Message No Submodule Found
 description:
 ---

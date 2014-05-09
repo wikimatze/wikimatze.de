@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Virtual attributes for models
 meta-description:
 published: false

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Ruby openstruct
 meta-description: OpenStruct helps you creating flexible Value Objects
 published: false

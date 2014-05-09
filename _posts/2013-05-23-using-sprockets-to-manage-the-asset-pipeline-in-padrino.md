@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using Sprockets to Manage the Asset Pipeline in Padrino
 update: 2014-03-30
 categories: ['padrino', 'ruby', 'programming']

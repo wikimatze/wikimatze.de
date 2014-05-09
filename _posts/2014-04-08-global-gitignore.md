@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Global Gitignore
 categories: ['git', 'learning']
 ---

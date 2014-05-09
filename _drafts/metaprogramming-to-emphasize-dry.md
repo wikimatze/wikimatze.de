@@ -1,5 +1,4 @@
 ---
-layout: post
 title: metaprogramming to emphasize DRY
 meta-description:
 published: false

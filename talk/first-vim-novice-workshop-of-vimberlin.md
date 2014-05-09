@@ -1,5 +1,4 @@
 ---
-layout: default
 title: First Vim Novice workshop of vimberlin
 meta-description: First Vim Novice workshop of vimberlin was held by Matthias Günther on the vimberlin meetup on August, 2012
 ---

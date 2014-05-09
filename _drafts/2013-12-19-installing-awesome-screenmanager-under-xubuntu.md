@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Installing Awesome Screenmanager Under Xubuntu
 description: Getting something you really love when
 ---

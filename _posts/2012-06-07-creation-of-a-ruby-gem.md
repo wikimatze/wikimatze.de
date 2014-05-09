@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Creation of a Ruby Gem
 update: 2014-03-30
 categories: ['ruby', 'programming']

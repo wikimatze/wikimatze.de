@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Arrays in Ruby
 description:
 ---

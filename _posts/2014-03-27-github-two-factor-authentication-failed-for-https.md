@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Github Two-Factor Authentication Failed For HTTPS
 update: 2014-03-30
 categories: ['git', 'learning']

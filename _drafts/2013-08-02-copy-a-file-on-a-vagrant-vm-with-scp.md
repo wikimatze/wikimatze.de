@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Copy a File on a Vagrant VM With Scp
 description:
 ---

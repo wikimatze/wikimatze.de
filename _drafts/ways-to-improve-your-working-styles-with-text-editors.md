@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Ways to improve your working styles with text editors
 meta-description: Learn to love your editor and save a lot of time
 ---

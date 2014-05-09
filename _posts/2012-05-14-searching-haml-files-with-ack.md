@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Searching Haml files with ack
 update: 2014-03-30
 categories: ['vim']

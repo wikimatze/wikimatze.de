@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Widden the Life of Your SSD
 description:
 ---

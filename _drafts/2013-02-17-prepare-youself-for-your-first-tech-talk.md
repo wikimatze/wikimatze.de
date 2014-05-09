@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Prepare Youself for Your First Tech Talk
 description:
 ---

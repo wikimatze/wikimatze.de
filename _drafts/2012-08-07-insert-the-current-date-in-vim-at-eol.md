@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Insert-the-current-date-in-Vim-at-eol
 published: false
 meta-description: Press one button to insert the current date in Vim

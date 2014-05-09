@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Getting Windows VM To Test IE
 ---
 

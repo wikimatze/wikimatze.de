@@ -1,5 +1,4 @@
 ---
-layout: post
 title: gpg-and-vim
 meta-description: ...
 ---

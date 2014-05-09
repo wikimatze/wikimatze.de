@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Ten Day MBA by Steven A. Silbiger
 ---
 

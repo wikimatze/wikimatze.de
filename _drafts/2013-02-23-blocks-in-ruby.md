@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Blocks in Ruby
 description:
 ---

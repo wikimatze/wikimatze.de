@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: The Mythical Man Month by Frederick P. Brooks
 ---
 

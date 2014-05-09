@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using the Rest-client Gem to Access Foreman Api
 description:
 ---

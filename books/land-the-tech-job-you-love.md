@@ -1,7 +1,7 @@
 ---
-layout: reading
 title: Land The Tech Job You Love by Andy Lester
 ---
+
 - "Life is to short for a job you don't love"
 - The Foundations of Job search
   - be honest with yourself

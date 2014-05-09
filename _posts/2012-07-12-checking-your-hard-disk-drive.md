@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Checking your HDD
 update: 2014-03-30
 categories: ['howto', 'linux', 'learning']

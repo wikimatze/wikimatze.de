@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Regular Expressions in Ruby
 description:
 ---

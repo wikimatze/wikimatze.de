@@ -1,7 +1,7 @@
 ---
-layout: reading
 title: The Quick and Easy Way of Effective Speaking
 ---
+
 - p 151: speak with animation and force => your external animation will have a beneficial effect upon your mental
   process
 - p 160: "War is simple enough in its conception but unfortunately complicated in its execution." - Marshal Foch

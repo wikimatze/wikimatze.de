@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Peopleware
 ---
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: callbacks for models
 meta-description:
 published: false

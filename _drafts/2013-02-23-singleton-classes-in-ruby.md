@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Singleton Classes in Ruby
 description:
 ---

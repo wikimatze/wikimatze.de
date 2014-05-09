@@ -1,5 +1,4 @@
 ---
-layout: post
 title: add index for foreign keys
 meta-description: ...
 published: false

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Code Coverage Tools For Padrino
 description: Beside writing an application it is very important to know how you can deploy it
 categories: ['padrino', 'ruby']

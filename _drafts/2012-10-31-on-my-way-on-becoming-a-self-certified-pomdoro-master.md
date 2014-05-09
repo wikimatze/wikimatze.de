@@ -1,5 +1,4 @@
 ---
-layout: post
 title: On My Way On Becoming a Self-Certified Pomodoro Master
 meta-description: Motivation for the ongoing series of becoming a Self-Certiefied Pomodoro Master
 ---

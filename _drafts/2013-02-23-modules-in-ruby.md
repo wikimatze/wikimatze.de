@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Modules in Ruby
 description:
 ---

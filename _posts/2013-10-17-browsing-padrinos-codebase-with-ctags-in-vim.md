@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Browsing Padrino's Code Base With Ctags in Vim
 update: 2014-03-30
 categories: ['padrino', 'vim']

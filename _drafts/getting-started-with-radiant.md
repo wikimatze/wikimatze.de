@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Getting started with radiant
 meta-description: A briefly introduction in radiant - really briefly
 ---

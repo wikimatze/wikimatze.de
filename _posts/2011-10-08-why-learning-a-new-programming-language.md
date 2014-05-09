@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Why learning a new programming language
 update: 2014-03-30
 categories: ['learning', 'programming']

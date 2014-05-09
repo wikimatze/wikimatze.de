@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Method alias in ruby
 meta-description:
 published: true

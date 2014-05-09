@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Git Diff Is Showing Weird Output in the Terminal
 description: Getting back the beauty of a git diff
 ---

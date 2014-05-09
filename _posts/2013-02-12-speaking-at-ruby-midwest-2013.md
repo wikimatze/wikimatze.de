@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Speaking at Ruby Midwest 2013
 update: 2014-03-30
 categories: ['talk']

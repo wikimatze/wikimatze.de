@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Method alias in ruby
 update: 2014-03-30
 categories: ['ruby', 'programming']

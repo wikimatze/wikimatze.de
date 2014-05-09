@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Setting Default Browser in Terminal Under Xubuntu
 description:
 ---

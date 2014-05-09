@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using Hub for Faster Contributing to GitHub Open-Source Projects
 update: 2014-03-30
 categories: ['howto', 'programming', 'learning']

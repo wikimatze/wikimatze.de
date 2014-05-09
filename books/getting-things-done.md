@@ -1,7 +1,7 @@
 ---
-layout: reading
 title: Getting things done
 ---
+
 - p 10: "Your ability to generate power is directly proportional to your ability to relax."
 - p 11: "If your mind is empty, it is always ready for anything, it is open to anything" - Shunryu
   Suzuki

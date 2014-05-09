@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Hashes in Ruby
 description:
 ---

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Writing Zsh Completion for Padrino
 update: 2014-03-30
 categories: ['padrino', 'zsh']

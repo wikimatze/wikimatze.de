@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Writing own validators in rails
 meta-description: How can you write your own validators in Rails 3
 ---

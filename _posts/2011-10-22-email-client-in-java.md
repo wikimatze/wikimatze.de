@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Mail Client in Java
 update:  2014-03-30
 categories: ['programming', 'howto']

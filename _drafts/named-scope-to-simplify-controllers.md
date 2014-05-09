@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Named scope to simplify controllers
 meta-description: Make notes after reading a book - you can't remember everything
 published: false

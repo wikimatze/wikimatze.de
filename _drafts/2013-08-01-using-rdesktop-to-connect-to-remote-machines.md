@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using Rdesktop to Connect to Remote Machines
 description: redesktop is the terminal command which makes you happy
 ---

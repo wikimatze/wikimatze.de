@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Getting started with RSpec Puppet
 update: 2014-03-30
 categories: ['ruby', 'howto']

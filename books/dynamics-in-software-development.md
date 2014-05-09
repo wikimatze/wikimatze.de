@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Dynamics In Software Development by Jim McCarthy
 ---
 

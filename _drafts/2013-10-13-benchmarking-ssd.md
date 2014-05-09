@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Benchmarking SSD
 description: Rock'n roll with SSD
 ---

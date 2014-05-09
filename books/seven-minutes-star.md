@@ -1,6 +1,5 @@
 ---
-layout: reading
-title: Seven minutes star by Florian Mueck
+title: Seven minutes star by Florian Mück
 ---
 
 - p 25-26: "Audience love you when you share intimate stories about yourself."

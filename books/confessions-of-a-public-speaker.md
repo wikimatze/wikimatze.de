@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Confession of a Public Speaker
 ---
 

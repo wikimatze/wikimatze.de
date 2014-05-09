@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Factory girl
 meta-description: ...
 published: false

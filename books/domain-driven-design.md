@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Domain-Driven Design by Eric Evans
 ---
 

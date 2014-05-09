@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Puts, Print, and P in Ruby
 description:
 ---

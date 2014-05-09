@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Fixing Wlan Problems Under Xubuntu
 description:
 ---

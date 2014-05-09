@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Livingstylguide For Padrino
 categories: ['padrino', 'ruby']
 ---

@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: The Cathedral & The Bazaar by Eric S. Raymond
 ---
 

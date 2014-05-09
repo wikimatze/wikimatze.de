@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Tab Completion for History Commands in the Zsh
 description:
 ---

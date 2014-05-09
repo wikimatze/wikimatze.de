@@ -1,5 +1,4 @@
 ---
-layout: post
 title: self-certified-pomodor-master
 meta-description: ...
 ---

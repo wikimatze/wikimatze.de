@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How-much-Effort-takes-an-Activity
 meta-description: How much Pomodoros do you need for a task
 ---

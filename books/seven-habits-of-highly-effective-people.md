@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Seven Habits of Highly Effective People by Stephen R. Covey
 ---
 

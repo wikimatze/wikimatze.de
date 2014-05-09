@@ -1,5 +1,4 @@
 ---
-layout: post
 title: accepts nested attributes for nested models
 meta-description:
 published: false

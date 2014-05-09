@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Setting up your Cloud with owncloud
 ---
 

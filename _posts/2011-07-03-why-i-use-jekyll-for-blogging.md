@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Why I use Jekyll for blogging
 update: 2014-03-30
 categories: ['writing']

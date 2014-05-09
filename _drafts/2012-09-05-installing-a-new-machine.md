@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Installing a new machine
 published: false
 meta-description: ...

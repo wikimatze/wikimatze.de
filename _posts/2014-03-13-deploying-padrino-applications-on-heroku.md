@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Deploying Padrino Applications On Heroku
 update: 2014-03-30
 categories: ['padrino', 'ruby']

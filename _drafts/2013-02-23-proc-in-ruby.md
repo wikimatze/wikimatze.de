@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Proc in Ruby
 description:
 ---

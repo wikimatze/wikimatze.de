@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Revert Merge Commits Containing Unmerged Conflicts
 ---
 

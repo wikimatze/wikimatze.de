@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Problems With Gets and Calling a Script and a Default Input Parameter
 description:
 ---

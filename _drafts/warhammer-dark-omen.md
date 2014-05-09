@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Warhammer Dark Omen
 meta-description: Gamereview about a very difficult and funny game
 ---
@@ -75,7 +74,6 @@ Thanks to *Hanna Schütt* for reading drafts of this.
 *  [Warhammer](http://www.games-workshop.com)
 
 ---
-layout: post
 title:
 meta-description: ...
 published: false

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Xubuntu Install Error No DEFAULT or UI Configuration Directive Found
 description: Something breaks everytime in the Linux world
 ---

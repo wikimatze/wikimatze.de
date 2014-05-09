@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Understanding and Using the Law of Demeter
 description:
 ---
