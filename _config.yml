@@ -1,11 +1,13 @@
 markdown: rdiscount
 pygments: true
-permalink: /:title.html
+permalink: /:title
 rdiscount:
   extensions: [smart]
 
 destination: _site
 base_url: "http://wikimatze.de"
+
+author: Matthias Günther
 
 exclude:
 - _drafts

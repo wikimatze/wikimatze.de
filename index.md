@@ -1,6 +1,6 @@
 ---
 layout: default
-description: Writings, and talks by {{ site.name }}. Günther works at MyHammer, loves painting Warhammer figures, writing, giving talks, and enjoys making cakes.
+description: Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, writing, giving talks, and enjoys making cakes.
 ---
 
 <a href="https://leanpub.com/padrinobook" title="Padrino book" class="center" target="_blank"><img class="padrino" src="https://farm8.staticflickr.com/7016/13441187154_58d220c784_o_d.png" alt="Padrino book"/></a>
@@ -24,7 +24,6 @@ I'm currently writing a book about the web framework [Padrino](http://www.padrin
 
 
 ### Recent Articles
-
 <div class="related">
   <ul>
     {% for post in site.posts %}

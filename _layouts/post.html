@@ -5,7 +5,8 @@ layout: default
   <header>
     <div class="author pull_left">
       Posted on <time datetime="{{page.date | date:"%Y-%m-%d"}}" pubdate><a href="{{ page.url }}" title="Permalink for this post">{{page.date | date:"%Y-%m-%d"}}</a></time>
-      {% if page.update %}, updated <time>{{ page.update }}</time> {% endif %} by <a href="http://twitter.com/wikimatze">Matthias Günther</a>
+      {% if page.update %}, updated <time>{{ page.update }}</time> {% endif %} by
+      <a rel="author" href="https://plus.google.com/+wikimatzede?rel=author">{{ site.author }}</a>
     </div>
     {% include sharing.html %}
     <div class="clearfix"></div>
