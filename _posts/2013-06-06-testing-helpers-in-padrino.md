@@ -19,7 +19,6 @@ Let's say you have a typical Padrino helper:
 
 
 ```ruby
-
 # app/helpers/users_helper.rb
 
 JobVacancy::App.helpers do
@@ -27,7 +26,6 @@ JobVacancy::App.helpers do
     "bar"
   end
 end
-
 ```
 
 
@@ -64,7 +62,6 @@ JobVacancy::App.helpers do
     !current_user.nil?
   end
 end
-
 ```
 
 
@@ -100,7 +97,6 @@ controller:
 
 
 ```ruby
-
 # app/helpers/users_helper.rb
 
 JobVacancy::App.helpers do
@@ -108,7 +104,6 @@ JobVacancy::App.helpers do
     "bar"
   end
 end
-
 ```
 
 
@@ -116,7 +111,6 @@ This syntax is a shortcut for:
 
 
 ```ruby
-
 helpers = Module.new do
   def foo
     "bar"
@@ -124,7 +118,6 @@ helpers = Module.new do
 end
 
 JobVacancy::App.helpers helpers
-
 ```
 
 
@@ -142,7 +135,6 @@ module UsersHelper
 end
 
 JobVacancy::App.helpers UsersHelper
-
 ```
 
 
@@ -167,7 +159,6 @@ RSpec.configure do |conf|
   conf.color_enabled= true
   conf.formatter = :documentation
 end
-
 ```
 
 
@@ -193,7 +184,6 @@ describe UsersHelper do
   end
 
 end
-
 ```
 
 
@@ -201,7 +191,6 @@ We create a class in the before part of the spec which include our `UsersHelper`
 
 
 ```bash
-
 $ rspec spec/app/helpers
 
   UsersHelper
@@ -209,7 +198,6 @@ $ rspec spec/app/helpers
 
   Finished in 0.00041 seconds
   1 example, 0 failures
-
 ```
 
 

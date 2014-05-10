@@ -12,7 +12,6 @@ use the `stat test.txt` command to the different information like *access, modif
 
 ```bash
 
-
 wikimatze/tmp: vim test.txt
 <do something with the file>
 wikimatze/tmp: stat test.txt
@@ -34,7 +33,6 @@ Access: 2014-01-09 19:18:57.369806831 +0100
 Modify: 2014-01-09 19:18:29.005806285 +0100
 Change: 2014-01-09 19:18:29.005806285 +0100
  Birth: -
-
 ```
 
 
@@ -42,7 +40,6 @@ In order to find if the `relatime` option is activated on your file system you c
 
 
 ```bash
-
 wikimatze~: cat /proc/mounts
 rootfs / rootfs rw 0 0
 sysfs /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
@@ -62,7 +59,6 @@ inserts all incoming I/O into a simple FIFO queue and through this your computer
 
 
 ```bash
-
 wikimatze~: vim /etc/default/grub
 
 # If you change this file, run 'update-grub' afterwards to update
@@ -77,7 +73,6 @@ GRUB_TIMEOUT=10
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=deadline"
 GRUB_CMDLINE_LINUX=""
-
 ```
 
 
@@ -87,7 +82,6 @@ drive but rather stored in a volatile memory like [RAM disk](http://en.wikipedia
 
 
 ```bash
-
 wikimatze~: df
 Filesystem      1K-blocks      Used  Available Use% Mounted on
 /dev/sda4        96532204  32129656   59475880  36% /
@@ -99,7 +93,6 @@ none              2066388      1480    2064908   1% /run/shm
 none               102400        20     102380   1% /run/user
 /dev/dm-0      1922858856 663567488 1161615744  37% /media/wikimatze/intenso
 /dev/dm-1      1922857776 382362396 1442819812  21% /media/wikimatze/samsung
-
 ```
 
 
@@ -107,12 +100,10 @@ Add the following entries to your `fstab`:
 
 
 ```bash
-
 tmpfs   /tmp       tmpfs   defaults,noatime,mode=1777   0  0
 tmpfs   /var/spool tmpfs   defaults,noatime,mode=1777   0  0
 tmpfs   /var/tmp   tmpfs   defaults,noatime,mode=1777   0  0
 tmpfs   /var/log   tmpfs   defaults,noatime,mode=0755   0  0
-
 ```
 
 

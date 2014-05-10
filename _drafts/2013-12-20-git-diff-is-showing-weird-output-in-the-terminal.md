@@ -7,7 +7,6 @@ Recently running `git diff README.md` gave me the following strange output:
 
 
 ```bash
-
 ESC[1;30mdiff --git a/mappings.md b/mappings.mdESC[m
 ESC[1;30mindex 2fcd88b..fb73590 100644ESC[m
 ESC[1;30m--- a/mappings.mdESC[m
@@ -22,7 +21,6 @@ ESC[1;32m+ESC[mESC[1;32m  def word a 'i'ESC[m
  - `&&` ... the first `&` forms the Ex command which repeats the last :substitute command, the secondESC[m
    `&` indicates, that the flags from the previous :substitute command should be reusedESC[m
 - (1/1) Line 1/13
-
 ```
 
 
@@ -32,7 +30,6 @@ me back my colors:
 
 
 ```bash
-
 diff --git a/README.md b/README.md
 index 85a8fba..4e8a9b3 100644
 --- a/README.md
@@ -44,7 +41,6 @@ index 85a8fba..4e8a9b3 100644
 +
  I'm always eager to learn, but I can't remember everything. Here is the list of the plugins I'm using - it is a reminder
  of the most important commands and settings for each plugin.
-
 ```
 
 
@@ -53,9 +49,7 @@ Instead I want to use `less` as my default pager:
 
 
 ```bash
-
 $ git config --global core.pager less
-
 ```
 
 
@@ -63,9 +57,7 @@ But this didn't solve my issue. I then set page to `cat` and it worked
 
 
 ```bash
-
 $ git config --global core.pager cat
-
 ```
 
 

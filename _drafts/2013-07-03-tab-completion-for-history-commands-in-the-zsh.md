@@ -7,7 +7,6 @@ You often want to search after a certain ssh login on some machine. My normal wo
 Having the following history
 
 ```bash
-
 $ history | grep foreman
   767  ssh root@foreman.it.mau.myhammer.net
  1028  ssh root@foreman.it.mau.myhammer.net
@@ -59,7 +58,6 @@ $ history | grep foreman
  8166  ruby foreman.rb
  8201  ruby foreman.rb
  8265  mv bla.rb foreman_update.rb
-
 ```
 
 
@@ -69,12 +67,10 @@ matching command. Please add the following code into your `.zshrc`:
 
 
 ```bash
-
 # Press <C-X><C-X> to start autocompletion for commands typed into the history
 autoload -Uz history-beginning-search-menu
 zle -N history-beginning-search-menu
 bindkey '^X^X' history-beginning-search-menu
-
 ```
 
 
@@ -83,11 +79,9 @@ following:
 
 
 ```bash
-
 $ ls
 Enter digit:
 1 ls -la  2 ls -la project  3 ls -la | grep projects  4 ls options/
-
 ```
 
 

@@ -59,7 +59,6 @@ Other files can put on the root directory like an `atom.xml` file (for RSS feed)
 
 
 ```html
-
 ---
 layout: default
 ---
@@ -78,7 +77,6 @@ layout: default
     {% include comments.html %}
   </aside>
 </article>
-
 ```
 
 
@@ -93,7 +91,6 @@ Here is the main template for my blog.
 
 
 ```html
-
 <!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
@@ -179,7 +176,6 @@ Here is the main template for my blog.
   <script gumby-touch="/js/libs" src="js/libs/gumby.js"></script>
   ...
 </html>
-
 ```
 
 

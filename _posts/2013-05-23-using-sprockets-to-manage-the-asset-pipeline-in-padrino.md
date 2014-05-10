@@ -29,9 +29,7 @@ First we will create a new Padrino app:
 
 
 ```bash
-
 $ padrino g project job-vacancy -d activerecord -t rspec -s jquery -e erb -a sqlite
-
 ```
 
 
@@ -39,10 +37,8 @@ We are using the **padrino-sprockets** gem. Let's add it to our Gemfile:
 
 
 ```ruby
-
 # Gemfile
 gem 'padrino-sprockets', :require => ['padrino/sprockets'], :git => 'git://github.com/nightsailer/padrino-sprockets.git'
-
 ```
 
 
@@ -50,13 +46,11 @@ Next we need to move all our assets from the public folder in the assets folder:
 
 
 ```bash
-
 $ cd <path-to-your-padrino-app>
 $ mkdir -p app/assets
 $ mv public/javascript app/assets
 $ mv public/stylesheets app/assets
 $ mv public/images app/assets
-
 ```
 
 
@@ -64,7 +58,6 @@ Now we have to register Padrino-Sprockets in this application:
 
 
 ```ruby
-
 # app/app.rb
 module JobVacancy
   class App < Padrino::Application
@@ -74,7 +67,6 @@ module JobVacancy
     ...
   end
 end
-
 ```
 
 
@@ -82,7 +74,6 @@ Next we need to determine the order of the loaded CSS files:
 
 
 ```css
-
 # app/assets/stylesheets/application.css
 /*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
@@ -97,7 +88,6 @@ Next we need to determine the order of the loaded CSS files:
  *= require bootstrap-responsive
  *= require site
 */
-
 ```
 
 
@@ -110,7 +100,6 @@ Next let's have a look into our JavaScript files:
 
 
 ```javascript
-
 # app/assets/javascript/application.js
 
 // This is a manifest file that'll be compiled into including all the files listed below.
@@ -120,7 +109,6 @@ Next let's have a look into our JavaScript files:
 // the compiled file.
 //
 //= require_tree .
-
 ```
 
 
@@ -132,7 +120,6 @@ Now, we can clean up the include statements in our application template:
 
 
 ```html
-
 # app/views/layouts/application.erb
 
 <!DOCTYPE html>
@@ -142,7 +129,6 @@ Now, we can clean up the include statements in our application template:
   <%= stylesheet_link_tag '/assets/application' %>
   <%= javascript_include_tag '/assets/application' %>
 </head>
-
 ```
 
 
@@ -154,13 +140,11 @@ Now we want to enable compression for our CSS and JavaScript files. For CSS comp
 
 
 ```ruby
-
 # Gemfile
 ...
 gem 'padrino-sprockets', :require => 'padrino/sprockets', :git => 'git://github.com/nightsailer/padrino-sprockets.git'
 gem 'uglifier', '2.1.1'
 gem 'yui-compressor', '0.9.6'
-
 ```
 
 
@@ -168,7 +152,6 @@ And finally we need to enable minifying in our production environment:
 
 
 ```ruby
-
 # app/app.rb
 module JobVacancy
   class App < Padrino::Application
@@ -177,7 +160,6 @@ module JobVacancy
     sprockets :minify => (Padrino.env == :production)
   end
 end
-
 ```
 
 {% include newsletter.html %}

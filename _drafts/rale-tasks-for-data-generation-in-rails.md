@@ -6,6 +6,7 @@ published: false
 # own-rake-tasks-with-fake
 Need to fill your db with fake-data? No problem with rake and the faker gem
 
+
 ```ruby
 namespace :db do
   desc "Fill in database with sample data"
@@ -31,6 +32,7 @@ end
 
 We define a task:
 
+
 ```ruby
 task db:populate
 ```
@@ -38,6 +40,7 @@ task db:populate
 which can be run in the console.
 
 The line
+
 
 ```ruby
 task :populate => :environment

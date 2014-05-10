@@ -17,7 +17,6 @@ I'm installing *rbenv* on different machines I created the following script (nam
 
 
 ```bash
-
 cd $HOME
 sudo rm -rf .rbenv
 git clone git://github.com/sstephenson/rbenv.git .rbenv
@@ -38,7 +37,6 @@ source $HOME/.bash_profile
 rbenv-install 1.9.2-p290
 rbenv rehash
 exec $SHELL
-
 ```
 
 
@@ -46,7 +44,6 @@ After this try the following:
 
 
 ```bash
-
 $ rbenv global 1.9.2-p320
 $ rbenv local 1.9.2-p320
 $ ruby -v
@@ -60,7 +57,6 @@ This will be put in the `$HOME/lib` folder:
 
 
 ```bash
-
 cd /tmp
 wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
 tar xjvf Python-2.7.3.tar.bz2
@@ -73,7 +69,6 @@ hash -r
 # cleanup
 cd /tmp && rm -rf Python-2.7.3
 
-
 ```
 
 
@@ -85,11 +80,9 @@ unzip it:
 
 
 ```bash
-
 $ cd $HOME/Downloads
 $ wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
 $ tar -xjvf vim-7.4.tar.bz2
-
 ```
 
 
@@ -103,11 +96,9 @@ packages for Ubuntu:
 
 
 ```bash
-
 $ sudo apt-get install libncurses-dev libgnome2-dev \
  libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev \
  libx11-dev libxpm-dev libxt-dev
-
 ```
 
 
@@ -115,7 +106,6 @@ Next, we need to configure the compilation and make the install:
 
 
 ```bash
-
 cd ~/git-repositories/vim && git checkout v7-4-183 && git clean -f
 
 ./configure --prefix=/usr/local \
@@ -132,7 +122,6 @@ cd ~/git-repositories/vim && git checkout v7-4-183 && git clean -f
   --with-tlib=ncurses \
 
 sudo make && sudo make install && sudo make clean
-
 ```
 
 
@@ -150,12 +139,10 @@ After configuring the compilation check if the console response contains the fol
 
 
 ```bash
-
 checking --with-ruby-command argument... defaulting to ruby
 checking for ruby... (cached) /home/mg/.rbenv/shims/ruby
 checking Ruby version... OK
 checking Ruby header files... /home/mg/.rbenv/versions/1.9.2-p320/include/ruby-1.9.1
-
 ```
 
 
@@ -168,13 +155,11 @@ Open a new session or perform `exec $SHELL` to reboot your Shell. You will see t
 
 
 ```bash
-
 $ which vim
 /usr/local/bin/vim
 
 $ which gvim
 /usr/local/bin/gvim
-
 ```
 
 
@@ -182,12 +167,10 @@ Next check is to get the correct --version of `vim` and `gvim` with the followin
 
 
 ```bash
-
 $ vim --version | ack ruby
 $ vim --version | ack python
 $ gvim --version | ack ruby
 $ gvim --version | ack python
-
 ```
 
 
@@ -203,10 +186,8 @@ The ways are nearly the same as mentioned above: Install rbenv as mentioned in t
 
 
 ```bash
-
 $ cd $HOME/Download
 $ git clone git://github.com/b4winckler/macvim.git
-
 ```
 
 
@@ -214,7 +195,6 @@ Next step is to **configure** MacVim for OSX:
 
 
 ```bash
-
 $ cd macvim/src
 $ ./configure --prefix=/usr/local \
               --with-features=huge \
@@ -222,7 +202,6 @@ $ ./configure --prefix=/usr/local \
               --enable-pythoninterp \
               --enable-perlinterp \
               --enable-cscope
-
 ```
 
 
@@ -230,12 +209,10 @@ After configuring the compilation check the console response after the following
 
 
 ```bash
-
 checking --with-ruby-command argument... defaulting to ruby
 checking for ruby... /Users/helex/.rbenv/shims/ruby
 checking Ruby version... OK
 checking Ruby header files... /Users/helex/.rbenv/versions/1.9.2-p320/include/ruby-1.9.1
-
 ```
 
 
@@ -243,9 +220,7 @@ When this is finished, it is time `build` MacVim with make:
 
 
 ```bash
-
 $ make
-
 ```
 
 
@@ -253,9 +228,7 @@ Next step is to run the MacVim installation:
 
 
 ```bash
-
 open MacVim/build/Release/MacVim.app
-
 ```
 
 
@@ -263,9 +236,7 @@ The window should open MacVim. Run the following command in the MacVim quickfix 
 
 
 ```bash
-
 :ruby puts "MacVim"
-
 ```
 
 

@@ -12,13 +12,12 @@ of some method without changing the origin implementation of it. `alias_method` 
 ```ruby
 
 alias_method (new_name, old_name)
-
 ```
 
 A small example:
 
-```ruby
 
+```ruby
 class Davi
   def capital
     puts "Karaz-a-Karak"
@@ -38,7 +37,6 @@ davi.capital
 # output
 "Karaz-a-Karak rebuild"
 "Karaz-a-Karak"
-
 ```
 
 
@@ -50,7 +48,6 @@ understand what I mean:
 
 
 ```ruby
-
 class A
   def self.swap
     alias bar foo
@@ -76,7 +73,6 @@ class Z < Y
 end
 puts Z.new.bar
 # => "Z foo"
-
 ```
 
 
@@ -90,7 +86,6 @@ Here the duplicated variant:
 
 
 ```ruby
-
 class UsersController < ApplicationController
   def home
     list
@@ -104,7 +99,6 @@ class UsersController < ApplicationController
     list
   end
 end
-
 ```
 
 
@@ -112,7 +106,6 @@ The DRY variant:
 
 
 ```ruby
-
 class UsersController < ApplicationController
   def home
     list
@@ -121,7 +114,6 @@ class UsersController < ApplicationController
   alias_method :find, :home
   alias_method :search, :home
 end
-
 ```
 
 

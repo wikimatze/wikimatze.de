@@ -28,10 +28,9 @@ smells.
 
 Add the gem to your `Gemfile`:
 
+
 ```ruby
-
 gem 'simplecov', '~> 0.7.1'
-
 ```
 
 
@@ -40,10 +39,8 @@ the `spec_helper.rb`:
 
 
 ```ruby
-
 require 'simplecov'
 SimpleCov.start
-
 ```
 
 
@@ -51,10 +48,8 @@ And that's all. Next time when you run the tests you can detect lines with the f
 
 
 ```bash
-
 Coverage report generated for RSpec to git-repositories/job-vacancy/coverage. 209 / 252 LOC (82.94%) covered.
 /
-
 ```
 
 
@@ -74,14 +69,12 @@ It is also possible to divide parts of your application into several groups. Add
 
 
 ```ruby
-
 SimpleCov.start do
   add_group "Models", "app/models"
   add_group "Controllers", "app/controllers"
   add_group "Helpers", "app/helpers"
   add_group "Mailers", "app/mailers"
 end
-
 ```
 
 
@@ -94,9 +87,7 @@ Add the following line to your `Gemfile`:
 
 
 ```ruby
-
 gem 'metric_fu'
-
 ```
 
 
@@ -104,7 +95,6 @@ When this is done you need to start the `metric_fu` command from your commandlin
 
 
 ```bash
-
 $ wikimatze~/git-repositories/job-vacancy: metric_fu
 ******* STARTING METRIC reek
 ******* ENDING METRIC reek
@@ -129,7 +119,6 @@ $ wikimatze~/git-repositories/job-vacancy: metric_fu
 *****Generating graphs
 *****Generating graphs for tmp/metric_fu/_data/20140318.yml
 all done
-
 ```
 
 
@@ -137,7 +126,6 @@ It will generate a `tmp/metric_fu` directory with the following contents:
 
 
 ```bash
-
 tmp/metric_fu
 ├── _data
 │   └── 20140318.yml
@@ -186,7 +174,6 @@ tmp/metric_fu
         └── 873660ae5973b77b09c47d1dcf03577222095d6e.json
 
 4 directories, 41 files
-
 ```
 
 

@@ -42,6 +42,7 @@ The resources also defines the following named routes
 
 With the _:only_ param you can specify for which actions you want to have the magical generated methods by rails. So for
 
+
 ```ruby
 resource :sessions, :only => [:new, :create, :destroy]
 ```

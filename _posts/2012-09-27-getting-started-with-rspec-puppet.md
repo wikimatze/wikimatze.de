@@ -29,10 +29,8 @@ Run the following commands to install the gem:
 
 
 ```bash
-
 $ gem install rspec-puppet
 $ gem install puppet-lint
-
 ```
 
 
@@ -40,9 +38,7 @@ You can use `puppet-lint` in your terminal to check a puppet manifest.
 
 
 ```bash
-
 $ puppet-lint <path-to-your-manifest>
-
 ```
 
 
@@ -50,12 +46,10 @@ Let's assume, we have the following puppet file:
 
 
 ```ruby
-
 # manifests/init.pp
 class git::init {
   include git:: package
 }
-
 ```
 
 
@@ -63,11 +57,9 @@ If we run `puppet-lint` on it:
 
 
 ```bash
-
 $ puppet-lint manifests/init.pp
 ERROR: two-space soft tabs not used on line 10
 WARNING: unquoted resource title on line 10
-
 ```
 
 
@@ -77,10 +69,8 @@ The next step is to clone the [puppet boilerplate repository](https://github.com
 
 
 ```bash
-
 $ git clone https://github.com/andreashaerter/puppet-boilerplate-modules.git
 $ ./puppet-boilerplate-modules/newmodule.sh
-
 ```
 
 
@@ -90,11 +80,9 @@ new module and perform the following cleanup commands:
 
 
 ```bash
-
 $ cd <your-module-path>
 $ rm COPYING CREDITS Modulefile NOTICE README
 $ rm -rf files/ templates/
-
 ```
 
 
@@ -102,12 +90,10 @@ The cleanup is necessary to get you focused on the basics of testing. Now, your 
 
 
 ```bash
-
 -- manifests
     |-- init.pp
     |-- package.pp
     |-- params.pp
-
 ```
 
 
@@ -121,7 +107,6 @@ testing.
 
 
 ```bash
-
 $ cd <your-module-path>
 $ rspec-puppet-init
  + spec/
@@ -137,7 +122,6 @@ $ rspec-puppet-init
  + spec/fixtures/modules/git/manifests
  + spec/spec_helper.rb
  + Rakefile
-
 ```
 
 
@@ -175,12 +159,10 @@ for our `init.pp` manifest.
 
 
 ```ruby
-
 # manifests/init.pp
 class git::init {
   class { 'git::package': }
 }
-
 ```
 
 
@@ -188,14 +170,12 @@ Let's do the test for it:
 
 
 ```ruby
-
 # spec/classes/init_spec.rb
 require 'spec_helper'
 
 describe "git::init" do
   it { should create_class('git::packagee')}
 end
-
 ```
 
 
@@ -203,7 +183,6 @@ end
 
 
 ```bash
-
 $ cd <your-module-path>
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/init_spec.rb
@@ -224,7 +203,6 @@ Finished in 0.05637 seconds
 Failed examples:
 
 rspec ./spec/classes/init_spec.rb:4 # git::init
-
 ```
 
 
@@ -233,14 +211,12 @@ Duh, it's red, what should we do? The catalogue does not contain a class `git::p
 
 
 ```ruby
-
 # spec/classes/init_spec.rb
 require 'spec_helper'
 
 describe "git::init" do
   it { should create_class('git::package')}
 end
-
 ```
 
 
@@ -248,7 +224,6 @@ And run our tests again:
 
 
 ```bash
-
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/init_spec.rb
 
@@ -257,7 +232,6 @@ git::init
 
 Finished in 0.03963 seconds
 1 example, 0 failures
-
 ```
 
 
@@ -271,7 +245,6 @@ Since we are now sure, that the `package` manifests is integrated, it's time to 
 
 
 ```ruby
-
 # spec/classes/package_spec.pp
 require 'spec_helper'
 
@@ -281,7 +254,6 @@ describe 'git::package' do
     it { should contain_package('git-core')}
   end
 end
-
 ```
 
 
@@ -292,7 +264,6 @@ And run the tests again with `rake spec` form the root directory of your module:
 
 
 ```bash
-
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -316,7 +287,6 @@ Finished in 0.19843 seconds
 Failed examples:
 
 rspec ./spec/classes/package_spec.rb:6 # git::package install git-core
-
 ```
 
 
@@ -324,12 +294,10 @@ Let's edit `manifests/package.pp` file:
 
 
 ```ruby
-
 # manifests/package.pp
 class git::package {
   package { 'git-core':}
 }
-
 ```
 
 
@@ -337,7 +305,6 @@ And run the tests again:
 
 
 ```bash
-
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -350,7 +317,6 @@ git::init
 
 Finished in 0.19894 seconds
 2 examples, 0 failures
-
 ```
 
 
@@ -359,7 +325,6 @@ failing test first:
 
 
 ```ruby
-
 # spec/classes/package_spec.pp
 require 'spec_helper'
 
@@ -378,7 +343,6 @@ The `with\_*` and `without\_*` *matcher* can test the presence or absence of the
 
 
 ```bash
-
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -402,7 +366,6 @@ Finished in 0.19862 seconds
 Failed examples:
 
 rspec ./spec/classes/package_spec.rb:6 # git::package install git-core
-
 ```
 
 
@@ -410,7 +373,6 @@ Time to fix it:
 
 
 ```ruby
-
 # manifests/package.pp
 
 class git::package {
@@ -418,7 +380,6 @@ class git::package {
     ensure => latest
   }
 }
-
 ```
 
 
@@ -426,7 +387,6 @@ If we run now our tests again, it should work:
 
 
 ```bash
-
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -439,7 +399,6 @@ git::init
 
 Finished in 0.20456 seconds
 2 examples, 0 failures
-
 ```
 
 
@@ -453,14 +412,12 @@ Since we now have green tests, we can play with the code. Let's make `manifests.
 
 
 ```ruby
-
 # manifests/init.pp
 
 class git::init {
   # don't like the class declaration syntax: class { 'git::package': }
   include git::package # much better
 }
-
 ```
 
 
@@ -468,7 +425,6 @@ Run the test:
 
 
 ```bash
-
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -481,7 +437,6 @@ git::init
 
 Finished in 0.20158 seconds
 2 examples, 0 failures
-
 ```
 
 

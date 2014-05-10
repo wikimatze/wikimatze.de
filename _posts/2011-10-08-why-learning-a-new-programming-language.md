@@ -65,7 +65,6 @@ simple things, so much overhead with static, private etc. To what I mean have a 
 
 
 ```java
-
 class Socke {
 
   public String farbe;
@@ -94,7 +93,6 @@ public class NewClass {
     System.out.println(stinki.istTrocken());
   }
 }
-
 ```
 
 
@@ -154,7 +152,6 @@ int main(){
   shortening_breach();
   return 0;
 }
-
 ```
 
 
@@ -173,7 +170,6 @@ at a script I wrote to tag MP3:
 
 
 ```ruby
-
 require "mp3info"
 
 # setting the basedirectory
@@ -218,7 +214,6 @@ Dir["#{base_directory}**/*.mp3"].each do |mp3|
     puts "#{output[-1]} ... converted [#{mp3_track.tag.album}]"
   end
 end
-
 ```
 
 
@@ -232,21 +227,19 @@ learn its syntax. Here is some sample code:
 
 
 ```bash
-
 #!/bin/bash
 z=`ls | wc -l`
 z=0
 
 for i in *.jpg; do z=$[$z+1]; mv "$i" ${i##*.jpg}$z\_$1.jpg; echo $i ; done # replace watermark_ (prefix)
-
 ```
 
 
 It's like Lego, you have these and that, plug it together to create something new. For my diploma thesis I create a
 Rakefile (the modern version of make written completely in ruby):
 
-```ruby
 
+```ruby
 desc "Create a directory for the compiled classes"
 task :create_class_directory do
   system 'mkdir -p classes'
@@ -287,7 +280,6 @@ desc "run example file"
 task :test => [:create_environment_complete] do
   system 'scalac -Xplugin:divbyzero.jar Example.scala'
 end
-
 ```
 
 
@@ -306,7 +298,6 @@ Here is some of Scala code:
 
 
 ```scala
-
 class Reference[T] {
   private var contents: T = _
   def set(value: T) { contents = value }
@@ -320,7 +311,6 @@ object IntegerReference {
     println("Reference contains the half of " + (cell.get * 2))
   }
 }
-
 ```
 
 

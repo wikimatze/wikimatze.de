@@ -7,8 +7,8 @@ published: false
 You can use metaprogramming[^metaprogramming] to become a better code when you have controllers, where you have
 reoccurring method. Let's examine the following piece of code:
 
-```ruby
 
+```ruby
 class Dwarf < ActiveRecord::Base
 
   class << self
@@ -24,7 +24,6 @@ class Dwarf < ActiveRecord::Base
       find(:all, :condition => { :status => 'bearer'})
     end
 end
-
 ```
 
 Right, the methods differ only in the `:status` symbol. We use the `define_method` to refactor this
@@ -32,7 +31,6 @@ code in a better way:
 
 
 ```ruby
-
 class Dwarf < ActiveRecord::Base
   STATUS = %w(slayer, king, bearer)
 

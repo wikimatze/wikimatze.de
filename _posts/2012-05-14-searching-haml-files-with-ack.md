@@ -19,10 +19,8 @@ Why couldn't I find the file with that content? Was I in the wrong directory? No
 
 
 ```bash
-
 $ pwd
 -> $HOME/git-repositories/brokenlifts
-
 ```
 
 
@@ -39,10 +37,8 @@ I created the `$HOME/.ackrc` and added the entries to include these special file
 
 
 ```bash
-
 --type-add
 html=.html.haml
-
 ```
 
 
@@ -55,12 +51,10 @@ Since I'm working with Rails there are other file types like `sass, erb, less, s
 
 
 ```bash
-
 --type-add
 html=.html.erb,.html.haml,.haml
 --type-add
 css=.sass,.less,.scss
-
 ```
 
 
@@ -68,7 +62,6 @@ And there might be directories I don't want to have in my search path. Let's ign
 
 
 ```bash
-
 # ignore certain file types
 --type-set=ignorables=.log,.tmp,.pdf
 
@@ -78,7 +71,6 @@ And there might be directories I don't want to have in my search path. Let's ign
 --ignore-dir=tmp
 --ignore-dir=doc
 --ignore-dir=coverage
-
 ```
 
 
@@ -87,7 +79,6 @@ print all information you need. Here is an example:
 
 
 ```bash
-
 $ ack --help types
 =>
   --[no]actionscript .as .mxml
@@ -108,7 +99,6 @@ $ ack --help types
   --[no]html         .htm .html .shtml .xhtml .html.erb .html.haml .haml
   --[no]ignorables   .log .tmp .pdf
 ...
-
 ```
 
 

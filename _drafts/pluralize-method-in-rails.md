@@ -4,6 +4,7 @@ meta-description: ...
 published: false
 ---
 # pluralize
+
 ```ruby
 <%= pluralize(current_user.microposts.count, "micropost") %>
 ```

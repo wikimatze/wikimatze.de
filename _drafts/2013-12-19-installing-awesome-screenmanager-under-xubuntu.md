@@ -9,9 +9,7 @@ You can install it very easily:
 
 
 ```bash
-
 $ sudo apt-get install awesome awesome-extra
-
 ```
 
 
@@ -20,7 +18,6 @@ If you have problems with it in any case, you need to edit `/usr/share/xsessions
 
 
 ```bash
-
 [Desktop Entry]
 Encoding=UTF-8
 Name=awesome
@@ -29,6 +26,5 @@ NoDisplay=false
 TryExec=awesome
 Exec=awesome
 Type=Application
-
 ```
 

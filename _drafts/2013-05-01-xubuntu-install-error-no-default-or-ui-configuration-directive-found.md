@@ -16,11 +16,9 @@ have to download it, make it executable, and run the script:
 
 
 ```bash
-
 $ curl http://downloads.sourceforge.net/project/unetbootin/UNetbootin/583/unetbootin-linux-583
 $ chmod +x
 $ ./unetbootin-linux-583
-
 ```
 
 
@@ -29,13 +27,11 @@ format your USB-Stick with FAT32. You can do this with the [mkdosfs](http://en.w
 
 
 ```bash
-
 $ sudo apt-get install mkdosfs
 $ sudo umount /dev/sdb1 # or wherever your USB-Stick is mounted
 $ sudo mkdosfs -F 32 -I /dev/sdb1
 
 ```
-{: lang="bash" }
 
 
 And it just works!

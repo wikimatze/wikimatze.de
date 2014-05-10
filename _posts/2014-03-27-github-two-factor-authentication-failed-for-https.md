@@ -38,9 +38,7 @@ Run:
 
 
 ```bash
-
 $ curl -u <token>:x-oauth-basic https://api.github.com/user
-
 ```
 
 
@@ -91,7 +89,6 @@ If everything works fine then you should get following JSON output:
     "private_repos": 0
   }
 }
-
 ```
 
 
@@ -104,7 +101,6 @@ If something went wrong, you should get a message like:
   "message": "Not Found",
   "documentation_url": "http://developer.github.com/v3"
 }
-
 ```
 
 
@@ -114,7 +110,6 @@ I had all my repositories checked out via HTTPS. But after enabling 2FA, I could
 
 
 ```bash
-
 $ git remote -v
   origin https://github.com/matthias-guenther/wikimatze.de.git (fetch)
   origin https://github.com/matthias-guenther/wikimatze.de.git (push)
@@ -125,7 +120,6 @@ $ git push origin master
 
   Please make sure you have the correct access rights
   and the repository exists.
-
 ```
 
 
@@ -140,7 +134,6 @@ not work out very well:
 
 
 ```bash
-
 $ git remote -v
   origin git@github.com/vimberlin/vimberlin.de.git (fetch)
   origin git@github.com/vimberlin/vimberlin.de.git (push)
@@ -151,7 +144,6 @@ $ git push
 
   Please make sure you have the correct access rights
   and the repository exists.
-
 ```
 
 
@@ -169,7 +161,6 @@ All you have to do is to setup your credentials in `~/.netrc`:
 
 
 ```bash
-
 machine github.com
 login matthias-guenther
 password <token>
@@ -179,7 +170,6 @@ machine gist.github.com
 login matthias-guenther
 password <token>
 protocol https
-
 ```
 
 
@@ -194,9 +184,7 @@ I assume that you already have your `GPG` key, you need to run the following com
 
 
 ```bash
-
 $ gpg --encrypt --armor --recipient matthias.guenther@wikimatze.de .netrc
-
 ```
 
 
@@ -204,9 +192,7 @@ And update the credentials helper:
 
 
 ```bash
-
 $ git config --global credential.helper "netrc -f ~/.netrc.asc -v"
-
 ```
 
 

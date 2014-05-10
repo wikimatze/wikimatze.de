@@ -29,11 +29,9 @@ Since I'm owning my own webserver, I decided to use the [webinstaller](http://ow
 
 
 ```bash
-
 $ ssh <username>@<yourwebserver>
 $ cd <the-directory-where-you-want-to-have-owncloud-installed>
 $ wget https://download.owncloud.com/download/community/setup-owncloud.php
-
 ```
 
 
@@ -46,14 +44,12 @@ Once you setup an admin user and a password you should visit [http://wikimatze.d
 ## Possible Issues After Installation
 
 ```bash
-
 Magic Quotes is enabled. ownCloud requires that it is disabled to work
 properly.
 
 Magic Quotes is a deprecated and mostly useless setting that should be
 disabled. Please ask your server administrator to disable it in php.ini
 or in your webserver config.
-
 ```
 
 
@@ -61,11 +57,9 @@ All you have to do is to mess around in your `php.ini` config files as mentioned
 
 
 ```bash
-
 PHP modules have been installed, but they are still listed as missing?
 
 Please ask your server administrator to restart the web server.
-
 ```
 
 
@@ -78,11 +72,9 @@ Since I'm using [xubuntu](http://xubuntu.org/news/14-04-release/), I'm running t
 
 
 ```bash
-
 $ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_13.10/ /' >> /etc/apt/sources.list.d/owncloud-client.list"
 $ sudo apt-get update
 $ sudo apt-get install owncloud-client
-
 ```
 
 
@@ -96,9 +88,7 @@ If something is wrong with the settings of your application, the easiest thing t
 
 
 ```bash
-
 $ rm -rf ~/.local/share/data/ownCloud
-
 ```
 
 
@@ -114,7 +104,6 @@ I checked my `.htaccess` file and found the following setting:
 
 
 ```bash
-
 # ----------------------------------------------------------------------
 # ETag removal
 # ----------------------------------------------------------------------
@@ -128,7 +117,6 @@ I checked my `.htaccess` file and found the following setting:
 # static content.
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
-
 ```
 
 
@@ -136,12 +124,10 @@ Bumm, you know what to do:
 
 
 ```bash
-
 # ----------------------------------------------------------------------
 # ETag removal
 # ----------------------------------------------------------------------
 
 FileETag All
-
 ```
 

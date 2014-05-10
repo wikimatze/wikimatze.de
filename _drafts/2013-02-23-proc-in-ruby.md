@@ -9,10 +9,8 @@ result.
 
 
 ```ruby
-
 double = Proc.new { |num| num * 2}
 double.call(2)
-
 ```
 
 

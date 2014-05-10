@@ -11,9 +11,7 @@ Are ordered lists of objects
 
 
 ```ruby
-
 array = ["Dwarf", "Dark Elves", "Imperium"]
-
 ```
 
 
@@ -21,12 +19,10 @@ You can access the each element of the array with the index
 
 
 ```ruby
-
 array[0] # => "Dwarf"
 array[1] # => "Dark Elves"
 array[2] # => "Imperium"
 array[3] # => nil
-
 ```
 
 
@@ -35,12 +31,10 @@ end to the beginning:
 
 
 ```ruby
-
 array[-1] # => "Imperium"
 array[-2] # => "Dark Elves"
 array[-3] # => "Dwarf"
 array[-4] # => nil
-
 ```
 
 
@@ -51,12 +45,10 @@ with the elements:
 
 
 ```ruby
-
 array.each { |elem| puts "#{elem} is a race from Warhammer"}
  # Dwarf is a race from Warhammer
  # Dark Elves is a race from Warhammer
  # Imperium is a race from Warhammer
-
 ```
 
 
@@ -64,7 +56,6 @@ Use map to make a new array out of the elements returned by the block:
 
 
 ```ruby
-
 warhammer_array = array.map { |elem| "#{elem} is a race from Warhammer"}
 
 array
@@ -72,7 +63,6 @@ array
 
 warhammer_array
 # => ["Dwarf is a race from Warhammer", "Dark Elves is a race from Warhammer", "Imperium is a race from Warhammer"]
-
 ```
 
 
@@ -81,7 +71,6 @@ given block for each slice of <n> elements. If no block is given, returns an enu
 
 
 ```ruby
-
 result = []
 array.each_slice(1) { |elem| result << elem}
 result
@@ -102,7 +91,6 @@ array.each_slice(2) { |elem| result << elem}
 enum = array.each_slice(10)
 enum
 # => #<Enumerator: ["Dwarf", "Dark Elves", "Imperium"]:each_slice(10)>
-
 ```
 
 
@@ -112,7 +100,6 @@ see how we can write this in code:
 
 
 ```ruby
-
 array.permutation { |perm| p perm}
 # =>
 # ["Dwarf", "Dark Elves", "Imperium"]
@@ -121,7 +108,6 @@ array.permutation { |perm| p perm}
 # ["Dark Elves", "Imperium", "Dwarf"]
 # ["Imperium", "Dwarf", "Dark Elves"]
 # ["Imperium", "Dark Elves", "Dwarf"]
-
 ```
 
 
@@ -132,10 +118,8 @@ truthly values. Say that we want only the elements that contains the character `
 
 
 ```ruby
-
 array.select { |elem| elem.include?('a') }
 # => ["Dark Elves", "Dwarf"]
-
 ```
 
 
@@ -143,13 +127,11 @@ The opposite of `select` is `reject`. It creates a new array only with the eleme
 
 
 ```ruby
-
 array.reject { |elem| elem.include?('a') }
 # => ["Imperium"]
 
 array.reject { |elem| !elem.include?('a') }
 # => ["Dark Elves", "Dwarf"]
-
 ```
 
 

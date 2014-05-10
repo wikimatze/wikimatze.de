@@ -15,7 +15,6 @@ Let's start with a `Struct` that defines the basic layout of a Dwarf.
 
 
 ```ruby
-
 require 'ostruct2'
 
 dawi = OpenStruct.new
@@ -25,7 +24,6 @@ dawi.age = 120
 
 >> dawi
 => #<OpenStruct name="Gotrek Gurnisson", clan="Slayer", age=120>
-
 ```
 
 
@@ -33,9 +31,7 @@ Since OpenStruct emplys a Hash, it can even initialized with one
 
 
 ```ruby
-
 dawi = OpenStruct.new(:name => "Gotrek Gurnisson", :clan => "Slayer", :age => 120)
-
 ```
 
 
@@ -44,8 +40,6 @@ still there:
 
 
 ```ruby
-
-
 dawi_one = OpenStruct.new(:name => "Gotrek Gurnisson", :clan => "Slayer", :age => 120)
 dawi_two = OpenStruct.new(:name => "Gotrek Gurnisson", :clan => "Slayer")
 dawi_one.age = nil
@@ -57,7 +51,6 @@ dawi_one.delete_field(:age)
 
 dawi_one == dawi_two
 => true
-
 ```
 
 
@@ -71,7 +64,6 @@ First we define some YAML file:
 
 title: Small Test
 date: 21.10.2012
-
 ```
 
 
@@ -79,7 +71,6 @@ And the code to transform the data from the YAML file in a struct
 
 
 ```ruby
-
 require 'yaml'
 require 'ostruct2'
 
@@ -89,7 +80,6 @@ data_hash = YAML.load_file(file)
 data_container = OpenStruct.new(data_hash)
 data_container.inspect
 => "#<OpenStruct title="Small Test", date="21.10.2012">"
-
 ```
 
 

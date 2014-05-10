@@ -10,7 +10,6 @@ repeat yourself and you can put those file in a global gitignore file with the f
 
 ```bash
 git config --global core.excludesfile ~/.gitignore
-
 ```
 
 

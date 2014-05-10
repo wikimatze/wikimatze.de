@@ -14,7 +14,6 @@ the name of the machine as an input and connect to the machine with which you ar
 
 
 ```bash
-
 IE=$1
 USER=Test
 
@@ -34,7 +33,6 @@ case "$IE" in
 esac
 
 rdesktop -g 1600x900 -P -z -x l -r sound:off -k de -u $USER $PC
-
 ```
 
 

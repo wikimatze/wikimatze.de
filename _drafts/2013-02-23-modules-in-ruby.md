@@ -19,12 +19,10 @@ end
 
 
 ```ruby
-
 obj = Object.new
 class << obj
   include OurModule
 end
-
 ```
 
 
@@ -32,11 +30,8 @@ The shortcut for this one above is
 
 
 ```ruby
-
-
 obj = Object.new
 obj.extend OurModule
-
 ```
 
 

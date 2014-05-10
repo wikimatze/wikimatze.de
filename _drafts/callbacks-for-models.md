@@ -10,8 +10,8 @@ certain conditions before a *post create* action in your controller is performed
 
 ## Small example ##
 
-```ruby
 
+```ruby
 class DwarfController < ApplicationController
   def create
     @dwarf = Dwarf.new(params[:post])
@@ -46,7 +46,6 @@ class DwarfController < ApplicationController
     @dwarf.save
   end
 end
-
 ```
 
 

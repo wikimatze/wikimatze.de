@@ -41,9 +41,7 @@ Install the tool with the following command:
 
 
 ```bash
-
 $ sudo apt-get install smartmontools
-
 ```
 
 
@@ -53,9 +51,7 @@ To get an overview of your new HDD please perform:
 
 
 ```bash
-
 $ sudo smartctl -A /dev/sda
-
 ```
 
 
@@ -85,16 +81,13 @@ ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_
 199 CRC_Error_Count         0x003e   100   100   000    Old_age   Always       -       0
 235 POR_Recovery_Count      0x0012   099   099   000    Old_age   Always       -       8
 241 Total_LBAs_Written      0x0032   099   099   000    Old_age   Always       -       2076944882
-
 ```
 
 By using the following command
 
 
 ```bash
-
 $ sudo smartctl --all /dev/sda
-
 ```
 
 
@@ -102,7 +95,6 @@ you will get all any information about your harddisk:
 
 
 ```bash
-
 $ smartctl --all /dev/sda
 smartctl 6.2 2013-04-20 r3812 [i686-linux-3.11.0-15-generic] (local build)
 Copyright (C) 2002-13, Bruce Allen, Christian Franke, www.smartmontools.org
@@ -193,7 +185,6 @@ SMART Selective self-test log data structure revision number 1
 Selective self-test flags (0x0):
   After scanning selected spans, do NOT read-scan remainder of disk.
 If Selective self-test is pending on power-up, resume after 0 minute delay.
-
 ```
 
 
@@ -201,9 +192,7 @@ Important of the output is the parameter **"PASSED"**, it tells you that the tes
 
 
 ```bash
-
 $ sudo smartctl -t long /dev/sda
-
 ```
 
 
@@ -213,9 +202,7 @@ It is even possible to check if your HDD has damage incurred during transporting
 
 
 ```bash
-
 $ sudo smartctl -t conveyance /dev/sda
-
 ```
 
 
@@ -225,10 +212,8 @@ The first step is to give the daemon the permission to run checks in the backgro
 
 
 ```bash
-
 $ vim /etc/default/smartmontools
 > start_smartd=yes
-
 ```
 
 
@@ -236,10 +221,8 @@ Find the line with and uncomment it:
 
 
 ```bash
-
 # uncomment to start smartd on system startup
 # start_smartd=yes
-
 ```
 
 
@@ -248,9 +231,7 @@ all HDDs:
 
 
 ```bash
-
 DEVICESCAN -m matthias@wikimatze.de -M exec /usr/share/smartmontools/smartd-runner
-
 ```
 
 
@@ -268,9 +249,7 @@ You can check your internal mails with `$ sudo mail` (you need install [Postfix]
 
 
 ```bash
-
 /etc/init.d/smartmontools restart
-
 ```
 
 
@@ -278,9 +257,7 @@ If you want to have a graphical client for this tool, you need to run:
 
 
 ```bash
-
 $ sudo apt-get install gsmartcontrol
-
 ```
 
 
@@ -300,9 +277,7 @@ create iso files of CDs.
 
 
 ```bash
-
 $ dd if=/dev/zero of=/dev/sda
-
 ```
 
 
@@ -317,9 +292,7 @@ the writing speed with the factor two. We can achieve do this with the `bs` opti
 
 
 ```bash
-
 $ dd if=/dev/zero of=/dev/sda bs=1024
-
 ```
 
 
@@ -330,9 +303,7 @@ over broken sectors:
 
 
 ```bash
-
 $ dd if=/dev/zero conv=noerror of=/dev/sda bs=1024
-
 ```
 
 Other useful parameters are `notrunc` (write the output file completely) or `sync` (write with the full length).
@@ -345,9 +316,7 @@ through a pipe. First we need to install it:
 
 
 ```bash
-
 $ sudo apt-get install pv
-
 ```
 
 
@@ -355,9 +324,7 @@ To get an overview about how many MB or GB have already be written, use the foll
 
 
 ```bash
-
 $ dd if=/dev/random conv=notrunc,sync bs=1024 | pv > /dev/sda
-
 ```
 
 

@@ -12,10 +12,9 @@ Hashes are fast you have constant time to look up an element.
 
 ## Examples
 
+
 ```ruby
-
 {}.class # => Hash
-
 ```
 
 

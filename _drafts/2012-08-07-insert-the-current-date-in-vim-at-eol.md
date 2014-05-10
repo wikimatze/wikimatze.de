@@ -17,10 +17,8 @@ choice. After reading the documentation I came upon a very simple version:
 
 
 ```bash
-
 nnoremap <F5> "=strftime("%F")<CR>
 inoremap <F5> <C-R>=strftime("%F")<CR>
-
 ```
 
 
@@ -36,13 +34,11 @@ line.
 
 
 ```bash
-
 function! InsertSpaceDate()
   let @x = " "
   let @x = @x . strftime("%Y-%m-%d")
   normal! "xp
 endfunction
-
 ```
 
 
@@ -56,9 +52,7 @@ We are not yet done yet. We define a mapping to call the function with only one 
 
 
 ```bash
-
 noremap <silent> <F5> :call InsertSpaceDate()<CR>
-
 ```
 
 

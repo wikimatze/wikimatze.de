@@ -69,7 +69,6 @@ Here is an example `sweetie.gemspec`:
 
 
 ```ruby
-
 $:.push File.expand_path("../lib", __FILE__)
 require 'sweetie/version'
 
@@ -96,7 +95,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'yard'
 end
-
 ```
 
 
@@ -122,13 +120,11 @@ you should build it on your local machine before making it public:
 
 
 ```ruby
-
 $ gem build sweetie.gemspec
 => Successfully built RubyGem
   Name: sweetie
   Version: 1.0.0
   File: sweetie-1.0.0.gem
-
 ```
 
 
@@ -136,9 +132,7 @@ Now you can install the gem *locally*:
 
 
 ```ruby
-
 $ gem install sweetie-1.0.0.gem
-
 ```
 
 
@@ -146,12 +140,10 @@ And test the installation with:
 
 
 ```ruby
-
 $ gem list | grep sweetie
 $ irb
 >> require 'sweetie'
 => true
-
 ```
 
 
@@ -164,11 +156,9 @@ First, you need to register on [rubygems.org](http://rubygems.org/). After that 
 
 
 ```ruby
-
 gem push sweetie-1.0.0.gem
 Pushing gem to RubyGems.org...
 Successfully registered gem: sweetie (1.0.0)
-
 ```
 
 
@@ -176,13 +166,11 @@ If you want to check if your gem is online, the console is your friend:
 
 
 ```ruby
-
 gem list -r sweetie
 
 ...
 
 sweetie (1.0.0)
-
 ```
 
 

@@ -28,9 +28,7 @@ Depending on your operation system, you can install it on Ubuntu/Debian with the
 
 
 ```bash
-
 $ sudo apt-get install exuberant-ctags
-
 ```
 
 
@@ -43,11 +41,9 @@ Clone [Padrino](https://github.com/padrino/padrino-framework) and run the follow
 
 
 ```bash
-
 $ git clone https://github.com/padrino/padrino-framework
 $ cd padrino-framework
 $ ctags -R .
-
 ```
 
 
@@ -56,9 +52,7 @@ The command will run recursively through the directory and will tag all sources 
 
 
 ```bash
-
 ctags: Warning: ignoring null tag in padrino-admin/lib/padrino-admin/generators/templates/assets/javascripts/bootstrap/bootstrap.min.js
-
 ```
 
 
@@ -66,9 +60,7 @@ Okay, we are actually interested in all the things, except [JavaScript](https://
 
 
 ```bash
-
     $ ctags -R --exclude="*.js" .
-
 ```
 
 
@@ -76,7 +68,6 @@ If you are done with the command, you have a `tags` file created in the current 
 
 
 ```ruby
-
     !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
     !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
     !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
@@ -92,7 +83,6 @@ If you are done with the command, you have a `tags` file created in the current 
     Account	padrino-admin/test/fixtures/data_mapper.rb	/^class Account$/;"	c
     Actions	padrino-admin/lib/padrino-admin/generators/actions.rb	/^      module Actions$/;"	m	class:Padrino.Generators.Admin
     ...
-
 ```
 
 
@@ -100,14 +90,12 @@ The header of each tag file gives you basic information about the creation of th
 
 
 ```ruby
-
     !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
     !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
     !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
     !_TAG_PROGRAM_NAME	Exuberant Ctags	//
     !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
     !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-
 ```
 
 
@@ -115,9 +103,7 @@ As you can see, the tags are sorted, folded, and you can see the version of ctag
 
 
 ```ruby
-
 <<	padrino-core/lib/padrino-core/logger.rb	/^    def <<(message = nil)$/;"	f
-
 ```
 
 
@@ -128,8 +114,8 @@ First of all you have the **tagname** `<<`, then a tab as separator (it isn't vi
 
 Let's open the `padrino-core/lib/padrino-core.rb` file and place your cursor on `server` on line 13:
 
-```ruby
 
+```ruby
 require 'sinatra/base'
 require 'padrino-core/version'
 require 'padrino-core/support_lite'
@@ -154,7 +140,6 @@ PADRINO_ROOT = ENV["PADRINO_ROOT"] ||= File.dirname(Padrino.first_caller) unless
 module Padrino
   ...
 end
-
 ```
 
 
@@ -170,7 +155,6 @@ If you searched after `:tag Padrino` again you can message line beyond in your c
 
 
 ```ruby
-
   # pri kind tag               file
 > 1 F C m    Padrino           padrino-admin/lib/padrino-admin.rb
                module Padrino
@@ -182,7 +166,6 @@ If you searched after `:tag Padrino` again you can message line beyond in your c
                module Padrino
   5 F   m    Padrino           padrino-admin/lib/padrino-admin/generators/admin_page.rb
   ...
-
 ```
 
 
@@ -207,9 +190,7 @@ to get a global tag file of all your installed gems. Please run the following co
 
 
 ```bash
-
 $ ctags -R -f gems.tag * ~/.rbenv/versions/<your-ruby-version>/lib
-
 ```
 
 
@@ -222,9 +203,7 @@ If you think about a ruby project, it is very likely that you will have `Gemfile
 
 
 ```bash
-
 ctags -R -f gems.tags `bundle show --paths`
-
 ```
 
 
@@ -232,7 +211,6 @@ You have a Padrino project (like my [Job Vacancy](https://github.com/matthias-gu
 
 
 ```ruby
-
 source 'https://rubygems.org'
 
 # Server requirements
@@ -268,7 +246,6 @@ gem 'tilt', '1.3.7'
 
 # Padrino edge
 gem 'padrino', :git => "git://github.com/padrino/padrino-framework.git"
-
 ```
 
 
@@ -276,7 +253,6 @@ gem 'padrino', :git => "git://github.com/padrino/padrino-framework.git"
 
 
 ```bash
-
 /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/open4-1.3.0
 /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino
 /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/bundler/gems/padrino-framework-0c1317b0c897/padrino-admin
@@ -289,7 +265,6 @@ gem 'padrino', :git => "git://github.com/padrino/padrino-framework.git"
 /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/polyglot-0.3.3
 /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/pry-0.9.12
 /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2
-
 ```
 
 When you start vim in the root of your project, it will only load the `tags` file but not the `gems.tags` file. Just
@@ -303,7 +278,6 @@ If you find yourself doing it over and over again for different project, you hav
 ```vim
 
 set tags=tags,./tags,gems.tags,./gems.tags
-
 ```
 
 
@@ -313,7 +287,6 @@ Vim will search for the file named `tags`, starting with the directory of the cu
 ```vim
 
 set tags=./tags;,./gems.tags;
-
 ```
 
 
@@ -328,11 +301,9 @@ Do you really want to leave the terminal and generate the tags on your own? Tada
 
 
 ```ruby
-
 class Ctags
 
 end
-
 ```
 
 
@@ -353,9 +324,7 @@ If you find yourself using this command very often, you have to add the followin
 
 
 ```bash
-
 nnoremap <leader>. :CtrlPTag<cr>
-
 ```
 
 if the Ctrlp doesn't provide you enough hits, please use `:tselect`.

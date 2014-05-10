@@ -4,7 +4,6 @@ title: Revert Merge Commits Containing Unmerged Conflicts
 
 
 ```bash
-
 ~/git/orchestra(master ✗) git reset --hard HEAD
 HEAD is now at b866b85 Keep QA01
 ~/git/orchestra(master ✗) git status
@@ -60,6 +59,5 @@ nothing added to commit but untracked files present (use "git add" to track)
   origin/tradesmanUser_inheritance_branch
   origin/update-2-4
 ~/git/orchestra(master ✗) git reset --hard origin
-
 ```
 

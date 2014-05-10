@@ -4,8 +4,6 @@ description:
 ---
 
 ```bash
-
 $ sudo rfkill unblock all
-
 ```
 

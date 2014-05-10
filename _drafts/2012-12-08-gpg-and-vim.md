@@ -18,7 +18,6 @@ to create enough entropy for the key:
 
 
 ```bash
-
 $  gpg --gen-key
 
 gpg (GnuPG) 1.4.11; Copyright (C) 2010 Free Software Foundation, Inc.
@@ -77,20 +76,17 @@ public and secret key created and signed.
 ## Encryption and Decryption
 
 ```bash
-
 $ vi document.txt
 $ gpg --encrypt --armour
     -r matthias.guenther@wikimatze.de
     -o document.asc document.txt
 $ rm document.txt
-
 ```
 
 
 Now your file have an encrypted file `document.asc` which looks like:
 
 ```bash
-
 -----BEGIN PGP MESSAGE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
@@ -109,7 +105,6 @@ M9JUAalW0Y2Rcio4LG8Ba++5gvvG4ofqlpwGu2v7lxVzWFXQVJajZcgh4Bwdar5H
 fIvM/5YED4+ZlNXmqsNYMrEoPD94FyLSMMduUE/9T7SSgKiGywBt
 =AQI2
 -----END PGP MESSAGE-----
-
 ```
 
 
@@ -117,10 +112,8 @@ You can view and edit this file with:
 
 
 ```bash
-
 $ gpg --decrypt -o document.txt document.asc
 $ vim document.txt
-
 ```
 
 
@@ -128,11 +121,9 @@ After you are done with your editing you need to encrypt your file again:
 
 
 ```bash
-
 $ gpg --encrypt --armour
     -r matthias.guenther@wikimatze.de
     -o document.asc document.txt
-
 ```
 
 

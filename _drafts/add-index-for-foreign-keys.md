@@ -13,7 +13,6 @@ Migration without an index
 
 
 ```ruby
-
 class CreateClans < ActiveRecord::Migration
   def self.up
     create_table "clans" do |t|
@@ -27,7 +26,6 @@ class CreateClans < ActiveRecord::Migration
     drop_table "clans"
   end
 end
-
 ```
 
 
@@ -35,7 +33,6 @@ And now with index:
 
 
 ```ruby
-
 class CreateClans < ActiveRecord::Migration
   def self.up
     create_table "clans" do |t|
@@ -52,7 +49,6 @@ class CreateClans < ActiveRecord::Migration
     drop_table "clans"
   end
 end
-
 ```
 
 

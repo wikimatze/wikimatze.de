@@ -8,7 +8,6 @@ description:
 Running into the following situation:
 
 ```bash
-
 $ pgrep chromium
   4175
   4326

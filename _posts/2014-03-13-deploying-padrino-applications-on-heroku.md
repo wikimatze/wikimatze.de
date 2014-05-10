@@ -21,7 +21,6 @@ database interactions.
 ## Installing Heroku
 
 ```bash
-
 $ gem install heroku
 Fetching: heroku-3.4.2.gem (100%)
  !    The `heroku` gem has been deprecated and replaced with the Heroku Toolbelt.
@@ -32,7 +31,6 @@ Parsing documentation for heroku-3.4.2
 Installing ri documentation for heroku-3.4.2
 Done installing documentation for heroku after 1 seconds
 1 gem installed
-
 ```
 
 
@@ -40,9 +38,7 @@ Hmm, the method above is working but I highly recommend you to follow the instal
 
 
 ```bash
-
 $ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-
 ```
 
 
@@ -50,10 +46,8 @@ To check if everything went well, you can run the following command:
 
 
 ```bash
-
 $ heroku version
 heroku-toolbelt/3.4.1 (i686-linux) ruby/1.9.3
-
 ```
 
 
@@ -63,7 +57,6 @@ Creating a new app:
 
 
 ```bash
-
 $ padrino generate project hello-world-heroku
     create
     create  .gitignore
@@ -102,7 +95,6 @@ hello-world-heroku is ready for development!
 $ cd ./hello-world-heroku
 $ bundle
 =================================================================
-
 ```
 
 
@@ -110,7 +102,6 @@ The next part is to create a route in `app/app.rb`:
 
 
 ```ruby
-
 module HelloWorldHeroku
   class App < Padrino::Application
     ...
@@ -119,7 +110,6 @@ module HelloWorldHeroku
     end
   end
 end
-
 ```
 
 
@@ -140,11 +130,9 @@ Initialize an empty git repository, make an initial commit, and add the heroku r
 
 
 ```bash
-
 $ cd hello-world-heroku
 $ git init && git add . && git commit -m "Initial commit"
 $ git remote add heroku git@heroku.com:hello-world-padrino.git
-
 ```
 
 
@@ -156,7 +144,6 @@ When everything is setup in the right way, you need to push:
 
 
 ```bash
-
 $ git push --set-upstream heroku master
   Initializing repository, done.
   Counting objects: 15, done.
@@ -225,7 +212,6 @@ $ git push --set-upstream heroku master
   To git@heroku.com:hello-world-padrino.git
    * [new branch]      master -> master
   Branch master set up to track remote branch master from heroku.
-
 ```
 
 
@@ -242,7 +228,6 @@ Let's create a new application:
 
 
 ```bash
-
 $ padrino g project hello-world-heroku-postgres -d activerecord -a postgres
     create
     create  .gitignore
@@ -286,7 +271,6 @@ hello-world-heroku-postgres is ready for development!
 $ cd ./hello-world-heroku-postgres
 $ bundle
 =================================================================
-
 ```
 
 
@@ -301,7 +285,6 @@ You can also run the following command which does the same:
 
 
 ```bash
-
 $ heroku addons:add heroku-postgresql
 
 Adding heroku-postgresql on hello-world-heroku-postgres... done, v3 (free)
@@ -310,7 +293,6 @@ Database has been created and is available
  ! This database is empty. If upgrading, you can transfer
  ! data from another database with pgbackups:restore.
 Use `heroku addons:docs heroku-postgresql` to view documentation.
-
 ```
 
 
@@ -318,9 +300,7 @@ Hmmm, let's go into the help:
 
 
 ```bash
-
 $ heroku addons:docs heroku-postgresql
-
 ```
 
 
@@ -328,10 +308,8 @@ It will open the URL [https://devcenter.heroku.com/articles/heroku-postgresql](h
 
 
 ```bash
-
 $ heroku config | grep HEROKU_POSTGRESQL
 HEROKU_POSTGRESQL_TEAL_URL: postgres://yxkscmfxkhsvfd:hnGMVRPWmBQ06Bi3ujqP21Orl4@ec2-79-125-21-60.eu-west-1.compute.amazonaws.com:5432/dev751q4jd401b
-
 ```
 
 
@@ -342,7 +320,6 @@ Since we now have the information about our database, it's time to edit `config/
 
 
 ```ruby
-
 ActiveRecord::Base.configurations[:production] = {
   :adapter   => 'postgresql',
   :database  => 'dev751q4jd401b',
@@ -351,7 +328,6 @@ ActiveRecord::Base.configurations[:production] = {
   :host      => 'ec2-79-125-21-60.eu-west-1.compute.amazonaws.com',
   :port      => 5432
 }
-
 ```
 
 
@@ -359,7 +335,6 @@ Now, it's time to push our app on heroku:
 
 
 ```bash
-
 $ git push heroku master
 Initializing repository, done.
 Counting objects: 22, done.
@@ -433,7 +408,6 @@ Total 22 (delta 4), reused 0 (delta 0)
 
 To git@heroku.com:hello-world-heroku-postgres.git
  * [new branch]      master -> master
-
 ```
 
 
@@ -441,12 +415,10 @@ Now let's create a model:
 
 
 ```bash
-
 $ padrino g model users name:string email:text
    apply  orms/activerecord
   create  models/users.rb
   create  db/migrate/001_create_users.rb
-
 ```
 
 
@@ -454,14 +426,12 @@ Before pushing our changes we need to run the migrations:
 
 
 ```bash
-
 $ heroku run rake db:migrate
 Running `rake db:migrate` attached to terminal... up, run.1057
 ==  CreateUsers: migrating ====================================================
 -- create_table(:users)
    -> 0.0234s
 ==  CreateUsers: migrated (0.0236s) ===========================================
-
 ```
 
 
@@ -469,9 +439,7 @@ Now we need to create some data with the following query:
 
 
 ```bash
-
 INSERT INTO users (name, email) VALUES ('Matthias', 'matthias@wikimatze.de');
-
 ```
 
 
@@ -479,7 +447,6 @@ Next we need to edit our view `app/app.rb`:
 
 
 ```ruby
-
 module HelloWorldHeroku
   class App < Padrino::Application
     ...
@@ -489,7 +456,6 @@ module HelloWorldHeroku
     end
   end
 end
-
 ```
 
 

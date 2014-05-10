@@ -15,9 +15,7 @@ Generate a new Padrino project:
 
 
 ```bash
-
 $ padrino g project padrino-livingstyleguide -e haml -c sass
-
 ```
 
 
@@ -25,7 +23,6 @@ Add the [sprockets](https://github.com/nightsailer/padrino-sprockets), [compass]
 
 
 ```ruby
-
 # Component requirements
 gem 'sass'
 gem 'compass'
@@ -33,7 +30,6 @@ gem 'compass'
 gem 'livingstyleguide', '1.0.4'
 
 gem 'padrino-sprockets', :require => ['padrino/sprockets'], :git => 'git://github.com/nightsailer/padrino-sprockets.git'
-
 ```
 
 
@@ -41,7 +37,6 @@ And register sprockets:
 
 
 ```ruby
-
 module PadrinoLivingstyleguide
   class App < Padrino::Application
     ...
@@ -50,7 +45,6 @@ module PadrinoLivingstyleguide
     ...
   end
 end
-
 ```
 
 
@@ -65,7 +59,6 @@ And change the path of the `sass_initializer.rb`:
 
 
 ```ruby
-
 module SassInitializer
   def self.registered(app)
     # Enables support for SASS template reloading in rack applications.
@@ -77,7 +70,6 @@ module SassInitializer
     app.use Sass::Plugin::Rack
   end
 end
-
 ```
 
 
@@ -88,7 +80,6 @@ Next we create a `styleguide.html.lsg` file in the `app/assets/stylesheets` fold
 
 title: "Living Style Guide for Padrino"
 source: application.css.scss
-
 ```
 
 
@@ -111,7 +102,6 @@ The `application.css.scss` is a container for all other `scss` files:
 @import "modules/layout";
 @import "modules/button";
 @import "modules/form";
-
 ```
 
 
@@ -119,7 +109,6 @@ The documentation for `modules/button` has the following structure:
 
 
 ```html
-
 # Buttons
 
 Buttons can be `<button>` or `<a>` elements:
@@ -144,7 +133,6 @@ Button sizes:
 <button type="button" class="button">Button</button>
 <button type="button" class="button ***is-small***">Button</button>
 ~~~
-
 ```
 
 

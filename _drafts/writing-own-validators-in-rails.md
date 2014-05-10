@@ -29,6 +29,7 @@ In your model you can then use your new validator with @:absence => true@
 
 Putting your validator in a model __app/model/user.rb__:
 
+
 ```ruby
 class IpRequest < DatabaseLooseModel
   column :description, :string

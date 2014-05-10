@@ -6,7 +6,6 @@ description:
 
 
 ```ruby
-
 alone = Object.new
 
 class << alone
@@ -23,7 +22,6 @@ end
 
 alone.test
 alone.juhu
-
 ```
 
 

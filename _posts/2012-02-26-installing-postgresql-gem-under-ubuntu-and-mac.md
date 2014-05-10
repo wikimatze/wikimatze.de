@@ -24,7 +24,6 @@ A `$ gem install pg` brought me the following error message:
 
 
 ```bash
-
 $ gem install pg
 Building native extensions.  This could take a while...
 /Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/site_ruby/1.9.1/rubygems/ext/builder.rb:48: warning: Insecure world writable dir /Users/helex/bin in PATH, mode 040777
@@ -70,7 +69,6 @@ Provided configuration options:
 
 Gem files will remain installed in /Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/pg-0.13.2 for inspection.
 Results logged to /Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/pg-0.13.2/ext/gem_make.out
-
 ```
 
 
@@ -78,12 +76,10 @@ What relevant about the mess up there is the following part:
 
 
 ```bash
-
 checking for pg_config... no
 No pg_config... trying anyway. If building fails, please try again with
  --with-pg-config=/path/to/pg_config
 checking for libpq-fe.h... no
-
 ```
 
 
@@ -102,9 +98,7 @@ Say you want to install the PostgreSQL manually with a `gem install` - you have 
 
 
 ```bash
-
 $ sudo PATH=$PATH:/Library/PostgreSQL/x.y/bin gem install pg
-
 ```
 
 
@@ -112,9 +106,7 @@ If you want to install it with [Bundle](http://gembundler.com/), run the followi
 
 
 ```bash
-
 $ sudo PATH=$PATH:/Library/PostgreSQL/x.y/bin bundle install
-
 ```
 
 
@@ -127,10 +119,8 @@ It is easier because you only have to install the right packages:
 
 
 ```bash
-
 sudo apt-get install postgresql
 sudo apt-get install libpq-dev
-
 ```
 
 

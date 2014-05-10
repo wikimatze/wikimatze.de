@@ -5,16 +5,15 @@ published: false
 ---
 
 ```ruby
-
 class << self
   def authenticate(email, submitted_password)
     ...
   end
 end
-
 ```
 
 The methods defined in _class << self_ are automatically class methods. You can write the whole method above in the following style
+
 
 ```ruby
 def User.authenticate(email, submitted_password)

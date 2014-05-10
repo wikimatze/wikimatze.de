@@ -7,6 +7,7 @@ published: false
 
 The * operator in method arguments allows us to use an array as normal function parameters:
 
+
 ```ruby
 def test(a, b)
   a + b

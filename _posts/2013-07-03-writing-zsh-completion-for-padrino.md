@@ -20,14 +20,12 @@ enable this feature in your `.zshrc`:
 
 
 ```bash
-
 # folder of all of your autocomplete functions
 fpath=($HOME/.zsh-completions $fpath)
 
 # enable autocomplete function
 autoload -U compinit
 compinit
-
 ```
 
 
@@ -35,9 +33,7 @@ Before going on, you need to install the tmuxinator gem with:
 
 
 ```bash
-
 $ gem install tmuxinator
-
 ```
 
 
@@ -46,7 +42,6 @@ Let's implement the `hello-tmux` and `version` commands for the tmuxinator gem. 
 
 
 ```bash
-
 #compdef tmuxinator
 _tmuxinator() {
   local -a commands
@@ -63,7 +58,6 @@ _tmuxinator() {
 }
 
 _tmuxinator
-
 ```
 
 
@@ -77,10 +71,8 @@ First of all we need to specify the name of the command for which we want to hav
 
 
 ```bash
-
 #compdef padrino
 typeset -A opt_args
-
 ```
 
 
@@ -92,13 +84,11 @@ context in which we are during our completion:
 
 
 ```bash
-
 _arguments -C \
   '1:cmd:->cmds' \
   '2:generators:->generator_lists' \
   '*:: :->args' \
 && ret=0
-
 ```
 
 
@@ -130,7 +120,6 @@ The first argument in Padrino autocompletion, `1:cmd:->cmds`, is created with th
 
 
 ```bash
-
 #compdef padrino
 
 typeset -A opt_args
@@ -153,7 +142,6 @@ case "$state" in
 ease;
 
 return 1;
-
 ```
 
 
@@ -170,7 +158,6 @@ This is the `'2:generators:->generator_lists'` part of the `_arguments` function
 
 
 ```bash
-
 #compdef padrino
 
 typeset -A opt_args
@@ -203,7 +190,6 @@ case "$state" in
 esac
 
 return 1
-
 ```
 
 
@@ -213,7 +199,6 @@ of your control structure):
 
 
 ```bash
-
 #compdef padrino
 
 typeset -A opt_args
@@ -268,7 +253,6 @@ case "$state" in
 esac
 
 return 1
-
 ```
 
 
