@@ -1,5 +1,4 @@
 ---
-layout: post
 title: add index for foreign keys
 meta-description: ...
 published: false
@@ -13,8 +12,7 @@ keys.
 Migration without an index
 
 
-{% highlight ruby %}
-
+```ruby
 class CreateClans < ActiveRecord::Migration
   def self.up
     create_table "clans" do |t|
@@ -28,15 +26,13 @@ class CreateClans < ActiveRecord::Migration
     drop_table "clans"
   end
 end
-
-{% endhighlight %}
+```
 
 
 And now with index:
 
 
-{% highlight ruby %}
-
+```ruby
 class CreateClans < ActiveRecord::Migration
   def self.up
     create_table "clans" do |t|
@@ -53,8 +49,7 @@ class CreateClans < ActiveRecord::Migration
     drop_table "clans"
   end
 end
-
-{% endhighlight %}
+```
 
 
 ## Conclusion

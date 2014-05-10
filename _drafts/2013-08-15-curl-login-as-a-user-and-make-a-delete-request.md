@@ -1,5 +1,4 @@
 ---
-layout: post
 title: cURl Login as a User and Make a Delete Request
 description:
 ---

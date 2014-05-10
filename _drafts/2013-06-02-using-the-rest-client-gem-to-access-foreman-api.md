@@ -1,12 +1,10 @@
 ---
-layout: post
 title: Using the Rest-client Gem to Access Foreman Api
 description:
 ---
 **
 
-{% highlight ruby %}
-
+```ruby
 require 'rest-client'
 require 'json'
 
@@ -79,8 +77,7 @@ unless ARGV[0].empty?
     puts %q(Wrong options - you have to take either 'y' or 'n')
   end
 end
-
-{% endhighlight %}
+```
 ## Conclusion
 
 

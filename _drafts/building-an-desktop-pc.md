@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Building an desktop PC
 ---
 *To fully understand how a PC works you have to build one on your own.*

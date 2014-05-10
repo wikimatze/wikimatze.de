@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Deploying Padrino Applications On Anynines
 description: Beside writing an application it is very important to know how you can deploy it
 categories: ['padrino', 'zsh']
@@ -16,8 +15,7 @@ categories: ['padrino', 'zsh']
 Getting anynines gem called a9s:
 
 
-{% highlight bash %}
-
+```bash
 $ gem install a9s
 Fetching: a9s-1.2.0.gem (100%)
 Successfully installed a9s-1.2.0
@@ -25,7 +23,7 @@ Parsing documentation for a9s-1.2.0
 Done installing documentation for a9s after 0 seconds
 1 gem installed
 
-{% endhighlight %}
+```
 
 
 ## Hello Padrino In Anynines
@@ -33,8 +31,7 @@ Done installing documentation for a9s after 0 seconds
 Creating a new app:
 
 
-{% highlight bash %}
-
+```bash
 $ padrino generate project padrino-hello-world-anynines
     create
     create  .gitignore
@@ -47,15 +44,13 @@ padrino-hello-world-anynines is ready for development!
 $ cd ./padrino-hello-world-anynines
 $ bundle
 =================================================================
-
-{% endhighlight %}
+```
 
 
 The next part is to create a route in `app/app.rb`:
 
 
-{% highlight ruby %}
-
+```ruby
 module PadrinoHelloWorldAnynines
   class App < Padrino::Application
     ...
@@ -64,15 +59,13 @@ module PadrinoHelloWorldAnynines
     end
   end
 end
-
-{% endhighlight %}
+```
 
 
 Before we are going to upload our application you need to sign up for a new account on [anynines](http://www.anynines.com/signups/new). After that you can login:
 
 
-{% highlight bash %}
-
+```bash
 $ cf login
 target: https://api.de.a9s.eu
 
@@ -81,15 +74,13 @@ Email> matthias@wikimatze.de
 Password> ...
 
 Authenticating... OK
-
-{% endhighlight %}
+```
 
 
 Set up the target:
 
 
-{% highlight bash %}
-
+```bash
 $ cf target
 Setting target to https://api.de.a9s.eu... OK
 
@@ -97,15 +88,13 @@ Target Information (where will apps be pushed):
   CF instance: https://api.de.a9s.eu (API version: 2)
   user: matthias@wikimatze.de
   target app space: padrino-job-vacancy (org: matthias_wikimatze_de)
-
-{% endhighlight %}
+```
 
 
 Push the application:
 
 
-{% highlight bash %}
-
+```bash
 $ cf push
 Name> padrino-hello-world-anynines
 
@@ -152,15 +141,13 @@ Preparing to start padrino-hello-world-anynines... OK
         from /var/vcap/packages/dea_next/buildpacks/lib/buildpack.rb:55:in `stage_application'
         from /var/vcap/packages/dea_next/buildpacks/bin/run:10:in `<main>'
 Checking status of app 'padrino-hello-world-anynines'...Application failed to stage
-
-{% endhighlight %}
+```
 
 
 Error, anynines needs to have a `Gemfile.lock`:
 
 
-{% highlight bash %}
-
+```bash
 $ bundle
 Fetching gem metadata from https://rubygems.org/.........
 Fetching additional metadata from https://rubygems.org/..
@@ -169,15 +156,13 @@ Using rake (10.3.1)
 ...
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
-
-{% endhighlight %}
+```
 
 
 Let's try it again:
 
 
-{% highlight bash %}
-
+```bash
 $ cf push
 Uploading padrino-hello-world-anynines... OK
 Stopping padrino-hello-world-anynines... OK
@@ -215,8 +200,7 @@ tps://rubygems.org/.........
 Checking status of app 'padrino-hello-world-anynines'....
   1 of 1 instances running (1 running)
 Push successful! App 'padrino-hello-world-anynines' available at padrino-hello-world-anynines.de.a9sapp.eu
-
-{% endhighlight %}
+```
 
 
 If you now visit [padrino-hello-world-anynines.de.a9sapp.eu](http://padrino-hello-world-anynines.de.a9sapp.eu/) you can see the "Hello Padrino" in the browser.
@@ -230,8 +214,7 @@ You find the code of this application on [GitHub](https://github.com/matthias-gu
 Let's create a new application:
 
 
-{% highlight bash %}
-
+```bash
 $ padrino g project project padrino-hello-world-anynines-mysql -d activerecord -a mysql
     create
     create  .gitignore
@@ -244,15 +227,13 @@ padrino-hello-world-anynines-mysql is ready for development!
 $ cd ./hello-world-anynines-mysql
 $ bundle
 =================================================================
-
-{% endhighlight %}
+```
 
 
 After running `bundle` to generate the `Gemfile.lock`, you need to login:
 
 
-{% highlight bash %}
-
+```bash
 $ cf login
 target: https://api.de.a9s.eu
 
@@ -261,15 +242,13 @@ Email> matthias@wikimatze.de
 Password> ....
 
 Authenticating... OK
-
-{% endhighlight %}
+```
 
 
 Now we need to setup a MySQL database:
 
 
-{% highlight bash %}
-
+```bash
 $ cf push
 Name> padrino-hello-world-anynines-mysql
 
@@ -358,15 +337,13 @@ tps://rubygems.org/.........
 Checking status of app 'padrino-hello-world-anynines-mysql'....
   1 of 1 instances running (1 running)
 Push successful! App 'padrino-hello-world-anynines-mysql' available at padrino-hello-world-anynines-mysql.de.a9sapp.eu
-
-{% endhighlight %}
+```
 
 
 Next, we need to find out the credentials for our database:
 
 
-{% highlight bash %}
-
+```bash
 $ cf tunnel
 1: mysql-e4298
 Which service instance?> 1
@@ -379,15 +356,13 @@ Which client would you like to start?> 2
 Opening tunnel on port 10000... OK
 Waiting for local tunnel to become available... OK
 'mysql' execution failed; is it in your $PATH?
-
-{% endhighlight %}
+```
 
 
 You need to install a proper MySQL client like `mysql-client-5.5` under Ubuntu and try it again:
 
 
-{% highlight bash %}
-
+```bash
 $ cf tunnel
 
 1: mysql-e4298
@@ -423,15 +398,13 @@ mothership-0.5.1/lib/mothership.rb:45:in `start'
 cf-5.4.3/bin/cf:18:in `<top (required)>'
 /home/wikimatze/.gem/ruby/2.1.0/bin/cf:23:in `load'
 /home/wikimatze/.gem/ruby/2.1.0/bin/cf:23:in `<main>'
-
-{% endhighlight %}
+```
 
 
 This can happen, and another try:
 
 
-{% highlight bash %}
-
+```bash
 $ cf tunnel
 1: mysql-e4298
 Which service instance?> 1
@@ -469,15 +442,13 @@ Database changed
 mysql> show tables;
 Empty set (0.34 sec)
 mysql> exit
-
-{% endhighlight %}
+```
 
 
 But what we really need are the credentials:
 
 
-{% highlight bash %}
-
+```bash
 cf tunnel
 1: mysql-e4298
 Which service instance?> 1
@@ -499,16 +470,14 @@ Service connection info:
 Open another shell to run command-line clients or
 use a UI tool to connect using the displayed information.
 Press Ctrl-C to exit...
-
-{% endhighlight %}
+```
 
 
 With that, we ca add these credentials to the `config/database.rb` settings. Don't take the variables because chances
 are high that you make mistakes. Instead try to use the `ENV["VCAP_SERVICES"]` variables:
 
 
-{% highlight bash %}
-
+```bash
 ActiveRecord::Base.configurations[:production] = {
   :adapter   => 'mysql2',
   :encoding  => 'utf8',
@@ -520,28 +489,24 @@ ActiveRecord::Base.configurations[:production] = {
   :host      => JSON.parse(ENV["VCAP_SERVICES"])["mysql-5.5"].first['credentials']['hostname'],
   :port      => JSON.parse(ENV["VCAP_SERVICES"])["mysql-5.5"].first['credentials']['port']
 }
-
-{% endhighlight %}
+```
 
 
 Create a user model:
 
 
-{% highlight bash %}
-
+```bash
 $ padrino g model users name:string email:text
   apply  orms/activerecord
   create  models/users.rb
   create  db/migrate/001_create_users.rb
-
-{% endhighlight %}
+```
 
 
 And run the migrations:
 
 
-{% highlight bash %}
-
+```bash
 $ cf push --command 'RACK_ENV=production bundle exec rake ar:migrate && bundle exec padrino start -p $PORT -h $VCAP_APP_HOST'
 
 Using manifest file manifest.yml
@@ -578,8 +543,7 @@ Checking status of app 'padrino-hello-world-anynines-mysql'....
   0 of 1 instances running (1 starting)
   1 of 1 instances running (1 running)
 Push successful! App 'padrino-hello-world-anynines-mysql' available at padrino-hello-world-anynines-mysql.de.a9sapp.eu
-
-{% endhighlight %}
+```
 
 
 First, the migration will be applied and then the application will be started.
@@ -588,8 +552,7 @@ First, the migration will be applied and then the application will be started.
 Now we can check if the `users` table is in our database:
 
 
-{% highlight bash %}
-
+```bash
 $ cf tunnel
 1: mysql-e4298
 Which service instance?> 1
@@ -650,15 +613,13 @@ mysql> SELECT * FROM users;
 |  1 | Matthias Günther  | matthias@wikimatze.de | NULL       | NULL       |
 +----+-------------------+-----------------------+------------+------------+
 1 row in set (0.36 sec)
-
-{% endhighlight %}
+```
 
 
 Finally, let's create a view with the entries in `app/app.rb`:
 
 
-{% highlight ruby %}
-
+```ruby
 module PadrinoHelloWorldAnyninesMysql
   class App < Padrino::Application
     ...
@@ -668,8 +629,7 @@ module PadrinoHelloWorldAnyninesMysql
     end
   end
 end
-
-{% endhighlight %}
+```
 
 
 If you now call [padrino-hello-world-anynines-mysql.de.a9sapp.eu/](http://padrino-hello-world-anynines-mysql.de.a9sapp.eu/) you can see the "Hello Matthias Günther, I know your email: matthias@wikimatze.de" in your browser.

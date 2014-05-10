@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using Hub for Faster Contributing to GitHub Open-Source Projects
 update: 2014-03-30
 categories: ['howto', 'programming', 'learning']
@@ -19,12 +18,10 @@ forks, this tool makes your life a lot easier.
 Run perform the following command:
 
 
-{% highlight bash %}
-
+```bash
 $ gem install hub
 $ hub hub standalone > ~/bin/hub && chmod +x ~/bin/hub
-
-{% endhighlight %}
+```
 
 
 ## Workflow to get things done
@@ -36,8 +33,7 @@ is trying to give something back. For example  by improving documentation, repor
 First of all let's get the code:
 
 
-{% highlight bash %}
-
+```bash
 $ hub clone GumbyFramework/Gumby
   Cloning into 'Gumby'...
   remote: Reusing existing pack: 3607, done.
@@ -45,50 +41,41 @@ $ hub clone GumbyFramework/Gumby
   Receiving objects: 100% (3607/3607), 1.63 MiB | 545.00 KiB/s, done.
   Resolving deltas: 100% (1925/1925), done.
   Checking connectivity... done
-
-{% endhighlight %}
+```
 
 
 Now let's make a branch for fixing some documentation issues:
 
 
-{% highlight bash %}
-
+```bash
 $ git checkout -b readme-fixes
-
-{% endhighlight %}
+```
 
 
 Now you make your changes and run a `git commit -m "Fixed documentation"` and you are ready to
 [fork the repo](https://help.github.com/articles/fork-a-repo):
 
 
-{% highlight bash %}
-
+```bash
 $ hub fork
-
-{% endhighlight %}
+```
 
 
 Now you need to push the changes to your remote and open a pull request:
 
 
-{% highlight bash %}
-
+```bash
 $ git push -u matthias-guenther readme-fixes
 $ hub pull-request
-
-{% endhighlight %}
+```
 
 
 That's it. If you want to see a list of open issues, you can use the following command:
 
 
-{% highlight bash %}
-
+```bash
 $ hub browser -- issues
-
-{% endhighlight %}
+```
 
 This will open the issue site in your browser. In our case this would be [https://github.com/GumbyFramework/Gumby/issues](https://github.com/GumbyFramework/Gumby/issues).
 

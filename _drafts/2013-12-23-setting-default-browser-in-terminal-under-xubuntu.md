@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Setting Default Browser in Terminal Under Xubuntu
 description:
 ---
@@ -20,7 +19,6 @@ There are 2 choices for the alternative x-www-browser (providing /usr/bin/x-www-
 
 Press enter to keep the current choice[*], or type selection number: 2
 update-alternatives: using /usr/bin/firefox to provide /usr/bin/x-www-browser (x-www-browser) in manual mode
-
-{% endhighlight %}
+```
 
 

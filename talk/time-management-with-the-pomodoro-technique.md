@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Time management with the Pomodoro Technique
 meta-description: Time management with the Pomodoro Technique was held by Matthias Günther on May and June 2012.
 ---

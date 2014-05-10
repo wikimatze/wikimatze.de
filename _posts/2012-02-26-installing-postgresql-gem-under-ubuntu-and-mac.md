@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Installing PostgreSQL gem under Ubuntu and Mac
 update: 2014-03-30
 categories: ['howto']
@@ -24,8 +23,7 @@ database driver. I have never worked with it and I run into a couple of problems
 A `$ gem install pg` brought me the following error message:
 
 
-{% highlight bash %}
-
+```bash
 $ gem install pg
 Building native extensions.  This could take a while...
 /Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/site_ruby/1.9.1/rubygems/ext/builder.rb:48: warning: Insecure world writable dir /Users/helex/bin in PATH, mode 040777
@@ -71,21 +69,18 @@ Provided configuration options:
 
 Gem files will remain installed in /Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/pg-0.13.2 for inspection.
 Results logged to /Users/helex/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/pg-0.13.2/ext/gem_make.out
-
-{% endhighlight %}
+```
 
 
 What relevant about the mess up there is the following part:
 
 
-{% highlight bash %}
-
+```bash
 checking for pg_config... no
 No pg_config... trying anyway. If building fails, please try again with
  --with-pg-config=/path/to/pg_config
 checking for libpq-fe.h... no
-
-{% endhighlight %}
+```
 
 
 Ruby can't find the relevant setting of the PostgreSQL installation. Let's change this!
@@ -102,21 +97,17 @@ Ruby can't find the relevant setting of the PostgreSQL installation. Let's chang
 Say you want to install the PostgreSQL manually with a `gem install` - you have to perform the following command:
 
 
-{% highlight bash %}
-
+```bash
 $ sudo PATH=$PATH:/Library/PostgreSQL/x.y/bin gem install pg
-
-{% endhighlight %}
+```
 
 
 If you want to install it with [Bundle](http://gembundler.com/), run the following command
 
 
-{% highlight bash %}
-
+```bash
 $ sudo PATH=$PATH:/Library/PostgreSQL/x.y/bin bundle install
-
-{% endhighlight %}
+```
 
 
 Please change the **x.y** with the version you have installed. Thats it!
@@ -127,12 +118,10 @@ Please change the **x.y** with the version you have installed. Thats it!
 It is easier because you only have to install the right packages:
 
 
-{% highlight bash %}
-
+```bash
 sudo apt-get install postgresql
 sudo apt-get install libpq-dev
-
-{% endhighlight %}
+```
 
 
 Now `gem install pg` should work.

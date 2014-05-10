@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Livingstylguide For Padrino
 categories: ['padrino', 'ruby']
 ---
@@ -15,18 +14,15 @@ with Padrino](https://github.com/hagenburger/livingstyleguide/commit/cc3648e12ea
 Generate a new Padrino project:
 
 
-{% highlight bash %}
-
+```bash
 $ padrino g project padrino-livingstyleguide -e haml -c sass
-
-{% endhighlight %}
+```
 
 
 Add the [sprockets](https://github.com/nightsailer/padrino-sprockets), [compass]() and [livingstyleguide](https://github.com/hagenburger/livingstyleguide) gem in the `Gemfile`:
 
 
-{% highlight ruby %}
-
+```ruby
 # Component requirements
 gem 'sass'
 gem 'compass'
@@ -34,15 +30,13 @@ gem 'compass'
 gem 'livingstyleguide', '1.0.4'
 
 gem 'padrino-sprockets', :require => ['padrino/sprockets'], :git => 'git://github.com/nightsailer/padrino-sprockets.git'
-
-{% endhighlight %}
+```
 
 
 And register sprockets:
 
 
-{% highlight ruby %}
-
+```ruby
 module PadrinoLivingstyleguide
   class App < Padrino::Application
     ...
@@ -51,8 +45,7 @@ module PadrinoLivingstyleguide
     ...
   end
 end
-
-{% endhighlight %}
+```
 
 
 Next we need to move our assets files in the correct directory:
@@ -65,8 +58,7 @@ Next we need to move our assets files in the correct directory:
 And change the path of the `sass_initializer.rb`:
 
 
-{% highlight ruby %}
-
+```ruby
 module SassInitializer
   def self.registered(app)
     # Enables support for SASS template reloading in rack applications.
@@ -78,8 +70,7 @@ module SassInitializer
     app.use Sass::Plugin::Rack
   end
 end
-
-{% endhighlight %}
+```
 
 
 Next we create a `styleguide.html.lsg` file in the `app/assets/stylesheets` folder:
@@ -89,8 +80,7 @@ Next we create a `styleguide.html.lsg` file in the `app/assets/stylesheets` fold
 
 title: "Living Style Guide for Padrino"
 source: application.css.scss
-
-{% endhighlight %}
+```
 
 
 The `application.css.scss` is a container for all other `scss` files:
@@ -112,15 +102,13 @@ The `application.css.scss` is a container for all other `scss` files:
 @import "modules/layout";
 @import "modules/button";
 @import "modules/form";
-
-{% endhighlight %}
+```
 
 
 The documentation for `modules/button` has the following structure:
 
 
-{% highlight html %}
-
+```html
 # Buttons
 
 Buttons can be `<button>` or `<a>` elements:
@@ -145,8 +133,7 @@ Button sizes:
 <button type="button" class="button">Button</button>
 <button type="button" class="button ***is-small***">Button</button>
 ~~~
-
-{% endhighlight %}
+```
 
 
 If you now start the application with `padrino s` you can see the styleguide under <http://localhost:3000/assets/styleguide.html>

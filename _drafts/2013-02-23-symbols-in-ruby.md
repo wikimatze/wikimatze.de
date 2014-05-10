@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Symbols in Ruby
 description:
 ---

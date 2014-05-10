@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Testing Helpers in Padrino
 update: 2014-03-30
 categories: ['padrino', 'ruby', 'programming']
@@ -19,8 +18,7 @@ something like this happened you have stop going and spend time to solve this pr
 Let's say you have a typical Padrino helper:
 
 
-{% highlight ruby %}
-
+```ruby
 # app/helpers/users_helper.rb
 
 JobVacancy::App.helpers do
@@ -28,15 +26,14 @@ JobVacancy::App.helpers do
     "bar"
   end
 end
-
-{% endhighlight %}
+```
 
 
 You can use the `foo` method anywhere in you controllers and views. But what happened if your helper
 is getting more and more complex like the following one:
 
 
-{% highlight ruby %}
+```ruby
 # app/helpers/users_helper.rb
 
 JobVacancy::App.helpers do
@@ -65,8 +62,7 @@ JobVacancy::App.helpers do
     !current_user.nil?
   end
 end
-
-{% endhighlight %}
+```
 
 
 Right, there is a lot of stuff inside and you need to test this.
@@ -100,8 +96,7 @@ And you have written your helper in the typical helper style of Padrino which ar
 controller:
 
 
-{% highlight ruby %}
-
+```ruby
 # app/helpers/users_helper.rb
 
 JobVacancy::App.helpers do
@@ -109,15 +104,13 @@ JobVacancy::App.helpers do
     "bar"
   end
 end
-
-{% endhighlight %}
+```
 
 
 This syntax is a shortcut for:
 
 
-{% highlight ruby %}
-
+```ruby
 helpers = Module.new do
   def foo
     "bar"
@@ -125,15 +118,14 @@ helpers = Module.new do
 end
 
 JobVacancy::App.helpers helpers
-
-{% endhighlight %}
+```
 
 
 In Padrino, helpers are generally an anonymous module. Testing something anonymous isn't possible. To make this helper
 testable we need to make this module explicit:
 
 
-{% highlight ruby %}
+```ruby
 # app/helpers/users_helper.rb
 
 module UsersHelper
@@ -143,8 +135,7 @@ module UsersHelper
 end
 
 JobVacancy::App.helpers UsersHelper
-
-{% endhighlight %}
+```
 
 
 You can still use the `foo` method everywhere in your views and controller. But now you've got a big plus. You can test it.
@@ -155,7 +146,7 @@ You can still use the `foo` method everywhere in your views and controller. But 
 We need to require the helper in our `spec_helper`:
 
 
-{% highlight ruby %}
+```ruby
 # spec/spec_helper.rb
 
 PADRINO_ENV = 'test' unless defined?(PADRINO_ENV)
@@ -168,15 +159,14 @@ RSpec.configure do |conf|
   conf.color_enabled= true
   conf.formatter = :documentation
 end
-
-{% endhighlight %}
+```
 
 
 ## Write the spec
 
 And here is a spec for that:
 
-{% highlight ruby %}
+```ruby
 # spec/app/helpers/users_helper_spec.rb
 require 'spec_helper'
 
@@ -194,15 +184,13 @@ describe UsersHelper do
   end
 
 end
-
-{% endhighlight %}
+```
 
 
 We create a class in the before part of the spec which include our `UsersHelper` module. Next, we are creating the instance variable `@user_helper` as a new object of our class `UsersHelperClass`. Running our tests will make unicorns happy and fast:
 
 
-{% highlight bash %}
-
+```bash
 $ rspec spec/app/helpers
 
   UsersHelper
@@ -210,8 +198,7 @@ $ rspec spec/app/helpers
 
   Finished in 0.00041 seconds
   1 example, 0 failures
-
-{% endhighlight %}
+```
 
 
 I'm quiet sure that there is a better way to write the spec. If you know a way, please let me know.

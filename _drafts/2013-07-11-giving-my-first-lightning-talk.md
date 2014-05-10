@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Giving My First Lightning Talk
 description:
 ---

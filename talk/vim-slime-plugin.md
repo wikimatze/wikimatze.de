@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Vim Slime Plugin
 meta-description: Vim slime plugin was held by Matthias Günther on the vimberlin meetup on January, 2013.
 ---

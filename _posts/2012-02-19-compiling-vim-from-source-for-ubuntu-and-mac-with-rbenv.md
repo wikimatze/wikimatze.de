@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Compiling Vim from source for Ubuntu and Mac with ruby and python support
 update: 2014-03-30
 categories: ['vim', 'linux', 'ruby', 'howto']
@@ -17,8 +16,7 @@ I'm installing *rbenv* on different machines I created the following script (nam
 **ruby 1.9.2-p320**:
 
 
-{% highlight bash %}
-
+```bash
 cd $HOME
 sudo rm -rf .rbenv
 git clone git://github.com/sstephenson/rbenv.git .rbenv
@@ -39,20 +37,18 @@ source $HOME/.bash_profile
 rbenv-install 1.9.2-p290
 rbenv rehash
 exec $SHELL
-
-{% endhighlight %}
+```
 
 
 After this try the following:
 
 
-{% highlight bash %}
-
+```bash
 $ rbenv global 1.9.2-p320
 $ rbenv local 1.9.2-p320
 $ ruby -v
 => ruby 1.9.2p320 (2012-04-20 revision 35421) [i686-linux]
-{% endhighlight %}
+```
 
 
 ## Get the latest version of Python
@@ -60,8 +56,7 @@ $ ruby -v
 This will be put in the `$HOME/lib` folder:
 
 
-{% highlight bash %}
-
+```bash
 cd /tmp
 wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
 tar xjvf Python-2.7.3.tar.bz2
@@ -74,8 +69,7 @@ hash -r
 # cleanup
 cd /tmp && rm -rf Python-2.7.3
 
-
-{% endhighlight %}
+```
 
 
 ## Get the latest version of Vim
@@ -85,13 +79,11 @@ If you are using a Unix system yo can get the latest Vim from [here](ftp://ftp.v
 unzip it:
 
 
-{% highlight bash %}
-
+```bash
 $ cd $HOME/Downloads
 $ wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
 $ tar -xjvf vim-7.4.tar.bz2
-
-{% endhighlight %}
+```
 
 
 You can also get the latest Vim version from the git repository [https://github.com/b4winckler/vim](https://github.com/b4winckler/vim) and checkout the latest tag you want to have.
@@ -103,20 +95,17 @@ To install Gvim on Ubuntu we need to install additional packages on our machine.
 packages for Ubuntu:
 
 
-{% highlight bash %}
-
+```bash
 $ sudo apt-get install libncurses-dev libgnome2-dev \
  libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev \
  libx11-dev libxpm-dev libxt-dev
-
-{% endhighlight %}
+```
 
 
 Next, we need to configure the compilation and make the install:
 
 
-{% highlight bash %}
-
+```bash
 cd ~/git-repositories/vim && git checkout v7-4-183 && git clean -f
 
 ./configure --prefix=/usr/local \
@@ -133,8 +122,7 @@ cd ~/git-repositories/vim && git checkout v7-4-183 && git clean -f
   --with-tlib=ncurses \
 
 sudo make && sudo make install && sudo make clean
-
-{% endhighlight %}
+```
 
 
 Let's get over the heavy stuff:
@@ -150,14 +138,12 @@ Let's get over the heavy stuff:
 After configuring the compilation check if the console response contains the following terms:
 
 
-{% highlight bash %}
-
+```bash
 checking --with-ruby-command argument... defaulting to ruby
 checking for ruby... (cached) /home/mg/.rbenv/shims/ruby
 checking Ruby version... OK
 checking Ruby header files... /home/mg/.rbenv/versions/1.9.2-p320/include/ruby-1.9.1
-
-{% endhighlight %}
+```
 
 
 If you can't see the lovely **Ok**, your Vim compilation will probably not have ruby support. Maybe you have not installed ruby the right way or some packages are missing on your machine.
@@ -168,28 +154,24 @@ If you can't see the lovely **Ok**, your Vim compilation will probably not have 
 Open a new session or perform `exec $SHELL` to reboot your Shell. You will see the fresh installed version of Vim:
 
 
-{% highlight bash %}
-
+```bash
 $ which vim
 /usr/local/bin/vim
 
 $ which gvim
 /usr/local/bin/gvim
-
-{% endhighlight %}
+```
 
 
 Next check is to get the correct --version of `vim` and `gvim` with the following commands:
 
 
-{% highlight bash %}
-
+```bash
 $ vim --version | ack ruby
 $ vim --version | ack python
 $ gvim --version | ack ruby
 $ gvim --version | ack python
-
-{% endhighlight %}
+```
 
 
 If both commands return **+ruby** and **+python**, you are fine, and got the achievement *"I installed vim form source
@@ -203,19 +185,16 @@ missing gems and if you are able to run `:Hammer` without any missing dependenci
 The ways are nearly the same as mentioned above: Install rbenv as mentioned in the steps before.
 
 
-{% highlight bash %}
-
+```bash
 $ cd $HOME/Download
 $ git clone git://github.com/b4winckler/macvim.git
-
-{% endhighlight %}
+```
 
 
 Next step is to **configure** MacVim for OSX:
 
 
-{% highlight bash %}
-
+```bash
 $ cd macvim/src
 $ ./configure --prefix=/usr/local \
               --with-features=huge \
@@ -223,51 +202,42 @@ $ ./configure --prefix=/usr/local \
               --enable-pythoninterp \
               --enable-perlinterp \
               --enable-cscope
-
-{% endhighlight %}
+```
 
 
 After configuring the compilation check the console response after the following terms:
 
 
-{% highlight bash %}
-
+```bash
 checking --with-ruby-command argument... defaulting to ruby
 checking for ruby... /Users/helex/.rbenv/shims/ruby
 checking Ruby version... OK
 checking Ruby header files... /Users/helex/.rbenv/versions/1.9.2-p320/include/ruby-1.9.1
-
-{% endhighlight %}
+```
 
 
 When this is finished, it is time `build` MacVim with make:
 
 
-{% highlight bash %}
-
+```bash
 $ make
-
-{% endhighlight %}
+```
 
 
 Next step is to run the MacVim installation:
 
 
-{% highlight bash %}
-
+```bash
 open MacVim/build/Release/MacVim.app
-
-{% endhighlight %}
+```
 
 
 The window should open MacVim. Run the following command in the MacVim quickfix window:
 
 
-{% highlight bash %}
-
+```bash
 :ruby puts "MacVim"
-
-{% endhighlight %}
+```
 
 
 In the next step, you can drop the **MacVim.app** icon in your Application folder and you are done.

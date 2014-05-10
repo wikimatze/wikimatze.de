@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Enrypt Your Partition
 description: Encrypt your external device
 ---

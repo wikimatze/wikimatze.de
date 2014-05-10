@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Setting up your Cloud with owncloud
 ---
 
@@ -29,13 +28,11 @@ The fact that I'm German I'm always concerned about data security.
 Since I'm owning my own webserver, I decided to use the [webinstaller](http://owncloud.org/install/):
 
 
-{% highlight bash %}
-
+```bash
 $ ssh <username>@<yourwebserver>
 $ cd <the-directory-where-you-want-to-have-owncloud-installed>
 $ wget https://download.owncloud.com/download/community/setup-owncloud.php
-
-{% endhighlight %}
+```
 
 
 Next, you need to open the `setup-owncloud.php` in your browser: [http://wikimatze.de/setup-owncloud.php](http://wikimatze.de/setup-owncloud.php).
@@ -46,28 +43,24 @@ Once you setup an admin user and a password you should visit [http://wikimatze.d
 
 ## Possible Issues After Installation
 
-{% highlight bash %}
-
+```bash
 Magic Quotes is enabled. ownCloud requires that it is disabled to work
 properly.
 
 Magic Quotes is a deprecated and mostly useless setting that should be
 disabled. Please ask your server administrator to disable it in php.ini
 or in your webserver config.
-
-{% endhighlight %}
+```
 
 
 All you have to do is to mess around in your `php.ini` config files as mentioned above.
 
 
-{% highlight bash %}
-
+```bash
 PHP modules have been installed, but they are still listed as missing?
 
 Please ask your server administrator to restart the web server.
-
-{% endhighlight %}
+```
 
 
 Please ask your provider to restart the webserver or do it on your own.
@@ -78,13 +71,11 @@ Please ask your provider to restart the webserver or do it on your own.
 Since I'm using [xubuntu](http://xubuntu.org/news/14-04-release/), I'm running the following command:
 
 
-{% highlight bash %}
-
+```bash
 $ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_13.10/ /' >> /etc/apt/sources.list.d/owncloud-client.list"
 $ sudo apt-get update
 $ sudo apt-get install owncloud-client
-
-{% endhighlight %}
+```
 
 
 Other installation instructions for windows or mac can be found on the [owncloud client installation page](http://owncloud.org/sync-clients/).
@@ -96,11 +87,9 @@ Next run the `owncloud` command on your terminal and you are ready to use it.
 If something is wrong with the settings of your application, the easiest thing to do is to delete the settings:
 
 
-{% highlight bash %}
-
+```bash
 $ rm -rf ~/.local/share/data/ownCloud
-
-{% endhighlight %}
+```
 
 
 ## Owncloud-Sync: no E-Tag received
@@ -114,8 +103,7 @@ which can be data, files, music and so on. They are used like [fingerprints](htt
 I checked my `.htaccess` file and found the following setting:
 
 
-{% highlight bash %}
-
+```bash
 # ----------------------------------------------------------------------
 # ETag removal
 # ----------------------------------------------------------------------
@@ -129,20 +117,17 @@ I checked my `.htaccess` file and found the following setting:
 # static content.
 #   developer.yahoo.com/performance/rules.html#etags
 FileETag None
-
-{% endhighlight %}
+```
 
 
 Bumm, you know what to do:
 
 
-{% highlight bash %}
-
+```bash
 # ----------------------------------------------------------------------
 # ETag removal
 # ----------------------------------------------------------------------
 
 FileETag All
-
-{% endhighlight %}
+```
 

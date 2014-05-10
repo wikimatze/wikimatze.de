@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Getting the Basic Equipment For The Pomodoro Technique
 meta-description: Learn what tools you need to get started with mastering the Pomodoro Technique
 ---

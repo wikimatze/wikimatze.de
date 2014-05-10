@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Puppet and RSpec puppet
 meta-description: Puppet and RSpec puppet was held by Matthias Günther on October 2012 @
 ---

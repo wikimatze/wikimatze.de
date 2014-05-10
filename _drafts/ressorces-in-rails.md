@@ -1,5 +1,4 @@
 ---
-layout: post
 title:
 meta-description: ...
 published: false
@@ -8,13 +7,13 @@ published: false
 The "_resources function_" can be used in your routes.rb to get full access to all REST methods of the action. This is very useful if you don't want to define all methods on your own.
 
 
-{% highlight ruby %}
+```ruby
 SampleApp::Application.routes.draw do
   resources :posts
   resources :sessions, :only => [:new, :create, :destroy]
   ...
 end
-{% endhighlight %}
+```
 
 This provides you with the following layout to all ressources (actions) of the posts controller:
 
@@ -43,9 +42,10 @@ The resources also defines the following named routes
 
 With the _:only_ param you can specify for which actions you want to have the magical generated methods by rails. So for
 
-{% highlight ruby %}
+
+```ruby
 resource :sessions, :only => [:new, :create, :destroy]
-{% endhighlight %}
+```
 
 Only the actions _:new, :create, :destroy_ will get the routes.
 

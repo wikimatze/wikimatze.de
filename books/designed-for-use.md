@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Designed for Use - Create Usable Interfaces for Applications and the Web
 ---
 

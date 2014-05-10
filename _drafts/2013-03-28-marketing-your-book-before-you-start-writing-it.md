@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Marketing Your Book Before You Start Writing It
 description:
 ---

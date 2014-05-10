@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Modules in Ruby
 description:
 ---
@@ -19,26 +18,21 @@ module OurModule
 end
 
 
-{% highlight ruby %}
-
+```ruby
 obj = Object.new
 class << obj
   include OurModule
 end
-
-{% endhighlight %}
+```
 
 
 The shortcut for this one above is
 
 
-{% highlight ruby %}
-
-
+```ruby
 obj = Object.new
 obj.extend OurModule
-
-{% endhighlight %}
+```
 
 
 Modules are great for namespacing so that they don't clashes with namespaces of other scripts.

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Writing own validators in rails
 meta-description: How can you write your own validators in Rails 3
 ---
@@ -17,26 +16,27 @@ h2. Write a global validator for all models
 The idea is to put the validator in the lib folder. We want to write a absence-validator
 
 
-{% highlight ruby %}
+```ruby
 class AbsenceValidator < ActiveModel::EachValidator
   def validate_each(object, attribute, value)
     object.errors[attribute] << "a bot tried to fill this formula" if !value.blank?
   end
 end
-{% endhighlight %}
+```
 
 
 In your model you can then use your new validator with @:absence => true@
 
 Putting your validator in a model __app/model/user.rb__:
 
-{% highlight ruby %}
+
+```ruby
 class IpRequest < DatabaseLooseModel
   column :description, :string
   validates :mother_middle_name,
             :absence => true
 end
-{% endhighlight %}
+```
 
 In the model above I used the @:absence => true@ hash and there you get it. To use it in the form, you need something like @form.text_field(:name, :id => 'hidden', :value => '') @. Finally set in your css the .hidden class on display: none and there you get your own honeypot captcha without killing your users with unreadable captchas. I chose the name because it is like a bait for the bots out there.
 

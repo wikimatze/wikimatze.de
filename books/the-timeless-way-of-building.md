@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: The Timeless Way of Building by Christopher Alexander
 ---
 

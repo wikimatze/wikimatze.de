@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Xubuntu Install Error No DEFAULT or UI Configuration Directive Found
 description: Something breaks everytime in the Linux world
 ---
@@ -16,27 +15,23 @@ problem. Instead of using the [UNetbootin script](http://unetbootin.sourceforge.
 have to download it, make it executable, and run the script:
 
 
-{% highlight bash %}
-
+```bash
 $ curl http://downloads.sourceforge.net/project/unetbootin/UNetbootin/583/unetbootin-linux-583
 $ chmod +x
 $ ./unetbootin-linux-583
-
-{% endhighlight %}
+```
 
 
 But it was not detecting my USB-Stick - I formatted it with vfat to be more Windows compatible. It is recommended to
 format your USB-Stick with FAT32. You can do this with the [mkdosfs](http://en.wikipedia.org/wiki/Mkdosfs) package:
 
 
-{% highlight bash %}
-
+```bash
 $ sudo apt-get install mkdosfs
 $ sudo umount /dev/sdb1 # or wherever your USB-Stick is mounted
 $ sudo mkdosfs -F 32 -I /dev/sdb1
 
-{% endhighlight %}
-{: lang="bash" }
+```
 
 
 And it just works!

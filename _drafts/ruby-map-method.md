@@ -1,5 +1,4 @@
 ---
-layout: post
 title:
 meta-description: ...
 published: false

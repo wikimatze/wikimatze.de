@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Stage Only Deleted Files in Git
 description:
 ---

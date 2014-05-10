@@ -1,12 +1,9 @@
 ---
-layout: post
 title: Fixing Wlan Problems Under Xubuntu
 description:
 ---
 
-{% highlight bash %}
-
+```bash
 $ sudo rfkill unblock all
-
-{% endhighlight %}
+```
 

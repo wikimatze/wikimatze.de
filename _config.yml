@@ -1,8 +1,10 @@
-markdown: rdiscount
-pygments: true
+markdown: redcarpet
+
+highlighter: pygments
 permalink: /:title
 rdiscount:
   extensions: [smart]
+timezone: DE
 
 destination: _site
 base_url: "http://wikimatze.de"
@@ -10,19 +12,47 @@ base_url: "http://wikimatze.de"
 author: Matthias Günther
 
 exclude:
-- _drafts
-- Gemfile
-- Gemfile.lock
-- plugins
-- knowledge.md
-- Rakefile
-- bin
+  - _drafts
+  - Gemfile
+  - Gemfile.lock
+  - plugins
+  - knowledge.md
+  - Rakefile
+  - bin
+
+
+include:
+  - .htaccess
+
+
+# yaml default setup
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "" # empty string for all files
+      type: "post"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "books" # empty string for all files
+    values:
+      layout: "reading"
 
 # page stats
-build: 1-19-2014
-images: 59
-htmlpages: 234
-links: 407
+build: 5-3-2014
+images: 42
+htmlpages: 67
+links: 460
+
+
+tag_page_layout: tag_page
+tag_page_dir: tag
 
 
 # github stats
@@ -43,7 +73,7 @@ rails-sample-app: 2013-01-26
 ruby-scripts: 2013-01-26
 vocabularly: 2013-01-26
 styles: 2013-01-26
-presentations: 2014-01-11
+presentations: 2014-02-18
 windows setup: 2013-01-27
 iso25: 2012-11-19
 vim-autocomplpop: 2013-07-17

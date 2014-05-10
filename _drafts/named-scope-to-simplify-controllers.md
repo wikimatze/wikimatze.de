@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Named scope to simplify controllers
 meta-description: Make notes after reading a book - you can't remember everything
 published: false
@@ -12,27 +11,25 @@ code in the models to keep our controllers clean and sexy. In other words: You c
 fragments `aa aa` in your app by defining them in your models. Instead of calling
 in your app by defining them in your models. Instead of calling
 
-{% highlight ruby %}
 
+```ruby
 Article.find(:all, :order => 'created_at desc')
-
-{% endhighlight %}
+```
 
 you can specify in your Article model a *named_scope* in the following way
 
-{% highlight ruby %}
 
+```ruby
 named_scope :famous, :oder => 'created_at desc'
-
-{% endhighlight %}
+```
 
 
 ## Small example
 
 We have the following code:
 
-{% highlight ruby %}
 
+```ruby
 class ArticleController < ApplicationController
   def index
     @articles    = Article.find(:all, :conditions => { ... }
@@ -40,33 +37,30 @@ class ArticleController < ApplicationController
                                       :order => 'created_at desc')
   end
 end
-
-{% endhighlight %}
+```
 
 Now puts the conditions in the *Article* model:
 
-{% highlight ruby %}
 
+```ruby
 class Article < ActiveRecord::Base
   named_scope :published, :conditiond => { ... }
   named_scope :draft, :condition => { :status => 'draft'},
                       :order => 'created_at desc'
 end
-
-{% endhighlight %}
+```
 
 Then in your controller you can use:
 
-{% highlight ruby %}
 
+```ruby
 class ArticleController < ApplicationController
   def index
     @articles = Article.published
     @draft_articles = Article.draf
   end
 end
-
-{% endhighlight %}
+```
 
 In my eyes, this looks more comfortable :D.
 

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Getting started with RSpec Puppet
 update: 2014-03-30
 categories: ['ruby', 'howto']
@@ -29,47 +28,39 @@ The [rspec-puppet gem](https://rubygems.org/gems/rspec-puppet/) is the [Gem](htt
 Run the following commands to install the gem:
 
 
-{% highlight bash %}
-
+```bash
 $ gem install rspec-puppet
 $ gem install puppet-lint
-
-{% endhighlight %}
+```
 
 
 You can use `puppet-lint` in your terminal to check a puppet manifest.
 
 
-{% highlight bash %}
-
+```bash
 $ puppet-lint <path-to-your-manifest>
-
-{% endhighlight %}
+```
 
 
 Let's assume, we have the following puppet file:
 
 
-{% highlight ruby %}
-
+```ruby
 # manifests/init.pp
 class git::init {
   include git:: package
 }
-
-{% endhighlight %}
+```
 
 
 If we run `puppet-lint` on it:
 
 
-{% highlight bash %}
-
+```bash
 $ puppet-lint manifests/init.pp
 ERROR: two-space soft tabs not used on line 10
 WARNING: unquoted resource title on line 10
-
-{% endhighlight %}
+```
 
 
 ## Setting up the environment
@@ -77,12 +68,10 @@ WARNING: unquoted resource title on line 10
 The next step is to clone the [puppet boilerplate repository](https://github.com/andreashaerter/puppet-boilerplate-modules) . It's perfect for creating a initial skeleton for a new module. After we get the code, we run a script which guides you through the process of creating a new module:
 
 
-{% highlight bash %}
-
+```bash
 $ git clone https://github.com/andreashaerter/puppet-boilerplate-modules.git
 $ ./puppet-boilerplate-modules/newmodule.sh
-
-{% endhighlight %}
+```
 
 
 Answer the questions in this dialog, that means select the module name, the template for it (*0: application-001* is
@@ -90,26 +79,22 @@ perfect for the beginning), the location, and the author. When your are done wit
 new module and perform the following cleanup commands:
 
 
-{% highlight bash %}
-
+```bash
 $ cd <your-module-path>
 $ rm COPYING CREDITS Modulefile NOTICE README
 $ rm -rf files/ templates/
-
-{% endhighlight %}
+```
 
 
 The cleanup is necessary to get you focused on the basics of testing. Now, your file structure should look like the following.
 
 
-{% highlight bash %}
-
+```bash
 -- manifests
     |-- init.pp
     |-- package.pp
     |-- params.pp
-
-{% endhighlight %}
+```
 
 
 This structure follows the **package, config, and service** (okay, we have `params.pp` instead of `service.pp` but this
@@ -121,8 +106,7 @@ The last step is to run `rspec-puppet-init` in the directory of your module and 
 testing.
 
 
-{% highlight bash %}
-
+```bash
 $ cd <your-module-path>
 $ rspec-puppet-init
  + spec/
@@ -138,8 +122,7 @@ $ rspec-puppet-init
  + spec/fixtures/modules/git/manifests
  + spec/spec_helper.rb
  + Rakefile
-
-{% endhighlight %}
+```
 
 
 And the file structure should be the following:
@@ -175,36 +158,31 @@ to create a spec named `init_spec.rb` in the `spec/classes` directory. To make i
 for our `init.pp` manifest.
 
 
-{% highlight ruby %}
-
+```ruby
 # manifests/init.pp
 class git::init {
   class { 'git::package': }
 }
-
-{% endhighlight %}
+```
 
 
 Let's do the test for it:
 
 
-{% highlight ruby %}
-
+```ruby
 # spec/classes/init_spec.rb
 require 'spec_helper'
 
 describe "git::init" do
   it { should create_class('git::packagee')}
 end
-
-{% endhighlight %}
+```
 
 
 **Remember:** Run `rake spec` always from the root directory of your module!
 
 
-{% highlight bash %}
-
+```bash
 $ cd <your-module-path>
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/init_spec.rb
@@ -225,31 +203,27 @@ Finished in 0.05637 seconds
 Failed examples:
 
 rspec ./spec/classes/init_spec.rb:4 # git::init
-
-{% endhighlight %}
+```
 
 
 Duh, it's red, what should we do? The catalogue does not contain a class `git::packagee`. Gosh, it's a typo in our
 `init_spec.rb` file. Let's fix this:
 
 
-{% highlight ruby %}
-
+```ruby
 # spec/classes/init_spec.rb
 require 'spec_helper'
 
 describe "git::init" do
   it { should create_class('git::package')}
 end
-
-{% endhighlight %}
+```
 
 
 And run our tests again:
 
 
-{% highlight bash %}
-
+```bash
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/init_spec.rb
 
@@ -258,8 +232,7 @@ git::init
 
 Finished in 0.03963 seconds
 1 example, 0 failures
-
-{% endhighlight %}
+```
 
 
 It's green and running - perfect.
@@ -271,8 +244,7 @@ Since we are now sure, that the `package` manifests is integrated, it's time to 
 `git-core` package in our package manifests. Let's write `spec/classes/install_spec.rb`:
 
 
-{% highlight ruby %}
-
+```ruby
 # spec/classes/package_spec.pp
 require 'spec_helper'
 
@@ -282,8 +254,7 @@ describe 'git::package' do
     it { should contain_package('git-core')}
   end
 end
-
-{% endhighlight %}
+```
 
 
 The `contains\_<resource>` *matcher* will test if the manifest contains a particular puppet resource.
@@ -292,8 +263,7 @@ The `contains\_<resource>` *matcher* will test if the manifest contains a partic
 And run the tests again with `rake spec` form the root directory of your module:
 
 
-{% highlight bash %}
-
+```bash
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -317,28 +287,24 @@ Finished in 0.19843 seconds
 Failed examples:
 
 rspec ./spec/classes/package_spec.rb:6 # git::package install git-core
-
-{% endhighlight %}
+```
 
 
 Let's edit `manifests/package.pp` file:
 
 
-{% highlight ruby %}
-
+```ruby
 # manifests/package.pp
 class git::package {
   package { 'git-core':}
 }
-
-{% endhighlight %}
+```
 
 
 And run the tests again:
 
 
-{% highlight bash %}
-
+```bash
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -351,16 +317,14 @@ git::init
 
 Finished in 0.19894 seconds
 2 examples, 0 failures
-
-{% endhighlight %}
+```
 
 
 Next we want to add the **ensure** attribute to the get the latest version of the `git-core package`. Let's write a
 failing test first:
 
 
-{% highlight ruby %}
-
+```ruby
 # spec/classes/package_spec.pp
 require 'spec_helper'
 
@@ -372,14 +336,13 @@ describe 'git::package' do
     }
   end
 end
-{% endhighlight %}
+```
 
 
 The `with\_*` and `without\_*` *matcher* can test the presence or absence of the parameter of resources. Run our tests, to see they are failing:
 
 
-{% highlight bash %}
-
+```bash
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -403,15 +366,13 @@ Finished in 0.19862 seconds
 Failed examples:
 
 rspec ./spec/classes/package_spec.rb:6 # git::package install git-core
-
-{% endhighlight %}
+```
 
 
 Time to fix it:
 
 
-{% highlight ruby %}
-
+```ruby
 # manifests/package.pp
 
 class git::package {
@@ -419,15 +380,13 @@ class git::package {
     ensure => latest
   }
 }
-
-{% endhighlight %}
+```
 
 
 If we run now our tests again, it should work:
 
 
-{% highlight bash %}
-
+```bash
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -440,8 +399,7 @@ git::init
 
 Finished in 0.20456 seconds
 2 examples, 0 failures
-
-{% endhighlight %}
+```
 
 
 If you have problems with understanding the syntax of RSpec, just checkout the
@@ -453,23 +411,20 @@ If you have problems with understanding the syntax of RSpec, just checkout the
 Since we now have green tests, we can play with the code. Let's make `manifests.init.pp` nicer:
 
 
-{% highlight ruby %}
-
+```ruby
 # manifests/init.pp
 
 class git::init {
   # don't like the class declaration syntax: class { 'git::package': }
   include git::package # much better
 }
-
-{% endhighlight %}
+```
 
 
 Run the test:
 
 
-{% highlight bash %}
-
+```bash
 $ rake spec
 /home/helex/.rbenv/versions/1.9.2-p320/bin/ruby -S rspec spec/classes/package_spec.rb spec/classes/init_spec.rb
 
@@ -482,8 +437,7 @@ git::init
 
 Finished in 0.20158 seconds
 2 examples, 0 failures
-
-{% endhighlight %}
+```
 
 
 Your catalog is still valid. Have beer because you have written your first tests for puppet and refactored your first manifest.

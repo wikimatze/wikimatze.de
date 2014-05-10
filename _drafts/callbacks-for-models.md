@@ -1,5 +1,4 @@
 ---
-layout: post
 title: callbacks for models
 meta-description:
 published: false
@@ -11,8 +10,8 @@ certain conditions before a *post create* action in your controller is performed
 
 ## Small example ##
 
-{% highlight ruby %}
 
+```ruby
 class DwarfController < ApplicationController
   def create
     @dwarf = Dwarf.new(params[:post])
@@ -25,7 +24,7 @@ class DwarfController < ApplicationController
 
     @dwarf.save
 end
-{% endhighlight %}
+```
 
 This controller is just blown up with to much logic inside the controller. Here now the even more
 better solution for this. We add a before_filter[^before_filter] in the *Dwarf* model.
@@ -47,8 +46,7 @@ class DwarfController < ApplicationController
     @dwarf.save
   end
 end
-
-{% endhighlight %}
+```
 
 
 ## Conclusion ##

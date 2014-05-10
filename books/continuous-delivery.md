@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Continuous Delivery by Jez Humble and David Farley
 ---
 

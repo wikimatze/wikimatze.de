@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Detecting External Monitors With Xrandr
 description:
 ---

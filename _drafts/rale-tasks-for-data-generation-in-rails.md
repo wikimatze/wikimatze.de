@@ -1,5 +1,4 @@
 ---
-layout: post
 title:
 meta-description: ...
 published: false
@@ -7,7 +6,8 @@ published: false
 # own-rake-tasks-with-fake
 Need to fill your db with fake-data? No problem with rake and the faker gem
 
-{% highlight ruby %}
+
+```ruby
 namespace :db do
   desc "Fill in database with sample data"
   task :populate => :environment do
@@ -28,21 +28,23 @@ namespace :db do
 
   end
 end
-{% endhighlight %}
+```
 
 We define a task:
 
-{% highlight ruby %}
+
+```ruby
 task db:populate
-{% endhighlight %}
+```
 
 which can be run in the console.
 
 The line
 
-{% highlight ruby %}
+
+```ruby
 task :populate => :environment
-{% endhighlight %}
+```
 
 ensures that the the Rake task has access to the local Rails environment, including the models.
 

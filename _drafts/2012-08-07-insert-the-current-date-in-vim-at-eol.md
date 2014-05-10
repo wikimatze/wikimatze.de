@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Insert-the-current-date-in-Vim-at-eol
 published: false
 meta-description: Press one button to insert the current date in Vim
@@ -17,12 +16,10 @@ Firstly, I wanted to create a mapping to insert the current date with one keystr
 choice. After reading the documentation I came upon a very simple version:
 
 
-{% highlight bash %}
-
+```bash
 nnoremap <F5> "=strftime("%F")<CR>
 inoremap <F5> <C-R>=strftime("%F")<CR>
-
-{% endhighlight %}
+```
 
 
 It nearly does what I want, but the downtime of this solution was that I had to press every time `$ <Space> F5` to insert the
@@ -36,15 +33,13 @@ save the resulting date in a register and run a Vim command for inserting the co
 line.
 
 
-{% highlight bash %}
-
+```bash
 function! InsertSpaceDate()
   let @x = " "
   let @x = @x . strftime("%Y-%m-%d")
   normal! "xp
 endfunction
-
-{% endhighlight %}
+```
 
 
 - line 1: declare a function with the name ic
@@ -56,11 +51,9 @@ endfunction
 We are not yet done yet. We define a mapping to call the function with only one keystroke:
 
 
-{% highlight bash %}
-
+```bash
 noremap <silent> <F5> :call InsertSpaceDate()<CR>
-
-{% endhighlight %}
+```
 
 
 ## Conclusion

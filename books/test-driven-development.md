@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: Test-Driven Development by Kent Beck
 ---
 

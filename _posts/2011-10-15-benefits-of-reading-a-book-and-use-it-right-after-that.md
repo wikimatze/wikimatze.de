@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Benefits of reading a book - and use it right after that
 update: 2014-03-30
 categories: ['learning', 'reading']

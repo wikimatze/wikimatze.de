@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Notes - is there a best plugin?
 meta-description: Notes - is there a best plugin? was held by Matthias Günther on the vimberlin meetup on May, 2012.
 ---

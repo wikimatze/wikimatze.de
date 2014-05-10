@@ -1,6 +1,5 @@
 ---
-layout: reading
-title: Unkuendbar by Susanne Reinker
+title: Unkündbar by Susanne Reinker
 ---
 
 - p 13: Chef ist wichtigste Bezugsperson und bewertet deine Leistung => seine Meinung darüber ist ausschlaggebend für

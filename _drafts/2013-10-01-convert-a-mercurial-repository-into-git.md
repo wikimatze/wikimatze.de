@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Convert a Mercurial Repository Into Git
 description:
 ---

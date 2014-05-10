@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Using Rdesktop to Connect to Remote Machines
 description: redesktop is the terminal command which makes you happy
 ---
@@ -14,8 +13,7 @@ Let's assume that you have to test your application on Internet Explorer 7, 8, a
 the name of the machine as an input and connect to the machine with which you are calling the script:
 
 
-{% highlight bash %}
-
+```bash
 IE=$1
 USER=Test
 
@@ -35,8 +33,7 @@ case "$IE" in
 esac
 
 rdesktop -g 1600x900 -P -z -x l -r sound:off -k de -u $USER $PC
-
-{% endhighlight %}
+```
 
 
 Let's go through the options:

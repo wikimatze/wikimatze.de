@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Getting up early or stay up late
 meta-description: Stay up and keep up the work
 ---

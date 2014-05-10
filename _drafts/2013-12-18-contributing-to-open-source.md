@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Contributing to Open Source
 description:
 ---

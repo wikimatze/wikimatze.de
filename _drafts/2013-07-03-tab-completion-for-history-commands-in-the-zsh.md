@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Tab Completion for History Commands in the Zsh
 description:
 ---
@@ -7,8 +6,7 @@ You often want to search after a certain ssh login on some machine. My normal wo
 
 Having the following history
 
-{% highlight bash %}
-
+```bash
 $ history | grep foreman
   767  ssh root@foreman.it.mau.myhammer.net
  1028  ssh root@foreman.it.mau.myhammer.net
@@ -60,8 +58,7 @@ $ history | grep foreman
  8166  ruby foreman.rb
  8201  ruby foreman.rb
  8265  mv bla.rb foreman_update.rb
-
-{% endhighlight %}
+```
 
 
 The I would go into copy mode of [tmux]() and grab the command I'm searching for. But when you are working in the zsh
@@ -69,27 +66,23 @@ you probably want something better like `$ ssh <Tab>` to do fuzzy searching afte
 matching command. Please add the following code into your `.zshrc`:
 
 
-{% highlight bash %}
-
+```bash
 # Press <C-X><C-X> to start autocompletion for commands typed into the history
 autoload -Uz history-beginning-search-menu
 zle -N history-beginning-search-menu
 bindkey '^X^X' history-beginning-search-menu
-
-{% endhighlight %}
+```
 
 
 Now you can `<C-X><C-X>` and the diget of the command you want to have for your shell. An example would be the
 following:
 
 
-{% highlight bash %}
-
+```bash
 $ ls
 Enter digit:
 1 ls -la  2 ls -la project  3 ls -la | grep projects  4 ls options/
-
-{% endhighlight %}
+```
 
 
 When you press `2` your prompt shell will be filled with `ls -la project`.

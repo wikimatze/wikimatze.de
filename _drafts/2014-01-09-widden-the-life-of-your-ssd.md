@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Widden the Life of Your SSD
 description:
 ---
@@ -11,8 +10,7 @@ update the inode access time in relation to the modified time of the file. Just 
 use the `stat test.txt` command to the different information like *access, modify, or last change of the file*:
 
 
-{% highlight bash %}
-
+```bash
 
 wikimatze/tmp: vim test.txt
 <do something with the file>
@@ -35,21 +33,19 @@ Access: 2014-01-09 19:18:57.369806831 +0100
 Modify: 2014-01-09 19:18:29.005806285 +0100
 Change: 2014-01-09 19:18:29.005806285 +0100
  Birth: -
-
-{% endhighlight %}
+```
 
 
 In order to find if the `relatime` option is activated on your file system you can watch in `/proc/mounts`:
 
 
-{% highlight bash %}
-
+```bash
 wikimatze~: cat /proc/mounts
 rootfs / rootfs rw 0 0
 sysfs /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
 proc /proc proc rw,nosuid,nodev,noexec,relatime 0 0
 ...
-{% endhighlight %}
+```
 
 
 As you can see, my root filesystem is running with the `relatime` option. We will use the [fstab](http://en.wikipedia.org/wiki/Fstab) file to set `noatime` options which basically says to not update access time of files. Another useful option in this context is `nodiratime`, and `discard`. The `nodiratime` says to not update directory inode access times on the filesystem, and `discard` issue [Trim](http://en.wikipedia.org/wiki/Trim_(computing)) commands to the underlying block device when blocks are freed. The Trim command sustain the long-term performance and wear-leveling by inform the SSD which blocks of data are no longer considered of use and can be wiped internally.
@@ -62,8 +58,7 @@ rotational latency of of spinning plate drives. The [NOOP scheduler](http://en.w
 inserts all incoming I/O into a simple FIFO queue and through this your computer doesn't care about productively reorder requests. This feature fits perfect for non-rotational media like SSD because no additional CPU time must be spend for moving the read/write head. Since I'm using a Ubuntu related operating system, we need to edit the [GRUB2](https://help.ubuntu.com/community/Grub2) file and add the `deadline` option to the `GRUB_CMDLINE_LINUX_DEFAULT` parameter:
 
 
-{% highlight bash %}
-
+```bash
 wikimatze~: vim /etc/default/grub
 
 # If you change this file, run 'update-grub' afterwards to update
@@ -78,8 +73,7 @@ GRUB_TIMEOUT=10
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=deadline"
 GRUB_CMDLINE_LINUX=""
-
-{% endhighlight %}
+```
 
 
 # tmp directories
@@ -87,8 +81,7 @@ You can use the [tmpfs](http://en.wikipedia.org/wiki/Tmpfs) which indicates that
 drive but rather stored in a volatile memory like [RAM disk](http://en.wikipedia.org/wiki/RAM_disk). You can use the `df` command to see for which parts of your system `tmpfs` is used:
 
 
-{% highlight bash %}
-
+```bash
 wikimatze~: df
 Filesystem      1K-blocks      Used  Available Use% Mounted on
 /dev/sda4        96532204  32129656   59475880  36% /
@@ -100,21 +93,18 @@ none              2066388      1480    2064908   1% /run/shm
 none               102400        20     102380   1% /run/user
 /dev/dm-0      1922858856 663567488 1161615744  37% /media/wikimatze/intenso
 /dev/dm-1      1922857776 382362396 1442819812  21% /media/wikimatze/samsung
-
-{% endhighlight %}
+```
 
 
 Add the following entries to your `fstab`:
 
 
-{% highlight bash %}
-
+```bash
 tmpfs   /tmp       tmpfs   defaults,noatime,mode=1777   0  0
 tmpfs   /var/spool tmpfs   defaults,noatime,mode=1777   0  0
 tmpfs   /var/tmp   tmpfs   defaults,noatime,mode=1777   0  0
 tmpfs   /var/log   tmpfs   defaults,noatime,mode=0755   0  0
-
-{% endhighlight %}
+```
 
 
 - `/tmp`: Is available for programs that require temporary files and are not available after a reboot.

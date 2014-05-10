@@ -1,5 +1,4 @@
 ---
-layout: reading
 title: On Writting Well by William Zinsser
 ---
 

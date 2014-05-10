@@ -1,5 +1,4 @@
 ---
-layout: reading
 title:  Scaling Lean & Agile Development by Craig Larman and Bas Vodde
 ---
 

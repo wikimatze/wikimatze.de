@@ -19,7 +19,6 @@ task :p do
 
   post_content = <<-MARKDOWN
 ---
-layout: post
 title: TITLE
 ---
 
@@ -114,7 +113,7 @@ desc 'Startup Jekyll'
 task :s do
   system 'rm -rf _site'
   system 'jekyll build'
-  system 'jekyll serve --watch'
+  system 'jekyll serve -w'
 end
 
 # Credit for this goes to https://gist.github.com/alexyoung/143571
@@ -131,7 +130,6 @@ task :generate do
 
   html =<<-HTML
 ---
-layout: default
 title: Tags
 ---
 

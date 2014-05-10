@@ -1,5 +1,4 @@
 ---
-layout: post
 title: More Time for Open Source Work With the Help of the Pomodoro Technique
 description:
 ---

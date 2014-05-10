@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Why I use Jekyll for blogging
 update: 2014-03-30
 categories: ['writing']
@@ -59,8 +58,7 @@ Other files can put on the root directory like an `atom.xml` file (for RSS feed)
 `post.html` has the following layout:
 
 
-{% highlight html %}
-
+```html
 ---
 layout: default
 ---
@@ -79,8 +77,7 @@ layout: default
     {% include comments.html %}
   </aside>
 </article>
-
-{% endhighlight %}
+```
 
 
 The lines between `---` mark a special [Yaml Front Matter](http://jekyllrb.com/docs/frontmatter/)
@@ -93,8 +90,7 @@ the content of a post entry.
 Here is the main template for my blog.
 
 
-{% highlight html %}
-
+```html
 <!doctype html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
@@ -180,8 +176,7 @@ Here is the main template for my blog.
   <script gumby-touch="/js/libs" src="js/libs/gumby.js"></script>
   ...
 </html>
-
-{% endhighlight %}
+```
 
 
 I'm using the meta-language [Sass](http://sass-lang.com/) to create my CSS. There is one problem with Sass: You have to

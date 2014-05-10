@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Optimizing Your Pomodoros
 description: Enhance your Pomodoro
 ---

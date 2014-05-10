@@ -1,13 +1,11 @@
 ---
-layout: post
 title: Singleton Classes in Ruby
 description:
 ---
 **
 
 
-{% highlight ruby %}
-
+```ruby
 alone = Object.new
 
 class << alone
@@ -24,8 +22,7 @@ end
 
 alone.test
 alone.juhu
-
-{% endhighlight %}
+```
 
 
 ## Conclusion

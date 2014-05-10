@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Merge two commits into One in git
 description:
 ---

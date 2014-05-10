@@ -1,5 +1,4 @@
 ---
-layout: default
 description: Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, writing, giving talks, and enjoys making cakes.
 ---
 

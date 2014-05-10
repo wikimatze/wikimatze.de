@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to Remove a Submodule in Git
 description:
 ---

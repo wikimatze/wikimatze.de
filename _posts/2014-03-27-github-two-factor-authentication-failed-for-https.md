@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Github Two-Factor Authentication Failed For HTTPS
 update: 2014-03-30
 categories: ['git', 'learning']
@@ -38,17 +37,15 @@ Since you have enabled 2FA, you can create a personal access token.
 Run:
 
 
-{% highlight bash %}
-
+```bash
 $ curl -u <token>:x-oauth-basic https://api.github.com/user
-
-{% endhighlight %}
+```
 
 
 If everything works fine then you should get following JSON output:
 
 
-{% highlight json %}
+```json
 {
   "login": "matthias-guenther",
   "id": 264708,
@@ -92,21 +89,19 @@ If everything works fine then you should get following JSON output:
     "private_repos": 0
   }
 }
-
-{% endhighlight %}
+```
 
 
 If something went wrong, you should get a message like:
 
 
-{% highlight json %}
+```json
 
 {
   "message": "Not Found",
   "documentation_url": "http://developer.github.com/v3"
 }
-
-{% endhighlight %}
+```
 
 
 ## Pushing to a HTTPS Github URL on Your Own
@@ -114,8 +109,7 @@ If something went wrong, you should get a message like:
 I had all my repositories checked out via HTTPS. But after enabling 2FA, I couldn't push to this repositories anymore.
 
 
-{% highlight bash %}
-
+```bash
 $ git remote -v
   origin https://github.com/matthias-guenther/wikimatze.de.git (fetch)
   origin https://github.com/matthias-guenther/wikimatze.de.git (push)
@@ -126,8 +120,7 @@ $ git push origin master
 
   Please make sure you have the correct access rights
   and the repository exists.
-
-{% endhighlight %}
+```
 
 
 I tried every combination of passwords, personal access token and even created a new ssh-key, but it didn't work. I had
@@ -140,8 +133,7 @@ I'm the maintainer of [vimberlin.de](http://vimberlin.de/) and pushing my change
 not work out very well:
 
 
-{% highlight bash %}
-
+```bash
 $ git remote -v
   origin git@github.com/vimberlin/vimberlin.de.git (fetch)
   origin git@github.com/vimberlin/vimberlin.de.git (push)
@@ -152,8 +144,7 @@ $ git push
 
   Please make sure you have the correct access rights
   and the repository exists.
-
-{% endhighlight %}
+```
 
 
 Most posts out there advices to use [osxkeychain](http://olivierlacan.com/posts/why-is-git-https-not-working-on-github/)
@@ -169,8 +160,7 @@ The `.netrc` file contains [login and initialization information](http://www.gnu
 All you have to do is to setup your credentials in `~/.netrc`:
 
 
-{% highlight bash %}
-
+```bash
 machine github.com
 login matthias-guenther
 password <token>
@@ -180,8 +170,7 @@ machine gist.github.com
 login matthias-guenther
 password <token>
 protocol https
-
-{% endhighlight %}
+```
 
 
 
@@ -194,21 +183,17 @@ Where `<token>` is your personal access token. It would be silly to save your pa
 I assume that you already have your `GPG` key, you need to run the following command:
 
 
-{% highlight bash %}
-
+```bash
 $ gpg --encrypt --armor --recipient matthias.guenther@wikimatze.de .netrc
-
-{% endhighlight %}
+```
 
 
 And update the credentials helper:
 
 
-{% highlight bash %}
-
+```bash
 $ git config --global credential.helper "netrc -f ~/.netrc.asc -v"
-
-{% endhighlight %}
+```
 
 
 Now you should be able to push again.

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Benefits of Scala
 update: 2014-03-30
 categories: ['programming']
