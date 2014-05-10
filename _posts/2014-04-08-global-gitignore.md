@@ -3,13 +3,12 @@ title: Global Gitignore
 categories: ['git', 'learning']
 ---
 
-For all my projects I was creating a local `.gitignore` files which keeps track of files I don't want to have under version
-control. The most common ones are for me `.*.sw*`, `.DS_Store`, `log/**/*` or `tags` files. You don't want to repeat
-yourself and you can put those file in a global gitignore file with the following command:
+For all my projects I was creating a local `.gitignore` files which keeps track of files I don't want to have under
+version control. The most common ones are for me `.*.sw*`, `.DS_Store`, `log/**/*` or `tags` files. You don't want to
+repeat yourself and you can put those file in a global gitignore file with the following command:
 
 
 ```bash
-
 git config --global core.excludesfile ~/.gitignore
 
 ```
@@ -19,7 +18,6 @@ It will create an entry in your `~/.gitconfig` file like the following:
 
 
 ```bash
-
 [user]
   name = Matthias Guenther
   email = matthias@wikimatze.de
@@ -37,7 +35,6 @@ My personal `.gitignore` has the following contents:
 
 
 ```bash
-
 ----------
 | Jekyll |
 ----------
@@ -88,7 +85,5 @@ yankring.txt
 .Trashes
 ._*
 Thumbs.db
-
 ```
-
 
