@@ -19,30 +19,27 @@ Of course I can also switch to a different sharing provider but that is actually
 Next I need to install all the packages and programms I need for the new machine. All what I do is running:
 
 
-{% highlight bash %}
-
+```bash
 $ bash $HOME/Dropbox/dotfiles/scripts/ubuntu_install.sh
-
-{% endhighlight %}
+```
 
 
 To see what's going on in this script, we will have a look on it:
 
 
-{% highlight bash %}
-
+```bash
 # Remove packages
 
 sudo apt-get remove -y abiword
 sudo apt-get remove -y catfish
 ...
 
+
 # Install of packages
 
 sudo apt-get install -y ack-grep
 ...
-
-{% endhighlight %}
+```
 
 
 I added the `-y` option to confirm all occuring messages with **yes** to keep up the installation of packages.
@@ -61,27 +58,23 @@ Symlinks are great. They are a special type of a file that contains a reference 
 is easy:
 
 
-{% highlight bash %}
-
+```bash
 ln -s target_path link_path
+```
 
-{% endhighlight %}
 
 The `target_path` is the place to which the `link_path` points to when using the `link_path`.  All what I do is running:
 
 
-{% highlight bash %}
-
+```bash
 $ bash $HOME/Dropbox/dotfiles/scripts/symlink_install.sh
-
-{% endhighlight %}
+```
 
 
 Here is an example of the symlink script:
 
 
-{% highlight bash %}
-
+```bash
 ...
 
 # Directories links
@@ -105,8 +98,7 @@ elif [ "$OSTYPE" == "darwin10.0" ]
 fi
 
 ...
-
-{% endhighlight %}
+```
 
 You can find the original file for this part on GitHub [symlink_install.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/symlink_install.sh)
 
@@ -118,18 +110,15 @@ ctags is a program to tag file of names and other programming constructs (like m
 ...).  Here is the command for this:
 
 
-{% highlight bash %}
-
+```bash
 $ bash $HOME/Dropbox/dotfiles/scripts/ctags_install.sh
-
-{% endhighlight %}
+```
 
 
 The contents of this file:
 
 
-{% highlight bash %}
-
+```bash
 cp -r $HOME/Dropbox/ctags-5.8 $HOME/Downloads
 sudo chmod -R 777 /usr/local/bin
 sudo chmod -R 777 /usr/local/share
@@ -140,8 +129,7 @@ make
 make install
 cd $HOME/Downloads
 rm -rf ctags-5.8
-
-{% endhighlight %}
+```
 
 You can find this file for this part on GitHub
 [ctags_install.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/ctags_install.sh)
@@ -155,18 +143,15 @@ You can find this file for this part on GitHub
 Here is the command for running the setup:
 
 
-{% highlight bash %}
-
+```bash
 $ bash $HOME/Dropbox/dotfiles/scripts/rbenv_install_setup.sh
-
-{% endhighlight %}
+```
 
 
 The contents of this file:
 
 
-{% highlight bash %}
-
+```bash
 # Install rbenv
 
 cd $HOME
@@ -181,8 +166,7 @@ sudo rm -rf ruby-build
 git clone git://github.com/sstephenson/ruby-build.git
 cd ruby-build
 sudo bash install.sh
-
-{% endhighlight %}
+```
 
 
 You can find this file GitHub
@@ -197,19 +181,16 @@ compiled.
 Here is the command for running the setup:
 
 
-{% highlight bash %}
-
+```bash
 $ exec $SHELL
 $ bash $HOME/Dropbox/dotfiles/scripts/rbenv_install.sh
-
-{% endhighlight %}
+```
 
 
 The content of this file:
 
 
-{% highlight bash %}
-
+```bash
 rbenv install 1.9.3-p286
 rbenv rehash
 
@@ -220,8 +201,7 @@ rbenv install 1.8.7-p358
 rbenv rehash
 
 rbenv global 1.9.2-p320
-
-{% endhighlight %}
+```
 
 
 I'm using ruby version 1.9.2 (`rbenv global 1.9.2-p320`) because it is most compatible to most of the programms I'm using.
@@ -238,21 +218,17 @@ After setting up the correct version of ruby, it's time to install the different
 Here is the command for running the setup:
 
 
-{% highlight bash %}
-
+```bash
 $ bash $HOME/Dropbox/dotfiles/scripts/gem_install.sh
-
-{% endhighlight %}
+```
 
 
 The content of this file:
 
 
-{% highlight bash %}
-
+```bash
 gem install abstract actionmailer actionpack activemodel activerecord activeresource albino activesupport arel authlogic bluecloth builder bundler cgi_multipart_eof_fix classifier closure-compiler columnize compass configuration cucumber cucumber-rails daemons database_cleaner diff-lcs directory_watcher erubis extlib fast-stemmer fastthread ffi gem_plugin gherkin gli glynn gravatar haml highline hoe jammit jekyll jekyll-pagination jekyll_ext jekyll_generator json json_pure launchy linecache liquid log4r macaddr mail maruku memcache-client mime-types money net-sftp net-ssh nokogiri plist polyglot rack rack-mount rack-test rails railties rake rally_rest_api rb-inotify rdiscount RedCloth rest-client rspec rspec-core rspec-expectations rspec-mocks rspec-rails ruby-debug ruby-debug-base ruby-debug-ide ruby_parser rubyforge rubygems-update rubyzip showoff sinatra sqlite3 syntax SystemTimer templater term-ansicolor test-unit text-format thor tilt translate treetop tzinfo uuid webrat will_paginate xml-simple yui-compressor rb-fsevent hpricot ruby_parser wirble twitter autotest redgreen yard redcarpet org-ruby wikicloth github-markup pygmentize mechanize ruby-mp3info digestr autotest-rails-pure autotest-fsevent autotest-growl fuubar nanoc padrino sweetie simplificator-rwebthumb heroku pygments.rb faker vagrant vagrant-vbguest
-
-{% endhighlight %}
+```
 
 
 You can find this file GitHub
@@ -267,18 +243,15 @@ Before we are going to the final step and install vim, we need to install python
 Here is the command for running this script:
 
 
-{% highlight bash %}
-
+```bash
 $ bash $HOME/Dropbox/dotfiles/scripts/python_install.sh
-
-{% endhighlight %}
+```
 
 
 The content of this file:
 
 
-{% highlight bash %}
-
+```bash
 mkdir $HOME/lib
 cd $HOME/Downloads
 wget http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
@@ -292,8 +265,7 @@ hash -r
 # cleanup
 cd $HOME/Downloads
 rm -rf Python-2.7.3
-
-{% endhighlight %}
+```
 
 
 You can find this file GitHub
@@ -305,18 +277,15 @@ You can find this file GitHub
 Here is the command for running this script:
 
 
-{% highlight bash %}
-
+```bash
 $ bash $HOME/Dropbox/dotfiles/jscripts/vim_install_linux.sh
-
-{% endhighlight %}
+```
 
 
 The content of this file:
 
 
-{% highlight bash %}
-
+```bash
 cd $HOME/Downloads
 git clone https://github.com/b4winckler/vim
 cd vim
@@ -339,8 +308,7 @@ git co v7-3-645
 sudo make
 sudo make install
 sudo make clean
-
-{% endhighlight %}
+```
 
 
 You can find this file GitHub
