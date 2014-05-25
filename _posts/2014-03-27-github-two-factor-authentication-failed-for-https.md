@@ -1,6 +1,6 @@
 ---
 title: Github Two-Factor Authentication Failed For HTTPS
-update: 2014-03-30
+update: 2014-05-25
 categories: ['git', 'learning']
 ---
 
@@ -173,7 +173,6 @@ protocol https
 ```
 
 
-
 Where `<token>` is your personal access token. It would be silly to save your password in plain text.
 
 
@@ -197,6 +196,12 @@ $ git config --global credential.helper "netrc -f ~/.netrc.asc -v"
 
 
 Now you should be able to push again.
+
+
+## Update About the organization push problem
+
+[Ryan](https://twitter.com/RyanHiebert) mentioned all you have to do to push to an organization is use a colon before
+the username in ythe URL: Instead of `git@github.com/vimberlin/vimberlin.de.git` it should be `git@github.com:vimberlin/vimberlin.de.git`. This will mark the remote URL as an SSH path.
 
 
 {% include thanks_hagenburger.html %}
