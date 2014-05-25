@@ -1,15 +1,18 @@
 markdown: redcarpet
-
 highlighter: pygments
-permalink: /:title
 rdiscount:
   extensions: [smart]
 timezone: DE
+
+
+permalink: /:title
+
 
 destination: _site
 base_url: "http://wikimatze.de"
 
 author: Matthias Günther
+
 
 exclude:
   - _drafts
@@ -44,10 +47,11 @@ defaults:
     values:
       layout: "reading"
 
+
 # page stats
-build: 5-3-2014
+build: 5-23-2014
 images: 42
-htmlpages: 67
+htmlpages: 68
 links: 460
 
 
