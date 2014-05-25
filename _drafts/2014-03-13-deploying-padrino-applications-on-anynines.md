@@ -206,7 +206,7 @@ Push successful! App 'padrino-hello-world-anynines' available at padrino-hello-w
 If you now visit [padrino-hello-world-anynines.de.a9sapp.eu](http://padrino-hello-world-anynines.de.a9sapp.eu/) you can see the "Hello Padrino" in the browser.
 
 
-You find the code of this application on [GitHub](https://github.com/matthias-guenther/padrino-hello-world-anynines).
+You find the code of this application on [GitHub](https://github.com/wikimatze/padrino-hello-world-anynines).
 
 
 ## Hello Padrino In Anynines With MySQL
@@ -635,5 +635,5 @@ end
 If you now call [padrino-hello-world-anynines-mysql.de.a9sapp.eu/](http://padrino-hello-world-anynines-mysql.de.a9sapp.eu/) you can see the "Hello Matthias Günther, I know your email: matthias@wikimatze.de" in your browser.
 
 
-You find the code of this application on [GitHub](https://github.com/matthias-guenther/padrino-hello-world-anynines-mysql).
+You find the code of this application on [GitHub](https://github.com/wikimatze/padrino-hello-world-anynines-mysql).
 

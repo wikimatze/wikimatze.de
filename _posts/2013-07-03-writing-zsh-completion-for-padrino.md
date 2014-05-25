@@ -256,7 +256,7 @@ return 1
 ```
 
 
-If our second inline parameter `$line[2]` is `controller` then we have the `-d, -n`, and `-r` options. One the other hand if the second inline parameter is `mailer` the options `-a, -d, -n`, and `-r` are available. You can find the whole implementation code under [GitHub](https://github.com/matthias-guenther/padrino-zsh-completion).
+If our second inline parameter `$line[2]` is `controller` then we have the `-d, -n`, and `-r` options. One the other hand if the second inline parameter is `mailer` the options `-a, -d, -n`, and `-r` are available. You can find the whole implementation code under [GitHub](https://github.com/wikimatze/padrino-zsh-completion).
 
 
 ## Conclusion
@@ -269,6 +269,6 @@ The benefit of writing function completions for zsh is that it is available on n
 - [zshcompsys](http://linux.die.net/man/1/zshcompsys)
 - [tmuxinator autocompletion](TODO)
 - [zsh-completion repositories on GitHub](https://github.com/zsh-users/zsh-completions)
-- [padrino zsh completion on GitHub](https://github.com/matthias-guenther/padrino-zsh-completion)
+- [padrino zsh completion on GitHub](https://github.com/wikimatze/padrino-zsh-completion)
 
 {% include newsletter.html %}

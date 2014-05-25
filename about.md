@@ -11,7 +11,7 @@ new technologies like [Pomodoro](http://www.pomodorotechnique.com/ "Pomodoro"). 
 passion to take marvelous pictures with [Canon EOS 1100](http://www.flickr.com/photos/wikimatze/ "Canon").
 
 
-I love Open Source ([GitHub](https://github.com/matthias-guenther/ "GitHub"),
+I love Open Source ([GitHub](https://github.com/wikimatze/ "GitHub"),
 [Bitbucket](https://bitbucket.org/wikimatze/ "Bitbucket")), working with [Vim](http://www.vim.org/) (check out my plugin
 [tocdown](http://www.vim.org/scripts/script.php?script_id=3856 "Tocdown")), and giving talks (see my slides on
 [speakerdeck](https://speakerdeck.com/wikimatze "Speakerdeck")).
@@ -43,8 +43,8 @@ More of them can be found on [flickr account](http://www.flickr.com/search/?q=wa
 
 - [Bitbucket](https://bitbucket.org/wikimatze)
 - [flickr](http://www.flickr.com/photos/wikimatze)
-- [GitHub](http://github.com/matthias-guenther)
-- [GitHub resume](http://resume.github.io/?matthias-guenther)
+- [GitHub](http://github.com/wikimatze)
+- [GitHub resume](http://resume.github.io/?wikimatze)
 - [Gittip](https://www.gittip.com/matthias-guenther/)
 - [Forrst](http://forrst.com/people/wikimatze)
 - [linkedin](http://de.linkedin.com/pub/matthias-g%C3%BCnther/80/793/370/)

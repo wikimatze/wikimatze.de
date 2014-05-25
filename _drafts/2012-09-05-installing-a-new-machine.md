@@ -43,7 +43,7 @@ sudo apt-get install -y ack-grep
 
 
 I added the `-y` option to confirm all occuring messages with **yes** to keep up the installation of packages.
-You can find the original file for this part on GitHub [ubuntu_install.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/ubuntu_install.sh)
+You can find the original file for this part on GitHub [ubuntu_install.sh](https://github.com/wikimatze/dotfiles/blob/master/scripts/ubuntu_install.sh)
 
 
 ## Reboot your system
@@ -100,7 +100,7 @@ fi
 ...
 ```
 
-You can find the original file for this part on GitHub [symlink_install.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/symlink_install.sh)
+You can find the original file for this part on GitHub [symlink_install.sh](https://github.com/wikimatze/dotfiles/blob/master/scripts/symlink_install.sh)
 
 
 ## Installing ctags
@@ -132,7 +132,7 @@ rm -rf ctags-5.8
 ```
 
 You can find this file for this part on GitHub
-[ctags_install.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/ctags_install.sh)
+[ctags_install.sh](https://github.com/wikimatze/dotfiles/blob/master/scripts/ctags_install.sh)
 
 
 ## Installing ruby with rbenv
@@ -170,7 +170,7 @@ sudo bash install.sh
 
 
 You can find this file GitHub
-[rbenv_install_setup.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/rbenv_install_setup.sh)
+[rbenv_install_setup.sh](https://github.com/wikimatze/dotfiles/blob/master/scripts/rbenv_install_setup.sh)
 
 
 ### Installing the different ruby versions
@@ -207,7 +207,7 @@ rbenv global 1.9.2-p320
 I'm using ruby version 1.9.2 (`rbenv global 1.9.2-p320`) because it is most compatible to most of the programms I'm using.
 
 You can find this file GitHub
-[rbenv_install.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/rbenv_install.sh)
+[rbenv_install.sh](https://github.com/wikimatze/dotfiles/blob/master/scripts/rbenv_install.sh)
 
 
 ### Installing the gems
@@ -232,7 +232,7 @@ gem install abstract actionmailer actionpack activemodel activerecord activereso
 
 
 You can find this file GitHub
-[gem_install.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/gem_install.sh)
+[gem_install.sh](https://github.com/wikimatze/dotfiles/blob/master/scripts/gem_install.sh)
 
 
 ## Installing python
@@ -269,7 +269,7 @@ rm -rf Python-2.7.3
 
 
 You can find this file GitHub
-[python_install.sh](https://github.com/matthias-guenther/dotfiles/blob/master/bash_scripts/python_install.sh)
+[python_install.sh](https://github.com/wikimatze/dotfiles/blob/master/bash_scripts/python_install.sh)
 
 
 ## Installing vim
@@ -312,7 +312,7 @@ sudo make clean
 
 
 You can find this file GitHub
-[vim_install_linux.sh](https://github.com/matthias-guenther/dotfiles/blob/master/scripts/vim_install_linux.sh)
+[vim_install_linux.sh](https://github.com/wikimatze/dotfiles/blob/master/scripts/vim_install_linux.sh)
 
 
 # Conclusion

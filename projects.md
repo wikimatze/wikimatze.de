@@ -12,7 +12,7 @@ title: Projects
 
 [Sweetie](https://rubygems.org/gems/sweetie) - Counts the links, images, number of html pages, and last-build time of a [jekyll project](http://jekyllrb.com).
 
-- **Source:** [sweetie](https://github.com/matthias-guenther/sweetie)
+- **Source:** [sweetie](https://github.com/wikimatze/sweetie)
 
 
 ## Zimki (Ruby Gem)
@@ -25,14 +25,14 @@ title: Projects
 
 [Zimki](https://rubygems.org/gems/zimki) - Converts file written in the zim Desktop Wiki format and converts them to textile.
 
-- **Source:** [zimki](https://github.com/matthias-guenther/zimki)
+- **Source:** [zimki](https://github.com/wikimatze/zimki)
 
 
 ## Tocdown (Vim Plugin)
 
 [Tocdown](http://www.vim.org/scripts/script.php?script_id=3856) - Display the headlines of a markdown document in an extra window.
 
-- **Source:** [tocdown](https://github.com/matthias-guenther/tocdown)
+- **Source:** [tocdown](https://github.com/wikimatze/tocdown)
 - **Screencast** [tocdown](http://www.screenr.com/zvos)
 
 

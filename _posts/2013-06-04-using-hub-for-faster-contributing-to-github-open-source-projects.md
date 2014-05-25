@@ -65,7 +65,7 @@ Now you need to push the changes to your remote and open a pull request:
 
 
 ```bash
-$ git push -u matthias-guenther readme-fixes
+$ git push -u wikimatze readme-fixes
 $ hub pull-request
 ```
 

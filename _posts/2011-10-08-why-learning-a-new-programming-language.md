@@ -16,7 +16,7 @@ simple calculation the perimeter for triangular and other geometric object. It w
 then put them into a function and print line the outcome.  Here are some code snippets:
 
 
-<script src="https://gist.github.com/matthias-guenther/435584.js"></script>
+<script src="https://gist.github.com/wikimatze/435584.js"></script>
 
 
 Turbo Pascal was my first procedural language and later during my studies I learned in a lecture about compiler

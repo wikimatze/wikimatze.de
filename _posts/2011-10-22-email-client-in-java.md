@@ -52,7 +52,7 @@ By means of the following images I will describe the basic layout of my email cl
 
 ## Installation for NetBeans
 
-- get the [sources from github](https://github.com/matthias-guenther/mailclient)
+- get the [sources from github](https://github.com/wikimatze/mailclient)
 - extract the *javamail-1.4.zip* => this package contains a Java library for handling emails
 - create a new project under NetBeans and copy all files of the *Mail Client* directory in the *src* directory of you
   NetBeans project

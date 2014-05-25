@@ -3,7 +3,7 @@
 - Was working on padrino-framework fork and detected mistakes
 - how update fork?
 
-git clone git@github.com:matthias-guenther/padrino-framework.git
+git clone git@github.com:wikimatze/padrino-framework.git
 git remote add --track master padrino git://github.com/padrino/padrino-framework.git
 git fetch padrino
 git merge padrino/master

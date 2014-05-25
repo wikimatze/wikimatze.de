@@ -24,7 +24,7 @@ exists, your goal is to learn how to write a gem.
 A Ruby gem is a self contained Ruby application which is packed as software. It can be downloaded and then used in other
 programs.  Gems extends the core Ruby language through functions that are commonly used and may be of usage by other
 programmers. Many gems provides command line operations and help to automate tasks. Not all gems needs to contain a
-binary, like my [sweetie gem](https://github.com/matthias-guenther/sweetie).
+binary, like my [sweetie gem](https://github.com/wikimatze/sweetie).
 
 
 ## Basic structure of a Gem
@@ -53,7 +53,7 @@ Below is a typical structure of gem:
 A typical gem consists of the main class file (like `sweetie.rb`). This file contains other ruby-files (normally a list
 of *require* statements). The `README.md` briefly explains what the gem does, how to install it, explains the license,
 and should include small use cases for the gem (please checkout the
-[README](https://github.com/matthias-guenther/sweetie/blob/master/README.md) of the sweetie gem to see what I mean). The
+[README](https://github.com/wikimatze/sweetie/blob/master/README.md) of the sweetie gem to see what I mean). The
 `sweetie.gemspec` file contains meta-information like who invented the gem, declare runtime environment dependencies,
 etc. A gem should have test-files, that other people can contribute to the Gem without damaging the main functionality.
 
@@ -78,7 +78,7 @@ Gem::Specification.new do |s|
   s.date             = '2012-06-05'
   s.authors          = ['Matthias Guenther']
   s.email            = 'matthias.guenther@wikimatze.de'
-  s.homepage         = 'https://github.com/matthias-guenther/sweetie'
+  s.homepage         = 'https://github.com/wikimatze/sweetie'
 
   s.summary          = %q{Be short and precice!}
   s.description      = %q{Here you can write more and describe detailed features!}

@@ -218,7 +218,7 @@ $ git push --set-upstream heroku master
 If you now call [hello-world-herokuapp.com](http://hello-world-padrino.herokuapp.com/) you can see it and your done.
 
 
-You can find the code for this application on [GitHub padrino-hello-world-heroku](https://github.com/matthias-guenther/padrino-hello-world-heroku)
+You can find the code for this application on [GitHub padrino-hello-world-heroku](https://github.com/wikimatze/padrino-hello-world-heroku)
 
 
 ## Database Deployments With Heroku

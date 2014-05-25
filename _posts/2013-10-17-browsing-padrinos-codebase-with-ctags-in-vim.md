@@ -207,7 +207,7 @@ ctags -R -f gems.tags `bundle show --paths`
 ```
 
 
-You have a Padrino project (like my [Job Vacancy](https://github.com/matthias-guenther/job-vacancy)) with the following `Gemfile` for example:
+You have a Padrino project (like my [Job Vacancy](https://github.com/wikimatze/job-vacancy)) with the following `Gemfile` for example:
 
 
 ```ruby

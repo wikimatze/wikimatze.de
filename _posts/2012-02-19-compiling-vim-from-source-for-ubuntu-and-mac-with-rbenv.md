@@ -176,7 +176,7 @@ $ gvim --version | ack python
 
 If both commands return **+ruby** and **+python**, you are fine, and got the achievement *"I installed vim form source
 with ruby support on my own"*. You should now be able to run the
-[Hammer.vim](https://github.com/matthias-guenther/hammer.vim) plugin - install it, start it with `:Hammer`, install the
+[Hammer.vim](https://github.com/wikimatze/hammer.vim) plugin - install it, start it with `:Hammer`, install the
 missing gems and if you are able to run `:Hammer` without any missing dependencies, you have setup everything correct.
 
 

@@ -24,7 +24,7 @@ each character of the principle has the following meaning:
 Late in 2011, I started a new and personally ambitious project: Writing an eBook about the great web framework
 [Padrino](http://www.padrinorb.com/ "Padrino"). In a first step, I created a rough road map, about what I wanted to
 write and which topics should be covered. After writing the intro section and pushing the resources to
-[GitHub](https://github.com/matthias-guenther/padrino-book "GitHub") I did something very crazy and mentioned
+[GitHub](https://github.com/wikimatze/padrino-book "GitHub") I did something very crazy and mentioned
 [@padrinorb](https://twitter.com/padrinorb) in one of my tweets and this was it -- the authors of the framework
 motivated me with with writing the book. They retweeted every small progress I made with the project and through
 that I got further pull requests and even a bunch of interested followers who are watching the project.
@@ -63,8 +63,8 @@ The SMART principle was first mentioned in 1981 as an issue of Management Review
 To be honest, writing of my Padrino eBook project consumes a lot of my free time so I in the near future I will publish
 only a few new entries on this blog. I have many ideas and topics I want to cover, but first I will finish this book to
 deepen my writing experience. I'm glad to hear your opinion (or contribution) to the
-[book](https://github.com/matthias-guenther/padrino-book) - I will put every contributer on the special thanks
-[list](https://github.com/matthias-guenther/padrino-book/blob/master/README.md) of the book.
+[book](https://github.com/wikimatze/padrino-book) - I will put every contributer on the special thanks
+[list](https://github.com/wikimatze/padrino-book/blob/master/README.md) of the book.
 
 
 ## Conclusion

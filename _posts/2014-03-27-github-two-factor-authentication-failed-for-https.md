@@ -47,21 +47,21 @@ If everything works fine then you should get following JSON output:
 
 ```json
 {
-  "login": "matthias-guenther",
+  "login": "wikimatze",
   "id": 264708,
   "avatar_url": "https://avatars.githubusercontent.com/u/264708?",
   "gravatar_id": "9172bb642e29e9959f078f329308faa1",
-  "url": "https://api.github.com/users/matthias-guenther",
-  "html_url": "https://github.com/matthias-guenther",
-  "followers_url": "https://api.github.com/users/matthias-guenther/followers",
-  "following_url": "https://api.github.com/users/matthias-guenther/following{/other_user}",
-  "gists_url": "https://api.github.com/users/matthias-guenther/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/matthias-guenther/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/matthias-guenther/subscriptions",
-  "organizations_url": "https://api.github.com/users/matthias-guenther/orgs",
-  "repos_url": "https://api.github.com/users/matthias-guenther/repos",
-  "events_url": "https://api.github.com/users/matthias-guenther/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/matthias-guenther/received_events",
+  "url": "https://api.github.com/users/wikimatze",
+  "html_url": "https://github.com/wikimatze",
+  "followers_url": "https://api.github.com/users/wikimatze/followers",
+  "following_url": "https://api.github.com/users/wikimatze/following{/other_user}",
+  "gists_url": "https://api.github.com/users/wikimatze/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/wikimatze/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/wikimatze/subscriptions",
+  "organizations_url": "https://api.github.com/users/wikimatze/orgs",
+  "repos_url": "https://api.github.com/users/wikimatze/repos",
+  "events_url": "https://api.github.com/users/wikimatze/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/wikimatze/received_events",
   "type": "User",
   "site_admin": false,
   "name": "Matthias Günther",
@@ -111,11 +111,11 @@ I had all my repositories checked out via HTTPS. But after enabling 2FA, I could
 
 ```bash
 $ git remote -v
-  origin https://github.com/matthias-guenther/wikimatze.de.git (fetch)
-  origin https://github.com/matthias-guenther/wikimatze.de.git (push)
+  origin https://github.com/wikimatze/wikimatze.de.git (fetch)
+  origin https://github.com/wikimatze/wikimatze.de.git (push)
 
 $ git push origin master
-  fatal: 'git@github.com/matthias-guenther/wikimatze.de.git' does not appear to be a git repository
+  fatal: 'git@github.com/wikimatze/wikimatze.de.git' does not appear to be a git repository
   fatal: Could not read from remote repository.
 
   Please make sure you have the correct access rights
@@ -124,7 +124,7 @@ $ git push origin master
 
 
 I tried every combination of passwords, personal access token and even created a new ssh-key, but it didn't work. I had
-to change the remote URL to `git@github.com:matthias-guenther/wikimatze.de.git` to get it running again.
+to change the remote URL to `git@github.com:wikimatze/wikimatze.de.git` to get it running again.
 
 
 ## Pushing to a HTTPS GitHub URL on an Organization
@@ -162,12 +162,12 @@ All you have to do is to setup your credentials in `~/.netrc`:
 
 ```bash
 machine github.com
-login matthias-guenther
+login wikimatze
 password <token>
 protocol https
 
 machine gist.github.com
-login matthias-guenther
+login wikimatze
 password <token>
 protocol https
 ```
