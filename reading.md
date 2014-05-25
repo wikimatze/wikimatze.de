@@ -4,6 +4,7 @@ title: Recently Read
 
 ## 2014
 
+- [JavaScript - Das umfassende Referenzwerk](http://www.amazon.de/JavaScript-umfassende-Referenzwerk-Deutsche-Ausgabe/dp/3897214911) by David Flanagan
 - [Scrum Guide](https://www.scrum.org/Scrum-Guide)
 - [Erfolgreich mit Scrum - Einflussfaktor Personalmanagement](http://www.amazon.de/Erfolgreich-mit-Scrum-Einflussfaktor-Personalmanagement/dp/3446425152) by Boris Gloger and André Häusling [(notes)](books/erfolgreich-mit-scrum.html)
 - [Designed For Use](http://pragprog.com/book/lmuse/designed-for-use) by [Lukas Mathis](http://ignorethecode.net/blog/) [(notes)](books/designed-for-use.html)
