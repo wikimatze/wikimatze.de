@@ -1,8 +1,8 @@
 ---
-title: About Matthias
+title: About Matthias (wikimatze)
 ---
 
-<a href="http://farm9.staticflickr.com/8370/8436515008_80960f2b70_n.jpg" title="Matthias Günther and he loves Vim and painting Warhammer figures" class="fancybox"><img src="http://farm9.staticflickr.com/8370/8436515008_80960f2b70_m.jpg" class="center" alt="Matthias Günther loves Vim and painting Warhammer figures"/></a>
+<a href="https://farm3.staticflickr.com/2896/14517064206_8bcd41fb1e_z.jpg" title="Matthias Günther loves Vim and painting Warhammer figures" class="fancybox"><img src="https://farm3.staticflickr.com/2896/14517064206_8bcd41fb1e_n.jpg" class="center" alt="Matthias Günther loves Vim and painting Warhammer figures"/></a>
 
 
 I'm writing about things that arouse my interest like [Ruby](http://www.ruby-lang.org/en/), [Vim](http://www.vim.org/),
