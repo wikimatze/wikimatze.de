@@ -148,13 +148,18 @@ a.fancybox {
   text-align: center;
 }
 
-.style .color, .style .typeface {
-  width: 100px;
-  display: inline-block;
-  margin: 5px;
-  font-size: 12px;
-  box-shadow: 0 0 3px #ccc;
-  border-radius: 3px;
+.alert.default {
+  /* background-color: #fcf8e3;  */
+  /* border: 1px solid #fbeed5; */
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 8px 35px 8px 14px;
+  background: none repeat scroll 0 0 black;
+  border: 1px solid #f2f2f2;
+}
+
+.alert.default h4 {
+  color: white;
 }
 
 .style .typeface b {
