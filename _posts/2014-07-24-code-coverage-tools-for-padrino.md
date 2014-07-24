@@ -9,18 +9,18 @@ categories: ['padrino', 'ruby']
 {% include newsletter.html %}
 
 
-As long as your application exists and new developers are added to your code base, you have to take care of different code
-smells.
+As long as your application exists, some developers leave others will join. It's good to have some metrics about certain code smells. A code smell is part of your source code which may be the root of a design problem but is not actually a bug. It's good to have some tools to be "lord of the smells" for [Padrino](http://www.padrinorb.com/) - don't let smells lower the quality of your project.
 
 
-(Note: This post is tested with [padrino 0.12.0](http://www.padrinorb.com/blog/padrino-0-12-0-activesupport-4-rewritten-reloader-smarter-rendering-and-loads-more), [simplecov 0.7.1](https://github.com/colszowka/simplecov), [metric_fu 4.8.0](https://github.com/metricfu/metric_fu/), and [ruby 2.1.0p0](https://www.ruby-lang.org/en/news/2013/09/23/ruby-2-1-0-preview1-is-released/))
+(Note: This post is tested with [padrino 0.12.2](http://www.padrinorb.com/blog/padrino-0-12-0-activesupport-4-rewritten-reloader-smarter-rendering-and-loads-more), [simplecov 0.9](https://github.com/colszowka/simplecov), [metric_fu 4.11.1](https://github.com/metricfu/metric_fu/), and [ruby 2.1.2p95](https://www.ruby-lang.org/en/news/2013/09/23/ruby-2-1-0-preview1-is-released/))
 
 
 ## Available Tools
 
+I will go through the following tools and will explain how you can use them.
+
 - [simplecov](https://github.com/colszowka/simplecov): It will automatically detect the tests you are using Rubies 1.9's [built-in Coverage library](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/coverage/rdoc/Coverage.html) to gather code coverage data.
-- [metric_fu](https://github.com/metricfu/metric_fu/): Creates churn, code smells, and other coverage tools that generate
-  reports about your code.
+- [metric_fu](https://github.com/metricfu/metric_fu/): Creates churn, code smells, and other coverage tools that generate reports about your code.
 - [codeclimate.com](https://codeclimate.com/): Online tool for measuring quality and security for your application.
 
 
@@ -30,12 +30,11 @@ Add the gem to your `Gemfile`:
 
 
 ```ruby
-gem 'simplecov', '~> 0.7.1'
+gem 'simplecov'
 ```
 
 
-Next, I want to start the code coverage generation every time I run the tests. So we need to add the following line to
-the `spec_helper.rb`:
+Next, I want to start the code coverage generation every time I run the tests. So we need to add the following line to the `spec_helper.rb`:
 
 
 ```ruby
@@ -48,21 +47,20 @@ And that's all. Next time when you run the tests you can detect lines with the f
 
 
 ```bash
-Coverage report generated for RSpec to git-repositories/job-vacancy/coverage. 209 / 252 LOC (82.94%) covered.
+Coverage report generated for RSpec to ~/git/job-vacancy/coverage. 209 / 252 LOC (82.94%) covered.
 /
 ```
 
 
-After all tests have been passed, you can see the output in the `coverage` directory in the root of your directory:
+After all tests have been passed, you can see the output in the `coverage/index.html` file:
 
 
 <a href="http://farm4.staticflickr.com/3754/13240488444_f4a2a02afc_o.png" title="Simplecover overview without any special configuration" class="fancybox"><img src="http://farm4.staticflickr.com/3754/13240488444_f9a39d216a_c.jpg" class="big center" alt="Simplecover overview without any special configuration"/></a>
-
-
-Clicking on a single class will give you a brief overview which lines are not tested:
+<div class="caption">Simplecover overview without any special configuration</div>
 
 
 <a href="http://farm8.staticflickr.com/7341/13240163115_7acfa5bab0_o.png" title="Simplecov with an detailed view" class="fancybox"><img src="http://farm8.staticflickr.com/7341/13240163115_6abdb36689_c.jpg" class="big center" alt="Simplecov with an detailed view"/></a>
+<div class="caption">Clicking on a single class will give you a brief overview which lines are not tested</div>
 
 
 It is also possible to divide parts of your application into several groups. Add options to the `Simplecov.start` block:
@@ -79,9 +77,10 @@ end
 
 
 <a href="http://farm8.staticflickr.com/7302/13240489074_f8fce593fb_o.png" title="Simplecov grouped output" class="fancybox"><img src="http://farm8.staticflickr.com/7302/13240489074_d38bff94b8_c.jpg" class="big center" alt="Simplecov grouped output"/></a>
+<div class="caption"> Simplecov - a more structured view of different components</div>
 
 
-#### metric_fu
+## metric_fu
 
 Add the following line to your `Gemfile`:
 
@@ -95,7 +94,7 @@ When this is done you need to start the `metric_fu` command from your commandlin
 
 
 ```bash
-$ wikimatze~/git-repositories/job-vacancy: metric_fu
+$ ~/git/job-vacancy: metric_fu
 ******* STARTING METRIC reek
 ******* ENDING METRIC reek
 ******* STARTING METRIC flog
@@ -181,32 +180,37 @@ The following metrics are created by
 
 
 
-`cane`: Can be used if code quality thresholds are met.
+`cane` can be used if code quality thresholds are met.
 
 
 <a href="http://farm3.staticflickr.com/2828/13240306993_93fe770af0_o.png" title="Cane metric to measure code quality thresholds." class="fancybox"><img src="http://farm3.staticflickr.com/2828/13240306993_eb90332075_c.jpg" class="big center" alt="Cane metric to measure code quality thresholds."/></a>
 
 
-`churn`: Measures the change ratio of files and you can use this indicator to have more code review, refactoring, more
-tests in order to tame the beast.
+`churn` measures the change ratio of files and you can use this indicator to have more code review, refactoring, more tests for this **beast of a file**.
 
 
 <a href="http://farm3.staticflickr.com/2857/13240489654_ed48447f93_o.png" title="Churn measures the change ratio of files" class="fancybox"><img src="http://farm3.staticflickr.com/2857/13240489654_8ffbb16bae_c.jpg" class="big center" alt="Churn measures the change ratio of files"/></a>
 
 
-`flog`: A high flog score is an indicator for code complexity.
+`flog` a high flog score is an indicator for code complexity.
 
 
 <a href="http://farm8.staticflickr.com/7036/13240164005_baca449841_o.png" title="Flog measures the complexity of a file by giving several flaws in the code a certain ranking." class="fancybox"><img src="http://farm8.staticflickr.com/7036/13240164005_35459cc33c_z.jpg" class="big center" alt="Flog measures the complexity of a file by giving several flaws in the code a certain ranking."/></a>
 
 
-`flay`: Analyzes code similarities in your code base - good way to stay clean with [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
+`flay` analyzes code similarities in your code base - good way to stay clean with [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 
 
 <a href="http://farm4.staticflickr.com/3715/13240307803_6f636cbb78_o.png" title="Flay measures code duplication." class="fancybox"><img src="http://farm4.staticflickr.com/3715/13240307803_7f55db88f8_c.jpg" class="big center" alt="Flay measures code duplication."/></a>
 
 
-`hotspot`: A gathering of the flog, flay and reek score of the files in your application.
+`reek` checks your classes and modules after code smells. Under the [reek wiki](https://github.com/troessner/reek/wiki/Code-Smells) you can find all code smells and what they actually mean.
+
+
+<a href="http://farm8.staticflickr.com/7026/13240165265_9cf883ab3c_o.png" title="Check your classes, and modules after code smells." class="fancybox"><img src="http://farm8.staticflickr.com/7026/13240165265_dc06f44db4_c.jpg" class="big center" alt="Check your classes, and modules after code smells."/></a>
+
+
+`hotspot` a gathering of the flog, flay and reek score of the files in your application.
 
 
 <a href="http://farm8.staticflickr.com/7444/13240490574_534f559005_o.png" title="Hotspot measure overview." class="fancybox"><img src="http://farm8.staticflickr.com/7444/13240490574_536339c8df_c.jpg" class="big center" alt="Hotspot measure overview."/></a>
@@ -215,19 +219,13 @@ tests in order to tame the beast.
 <a href="http://farm8.staticflickr.com/7430/13240491094_2dce09ded0_o.png" title="Hotspot measure detailed." class="fancybox"><img src="http://farm8.staticflickr.com/7430/13240491094_1dcb0e3188_c.jpg" class="big center" alt="Hotspot measure detailed."/></a>
 
 
-`reek`: Checks your classes and modules after code smells. Under the [reek wiki](https://github.com/troessner/reek/wiki/Code-Smells) you can find all code smells and what they actually mean.
-
-
-<a href="http://farm8.staticflickr.com/7026/13240165265_9cf883ab3c_o.png" title="Check your classes, and modules after code smells." class="fancybox"><img src="http://farm8.staticflickr.com/7026/13240165265_dc06f44db4_c.jpg" class="big center" alt="Check your classes, and modules after code smells."/></a>
-
-
-`roodi`: Scans your code and informs you about design issues you may have.
+`roodi` scans your code and informs you about design issues you may have.
 
 
 <a href="http://farm8.staticflickr.com/7202/13240309053_b1e0daae4f_o.png" title="Roodi detect issues with your design." class="fancybox"><img src="http://farm8.staticflickr.com/7202/13240309053_1686a6705d_c.jpg" class="big center" alt="Roodi detect issues with your design."/></a>
 
 
-`saikuro`: Generates a list of cyclomatic complexity of each method found in your application.
+`saikuro` generates a list of cyclomatic complexity of each method found in your application.
 
 
 <a href="http://farm3.staticflickr.com/2869/13240165955_a94efe5ab2_o.png" title="Sailuro meases the cyclomatic complexity of all methods in your application." class="fancybox"><img src="http://farm3.staticflickr.com/2869/13240165955_8113b4c859_z.jpg" class="big center" alt="Sailuro meases the cyclomatic complexity of all methods in your application."/></a>
@@ -258,6 +256,8 @@ But when it's ready, you get a nice overview:
 Or a more detailed overview of single classes:
 
 
-<a href="b_img" title="Detailed information about a single file in Code Climate" class="fancybox"><img src="" class="big center" alt="Detailed information about a single file in Code Climate"/></a>
+<a href="https://farm3.staticflickr.com/2900/14748209173_3bae7b4524_o.png" title="Detailed information about a single file in Code Climate" class="fancybox"><img src="https://farm3.staticflickr.com/2900/14748209173_2d561a0e99_c.jpg" class="big center" alt="Detailed information about a single file in Code Climate"/></a>
+<div class="caption">Detailed information about a single file in Code Climate</div>
 
+{% include newsletter.html %}
 
