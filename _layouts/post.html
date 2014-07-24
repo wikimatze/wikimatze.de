@@ -8,30 +8,31 @@ layout: default
       {% if page.update %}, updated <time>{{ page.update }}</time> {% endif %} by
       <a rel="author" href="https://plus.google.com/+wikimatzede?rel=author">{{ site.author }}</a>
     </div>
-    {% include sharing.html %}
-    <div class="clearfix"></div>
+
+    <div class="tags pull_right">
+      {% if page.categories == empty  %}
+      No tags
+      {% else %}
+      Tags:
+      {% for tag in page.categories %}
+      <a class="default label" href="/tags.html#{{ tag }}" title="View posts tagged with &quot;{{ tag }}&quot;">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
+      {% endfor %}
+      {% endif %}
+    </div>
   </header>
   <div class="clearfix"></div>
+
   {{ content }}
 
-  <div class="hierarchy pull_left">Hierarchy:
+  {% include sharing.html %}
+
+  <div class="hierarchy pull_right">Hierarchy:
     {% if page.previous %}
     <a class="default label" href="{{ page.previous.url }}" title="Previous post">previous post</a>
     {% endif %}
 
     {% if page.next %}
     {% if page.previous %}, {% endif %}<a class="default label" href="{{ page.next.url }}" title="Next post">next post</a>
-    {% endif %}
-  </div>
-
-  <div class="tags pull_right">
-    {% if page.categories == empty  %}
-    No tags
-    {% else %}
-    Tags:
-    {% for tag in page.categories %}
-    <a class="default label" href="/tags.html#{{ tag }}" title="View posts tagged with &quot;{{ tag }}&quot;">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
-    {% endfor %}
     {% endif %}
   </div>
 
