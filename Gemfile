@@ -10,4 +10,4 @@ gem 'sweetie'     , '1.0.1'
 
 gem 'cssminify'   , '1.0.2'
 gem 'uglifier'    , '2.5.3'
-
+gem 'jekyll-sitemap', '0.6.0'

@@ -14,6 +14,7 @@ base_url: "http://wikimatze.de"
 author: Matthias Günther
 
 
+
 exclude:
   - _drafts
   - Gemfile
@@ -37,22 +38,25 @@ defaults:
       layout: "default"
   -
     scope:
-      path: "" # empty string for all files
+      path: ""
       type: "posts"
     values:
       layout: "post"
   -
     scope:
-      path: "books" # empty string for all files
+      path: "books"
     values:
       layout: "reading"
 
+gems:
+  - jekyll-sitemap
+
 
 # page stats
-build: 5-23-2014
-images: 42
-htmlpages: 68
-links: 460
+build: 9-28-2014
+images: 59
+htmlpages: 72
+links: 497
 
 
 tag_page_layout: tag_page
@@ -74,7 +78,7 @@ css-hacks: 2013-02-04
 haskell-lang: 2013-01-26
 go-lang: 2013-01-26
 rails-sample-app: 2013-01-26
-ruby-scripts: 2013-01-26
+ruby-scripts: 2014-05-25
 vocabularly: 2013-01-26
 styles: 2013-01-26
 presentations: 2014-02-18
