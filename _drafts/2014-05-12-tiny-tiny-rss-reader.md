@@ -16,3 +16,13 @@ and visit <http://your.site.com/tt-rss/install/>
 
 Pics from flickr
 
+
+Create a cron-job
+
+php www/wikimatze/tt-rss/update.php --feeds --quit  	* 8 * * *
+
+
+Pros
+- iphne/android app
+- take care of your own shit
+
