@@ -176,6 +176,20 @@ a.fancybox {
   height: 50px;
 }
 
+/* Newsletter Box */
+.info-box {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 20px 100px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+/*---*/
 
 /* last commits plugin */
 .github-commits-list {

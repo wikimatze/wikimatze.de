@@ -44,7 +44,7 @@ task :staging do
 end
 
 desc 'Deploy'
-task :d => [:generate, :minifycss, :minifyjs] do
+task :d => [:generate,:minifycss] do
   require 'sweetie'
 
   puts 'Sweetie - time to update stats ..'.green
@@ -100,7 +100,6 @@ task :minifyjs do
 
   github_widget_configuration = Uglifier.compile(File.read('js/github-commits-widget-configuration.js'))
   fancybox_configuration = Uglifier.compile(File.read('js/fancybox-configuration.js'))
-
 
   File.open("js/application.js", "w") do |file|
     file.write (modernizr << jquery << github_commits << gumby << gumby_toggleswitch << gumby_init << fancybox_pack << fancybox_buttons << fancybox_media << fancybox_thumbs << github_widget_configuration << fancybox_configuration)
