@@ -4,6 +4,8 @@ title: Recently Read
 
 ## 2014
 
+- [Die Kraft von Scrum](http://www.amazon.de/Die-Kraft-Scrum-revolution%C3%A4rsten-Projektmanagement-Methode/dp/3827330521) by Henning Wolf
+- [jQuery: Novice to Ninja](http://www.amazon.com/jQuery-Novice-Ninja-Earle-Castledine/dp/0987153013) by Earle Castledine and Craig Sharkie
 - [JavaScript - Das umfassende Referenzwerk](http://www.amazon.de/JavaScript-umfassende-Referenzwerk-Deutsche-Ausgabe/dp/3897214911) by David Flanagan
 - [Scrum Guide](https://www.scrum.org/Scrum-Guide)
 - [Erfolgreich mit Scrum - Einflussfaktor Personalmanagement](http://www.amazon.de/Erfolgreich-mit-Scrum-Einflussfaktor-Personalmanagement/dp/3446425152) by Boris Gloger and André Häusling [(notes)](books/erfolgreich-mit-scrum.html)
