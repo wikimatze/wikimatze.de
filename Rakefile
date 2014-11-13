@@ -85,7 +85,7 @@ task :minifyjs do
 
   puts 'Minify js and merge it into one file ..'.yellow
 
-  jquery = Uglifier.compile(File.open('js/libs/jquery-2.0.2.min.js'))
+  jquery = Uglifier.compile(File.open('js/libs/jquery.js'))
 
   modernizr = Uglifier.compile(File.open('js/libs/modernizr.js'))
   github_commits = Uglifier.compile(File.open('js/github-commits-widget.js'))
