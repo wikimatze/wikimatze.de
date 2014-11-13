@@ -87,7 +87,7 @@ task :minifyjs do
 
   jquery = Uglifier.compile(File.open('js/libs/jquery-2.0.2.min.js'))
 
-  modernizr = Uglifier.compile(File.open('js/libs/modernizr-2.6.2.min.js'))
+  modernizr = Uglifier.compile(File.open('js/libs/modernizr.js'))
   github_commits = Uglifier.compile(File.open('js/github-commits-widget.js'))
   gumby = Uglifier.compile(File.open('js/libs/gumby.js'))
   gumby_toggleswitch = Uglifier.compile(File.open('js/libs/ui/gumby.toggleswitch.js'))
