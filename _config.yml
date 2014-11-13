@@ -9,10 +9,15 @@ permalink: /:title
 
 
 destination: _site
+
+
 base_url: "http://wikimatze.de"
 
 author: Matthias Günther
 
+
+gems:
+  - jekyll-sitemap
 
 
 exclude:
@@ -48,15 +53,12 @@ defaults:
     values:
       layout: "reading"
 
-gems:
-  - jekyll-sitemap
-
 
 # page stats
-build: 9-28-2014
+build: 11-12-2014
 images: 59
-htmlpages: 72
-links: 497
+htmlpages: 75
+links: 508
 
 
 tag_page_layout: tag_page

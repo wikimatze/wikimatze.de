@@ -85,8 +85,16 @@ img {
   border-bottom: 1px solid #eee;
 }
 
+.related li span {
+  float: right;
+}
+
 .related li:last-child {
   border-bottom: none;
+}
+
+.related a {
+  text-decoration: none;
 }
 
 .small {
@@ -94,13 +102,6 @@ img {
   margin: 30px 0;
 }
 
-.related li span {
-  float: right;
-}
-
-.related a {
-  text-decoration: none;
-}
 
 
 .lead {

@@ -49,7 +49,7 @@ task :d => [:generate,:minifycss] do
 
   puts 'Sweetie - time to update stats ..'.green
   Sweetie::Conversion.conversion
-  Sweetie::Bitbucket.bitbucket("wikimatze")
+  #Sweetie::Bitbucket.bitbucket("wikimatze")
 
   puts 'Building jekyll ..'.green
   system 'jekyll build'
