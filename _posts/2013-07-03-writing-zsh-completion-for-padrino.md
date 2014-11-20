@@ -1,7 +1,7 @@
 ---
 title: Writing Zsh Completion for Padrino
-update: 2014-03-30
-categories: ['padrino', 'zsh']
+update: 2014-11-20
+categories: padrino zsh
 ---
 
 {% include leanpub.html %}
@@ -14,9 +14,7 @@ I'm a user of the [Z shell (zsh)](http://en.wikipedia.org/wiki/Z_shell). It is e
 
 ## Start Small with Basic tmuxinator Completion
 
-Your first step is to create a file with the name of the command for which you want to have autocompletion. The name of
-the command must begin with an underscore and needs to be in your [fpath](http://zsh.sourceforge.net/Doc/Release/Functions.html). The `fpath` is the variable which will be used for shell searches when the `autoload` function is first called. Let's
-enable this feature in your `.zshrc`:
+Your first step is to create a file with the name of the command for which you want to have autocompletion. The name of the command must begin with an underscore and needs to be in your [fpath](http://zsh.sourceforge.net/Doc/Release/Functions.html). The `fpath` is the variable which will be used for shell searches when the `autoload` function is first called. Let's enable this feature in your `.zshrc`:
 
 
 ```bash
@@ -37,8 +35,7 @@ $ gem install tmuxinator
 ```
 
 
-Let's implement the `hello-tmux` and `version` commands for the tmuxinator gem. Inside your
-`~/.zsh-completions/_tmuxinator` file:
+Let's implement the `hello-tmux` and `version` commands for the tmuxinator gem. Inside your `~/.zsh-completions/_tmuxinator` file:
 
 
 ```bash
@@ -61,8 +58,7 @@ _tmuxinator
 ```
 
 
-Now reload your shell with `exec zsh` and type in `$ tmuxinator <Tab>`. Voilà, you've written you first
-autocompletion. I will explain part of the code in the next chapters in case you don't know each detail of the code.
+Now reload your shell with `exec zsh` and type in `$ tmuxinator <Tab>`. Voilà, you've written you first autocompletion. I will explain part of the code in the next chapters in case you don't know each detail of the code.
 
 
 ## Autocompletion for Padrino
@@ -79,8 +75,7 @@ typeset -A opt_args
 Please note, that the first line must be comment with the `compdef` command followed by the name of the command. With the help of the `typeset` command we can set and display attributes and values for shell parameters. The `-A` options says, that names we pass into the autocomplete function refers to [associative array parameters](http://linux.die.net/man/1/zshparam). `opt_args` makes it possible to add command-line options like `-d` or `-f` for our associative array.
 
 
-Next, we are going to define the inputs of our function. We need this to be able to define states in order to get the
-context in which we are during our completion:
+Next, we are going to define the inputs of our function. We need this to be able to define states in order to get the context in which we are during our completion:
 
 
 ```bash
@@ -92,28 +87,15 @@ _arguments -C \
 ```
 
 
-The `_arguments` function is used to give a complete specification for a command whose arguments follow
-standard UNIX option and argument conventions.  `_arguments` returns status zero if it was able to add matches and
-non-zero otherwise. The option `-C` makes it possible to modify the `curcontext` parameter. With the help of
-`curcontext` it is possible to keep track of the current context. This will be used later in our
-big state machine like case construct.
+The `_arguments` function is used to give a complete specification for a command whose arguments follow standard UNIX option and argument conventions.  `_arguments` returns status zero if it was able to add matches and non-zero otherwise. The option `-C` makes it possible to modify the `curcontext` parameter. With the help of `curcontext` it is possible to keep track of the current context. This will be used later in our big state machine like case construct.
 
 
-`1:cmd:->cmds` describes the first argument in our completion function. The `cmd` message will be printed above matches
-generated and the `cmds` action indicates what can be completed in this position. Similar,
-`2:generators:->generator_lists` stands for the second argument with the `generator_lists` option. At last, we need to
-be able to pass in certain arguments whatever position we are in. For this case we are using `*:: :->args`. The two
-colons before any message of the command array indicates that the current context parameter refer only to the normal
-arguments when the action is evaluated.
+`1:cmd:->cmds` describes the first argument in our completion function. The `cmd` message will be printed above matches generated and the `cmds` action indicates what can be completed in this position. Similar, `2:generators:->generator_lists` stands for the second argument with the `generator_lists` option. At last, we need to be able to pass in certain arguments whatever position we are in. For this case we are using `*:: :->args`. The two colons before any message of the command array indicates that the current context parameter refer only to the normal arguments when the action is evaluated.
 
 
 ## Padrino Generators
 
-Everything is set and we need to define Padrino's command for autocompletion. Padrino uses the `g` option to
-specify the command for using a [generator](http://www.padrinorb.com/guides/generators). After we are in this context we
-can chose a generator like *controller, mailer, migration, model, plugin* or *project*. Depending which generator we
-take, we can use different, context specific arguments like `-a` for the *mailer* generator to create a mailer for the
-specified sub application or the `-d` option for defining the orm adapter when using the *project* generator.
+Everything is set and we need to define Padrino's command for autocompletion. Padrino uses the `g` option to specify the command for using a [generator](http://www.padrinorb.com/guides/generators). After we are in this context we can chose a generator like *controller, mailer, migration, model, plugin* or *project*. Depending which generator we take, we can use different, context specific arguments like `-a` for the *mailer* generator to create a mailer for the specified sub application or the `-d` option for defining the orm adapter when using the *project* generator.
 
 
 The first argument in Padrino autocompletion, `1:cmd:->cmds`, is created with the help of a case statement:
@@ -153,8 +135,7 @@ Let's go through the parts:
 - `_describe -t` - The `describe` functions associates completions with description. All it does is taking our previously defined commands as a list variable `commands` for zsh compsys function and return 0 to indicate that error occurs. The `-t` option specify the tag we want to use we want to use in our describe function. In our case we are tagging the local commands for the completions.
 
 
-Now we know that we are going to use a generator we need to find out which generator want to use in the completion.
-This is the `'2:generators:->generator_lists'` part of the `_arguments` function:
+Now we know that we are going to use a generator we need to find out which generator want to use in the completion.  This is the `'2:generators:->generator_lists'` part of the `_arguments` function:
 
 
 ```bash
@@ -193,9 +174,7 @@ return 1
 ```
 
 
-The code above follows nearly the same syntax as the `cmds` command before. The last thing we need to handle are the
-optional arguments for each generate state, as defined `*:: :->args` (imagine this thing as the default or else branch
-of your control structure):
+The code above follows nearly the same syntax as the `cmds` command before. The last thing we need to handle are the optional arguments for each generate state, as defined `*:: :->args` (imagine this thing as the default or else branch of your control structure):
 
 
 ```bash
@@ -272,3 +251,4 @@ The benefit of writing function completions for zsh is that it is available on n
 - [padrino zsh completion on GitHub](https://github.com/wikimatze/padrino-zsh-completion)
 
 {% include newsletter.html %}
+

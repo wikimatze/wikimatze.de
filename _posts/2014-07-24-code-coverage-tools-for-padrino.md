@@ -1,7 +1,8 @@
 ---
 title: Code Coverage Tools For Padrino
+update: 2014-11-20
 description: Beside writing an application it is very important to know how you can deploy it
-categories: ['padrino', 'ruby']
+categories: padrino ruby
 ---
 
 {% include leanpub.html %}
@@ -90,7 +91,7 @@ gem 'metric_fu'
 ```
 
 
-When this is done you need to start the `metric_fu` command from your commandline:
+When this is done you need to start the `metric_fu` command from your command line:
 
 
 ```bash
@@ -176,11 +177,7 @@ tmp/metric_fu
 ```
 
 
-The following metrics are created by
-
-
-
-`cane` can be used if code quality thresholds are met.
+The following metrics are created by `cane` can be used if code quality thresholds are met.
 
 
 <a href="http://farm3.staticflickr.com/2828/13240306993_93fe770af0_o.png" title="Cane metric to measure code quality thresholds." class="fancybox"><img src="http://farm3.staticflickr.com/2828/13240306993_eb90332075_c.jpg" class="big center" alt="Cane metric to measure code quality thresholds."/></a>
@@ -233,8 +230,7 @@ The following metrics are created by
 
 ## Code Climate
 
-Go to the website [codeclimate.com](https://codeclimate.com) and register. Once you are logged, you can add any ruby
-related open source project for free.
+Go to the website [codeclimate.com](https://codeclimate.com) and register. Once you are logged, you can add any ruby related open source project for free.
 
 
 <a href="http://farm4.staticflickr.com/3699/13245245445_fd8fbd0efb_o.png" title="Code Climate - add a repository." class="fancybox"><img src="http://farm4.staticflickr.com/3699/13245245445_50c46c74d2_z.jpg" class="big center" alt="Code Climate - add a repository."/></a>
@@ -244,7 +240,6 @@ It will take a while till the metrics are generated for your application:
 
 
 <a href="" title="Refreshing the metrics takes a while on Code Climate" class="fancybox"><img src="http://farm4.staticflickr.com/3682/13245246155_8679cb3c79_c.jpg" class="big center" alt="Refreshing the metrics takes a while on Code Climate"/></a>
-
 
 
 But when it's ready, you get a nice overview:

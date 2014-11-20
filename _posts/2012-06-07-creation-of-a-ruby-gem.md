@@ -1,7 +1,7 @@
 ---
 title: Creation of a Ruby Gem
-update: 2014-03-30
-categories: ['ruby', 'programming']
+update: 2014-11-20
+categories: ruby programming
 ---
 
 <blockquote>
@@ -9,22 +9,16 @@ categories: ['ruby', 'programming']
   <strong>Albert Einstein</strong>
 </blockquote>
 
+
 *This article describes the crafting of a Ruby gem.*
 
 
-The situation: For [Jekyll](http://jekyllrb.com/) I wanted to get an overview of how many pages, links, when the last
-build was, how many images I used in my blog, and when I lastly updated my
-[Bitbucket repositories](https://bitbucket.org/wikimatze/). But before we dive deep into the creation, I will explain
-what a gem is and how you get started with writing your own gem. Don't be afraid if you are writing a gem that already
-exists, your goal is to learn how to write a gem.
+The situation: For [Jekyll](http://jekyllrb.com/) I wanted to get an overview of how many pages, links, when the last build was, how many images I used in my blog, and when I lastly updated my [Bitbucket repositories](https://bitbucket.org/wikimatze/). But before we dive deep into the creation, I will explain what a gem is and how you get started with writing your own gem. Don't be afraid if you are writing a gem that already exists, your goal is to learn how to write a gem.
 
 
 ## Ruby Gem
 
-A Ruby gem is a self contained Ruby application which is packed as software. It can be downloaded and then used in other
-programs.  Gems extends the core Ruby language through functions that are commonly used and may be of usage by other
-programmers. Many gems provides command line operations and help to automate tasks. Not all gems needs to contain a
-binary, like my [sweetie gem](https://github.com/wikimatze/sweetie).
+A Ruby gem is a self contained Ruby application which is packed as software. It can be downloaded and then used in other programs.  Gems extends the core Ruby language through functions that are commonly used and may be of usage by other programmers. Many gems provides command line operations and help to automate tasks. Not all gems needs to contain a binary, like my [sweetie gem](https://github.com/wikimatze/sweetie).
 
 
 ## Basic structure of a Gem
@@ -50,19 +44,12 @@ Below is a typical structure of gem:
     └── sweetie.gemspec
 
 
-A typical gem consists of the main class file (like `sweetie.rb`). This file contains other ruby-files (normally a list
-of *require* statements). The `README.md` briefly explains what the gem does, how to install it, explains the license,
-and should include small use cases for the gem (please checkout the
-[README](https://github.com/wikimatze/sweetie/blob/master/README.md) of the sweetie gem to see what I mean). The
-`sweetie.gemspec` file contains meta-information like who invented the gem, declare runtime environment dependencies,
-etc. A gem should have test-files, that other people can contribute to the Gem without damaging the main functionality.
+A typical gem consists of the main class file (like `sweetie.rb`). This file contains other ruby-files (normally a list of *require* statements). The `README.md` briefly explains what the gem does, how to install it, explains the license, and should include small use cases for the gem (please checkout the [README](https://github.com/wikimatze/sweetie/blob/master/README.md) of the sweetie gem to see what I mean). The `sweetie.gemspec` file contains meta-information like who invented the gem, declare runtime environment dependencies, etc. A gem should have test-files, that other people can contribute to the Gem without damaging the main functionality.
 
 
 ## Gemfile structure
 
-First of all we create a `Gemfile` which defines important informations for the [rubygems.org](http://rubygems.org/)
-website. The site shows the author, the sources, the homepage, and some statistics (e.g. how often the gem was
-installed) - and by the way, it's a nice place to sniff in the code of other hackers.
+First of all we create a `Gemfile` which defines important informations for the [rubygems.org](http://rubygems.org/) website. The site shows the author, the sources, the homepage, and some statistics (e.g. how often the gem was installed) - and by the way, it's a nice place to sniff in the code of other hackers.
 
 
 Here is an example `sweetie.gemspec`:
@@ -115,8 +102,7 @@ Let's explain the stuff which aren't obvious:
 
 ## Building and Installing the Gem
 
-Once you have created some code (it doesn't matter how small the code is, except it must be valid and tested ruby code),
-you should build it on your local machine before making it public:
+Once you have created some code (it doesn't matter how small the code is, except it must be valid and tested ruby code), you should build it on your local machine before making it public:
 
 
 ```ruby
@@ -180,11 +166,7 @@ This will print all the gems which fit to the specified gem.
 ## Conclusion
 
 
-It is easy to write an gem for ruby. Start small, create a repository on [GitHub](https://github.com/) get
-something similar to *hello world* running, test your code with , and create a briefly documentation
-(read [Zach Holman documentation talk](http://zachholman.com/posts/documentation/) to see why) about what the gem does,
-and give small examples. After this test your gem, deploy it on [rubygems.org](http://rubygems.org/) and spread the word
-about your accomplished on [twitter](http://www.twitter.com/) - time to drink a beer!
+It is easy to write an gem for ruby. Start small, create a repository on [GitHub](https://github.com/) get something similar to *hello world* running, test your code with , and create a briefly documentation (read [Zach Holman documentation talk](http://zachholman.com/posts/documentation/) to see why) about what the gem does, and give small examples. After this test your gem, deploy it on [rubygems.org](http://rubygems.org/) and spread the word about your accomplished on [twitter](http://www.twitter.com/) - time to drink a beer!
 
 
 ## Further reading

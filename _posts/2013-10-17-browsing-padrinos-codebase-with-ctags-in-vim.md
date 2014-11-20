@@ -1,7 +1,7 @@
 ---
 title: Browsing Padrino's Code Base With Ctags in Vim
-update: 2014-03-30
-categories: ['padrino', 'vim']
+update: 2014-11-20
+categories: padrino vim
 ---
 
 {% include leanpub.html %}
@@ -15,8 +15,7 @@ I was working on my application and needed to constantly consult [Padrino's API 
 
 ## What is ctags
 
-[Ctags](http://ctags.sourceforge.net/ "ctags") is a tool which make it easy for you to shift rapidly through code.
-It does this by indexing classes, methods, variables and other things. All this information is stored in a `tags` file - one line in this file contains one tag.
+[Ctags](http://ctags.sourceforge.net/ "ctags") is a tool which make it easy for you to shift rapidly through code.  It does this by indexing classes, methods, variables and other things. All this information is stored in a `tags` file - one line in this file contains one tag.
 
 
 Ctags is the tool to browse a large code base like [Padrino](http://www.padrinorb.com/ "Padrino"), where you might not know the project layout and class/method definitions.  Being able to jump forward and backward between variables, classes, modules, and methods is essential in getting to know a code base.
@@ -148,7 +147,7 @@ that is what you know now what you want to know and you can jump back to your pr
 `<C-t>`.
 
 
-You can also jump to the tag you want the commandline mode in Vim and use the [:tag](http://vimdoc.sourceforge.net/htmldoc/tagsrch.html#:tag "Vim :tag") command. Type in the name of the class or method you want to jump to. For example, if you type in `:tag Padrino` you will jump to a tag. But you already have a suspicion that `Padrino` exists in more than one file. You may think this is a mistake but ctags keeps up a list of all the tags you have explored so far.
+You can also jump to the tag you want the command line mode in Vim and use the [:tag](http://vimdoc.sourceforge.net/htmldoc/tagsrch.html#:tag "Vim :tag") command. Type in the name of the class or method you want to jump to. For example, if you type in `:tag Padrino` you will jump to a tag. But you already have a suspicion that `Padrino` exists in more than one file. You may think this is a mistake but ctags keeps up a list of all the tags you have explored so far.
 
 
 If you searched after `:tag Padrino` again you can message line beyond in your command window: `tag 1 of 81 or more`.  There are 81 searchable matchings tags available. Per default Vim will take the first matching tag if your search for the first time in your vim session after `:tag Padrino`. Use `:tselect` followed by a number to jump to the tag you want:
@@ -178,15 +177,12 @@ You can chose what you want to have. There a bunch of more commands you can use 
 - `:tlast (or :tl)` - Goes to the last tag in the `:tselect` list.
 
 
-Before going to add the tags for the Padrino project as well as any other sources you are using on your project, we need
-to understand how we can get a big tag file of all our installed gems and after that limit our scope to these parts we
-only need.
+Before going to add the tags for the Padrino project as well as any other sources you are using on your project, we need to understand how we can get a big tag file of all our installed gems and after that limit our scope to these parts we only need.
 
 
 ## Ctag for installed gems
 
-Let's say you are using [rbenv](https://github.com/sstephenson/rbenv "rbenv") to manage your ruby versions and you want
-to get a global tag file of all your installed gems. Please run the following command:
+Let's say you are using [rbenv](https://github.com/sstephenson/rbenv "rbenv") to manage your ruby versions and you want to get a global tag file of all your installed gems. Please run the following command:
 
 
 ```bash
@@ -194,7 +190,7 @@ $ ctags -R -f gems.tag * ~/.rbenv/versions/<your-ruby-version>/lib
 ```
 
 
-I have ove 269 installed gems on my system (use `gem list | wc -l`) and it took around 7 seconds to generate a tag file with over 200.000 lines. The chances are high that you have errors in your `tags` file occur and I really don't want to load such a big tag file into my vim session. Please note, that the generated tag file `gems.tag` instead of `tags`.
+I have over 269 installed gems on my system (use `gem list | wc -l`) and it took around 7 seconds to generate a tag file with over 200.000 lines. The chances are high that you have errors in your `tags` file occur and I really don't want to load such a big tag file into my vim session. Please note, that the generated tag file `gems.tag` instead of `tags`.
 
 
 ## Generating Ctags project specific ones gems
@@ -267,12 +263,11 @@ gem 'padrino', :git => "git://github.com/padrino/padrino-framework.git"
 /home/helex/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2
 ```
 
-When you start vim in the root of your project, it will only load the `tags` file but not the `gems.tags` file. Just
-open the commandline in vim and type in `:set tags+=gems.tags`.
+
+When you start vim in the root of your project, it will only load the `tags` file but not the `gems.tags` file. Just open the command line in vim and type in `:set tags+=gems.tags`.
 
 
-If you find yourself doing it over and over again for different project, you have to setup the following setting in your
-`.vimrc`
+If you find yourself doing it over and over again for different project, you have to setup the following setting in your `.vimrc`
 
 
 ```vim
@@ -281,7 +276,7 @@ set tags=tags,./tags,gems.tags,./gems.tags
 ```
 
 
-Vim will search for the file named `tags`, starting with the directory of the current file. Since padrino is seperated into different parts you want to jump to the parent directory to find the tag files so you have to enable [uppward search](http://vimdoc.sourceforge.net/htmldoc/editing.html#file-searching) with the `;` symbol at the end of the search term
+Vim will search for the file named `tags`, starting with the directory of the current file. Since padrino is separated into different parts you want to jump to the parent directory to find the tag files so you have to enable [uppward search](http://vimdoc.sourceforge.net/htmldoc/editing.html#file-searching) with the `;` symbol at the end of the search term
 
 
 ```vim
@@ -290,14 +285,12 @@ set tags=./tags;,./gems.tags;
 ```
 
 
-and then recursively to the directory one level above, till it either locates the `tags` file or reaches the
-root directory. It will do exactly the same for the `gems.tags` file.
+and then recursively to the directory one level above, till it either locates the `tags` file or reaches the root directory. It will do exactly the same for the `gems.tags` file.
 
 
 ## Autogenerate tags with Autotags.vim
 
-During the coding you are going to change the name of the method or class and have to generate the tags by hand.
-Do you really want to leave the terminal and generate the tags on your own? Tada, there is [Autotags.vim](http://www.vim.org/scripts/script.php?script_id=1343 "Autotags vim plugin"). It deletes all tags that are no longer present and calls `ctags -a` to append the new tags to your existing tag file. To try it out, create a new directory with a the following class definition inside the file:
+During the coding you are going to change the name of the method or class and have to generate the tags by hand. Do you really want to leave the terminal and generate the tags on your own? Tada, there is [Autotags.vim](http://www.vim.org/scripts/script.php?script_id=1343 "Autotags vim plugin"). It deletes all tags that are no longer present and calls `ctags -a` to append the new tags to your existing tag file. To try it out, create a new directory with the following class definition inside the file:
 
 
 ```ruby
@@ -307,17 +300,12 @@ end
 ```
 
 
-Now create the tags with `ctags -R .` search after the tag `Ctags` with `:tag Ctags`, after that change the class name
-from `Ctags` to `VimCtags`. If this doesn't work for you, it means that you don't have python support enabled for
-your vim version. You can check it with `vim --version | grep python` - a `+python` means that you have it.
-I have written a blog post about how to [install vim with python support](/compiling-vim-from-source-for-ubuntu-and-mac-with-rbenv.html) for the case you have problems with this.
+Now create the tags with `ctags -R .` search after the tag `Ctags` with `:tag Ctags`, after that change the class name from `Ctags` to `VimCtags`. If this doesn't work for you, it means that you don't have python support enabled for your vim version. You can check it with `vim --version | grep python` - a `+python` means that you have it.  I have written a blog post about how to [install vim with python support](/compiling-vim-from-source-for-ubuntu-and-mac-with-rbenv.html) for the case you have problems with this.
 
 
 ## Fuzzy like tag search with Ctrlp plugin
 
-As we have learned before it is possible that we partially know the name of the class or method name we want to use. This
-is wherre you have to use [ctrlp.vim](http://kien.github.io/ctrlp.vim/) plugin. Ones installed, it gives you the
-`:CtrlPTag` tag command which make it possible to do a fuzzy like tag search.
+As we have learned before it is possible that we partially know the name of the class or method name we want to use. This is where you have to use [ctrlp.vim](http://kien.github.io/ctrlp.vim/) plugin. Ones installed, it gives you the `:CtrlPTag` tag command which make it possible to do a fuzzy like tag search.
 
 
 If you find yourself using this command very often, you have to add the following mapping into your `vimrc`:
@@ -326,6 +314,7 @@ If you find yourself using this command very often, you have to add the followin
 ```bash
 nnoremap <leader>. :CtrlPTag<cr>
 ```
+
 
 if the Ctrlp doesn't provide you enough hits, please use `:tselect`.
 

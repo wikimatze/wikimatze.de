@@ -1,7 +1,7 @@
 ---
 title: Compiling Vim from source for Ubuntu and Mac with ruby and python support
-update: 2014-03-30
-categories: ['vim', 'linux', 'ruby', 'howto']
+update: 2014-11-20
+categories: vim, linux, ruby, howto
 ---
 
 *This article describes how to build [Vim](http://www.vim.org/) (vim and gvim) from the source and compile it against a predefined version of [ruby](http://www.ruby-lang.org/en/) installed with [rbenv](https://github.com/sstephenson/rbenv/). In the first chapter I'm describing how to build it from source for Ubuntu. The second part describes how to build for [MacVim](https://github.com/b4winckler/macvim/).*
@@ -12,8 +12,7 @@ By installing Vim with ruby support from the sources, it is build against the sy
 
 ## Install rbenv
 
-I'm installing *rbenv* on different machines I created the following script (named *rbenv_install.sh*) to install
-**ruby 1.9.2-p320**:
+I'm installing *rbenv* on different machines I created the following script (named *rbenv_install.sh*) to install **ruby 1.9.2-p320**:
 
 
 ```bash
@@ -74,9 +73,7 @@ cd /tmp && rm -rf Python-2.7.3
 
 ## Get the latest version of Vim
 
-Visit [vim.org](http://www.vim.org/download.php/) and select the right download for your operation system (mainly Unix).
-If you are using a Unix system yo can get the latest Vim from [here](ftp://ftp.vim.org/pub/vim/unix/), download and
-unzip it:
+Visit [vim.org](http://www.vim.org/download.php/) and select the right download for your operation system (mainly Unix).  If you are using a Unix system yo can get the latest Vim from [here](ftp://ftp.vim.org/pub/vim/unix/), download and unzip it:
 
 
 ```bash
@@ -91,8 +88,7 @@ You can also get the latest Vim version from the git repository [https://github.
 
 ## Compiling Vim and Gvim
 
-To install Gvim on Ubuntu we need to install additional packages on our machine. The following snippets describe the
-packages for Ubuntu:
+To install Gvim on Ubuntu we need to install additional packages on our machine. The following snippets describe the packages for Ubuntu:
 
 
 ```bash
@@ -128,10 +124,8 @@ sudo make && sudo make install && sudo make clean
 Let's get over the heavy stuff:
 
 
-- `--prefix=/usr/local` - place of the binaries of the installed Vim installation (check the `/usr/local/bin`) - there
-  will be the executable binaries
-- `--enable-rubyinterp` - says you want to build Vim with the default ruby installation (in our case
-  `/home/mg/.rbenv/shims/ruby`)
+- `--prefix=/usr/local` - place of the binaries of the installed Vim installation (check the `/usr/local/bin`) - there will be the executable binaries
+- `--enable-rubyinterp` - says you want to build Vim with the default ruby installation (in our case `/home/mg/.rbenv/shims/ruby`)
 - `--enable-gui=gnome2` - building Vim with Gvim support (if you don't want Gvim than you can leave this line out)
 
 
@@ -174,10 +168,7 @@ $ gvim --version | ack python
 ```
 
 
-If both commands return **+ruby** and **+python**, you are fine, and got the achievement *"I installed vim form source
-with ruby support on my own"*. You should now be able to run the
-[Hammer.vim](https://github.com/wikimatze/hammer.vim) plugin - install it, start it with `:Hammer`, install the
-missing gems and if you are able to run `:Hammer` without any missing dependencies, you have setup everything correct.
+If both commands return **+ruby** and **+python**, you are fine, and got the achievement *"I installed vim form source with ruby support on my own"*. You should now be able to run the [Hammer.vim](https://github.com/wikimatze/hammer.vim) plugin - install it, start it with `:Hammer`, install the missing gems and if you are able to run `:Hammer` without any missing dependencies, you have setup everything correct.
 
 
 ## Installing MacVim from source
@@ -245,9 +236,7 @@ In the next step, you can drop the **MacVim.app** icon in your Application folde
 
 ## Conclusion
 
-It was a pain to gather the information for building vim by source with rbenv. Duration of finding that was: ~ **6 h**.
-I'm not sure if all of this works on [RVM](https://rvm.beginrescueend.com/) - I just need additional feedback from
-people using it. Happy *"Vim-ing"*!
+It was a pain to gather the information for building vim by source with rbenv. Duration of finding that was: ~ **6 h**.  I'm not sure if all of this works on [RVM](https://rvm.beginrescueend.com/) - I just need additional feedback from people using it. Happy *"Vim-ing"*!
 
 
 ## Further reading

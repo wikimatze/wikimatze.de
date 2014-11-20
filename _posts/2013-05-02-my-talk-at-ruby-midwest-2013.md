@@ -1,7 +1,7 @@
 ---
 title: My Talk at Ruby Midwest 2013
-update: 2014-03-30
-categories: ['talk']
+update: 2014-11-20
+categories: talk
 ---
 
 Here is a picture that explains everything I experienced at this conference:
@@ -10,12 +10,10 @@ Here is a picture that explains everything I experienced at this conference:
 <a href="http://farm9.staticflickr.com/8265/8630304575_202b9ee6dc_c.jpg" title="Me and some of the speakers." class="fancybox"><img src="http://farm9.staticflickr.com/8265/8630304575_202b9ee6dc_b.jpg" class="center" alt="Me and some of the speakers."/></a>
 
 
-I received  *love, motivation, fun, feeling that I'm doing right, passion, energy, and new ideas*. But most importantly
-I made **new friends**.
+I received  *love, motivation, fun, feeling that I'm doing right, passion, energy, and new ideas*. But most importantly I made **new friends**.
 
 
-The topic of my talk: **"We all love Open Source work and Pomodoro will help you to hack on your beloved babies in a
-time-boxed way to get more done in less time."**
+The topic of my talk: **"We all love Open Source work and Pomodoro will help you to hack on your beloved babies in a time-boxed way to get more done in less time."**
 
 
 ## Slides

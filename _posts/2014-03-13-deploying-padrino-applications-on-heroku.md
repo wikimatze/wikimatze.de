@@ -1,18 +1,18 @@
 ---
 title: Deploying Padrino Applications On Heroku
-update: 2014-03-30
-categories: ['padrino', 'ruby']
+update: 2014-11-20
+categories: padrino ruby
 ---
 
 {% include leanpub.html %}
 
 {% include newsletter.html %}
 
+
 I was always asking myself how I can use cloud services like [heroku](http://www.heroku.com/) to deploy Padrino applications without having an own server.
 
 
-In this post I'm going to show you how you can a simple "Hello Padrino" app on heroku - ones without and ones with
-database interactions.
+In this post I'm going to show you how you can a simple "Hello Padrino" app on heroku - ones without and ones with database interactions.
 
 
 (Note: This post is tested with [padrino 0.12.0](http://www.padrinorb.com/blog/padrino-0-12-0-activesupport-4-rewritten-reloader-smarter-rendering-and-loads-more), and [heroku-toolbelt/3.4.1](https://github.com/heroku/toolbelt/commit/d0fc05d6bf53b57505c1e9d9caa671ae57c357e3))
@@ -128,7 +128,6 @@ Next you need to click on "Create a new app":
 Initialize an empty git repository, make an initial commit, and add the heroku remote:
 
 
-
 ```bash
 $ cd hello-world-heroku
 $ git init && git add . && git commit -m "Initial commit"
@@ -223,7 +222,6 @@ You can find the code for this application on [GitHub padrino-hello-world-heroku
 
 ## Database Deployments With Heroku
 
-
 Let's create a new application:
 
 
@@ -278,7 +276,6 @@ Go to your app and select under "Resources" the "Get Add-ons" link and chose the
 
 
 <a href="http://farm8.staticflickr.com/7410/13108187085_822c646670_o.png" title="Padrino On Heroku with Postgres" class="fancybox"><img src="http://farm8.staticflickr.com/7410/13108187085_59733ee3ab_c.jpg" class="center" alt="Padrino On Heroku with Postgres"/></a>
-
 
 
 You can also run the following command which does the same:

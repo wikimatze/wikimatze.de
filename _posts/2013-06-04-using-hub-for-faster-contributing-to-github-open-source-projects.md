@@ -1,20 +1,16 @@
 ---
 title: Using Hub for Faster Contributing to GitHub Open-Source Projects
-update: 2014-05-30
-categories: ['howto', 'programming', 'learning', 'git']
+update: 2014-11-20
+categories: howto programming learning git
 ---
-*Ever wondering how you can easily fork and contribute to an Open-Source project without forking a repository manually
-in your browser? Then you should have a look into the [hub gem](https://github.com/defunkt/hub).*
+*Ever wondering how you can easily fork and contribute to an Open-Source project without forking a repository manually in your browser? Then you should have a look into the [hub gem](https://github.com/defunkt/hub).*
 
 
-Hub is a command-line wrapper for [git](http://git-scm.com/) written by [defunkt](http://defunkt.io/). With it, you can
-easily create forks of repositories, making pull requests, and get code from other forks with no problems. If you are a
-maintainer of a very popular repository like [twitter bootstrap](https://github.com/twitter/bootstrap) with over ~23k
-forks, this tool makes your life a lot easier.
+Hub is a command-line wrapper for [git](http://git-scm.com/) written by [defunkt](http://defunkt.io/). With it, you can easily create forks of repositories, making pull requests, and get code from other forks with no problems. If you are a maintainer of a very popular repository like [twitter bootstrap](https://github.com/twitter/bootstrap) with over ~23k forks, this tool makes your life a lot easier.
 
 
-*Update*: [gh](https://github.com/jingweno/gh) is the hub implementation written in [Go](http://golang.org/). It is faster and
-will [be a replacement](https://github.com/github/hub/issues/475) of the pure hub in the future - thanks [@_ZKH](https://twitter.com/_ZPH) for showing me this.
+*Update*: [gh](https://github.com/jingweno/gh) is the hub implementation written in [Go](http://golang.org/).
+It is faster and will [be a replacement](https://github.com/github/hub/issues/475) of the pure hub in the future - thanks [@\_ZKH](https://twitter.com/_ZPH) for showing me this.
 
 
 ## Installing hub
@@ -30,8 +26,7 @@ $ hub hub standalone > ~/bin/hub && chmod +x ~/bin/hub
 
 ## Workflow to get things done
 
-What I normally do when using Open-Source technologies like the [Gumby CSS Framework](http://gumbyframework.com/)
-is trying to give something back. For example  by improving documentation, reporting bugs, or solving problems.
+What I normally do when using Open-Source technologies like the [Gumby CSS Framework](http://gumbyframework.com/) is trying to give something back. For example  by improving documentation, reporting bugs, or solving problems.
 
 
 First of all let's get the code:
@@ -56,8 +51,7 @@ $ git checkout -b readme-fixes
 ```
 
 
-Now you make your changes and run a `git commit -m "Fixed documentation"` and you are ready to
-[fork the repo](https://help.github.com/articles/fork-a-repo):
+Now you make your changes and run a `git commit -m "Fixed documentation"` and you are ready to [fork the repo](https://help.github.com/articles/fork-a-repo):
 
 
 ```bash
@@ -86,11 +80,10 @@ This will open the issue site in your browser. In our case this would be [https:
 
 ## Conclusion
 
-The idea for this blog came out of my first remote paring session with my friend [@_ZPH](https://twitter.com/_ZPH) where
-I wanted to show him this gem but wasn't able to explain him the workflow. So this little snippet is a reminder for him
-and me.
+The idea for this blog came out of my first remote paring session with my friend [@\_ZPH](https://twitter.com/_ZPH) where I wanted to show him this gem but wasn't able to explain him the work flow. So this little snippet is a reminder for him and me.
 
 
 ## Further Reading
 
-- [hub documentation](http://defunkt.io/hub/)
+- [hub documentation](http://defunkt.io/hub)
+

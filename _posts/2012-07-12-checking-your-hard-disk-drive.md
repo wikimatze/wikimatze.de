@@ -1,7 +1,7 @@
 ---
 title: Checking your HDD
-update: 2014-03-30
-categories: ['howto', 'linux', 'learning']
+update: 2014-11-20
+categories: howto linux learning
 ---
 
 <blockquote>
@@ -10,14 +10,10 @@ categories: ['howto', 'linux', 'learning']
 </blockquote>
 
 
-*This article describes a tool for testing your HDD on a daily basis and how can you fill it completely with zeros or
-random numbers to check it for broken sectors.*
+*This article describes a tool for testing your HDD on a daily basis and how can you fill it completely with zeros or random numbers to check it for broken sectors.*
 
 
-I was spending a whole day installing and configuring 4 different operating systems on my new Desktop PC - I didn't
-virtualize my Windows because I wanted to use it for gaming (especially [Fallout 3](http://fallout.bethsoft.com/)).
-After four weeks the disasters happened: My hard disk drive (HDD)was broken. Before spending a whole installing your new
-systems, it is worth spending a day to check your new HDD.
+I was spending a whole day installing and configuring 4 different operating systems on my new Desktop PC - I didn't use virtualization my Windows because I wanted to use it for gaming (especially [Fallout 3](http://fallout.bethsoft.com/)). After four weeks the disasters happened: My hard disk drive (HDD)was broken. Before spending a whole installing your new systems, it is worth spending a day to check your new HDD.
 
 
 ## Symptoms of a breaking HDD
@@ -26,15 +22,13 @@ If you encounter any of the following things you can be sure that your HDD will 
 
 - working with Blue Screens and occasionally system fall downs
 - problems with installing new OS - even on Knoppix
-- overwriting the harddisk completely
+- overwriting the hard disk completely
 - blinking LED even if you are not working - is a sign that the HDD disk is writing the content into still valid sectors
 
 
 ## Checking your new HDD with smartools
 
-[Smartmontools](http://en.wikipedia.org/wiki/Smartmontools) is an analysis tool for Linux/Unix systems which allows you
-to check your hard disk - even on your regular usage. The program consists of two parts: `smartctl` (checking and
-evaluating HDD parameters) and `smartd` (is daemon to check your HDD on a regularly state).
+[Smartmontools](http://en.wikipedia.org/wiki/Smartmontools) is an analysis tool for Linux/Unix systems which allows you to check your hard disk - even on your regular usage. The program consists of two parts: `smartctl` (checking and evaluating HDD parameters) and `smartd` (is daemon to check your HDD on a regularly state).
 
 
 Install the tool with the following command:
@@ -91,7 +85,7 @@ $ sudo smartctl --all /dev/sda
 ```
 
 
-you will get all any information about your harddisk:
+you will get all any information about your hard disk:
 
 
 ```bash
@@ -188,7 +182,7 @@ If Selective self-test is pending on power-up, resume after 0 minute delay.
 ```
 
 
-Important of the output is the parameter **"PASSED"**, it tells you that the test is over. You can perform longer tests of your harddisk with:
+Important of the output is the parameter **"PASSED"**, it tells you that the test is over. You can perform longer tests of your hard disk with:
 
 
 ```bash
@@ -196,9 +190,7 @@ $ sudo smartctl -t long /dev/sda
 ```
 
 
-Depending on the size of your HDD, it takes some time. For checking a whole 500 GB the program runs about 80 minutes.
-
-It is even possible to check if your HDD has damage incurred during transporting the drive with the `conveyance` option:
+Depending on the size of your HDD, it takes some time. For checking a whole 500 GB the program runs about 80 minutes. It is even possible to check if your HDD has damage incurred during transporting the drive with the `conveyance` option:
 
 
 ```bash
@@ -266,10 +258,9 @@ You need then to start the program in sudo mode to detect all HDDs `sudo gsmartc
 
 ## Checking the whole space on your HDD
 
-You know these tiny small `dd` commands? No, it's time to learn and understand them. They are very handy to fill your
-your whole HDD with lovely zeros and ones.
+You know these tiny small `dd` commands? No, it's time to learn and understand them. They are very handy to fill your your whole HDD with lovely zeros and ones.
 
-`dd` stands for **data definition**. It has direct access on the harddisk and can read boot sectors - it is even used to
+`dd` stands for **data definition**. It has direct access on the hard disk and can read boot sectors - it is even used to
 create iso files of CDs.
 
 
@@ -287,8 +278,7 @@ the command has written the whole hard disk, it will end.
 
 ### Speeding up the process with faster writing
 
-Normally, each block of the hard disk has the size of 512 KB. To set the blocksize on 1 MB (1024 KB), we can speed up
-the writing speed with the factor two. We can achieve do this with the `bs` option.
+Normally, each block of the hard disk has the size of 512 KB. To set the blocksize on 1 MB (1024 KB), we can speed up the writing speed with the factor two. We can achieve do this with the `bs` option.
 
 
 ```bash
@@ -298,8 +288,7 @@ $ dd if=/dev/zero of=/dev/sda bs=1024
 
 ### Jump over errors
 
-`dd` will end, if it detects a broken sector. With the `conv=noerror` option, `dd` will write till the HDD is full even
-over broken sectors:
+`dd` will end, if it detects a broken sector. With the `conv=noerror` option, `dd` will write till the HDD is full even over broken sectors:
 
 
 ```bash
@@ -311,8 +300,7 @@ Other useful parameters are `notrunc` (write the output file completely) or `syn
 
 ### Running the dd command with status display
 
-We can use the [pv](http://manpages.ubuntu.com/manpages/dapper/man1/pv.1.html) command to monitor the progress of data
-through a pipe. First we need to install it:
+We can use the [pv](http://manpages.ubuntu.com/manpages/dapper/man1/pv.1.html) command to monitor the progress of data through a pipe. First we need to install it:
 
 
 ```bash
@@ -330,8 +318,7 @@ $ dd if=/dev/random conv=notrunc,sync bs=1024 | pv > /dev/sda
 
 ## Conclusion
 
-A broken HDD is a bad thing, but if you know the symptoms it saves you a lot of time because you you know that you have
-to buy new hardware. Always have backup on an external HDD to have a save data replacement.
+A broken HDD is a bad thing, but if you know the symptoms it saves you a lot of time because you you know that you have to buy new hardware. Always have backup on an external HDD to have a save data replacement.
 
 
 It is good to run a couple of tests before you start implementing your whole system.

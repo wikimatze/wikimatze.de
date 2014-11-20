@@ -1,10 +1,11 @@
 ---
 title: Show the most common used terminal commands
+update: 2014-11-20
 description: Show the most common used terminal commands for bash and zsh, thanks @r00k and @jayeff for the inspiration
-categories: ['zsh', 'linux']
+categories: linux zsh
 ---
 
-I watched recently a ["Play by Play"](http://www.pluralsight.com/courses/play-by-play-ben-orenstein) video featuring [Ben Orenstein](https://twitter.com/r00k). He is using a ton of command line alias and presented his workflow: He is searching the command line `history` file of the most common used terms. After that create some nice alias to save you time.
+I watched recently a ["Play by Play"](http://www.pluralsight.com/courses/play-by-play-ben-orenstein) video featuring [Ben Orenstein](https://twitter.com/r00k). He is using a ton of command line alias and presented his work flow: He is searching the command line `history` file of the most common used terms. After that create some nice alias to save you time.
 
 
 I asked Ben for the snippet:
@@ -16,8 +17,8 @@ I asked Ben for the snippet:
 
 All you have to do is to call:
 
-```sh
 
+```sh
 wm~  % history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
   4716 git
   4526 vim
@@ -32,7 +33,7 @@ wm~  % history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | 
 ```
 
 
-[Johannes Faigle](https://twitter.com/jayeff) pinged me on [twitter](https://twitter.com/jayeff/status/489530404589031424) a more sophistacted variant of the [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/217d8f0540a41b2927caf986561e45634fa1952a/lib/functions.zsh#L2):
+[Johannes Faigle](https://twitter.com/jayeff) pinged me on [twitter](https://twitter.com/jayeff/status/489530404589031424) a more sophisticated variant of the [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/217d8f0540a41b2927caf986561e45634fa1952a/lib/functions.zsh#L2):
 
 
 ```sh

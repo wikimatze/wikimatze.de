@@ -1,11 +1,9 @@
 ---
 title: RespImgPageCache not found in cache.inc file for Drupal
-categories: ['php', 'drupal']
+categories: php drupal
 ---
 
-I'm working with Drupal and [installing a new module](https://drupal.org/documentation/install/modules-themes/modules-7)
-is probaly no problem. After installing the [webform module](https://drupal.org/project/webform) I got the following
-error on the QA system:
+I'm working with Drupal and [installing a new module](https://drupal.org/documentation/install/modules-themes/modules-7) is probably no problem. After installing the [webform module](https://drupal.org/project/webform) I got the following error on the QA system:
 
 
 ```bash
@@ -16,7 +14,7 @@ Fatal error: Class 'RespImgPageCache' not found in /var/www/releases/drupal/rele
 I removed the module, and clear the cache with `drush cache-clear` - in the end I still got the error.
 
 
-After searching for this error I found the solution on a [drupal thread](https://drupal.org/node/1706596). I inserted
+After searching for this error I found the solution on a [Drupal thread](https://drupal.org/node/1706596). I inserted
 the following snippet in the `cache.inc` file:
 
 
@@ -33,7 +31,7 @@ $cache_class_cache_page_old = variable_get('resp_img_cache_class_cache_page_old'
 ```
 
 
-After this commit, you have to call some drupal page where the loading will take a while. After the loading is finished
+After this commit, you have to call some Drupal page where the loading will take a while. After the loading is finished
 you still get white pages now you have to remove the code snippet from above in another commit. Now the
 `RespImgPageCache` error was gone.
 

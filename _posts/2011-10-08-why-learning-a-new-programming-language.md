@@ -1,28 +1,21 @@
 ---
 title: Why learning a new programming language
-update: 2014-03-30
-categories: ['learning', 'programming']
+update: 2014-11-20
+categories: learning programming
 ---
 
-"Why should you start learning a new programming language" was the questions I asked me in the 2011?  Nowadays we are
-all too busy to try out new things, to expand our horizon. In the following chapter I will explain you, how I learned programming languages.
+"Why should you start learning a new programming language" was the questions I asked me in the 2011?  Nowadays we are all too busy to try out new things, to expand our horizon. In the following chapter I will explain you, how I learned programming languages.
 
 
 ## In the beginning there was Turbo Pascal
 
-The first language I learned was Turbo Pascal. Everything (not only the programs) looked like a great "geek nerving god
-tool". I quite don't understand what I was doing with Turbo Pascal as my computer science teacher told me to make some
-simple calculation the perimeter for triangular and other geometric object. It was great to declare your variables and
-then put them into a function and print line the outcome.  Here are some code snippets:
+The first language I learned was Turbo Pascal. Everything (not only the programs) looked like a great "geek nerving god tool". I quite don't understand what I was doing with Turbo Pascal as my computer science teacher told me to make some simple calculation the perimeter for triangular and other geometric object. It was great to declare your variables and then put them into a function and print line the outcome.  Here are some code snippets:
 
 
 <script src="https://gist.github.com/wikimatze/435584.js"></script>
 
 
-Turbo Pascal was my first procedural language and later during my studies I learned in a lecture about compiler
-construction that this language was developed 1970 by Niklaus Wirth (whom I admire for building such easy and effective
-techniques like the recursive descendant, but thats another tale). If you want to have this retro feeling check
-out Ubuntu resources (or other things if you want to stay up).
+Turbo Pascal was my first procedural language and later during my studies I learned in a lecture about compiler construction that this language was developed 1970 by Niklaus Wirth (whom I admire for building such easy and effective techniques like the recursive descendant, but thats another tale). If you want to have this retro feeling check out Ubuntu resources (or other things if you want to stay up).
 
 
 The following images show the **IDE**. It has few options with fancy looking buttons and no options-overload.
@@ -43,25 +36,16 @@ The following images show the **IDE**. It has few options with fancy looking but
 
 <div class="caption">Output in a console.</div>
 
-In secondary school we had written some programs in Delphi (original it had the name Object Pascal).  The new things was
-that even the girls had little fun in writing programs in it (*some* nice "Hello Kitty" in with pink color, but they
-actually love it). We learned how to write functions and to create some appealing graphics. After that I lost my
-interests in programming because the age of **warhammer** or **video games**.
+
+In secondary school we had written some programs in Delphi (original it had the name Object Pascal).  The new things was that even the girls had little fun in writing programs in it (*some* nice "Hello Kitty" in with pink color, but they actually love it). We learned how to write functions and to create some appealing graphics. After that I lost my interests in programming because the age of **warhammer** or **video games**.
 
 
 ## Then Java came ...
 
-When I started my studies of computer science I knew I had still no programming experience and during my first year I
-had to learn Java. It was quite good and quite bad if you ask my. The good things about it was that I had to learn an
-exhausting new methodologies: OOP, Interfaces, Recursion, Inheritance, Encapsulation, Polymorphism and many other
-concept. I was lost, I wanted to learn how to write simple programs and no one could tell me, why I have to write
-this *public static void main (String args[])* to start my program. My fellow students told my that I was an absolute
-newbie (they were actually right).
+When I started my studies of computer science I knew I had still no programming experience and during my first year I had to learn Java. It was quite good and quite bad if you ask my. The good things about it was that I had to learn an exhausting new methodologies: OOP, Interfaces, Recursion, Inheritance, Encapsulation, Polymorphism and many other concept. I was lost, I wanted to learn how to write simple programs and no one could tell me, why I have to write this *public static void main (String args[])* to start my program. My fellow students told my that I was an absolute newbie (they were actually right).
 
 
-Chad Fowler wrote in his book **The Passionate Programmer**: "Always be the worst guy in every band you're in." I
-actually was it and in now time I made great progresses. But some aspects of Java hit my but: It was so long to express
-simple things, so much overhead with static, private etc. To what I mean have a look on the following code:
+Chad Fowler wrote in his book **The Passionate Programmer**: "Always be the worst guy in every band you're in." I actually was it and in now time I made great progresses. But some aspects of Java hit my but: It was so long to express simple things, so much overhead with static, private etc. To what I mean have a look on the following code:
 
 
 ```java
@@ -96,12 +80,10 @@ public class NewClass {
 ```
 
 
-Ok, you may say: "It's quite readably" but wait until you have written, about several kilo of LOCs and want to maintain
-or refactor it. I thought that I could understand my "well" written mail client but well afterwards you know it better.
+Ok, you may say: "It's quite readably" but wait until you have written, about several kilo of LOCs and want to maintain or refactor it. I thought that I could understand my "well" written mail client but well afterwards you know it better.
 
 
-For another term I looked on C++. It was good to see how pointer (or *references*) are working, how you must allocate
-your memory (Java has it's ) and generics (or *templates*) for your data structures. C++ is like Java, it's OOP and you can program procedural if you like to. Have a look on some code:
+For another term I looked on C++. It was good to see how pointer (or *references*) are working, how you must allocate your memory (Java has it's ) and generics (or *templates*) for your data structures. C++ is like Java, it's OOP and you can program procedural if you like to. Have a look on some code:
 
 
 ```cpp
@@ -157,16 +139,10 @@ int main(){
 
 ## Enlightenment with Ruby
 
-Normally I'm not the guy how runs after every hype but I haven't found my beloved programming language. Why not
-risk a look. And then there was this 'Whosh' (think DC Comics). You could program in different styles, could design
-your own languages (called DSL) and this nifty framework Ruby on Rails (RoR) with Test-Driven Development (TDD),
-Behavior Driven Development (BDD), Continuous Integration (CI) and many more things. These things sound a like a
-mystery for me, but just get started and see how "easy" you can use it with RoR. It hits my head.
+Normally I'm not the guy how runs after every hype but I haven't found my beloved programming language. Why not risk a look. And then there was this 'Whosh' (think DC Comics). You could program in different styles, could design your own languages (called DSL) and this nifty framework Ruby on Rails (RoR) with Test-Driven Development (TDD), Behavior Driven Development (BDD), Continuous Integration (CI) and many more things. These things sound a like a mystery for me, but just get started and see how "easy" you can use it with RoR. It hits my head.
 
 
-It was a very hard steady learning curve but it was more pleasantly then just go to the candy shop and get what you want
-for nothing. You have to invest much time. But look for yourself on ruby - it looks like a natural language. Look
-at a script I wrote to tag MP3:
+It was a very hard steady learning curve but it was more pleasantly then just go to the candy shop and get what you want for nothing. You have to invest much time. But look for yourself on ruby - it looks like a natural language. Look at a script I wrote to tag MP3:
 
 
 ```ruby
@@ -219,11 +195,7 @@ end
 
 ## Automating tasks
 
-I resisted very long to learn the bash, but there were so many tasks over the years which I didn't do because it gives me the heebie-jeebies to do the same thing over and over again. After one weekend studying the open book "The Linux Command Line" by William E. Shotts I caught fire.  For a long time I messed my desktop up with tons of images with ugly names, so I wrote a script to change this.
-
-
-I have a bunch of images with ugly name, so I wrote a script to change this.  Each command has it's purpose you have to
-learn its syntax. Here is some sample code:
+I resisted very long to learn the bash, but there were so many tasks over the years which I didn't do because it gives me the heebie-jeebies to do the same thing over and over again. After one weekend studying the open book "The Linux Command Line" by William E. Shotts I caught fire.  For a long time I messed my desktop up with tons of images with ugly names, so I wrote a script to change this.  I have a bunch of images with ugly name, so I wrote a script to change this.  Each command has it's purpose you have to learn its syntax. Here is some sample code:
 
 
 ```bash
@@ -235,8 +207,7 @@ for i in *.jpg; do z=$[$z+1]; mv "$i" ${i##*.jpg}$z\_$1.jpg; echo $i ; done # re
 ```
 
 
-It's like Lego, you have these and that, plug it together to create something new. For my diploma thesis I create a
-Rakefile (the modern version of make written completely in ruby):
+It's like Lego, you have these and that, plug it together to create something new. For my diploma thesis I create a Rakefile (the modern version of make written completely in ruby):
 
 
 ```ruby
@@ -285,13 +256,7 @@ end
 
 ## Head Scratching With Scala
 
-I learned this language for my diploma-thesis, otherwise I still wouldn't put a thumb on FP. So far I must say that it
-was a good decision to learn an functional language. Scala showed me how to use *chained function*, *anonymous
-functions*, *currying*, *type bounds* and many more constructs. In the beginning my head howls like a steam-tank, there
-was so much new terrain for me that I need several breaks to get used to it. After many hours of happy cramming I got
-surprisingly insights in doing OOP better. That was is, what the Pragmatic Programmers were preaching. To get new
-insight in a technology you have to regard it's counterpart. Don't hesitate to do something you would never do, you gain
-experience and more confidence in your profession.
+I learned this language for my diploma-thesis, otherwise I still wouldn't put a thumb on FP. So far I must say that it was a good decision to learn an functional language. Scala showed me how to use *chained function*, *anonymous functions*, *currying*, *type bounds* and many more constructs. In the beginning my head howls like a steam-tank, there was so much new terrain for me that I need several breaks to get used to it. After many hours of happy cramming I got surprisingly insights in doing OOP better. That was is, what the Pragmatic Programmers were preaching. To get new insight in a technology you have to regard it's counterpart. Don't hesitate to do something you would never do, you gain experience and more confidence in your profession.
 
 
 Here is some of Scala code:
@@ -316,10 +281,7 @@ object IntegerReference {
 
 ## Conclusion
 
-This was my first essay. I tried to cover the things which whom I'm actually dealing. I presented my wide route from my
-programming experience so that you can see, how the things evolved for me. I always get my hands dirty and try to roll
-up my sleeves to get a touch about the newest technology.  I think through adventuring you become each day a little bit
-better then yesterday.
+This was my first essay. I tried to cover the things which whom I'm actually dealing. I presented my wide route from my programming experience so that you can see, how the things evolved for me. I always get my hands dirty and try to roll up my sleeves to get a touch about the newest technology.  I think through adventuring you become each day a little bit better then yesterday.
 
 
 ## Further Reading

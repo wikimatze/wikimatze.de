@@ -1,7 +1,7 @@
 ---
 title: Github Two-Factor Authentication Failed For HTTPS
-update: 2014-05-25
-categories: ['git', 'learning']
+update: 2014-11-20
+categories: git learning
 ---
 
 I heard from [GitHub's Two-Factor Authentication](https://github.com/blog/1614-two-factor-authentication) nearly a couple of days ago when I was reading my RSS feed. I enabled it and couldn't push to any of my repositories anymore. Learn in this blog post how to fix it.
@@ -147,9 +147,7 @@ $ git push
 ```
 
 
-Most posts out there advices to use [osxkeychain](http://olivierlacan.com/posts/why-is-git-https-not-working-on-github/)
-to save your credentials. Since I'm using [Xubuntu](http://xubuntu.org/) for developing I had to search after another
-solution.
+Most posts out there advices to use [osxkeychain](http://olivierlacan.com/posts/why-is-git-https-not-working-on-github/) to save your credentials. Since I'm using [Xubuntu](http://xubuntu.org/) for developing I had to search after another solution.
 
 
 ## Use .netrc File To Store Credentials
@@ -178,7 +176,6 @@ Where `<token>` is your personal access token. It would be silly to save your pa
 
 ## Encrypt .netrc file with GPG
 
-
 I assume that you already have your `GPG` key, you need to run the following command:
 
 
@@ -201,7 +198,7 @@ Now you should be able to push again.
 ## Update About the organization push problem
 
 [Ryan](https://twitter.com/RyanHiebert) mentioned all you have to do to push to an organization is use a colon before
-the username in ythe URL: Instead of `git@github.com/vimberlin/vimberlin.de.git` it should be `git@github.com:vimberlin/vimberlin.de.git`. This will mark the remote URL as an SSH path.
+the username in the URL: Instead of `git@github.com/vimberlin/vimberlin.de.git` it should be `git@github.com:vimberlin/vimberlin.de.git`. This will mark the remote URL as an SSH path.
 
 
 {% include thanks_hagenburger.html %}

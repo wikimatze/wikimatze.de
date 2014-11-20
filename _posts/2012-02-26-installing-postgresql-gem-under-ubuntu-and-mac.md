@@ -1,21 +1,16 @@
 ---
 title: Installing PostgreSQL gem under Ubuntu and Mac
-update: 2014-03-30
-categories: ['howto']
+update: 2014-11-20
+categories: howto
 ---
 
-*This article describes how to install the postgresql gem (called 'pg') under your local machine.  The installation
-process is not trivial because you need to install the right packages under Ubuntu/Linux or set the specify the correct
-path for Mac.*
+*This article describes how to install the postgresql gem (called 'pg') under your local machine.  The installation process is not trivial because you need to install the right packages under Ubuntu/Linux or set the specify the correct path for Mac.*
 
 
-I checked out a new rails app called [Brokenlifts](https://github.com/sozialhelden/brokenlift). Brokenlifts in public
-transportation are annoying and limit the mobility of people in wheelchairs. The app provides status information from
-different operators on one page and shows how well they are performing.
+I checked out a new rails app called [Brokenlifts](https://github.com/sozialhelden/brokenlift). Brokenlifts in public transportation are annoying and limit the mobility of people in wheelchairs. The app provides status information from different operators on one page and shows how well they are performing.
 
 
-Ones I checked out the project I have detected that it uses [PostgreSQL](http://www.rhok.org/node/20654) as their
-database driver. I have never worked with it and I run into a couple of problems to get it running.
+Ones I checked out the project I have detected that it uses [PostgreSQL](http://www.rhok.org/node/20654) as their database driver. I have never worked with it and I run into a couple of problems to get it running.
 
 
 ## The problem
@@ -88,10 +83,8 @@ Ruby can't find the relevant setting of the PostgreSQL installation. Let's chang
 
 ## Solution for Mac
 
-- install PostgreSQL library as described on the [PostgreSQL page](http://www.postgresql.org/download/macosx/) (opening
-  the `*.dmg` file will install a bunch of stuff, so don't be afraid of the amount of steps you have to perform)
-- check if you can find the installation open it under `/Library/PostgreSQL/x.y` - where x.y stands for the version you
-  installed
+- install PostgreSQL library as described on the [PostgreSQL page](http://www.postgresql.org/download/macosx/) (opening the `*.dmg` file will install a bunch of stuff, so don't be afraid of the amount of steps you have to perform)
+- check if you can find the installation open it under `/Library/PostgreSQL/x.y` - where x.y stands for the version you installed
 
 
 Say you want to install the PostgreSQL manually with a `gem install` - you have to perform the following command:
@@ -129,6 +122,5 @@ Now `gem install pg` should work.
 
 ## Conclusion
 
-It can be a really pain if you want to install gems and don't have the right dependencies on your machine but if you
-initially invest some time on the problem, you have your enlightenment.
+It can be a really pain if you want to install gems and don't have the right dependencies on your machine but if you initially invest some time on the problem, you have your enlightenment.
 

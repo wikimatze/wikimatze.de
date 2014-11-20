@@ -1,7 +1,7 @@
 ---
 title: Getting started with RSpec Puppet
-update: 2014-03-30
-categories: ['ruby', 'howto']
+update: 2014-11-20
+categories: ruby howto
 ---
 
 <blockquote>
@@ -10,9 +10,7 @@ categories: ['ruby', 'howto']
 </blockquote>
 
 
-Writing your service configuration with Puppet can be easy. But when it comes to debugging, it can be very difficult to
-edit things and to find certain errors. This article presents your the basic of setting up your environment for testing
-Puppet modules in a BDD way.
+Writing your service configuration with Puppet can be easy. But when it comes to debugging, it can be very difficult to edit things and to find certain errors. This article presents your the basic of setting up your environment for testing Puppet modules in a BDD way.
 
 
 <a href="http://farm9.staticflickr.com/8291/7804199724_37c12fbbc0_b.jpg" title="Prevention of bad code with tests." class="fancybox"><img src="http://farm8.staticflickr.com/8291/7804199724_37c12fbbc0_z.jpg" class="center" alt="Prevention of bad code with tests."/></a>
@@ -74,9 +72,7 @@ $ ./puppet-boilerplate-modules/newmodule.sh
 ```
 
 
-Answer the questions in this dialog, that means select the module name, the template for it (*0: application-001* is
-perfect for the beginning), the location, and the author. When your are done with this, go into the directory of your
-new module and perform the following cleanup commands:
+Answer the questions in this dialog, that means select the module name, the template for it (*0: application-001* is perfect for the beginning), the location, and the author. When your are done with this, go into the directory of your new module and perform the following cleanup commands:
 
 
 ```bash
@@ -97,13 +93,10 @@ The cleanup is necessary to get you focused on the basics of testing. Now, your 
 ```
 
 
-This structure follows the **package, config, and service** (okay, we have `params.pp` instead of `service.pp` but this
-not bad because the module we create in this example isn't a service) pattern as mentioned by R.I.Pienaar [blog
-post](http://www.devco.net/archives/2009/09/28/simple_puppet_module_structure.php).
+This structure follows the **package, config, and service** (okay, we have `params.pp` instead of `service.pp` but this not bad because the module we create in this example isn't a service) pattern as mentioned by R.I.Pienaar [blog post](http://www.devco.net/archives/2009/09/28/simple_puppet_module_structure.php).
 
 
-The last step is to run `rspec-puppet-init` in the directory of your module and it will create all the files for
-testing.
+The last step is to run `rspec-puppet-init` in the directory of your module and it will create all the files for testing.
 
 
 ```bash
@@ -147,15 +140,12 @@ And the file structure should be the following:
         `-- spec_helper.rb
 
 
-The symlinks in the `spec/` directory are linking the manifests folder into your spec folder, so that they are in the
-runpath of your specs when you run `rspec`.
+The symlinks in the `spec/` directory are linking the manifests folder into your spec folder, so that they are in the runpath of your specs when you run `rspec`.
 
 
 ## Testing, testing, and testing
 
-First, we want to test that the class `git::package` is created in `manifests/init.pp` manifests. All we need to do is
-to create a spec named `init_spec.rb` in the `spec/classes` directory. To make it testable, we need to define a scope
-for our `init.pp` manifest.
+First, we want to test that the class `git::package` is created in `manifests/init.pp` manifests. All we need to do is to create a spec named `init_spec.rb` in the `spec/classes` directory. To make it testable, we need to define a scope for our `init.pp` manifest.
 
 
 ```ruby
@@ -206,8 +196,7 @@ rspec ./spec/classes/init_spec.rb:4 # git::init
 ```
 
 
-Duh, it's red, what should we do? The catalogue does not contain a class `git::packagee`. Gosh, it's a typo in our
-`init_spec.rb` file. Let's fix this:
+Duh, it's red, what should we do? The catalog does not contain a class `git::packagee`. Gosh, it's a typo in our `init_spec.rb` file. Let's fix this:
 
 
 ```ruby
@@ -240,8 +229,7 @@ It's green and running - perfect.
 
 ## Testing the creation of a package with an attribute
 
-Since we are now sure, that the `package` manifests is integrated, it's time to write a test, that we have the
-`git-core` package in our package manifests. Let's write `spec/classes/install_spec.rb`:
+Since we are now sure, that the `package` manifests is integrated, it's time to write a test, that we have the `git-core` package in our package manifests. Let's write `spec/classes/install_spec.rb`:
 
 
 ```ruby
@@ -320,8 +308,7 @@ Finished in 0.19894 seconds
 ```
 
 
-Next we want to add the **ensure** attribute to the get the latest version of the `git-core package`. Let's write a
-failing test first:
+Next we want to add the **ensure** attribute to the get the latest version of the `git-core package`. Let's write a failing test first:
 
 
 ```ruby
@@ -402,8 +389,7 @@ Finished in 0.20456 seconds
 ```
 
 
-If you have problems with understanding the syntax of RSpec, just checkout the
-["The RSpec Book"](http://pragprog.com/book/achbd/the-rspec-book) by David Chelimsky.
+If you have problems with understanding the syntax of RSpec, just checkout the ["The RSpec Book"](http://pragprog.com/book/achbd/the-rspec-book) by David Chelimsky.
 
 
 ## Refactor
@@ -445,9 +431,7 @@ Your catalog is still valid. Have beer because you have written your first tests
 
 ## Conclusion
 
-Testing is important - even or especially with the environment settings for your systems. It take some time to get used
-to it and you will find it in the beginning very cumbersome to write the code double. But when you are writing 4000
-lines of code long manifest you will be happy to have structure, and confidence in your code with your lovely tests.
+Testing is important - even or especially with the environment settings for your systems. It take some time to get used to it and you will find it in the beginning very cumbersome to write the code double. But when you are writing 4000 lines of code long manifest you will be happy to have structure, and confidence in your code with your lovely tests.
 
 
 ## Further reading

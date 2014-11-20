@@ -1,17 +1,14 @@
 ---
 title: Using Sprockets to Manage the Asset Pipeline in Padrino
-update: 2014-03-30
-categories: ['padrino', 'ruby', 'programming']
+update: 2014-11-20
+categories: padrino ruby programming
 ---
 
 {% include leanpub.html %}
 
 {% include newsletter.html %}
 
-[Sprockets](https://github.com/sstephenson/sprockets) are a way to manage serving your assets like CSS, and JavaScript
-compiling all the different files in one summarized file for each type. They make it easy to take advantage to use a
-preprocessor to write your assets with [Sass](http://sass-lang.com/), [Coffesscript](http://coffeescript.org/), or
-[LESS](http://lesscss.org/).
+[Sprockets](https://github.com/sstephenson/sprockets) are a way to manage serving your assets like CSS, and JavaScript compiling all the different files in one summarized file for each type. They make it easy to take advantage to use a preprocessor to write your assets with [Sass](http://sass-lang.com/), [Coffesscript](http://coffeescript.org/), or [LESS](http://lesscss.org/).
 
 
 To implement Sprockets in Padrino there the following strategies:
@@ -91,9 +88,7 @@ Next we need to determine the order of the loaded CSS files:
 ```
 
 
-First we are loading the `bootstrap` default CSS, then `bootstrap-response`, and finally our customized `site` CSS. The
-`require_self` loads the file itself, to define the order that the files are loaded. This is helpful if you want to
-check the order of the loaded CSS as a comment above your application without ever have to look into the source of it.
+First we are loading the `bootstrap` default CSS, then `bootstrap-response`, and finally our customized `site` CSS. The `require_self` loads the file itself, to define the order that the files are loaded. This is helpful if you want to check the order of the loaded CSS as a comment above your application without ever have to look into the source of it.
 
 
 Next let's have a look into our JavaScript files:
@@ -112,8 +107,7 @@ Next let's have a look into our JavaScript files:
 ```
 
 
-The interesting thing here is the `require_tree .` option. This option tells Sprockets to include all
-JavaScript files in the assets folder with no specific order.
+The interesting thing here is the `require_tree .` option. This option tells Sprockets to include all JavaScript files in the assets folder with no specific order.
 
 
 Now, we can clean up the include statements in our application template:
@@ -134,9 +128,7 @@ Now, we can clean up the include statements in our application template:
 
 ## Enable Compression for CSS and JavaScript
 
-Now we want to enable compression for our CSS and JavaScript files. For CSS compression Padrino Sprockets is using
-[YUI compressor](https://github.com/sstephenson/ruby-yui-compressor) and for JS compression the
-[Uglifier](https://github.com/lautis/uglifier). We need to add these these Gems in our `Gemfiles`:
+Now we want to enable compression for our CSS and JavaScript files. For CSS compression Padrino Sprockets is using [YUI compressor](https://github.com/sstephenson/ruby-yui-compressor) and for JS compression the [Uglifier](https://github.com/lautis/uglifier). We need to add these these Gems in our `Gemfiles`:
 
 
 ```ruby

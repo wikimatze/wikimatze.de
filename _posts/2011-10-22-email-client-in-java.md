@@ -1,27 +1,20 @@
 ---
 title: Mail Client in Java
-update:  2014-03-30
-categories: ['programming', 'howto']
+update:  2014-11-20
+categories: programming howto
 ---
 
 <blockquote>
- <p>Most people spend more time and energy going around problems than trying to solve them.</p>
- <strong>Henry Ford</strong>
+  <p>Most people spend more time and energy going around problems than trying to solve them.</p>
+  <strong>Henry Ford</strong>
 </blockquote>
 
-During the summer term 2007 we had the task to create a [Thunderbird](http://www.mozilla.org/en-US/thunderbird) like
-email client [Java](http://www.java.com/de/download/manual.jsp).  The GUI should be created either with
-[Swing](http://java.sun.com/docs/books/tutorial/uiswing/) or
-[AWT](http://java.sun.com/javase/6/docs/technotes/guides/awt/). Beside the graphical implementation, we had to check and
-study the functionality of [POP3](http://en.wikipedia.org/wiki/Post_Office_Protocol) and
-[SMTP](http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol). Only the correct numbers in this protocols are
-important because they stands for each transactions if it was a success or a failure.  A first attempt this
-functionality was done with plain old *sockets* to get a feeling how POP3 and SMTP works.
+
+During the summer term 2007 we had the task to create a [Thunderbird](http://www.mozilla.org/en-US/thunderbird) like email client [Java](http://www.java.com/de/download/manual.jsp).  The GUI should be created either with [Swing](http://java.sun.com/docs/books/tutorial/uiswing/) or [AWT](http://java.sun.com/javase/6/docs/technotes/guides/awt/). Beside the graphical implementation, we had to check and study the functionality of [POP3](http://en.wikipedia.org/wiki/Post_Office_Protocol) and
+[SMTP](http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol). Only the correct numbers in this protocols are important because they stands for each transactions if it was a success or a failure.  A first attempt this functionality was done with plain old *sockets* to get a feeling how POP3 and SMTP works.
 
 
-After we a running function the basic functions of the mail client, we had to implement some extra-functions like
-attachments (mime parts in an email) or the handling of emails with drag-and-drop. I implemented this big project with
-the help of [NetBeans IDE](http://netbeans.org/).
+After we a running function the basic functions of the mail client, we had to implement some extra-functions like attachments (mime parts in an email) or the handling of emails with drag-and-drop. I implemented this big project with the help of [NetBeans IDE](http://netbeans.org/).
 
 
 ## Images
@@ -78,19 +71,11 @@ By means of the following images I will describe the basic layout of my email cl
 
 ## Conclusion
 
-This project was my first big piece of software and I used all my gathered knowledge about Java. The classes are not
-bug-free, manually tested, has a size over 1000 LOCs, has absolute paths, and the function are sometimes very big. In
-the end it was just hacking down the software without using certain patterns or careful development with clean code. I
-tested my code with `System.out.println` and I lost much time with this stupid testing. One good thing I did: I
-created comments and was able to get the program running even after two year.
+This project was my first big piece of software and I used all my gathered knowledge about Java. The classes are not bug-free, manually tested, has a size over 1000 LOCs, has absolute paths, and the function are sometimes very big. In the end it was just hacking down the software without using certain patterns or careful development with clean code. I tested my code with `System.out.println` and I lost much time with this stupid testing. One good thing I did: I created comments and was able to get the program running even after two year.
 
 
-Nowadays programming methodologies like [Agile](http://en.wikipedia.org/wiki/Agile_software_development),
-Rapid-Prototyping or Model-Driven development together with the framework Rails let you develop my application with much
-more less effort and is more maintainable by driving the Test-Driven way- you can refactor your code and don't need
-to manual test part of your basis if you have tests available.
+Nowadays programming methodologies like [Agile](http://en.wikipedia.org/wiki/Agile_software_development), Rapid-Prototyping or Model-Driven development together with the framework Rails let you develop my application with much more less effort and is more maintainable by driving the Test-Driven way- you can refactor your code and don't need to manual test part of your basis if you have tests available.
 
 
-This project shows that it is possible to develop modular software in Java but in even greater projects it is easy to
-get lost in the lost in Java code if you don't rely on a framework.
+This project shows that it is possible to develop modular software in Java but in even greater projects it is easy to get lost in the lost in Java code if you don't rely on a framework.
 

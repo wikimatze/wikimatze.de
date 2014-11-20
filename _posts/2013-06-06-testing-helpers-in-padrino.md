@@ -1,16 +1,14 @@
 ---
 title: Testing Helpers in Padrino
-update: 2014-03-30
-categories: ['padrino', 'ruby', 'programming']
+update: 2014-11-20
+categories: padrino ruby programming
 ---
 
 {% include leanpub.html %}
 
 {% include newsletter.html %}
 
-I always was wondering how to test helpers in Padrino and to be honest I postponed this problem for a long time. But
-this morning I reached the point in my book where I was writing helper with many methods without testing them. When
-something like this happened you have stop going and spend time to solve this problem.
+I always was wondering how to test helpers in Padrino and to be honest I postponed this problem for a long time. But this morning I reached the point in my book where I was writing helper with many methods without testing them. When something like this happened you have stop going and spend time to solve this problem.
 
 
 ## The Problem
@@ -29,8 +27,7 @@ end
 ```
 
 
-You can use the `foo` method anywhere in you controllers and views. But what happened if your helper
-is getting more and more complex like the following one:
+You can use the `foo` method anywhere in you controllers and views. But what happened if your helper is getting more and more complex like the following one:
 
 
 ```ruby
@@ -92,8 +89,7 @@ Let's say you have the following structure within you application:
     │   ├── spec_helper.rb
 
 
-And you have written your helper in the typical helper style of Padrino which are generated when you create a new
-controller:
+And you have written your helper in the typical helper style of Padrino which are generated when you create a new controller:
 
 
 ```ruby
@@ -121,8 +117,7 @@ JobVacancy::App.helpers helpers
 ```
 
 
-In Padrino, helpers are generally an anonymous module. Testing something anonymous isn't possible. To make this helper
-testable we need to make this module explicit:
+In Padrino, helpers are generally an anonymous module. Testing something anonymous isn't possible. To make this helper testable we need to make this module explicit:
 
 
 ```ruby

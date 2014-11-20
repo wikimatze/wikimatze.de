@@ -1,10 +1,12 @@
 ---
 title: Highlight Bad Words In Vim
-categories: ['padrino', 'vim']
+update: 2014-11-20
+categories: padrino vim
 ---
 
-
 {% include leanpub.html %}
+
+{% include newsletter.html %}
 
 
 I'm currently writing, reviewing, and deleting a lot of words for my [padrinobook](http://padrinobook.com/). Words like `easy`, `however`, `so`, or `just` are growing in some parts of the book like a disease. The term for bad words is **clutter**, which I learned after reading [On Writing Well](http://www.amazon.com/Writing-Well-30th-Anniversary-Nonfiction/dp/0060891548/ref=sr_1_1?s=books&ie=UTF8&qid=1359744126&sr=1-1&keywords=On+Writing+Well) by William Zinsser.
@@ -20,7 +22,7 @@ After finishing a section it would be nice to browse through the text on the scr
 
 ## Clutter Highlighting Function in  Vim
 
-The idea is to have a list of bad words and then give them a red background. To hightlight the words vims [ctermbg](http://vimdoc.sourceforge.net/htmldoc/syntax.html#highlight-ctermbg) and [ctermfg](http://vimdoc.sourceforge.net/htmldoc/syntax.html#highlight-ctermfg) can be used in combination with the [highlight function](http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight). After that we can use the [match](http://vimdoc.sourceforge.net/htmldoc/pattern.html#:match) function in combination of the predefined color highlighting.
+The idea is to have a list of bad words and then give them a red background. To highlight the words vims [ctermbg](http://vimdoc.sourceforge.net/htmldoc/syntax.html#highlight-ctermbg) and [ctermfg](http://vimdoc.sourceforge.net/htmldoc/syntax.html#highlight-ctermfg) can be used in combination with the [highlight function](http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight). After that we can use the [match](http://vimdoc.sourceforge.net/htmldoc/pattern.html#:match) function in combination of the predefined color highlighting.
 
 
 ``` vim
@@ -30,6 +32,7 @@ function MatchTechWordsToAvoid()
   match TechWordsToAvoid /\c\<\(obviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so\|easy\)\>/
 endfunction
 ```
+
 
 Since I'm writing my book with the help of [markdown](http://daringfireball.net/projects/markdown/) I only want to highlight words the words if I'm on those files. Let's use the [autocmd](http://vimdoc.sourceforge.net/htmldoc/autocmd.html#:autocmd) with the [FileType](http://vimdoc.sourceforge.net/htmldoc/autocmd.html#FileType) option for markdown:
 
