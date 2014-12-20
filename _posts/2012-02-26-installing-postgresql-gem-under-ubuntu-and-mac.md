@@ -1,6 +1,6 @@
 ---
 title: Installing PostgreSQL gem under Ubuntu and Mac
-update: 2014-11-20
+update: 2014-12-20
 categories: howto
 ---
 
@@ -104,6 +104,9 @@ $ sudo PATH=$PATH:/Library/PostgreSQL/x.y/bin bundle install
 
 
 Please change the **x.y** with the version you have installed. Thats it!
+
+
+If you have problems with `gcc`, please look into the [stackoverflow link](http://stackoverflow.com/questions/26486163/gcc-4-9-1-in-os-x-yosemite-gcc-warning-couldn-t-understand-kern-osversion-1/26609483#26609483 "stackoverflow link") - thanks [Asad](https://disqus.com/by/AsadAkbar/ "Asad").
 
 
 ## Solution for Ubuntu/Linux
