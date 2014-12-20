@@ -20,6 +20,8 @@ task :p do
   post_content = <<-MARKDOWN
 ---
 title: TITLE
+description: TITLE
+categories: ['', '']
 ---
 
 
