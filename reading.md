@@ -4,6 +4,7 @@ title: Recently Read
 
 ## 2014
 
+- "Building Software Products in a Weekend" by [Matt Kremer](https://mattkremer.com/ "Matt Kremer")
 - [Die Kraft von Scrum](http://www.amazon.de/Die-Kraft-Scrum-revolution%C3%A4rsten-Projektmanagement-Methode/dp/3827330521) by Henning Wolf
 - [jQuery: Novice to Ninja](http://www.amazon.com/jQuery-Novice-Ninja-Earle-Castledine/dp/0987153013) by Earle Castledine and Craig Sharkie
 - [JavaScript - Das umfassende Referenzwerk](http://www.amazon.de/JavaScript-umfassende-Referenzwerk-Deutsche-Ausgabe/dp/3897214911) by David Flanagan
