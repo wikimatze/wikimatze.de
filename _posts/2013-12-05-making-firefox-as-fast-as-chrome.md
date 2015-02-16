@@ -1,7 +1,7 @@
 ---
 title: Making Firefox as Fast as Chrome
-update: 2015-02-15
-categories: howto browser
+update: 2015-02-16
+categories: howto browser firefox chrome
 ---
 
 *Learn in this article how you can make Firefox as fast as Chrome again.*
