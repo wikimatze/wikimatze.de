@@ -1,6 +1,6 @@
 ---
 title: My Talk at Ruby Midwest 2013
-update: 2014-11-20
+update: 2015-03-01
 categories: talk
 ---
 
@@ -29,7 +29,7 @@ You can find the slides on [speakerdeck](https://speakerdeck.com/wikimatze/more-
 <br>
 <iframe width="640" height="360" src="http://www.youtube.com/embed/249osnsUXtE" frameborder="0" allowfullscreen></iframe>
 
-You can find this video on [confreaks](http://www.confreaks.com/videos/2380-rmw2013-more-time-for-open-source-work-with-the-help-of-the-pomodoro-technique).
+You can find this video on [confreaks](http://confreaks.tv/videos/rmw2013-more-time-for-open-source-work-with-the-help-of-the-pomodoro-technique).
 
 
 ## Impressions
