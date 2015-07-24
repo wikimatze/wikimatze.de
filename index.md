@@ -1,5 +1,5 @@
 ---
-description: Writings, and talks by Matthias Günther. Günther works at MyHammer, loves painting Warhammer figures, writing, giving talks, and enjoys making cakes.
+description: Writings, and talks by Matthias Günther. Günther works as a developer and agile coach at MyHammer, loves painting Warhammer figures, writing, giving talks, and enjoys making cakes.
 ---
 
 <a href="https://www.softcover.io/books/fd219c19/padrinobook" title="PadrinoBook" class="center" target="_blank"><img class="padrino" src="https://farm8.staticflickr.com/7016/13441187154_58d220c784_o_d.png" alt="PadrinoBook"/></a>
