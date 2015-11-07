@@ -66,6 +66,7 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.2.2)
     rmagick (2.13.4)
+    rouge (1.10.1)
     safe_yaml (1.0.4)
     sass (3.4.10)
     stringex (2.5.2)
@@ -92,6 +93,10 @@ DEPENDENCIES
   jekyll (= 2.5.3)
   jekyll-sitemap (= 0.7.0)
   rake (= 10.3.2)
+  rouge (= 1.10.1)
   stringex (= 2.5.2)
   sweetie (= 1.0.1)
   uglifier (= 2.5.3)
+
+BUNDLED WITH
+   1.10.6

@@ -1,9 +1,10 @@
 markdown: redcarpet
-highlighter: pygments
 rdiscount:
   extensions: [smart]
 timezone: DE
 
+redcarpet:
+  syntax_highlighter: rouge
 
 permalink: /:title
 
@@ -55,10 +56,10 @@ defaults:
 
 
 # page stats
-build: 11-13-2014
-images: 59
-htmlpages: 75
-links: 508
+build: 8-13-2015
+images: 73
+htmlpages: 117
+links: 579
 
 
 tag_page_layout: tag_page
