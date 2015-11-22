@@ -15,7 +15,7 @@ layout: default
       {% else %}
       Tags:
       {% for tag in page.categories %}
-      <a class="default label" href="/tags.html#{{ tag }}" title="View posts tagged with &quot;{{ tag }}&quot;">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
+      <a class="default label" href="/tags#{{ tag }}" title="View posts tagged with &quot;{{ tag }}&quot;">{{ tag }}</a>{% if forloop.last != true %}, {% endif %}
       {% endfor %}
       {% endif %}
     </div>

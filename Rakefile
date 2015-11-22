@@ -21,7 +21,7 @@ task :p do
 ---
 title: TITLE
 description: TITLE
-categories: ['', '']
+categories: ,
 ---
 
 
@@ -38,25 +38,28 @@ end
 
 desc 'Staging'
 task :staging do
-  puts '# building the site ..'.green
-  puts '# deploying the site ..'.green
+  puts '# building the site ..'.bold.green
+  puts '# deploying the site ..'.bold.green
 
   system "rsync -vru -e \"ssh\" --del ?site/* xa6195@xa6.serverdomain.org:/home/www/iso25/"
   puts '# Please refer to http://iso25.wikimatze.de to visit the staging system'.green
 end
 
 desc 'Deploy'
-task :d => [:generate,:minifycss] do
+task :d => [:minifycss] do
+  puts 'Clean jekyll ..'.bold.green
+  system 'jekyll clean'
+
   require 'sweetie'
 
-  puts 'Sweetie - time to update stats ..'.green
+  puts 'Sweetie - time to update stats ..'.bold.green
   Sweetie::Conversion.conversion
   #Sweetie::Bitbucket.bitbucket("wikimatze")
 
-  puts 'Building jekyll ..'.green
+  puts 'Building jekyll ..'.bold.green
   system 'jekyll build'
 
-  puts 'Deploying site with lovely rsync ..'.green
+  puts 'Deploying site with lovely rsync ..'.bold.green
   system "rsync -vru -e \"ssh\" --del ?site/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
 
   puts 'Done!'.green
@@ -66,7 +69,7 @@ desc 'Minify css'
 task :minifycss do
   require 'cssminify'
 
-  puts 'Minify css and merge it into one file ..'.yellow
+  puts 'Minify css and merge it into one file ..'.bold.yellow
 
   gumby = CSSminify.compress(File.open('css/gumby.css'))
   style = CSSminify.compress(File.open('css/style.css'))
@@ -115,50 +118,6 @@ task :s do
   system 'rm -rf _site'
   system 'jekyll build'
   system 'jekyll serve -w'
-end
-
-# Credit for this goes to https://gist.github.com/alexyoung/143571
-desc 'Create tag page'
-task :generate do
-  puts 'Generating tags...'.green
-  require 'rubygems'
-  require 'jekyll'
-  include Jekyll::Filters
-
-  options = Jekyll.configuration({})
-  site = Jekyll::Site.new(options)
-  site.read_posts('')
-
-  html =<<-HTML
----
-title: Tags
----
-
-  HTML
-
-  site.categories.sort.each do |category, posts|
-  html << <<-HTML
-  <h3 id="#{category}">#{category}</h3>
-  HTML
-
-  html << '<ul class="posts">'
-  posts.each do |post|
-  post_data = post.to_liquid
-  html << <<-HTML
-  <li>
-  <div>#{date_to_string post.date}</div>
-  <a href="#{post.url}">#{post_data['title']}</a>
-  </li>
-  HTML
-  end
-  html << '</ul>'
-  end
-
-  File.open('tags.html', 'w+') do |file|
-  file.puts html
-  end
-
-  puts 'Done.'
 end
 
 task :default => :s
