@@ -1,0 +1,9 @@
+<header>
+  <h1 class="lead">Articles in category '<%= category %>'</h1>
+</header>
+
+<ul>
+  <% all_categories[category].each_with_index do |article, i| %>
+    <li><%= link_to article.title, article %> <span><!--(<%= article.date.strftime('%B %e, %Y') %>)</span></li>-->
+  <% end %>
+</ul>

@@ -1,0 +1,17 @@
+---
+title: Articles written by by Matthias Günther.
+nav: articles
+description: Articles written by by Matthias Günther.
+---
+<h1 class="lead">Articles</h1>
+
+<div class="related">
+  <ul>
+    <% blog.articles.each_with_index do |article, index| %>
+      <li>
+        <a href="<%= article.url %>"><%= article.title %></a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+

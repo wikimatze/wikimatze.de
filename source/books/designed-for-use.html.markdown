@@ -1,0 +1,59 @@
+---
+title: Designed for Use - Create Usable Interfaces for Applications and the Web
+nav: reading
+---
+
+- p 2: Rather than asking for something different that actually fixes their problems, they ask for the same thing that's slightly better.
+- p 21: never trust focus groups
+- p 27: ted talk about Dan Dilbert just copy the link from this page
+- p 27: we make a systematic set of errors when we try to imagine what it feels like
+- p 29: take away points
+- p 34: interesting points about personas
+- p 37: most design is activity centered
+- p 40: The longer you work on something, the harder it gets to explain it to people who don't share your knowledge.
+- p 43: People don't want to learn how to use features; they want to learn how to do things.
+- p 54: close test for your texts -remove some of the words of your text and then ask test participants to find the missing words
+- p 64: card sorting - card sort-ing is a pretty simple technique—write things on index cards and ask people to sort the cards into groups.”
+- p 73: rule is that you must constrain the number of options given to the user; do not make her choose from more than seven options.
+- p 74: interesting things about grouping and not grouping
+- p 77 Joel spolsky: A user interface is well designed when the pro-gram behaves exactly how the user thought it would.”
+- p 79: three different models how your product should work
+- p 138: fitts law people can hit a target more quickly if the target is bigger or closer to the user's mouse cursor
+- p 151: cartoons: solid, exagerated
+- p 155: consistency: agreement or harmony of parts or features to one another or a whole.
+- p 161: make things discoverable: Not every feature of your product is relevant at all times
+- p 170: good takeaway points
+-p 175: modes - mode is a part of an application that the user has to formally enter and leave, and that restricts the operations that can be performed while the mode is in effect.”
+- p 181: Modes are bad only when they are nonobvious, unexpected, or hard to leave.
+- p 185: why prederences are bad
+- p 188: awaid negative labels
+- p 191: spatial reasining - you where you put stuff without hiearchical order because humans are good to think in space
+- p 195: restrict depth of hierachical data
+- p 198: Speed is the most important
+feature.
+- p 205: The fact that a product could (in theory) solve many problems is meaningless if its users have trouble figuring out how to find the features that solve their particular problem.
+- p 206: product, will turn into advanced users, which means they will continue to push you to add more advanced features. If you do this, your customer base will skew even more toward advanced users.1 It's a vicious cycle.
+- p 206: http://headrush.typepad.com
+- p 206: the five whys: asking this to get an answer to the questions why a certain features needs to be implemented for the userAdding a new feature to your product prevents you from working on other things, and having it in your product might slow down future progress because you have to maintain yet another feature.
+- p 210: internal-audience problem: the people who design and implement solutions do so for people who are like them, rather than for people who are like their actual customers.
+- p 210-211: listen and dont listen to your user
+- p 211: add most of the “I just need one unusual feature” requests, you end up with a product where most features are unusual and very few features are used by many people
+- p 221: learn from videogames, don't let the task to be too hard or too easy
+- p 222: Games Need to Provide Tasks; Your Product Doesn't
+- p 222: Games Need to Control the Difficulty; Your Product Doesn't because then your users feel stupid
+- p 225: users need some kind of performance feedback
+- p 225: measuring progress and providing feedback about that progress makes an activity more fu
+- p 232: cool links and blogs - check them out
+- p 240: know if your design works, you need to see whether people get it.
+- p 242: usability tests is like jogging: the more you do it, the easier it gets, and the better you become at it.
+- p 246: ideas how to find testers
+- p 255: tools for recording
+- p 270: primum non nocere - first, do not harm
+- p 272: PEBKAC - Problem Exists Between Keyboard And Chair.”
+- p 272: People don't make errors. Your product makes errors when it doesn't interpret the user's actions correctly.
+- p 282: company user effect check the link
+- p 284: If you change your design, the usability changes.
+- p 288: exit points: when do people stop using it?
+- p 291: interesting microsoft blog
+- p 293: negative feedback is great, fixing it will turn those users into fans
+

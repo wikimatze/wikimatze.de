@@ -1,0 +1,40 @@
+<% wrap_layout :layout do %>
+<article>
+          <h1 class="lead"><%= current_page.data.title %></h1>
+
+          <header>
+            <div class="author">
+              Written by <a href="https://plus.google.com/+wikimatzede?rel=author" rel="author">Matthias Günther</a>
+              | <%= current_page.body.reading_time :format => :approx %> read
+              | Tags
+
+              <% current_page.data.categories.split(" ").each_with_index do |category, index| %>
+                <% if index == current_page.data.categories.split(" ").size - 1 %>
+                  <%= link_to "#{category}", category_path(category) %>
+                <% else %>
+                  <%= link_to "#{category},", category_path(category) %>
+                <% end %>
+              <% end %>
+              | <a href="#comments"><span id="cmtcount"></span> Comments</a>
+            </div>
+          </header>
+
+          <%= yield %>
+
+          <%= partial "layouts/shared/share" %>
+
+          <% prev_article = current_article.previous_article %>
+          <% next_article = current_article.next_article %>
+          <% if prev_article %>
+            <a class="prev" href="<%= prev_article.url%>" rel="prev" title="Previous article: <%= prev_article.title%>">&laquo; <%= prev_article.title%></a>
+          <% end %>
+          <% if next_article %>
+            <a class="next" href="<%= next_article.url%>" rel="next" title="Next article: <%= next_article.title%>"><%= next_article.title%> &raquo; </a>
+          <% end %>
+
+          <% if !development? %>
+            <div id="hashover"></div>
+            <script type="text/javascript" src="/hashover.php" defer="defer"></script>
+          <% end %>
+</article>
+<% end %>

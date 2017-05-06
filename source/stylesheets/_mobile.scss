@@ -1,0 +1,93 @@
+@media (max-width: 815px) {
+  footer {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  article {
+    margin-left: -24px;
+  }
+  // hide stuff
+  .prev, .next, .fa-copyright {
+    display: none;
+  }
+  .content {
+    font-size: 1.0em;
+  }
+  #title {
+    font: 500 3.0em 'FFFTusjBold', Arial, sans-serif;
+  }
+  .share  {
+    left: 6%;
+    position: relative;
+    top: 0.5rem;
+  }
+  .share h4 {
+    padding-left: 3px;
+    margin: 0 0 -1.5rem;
+  }
+  .share a {
+    color: #bbc7cc;
+    display: inline-block;
+    font-size: 1.3rem;
+    margin: 0 1.3rem 1.6rem 0;
+    text-decoration: none;
+  }
+
+  .lead {
+    font-size: 250%;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    border-left: none;
+  }
+  h3 {
+    font-size: 1.4rem
+  }
+
+  .related {
+    margin-top: 0;
+  }
+  .related ul {
+    padding: 0;
+  }
+  .related li {
+    border-bottom: none;
+    color: #777;
+    list-style: outside none none;
+    margin: 0;
+    padding: 5px 0;
+  }
+
+  #hashover form div.cmtbox, #hashover .cmtdiv .cmtbubble {
+      margin-left: 1.7rem;
+  }
+}
+
+@media (max-width: 651px) {
+  .menu-icon {
+    display: inline-block;
+  }
+  .title-bar {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 550px) {
+  // hide stuff
+  .prev, .next {
+    display: none;
+  }
+  #title {
+    font: 500 2.0em 'FFFTusjBold', Arial, sans-serif;
+  }
+  html {
+    font-size: 105% !important;
+  }
+  .share a {
+    margin: 0.8rem 2rem 1.6rem 0;
+  }
+}
+

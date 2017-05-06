@@ -1,7 +1,7 @@
 require 'rake'
 require 'colorator'
 
-posts_dir = '_drafts'
+posts_dir = 'source/_drafts'
 
 desc "New post in #{posts_dir}"
 task :p do
@@ -13,20 +13,20 @@ task :p do
 
   date = Time.now.to_s.split(" ").first
 
-  title = "#{name.gsub(/&/,'&amp;')}"
-  filename = "#{posts_dir}/#{date}-#{name.to_url}.md"
+  title = "#{name.gsub(/&/, '&amp;')}"
+  filename = "#{posts_dir}/#{name.to_url}.md"
   puts "Created new post: #{filename}".bold.green
 
   post_content = <<-MARKDOWN
 ---
 title: TITLE
 description: TITLE
-categories: ,
+twitter_src:
+facebook_src:
+categories:
 ---
 
-
   MARKDOWN
-  post_content = post_content.gsub('TITLE', title)
 
   open(filename, 'w') do |post|
     system "mkdir -p #{posts_dir}/";
@@ -37,87 +37,31 @@ categories: ,
 end
 
 desc 'Staging'
-task :staging do
-  puts '# building the site ..'.bold.green
-  puts '# deploying the site ..'.bold.green
+task :staging => :b do
+  puts 'Deploying site with lovely rsync ..'.bold.green
 
-  system "rsync -vru -e \"ssh\" --del ?site/* xa6195@xa6.serverdomain.org:/home/www/iso25/"
-  puts '# Please refer to http://iso25.wikimatze.de to visit the staging system'.green
+  system "rsync -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/stagingwikimatze/"
+  puts '# Please refer to https://staging.wikimatze.de to visit the staging system'.green
 end
 
 desc 'Deploy'
-task :d => [:minifycss] do
-  puts 'Clean jekyll ..'.bold.green
-  system 'jekyll clean'
-
-  require 'sweetie'
-
-  puts 'Sweetie - time to update stats ..'.bold.green
-  Sweetie::Conversion.conversion
-  #Sweetie::Bitbucket.bitbucket("wikimatze")
-
-  puts 'Building jekyll ..'.bold.green
-  system 'jekyll build'
-
+task :deploy  do
+  system 'middleman b'
   puts 'Deploying site with lovely rsync ..'.bold.green
-  system "rsync -vru -e \"ssh\" --del ?site/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
+  system "rsync -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
 
   puts 'Done!'.green
 end
 
-desc 'Minify css'
-task :minifycss do
-  require 'cssminify'
-
-  puts 'Minify css and merge it into one file ..'.bold.yellow
-
-  gumby = CSSminify.compress(File.open('css/gumby.css'))
-  style = CSSminify.compress(File.open('css/style.css'))
-  pygments = CSSminify.compress(File.open('css/pygments.css'))
-  fancybox_buttons = CSSminify.compress(File.open('js/fancybox/source/helpers/jquery.fancybox-buttons.css'))
-  fancybox_thumbs = CSSminify.compress(File.open('js/fancybox/source/helpers/jquery.fancybox-thumbs.css'))
-
-  File.open('css/application.css', 'w') do |file|
-    file.write(gumby << style << pygments << fancybox_buttons << fancybox_thumbs)
-  end
-
-  puts 'Done ..'.green
+task :b do
+  puts 'Building middleman ..'.bold.green
+  system 'middleman b'
 end
 
-desc 'Minify js'
-task :minifyjs do
-  require 'uglifier'
-
-  puts 'Minify js and merge it into one file ..'.yellow
-
-  jquery = Uglifier.compile(File.open('js/libs/jquery.js'))
-
-  modernizr = Uglifier.compile(File.open('js/libs/modernizr.js'))
-  github_commits = Uglifier.compile(File.open('js/github-commits-widget.js'))
-  gumby = Uglifier.compile(File.open('js/libs/gumby.js'))
-  gumby_toggleswitch = Uglifier.compile(File.open('js/libs/ui/gumby.toggleswitch.js'))
-  gumby_init = Uglifier.compile(File.open('js/libs/gumby.init.js'))
-
-  fancybox_pack = Uglifier.compile(File.open('js/fancybox/source/jquery.fancybox.pack.js'))
-  fancybox_buttons = Uglifier.compile(File.open('js/fancybox/source/helpers/jquery.fancybox-buttons.js'))
-  fancybox_media = Uglifier.compile(File.open('js/fancybox/source/helpers/jquery.fancybox-media.js'))
-  fancybox_thumbs = Uglifier.compile(File.open('js/fancybox/source/helpers/jquery.fancybox-thumbs.js'))
-
-  github_widget_configuration = Uglifier.compile(File.read('js/github-commits-widget-configuration.js'))
-  fancybox_configuration = Uglifier.compile(File.read('js/fancybox-configuration.js'))
-
-  File.open("js/application.js", "w") do |file|
-    file.write (modernizr << jquery << github_commits << gumby << gumby_toggleswitch << gumby_init << fancybox_pack << fancybox_buttons << fancybox_media << fancybox_thumbs << github_widget_configuration << fancybox_configuration)
-  end
-
-  puts 'Done ..'.green
-end
-
-desc 'Startup Jekyll'
-task :s do
-  system 'rm -rf _site'
-  system 'jekyll build'
-  system 'jekyll serve -w'
+desc 'Startup Middleman'
+task :s => :b do
+  puts 'Middleman is finished with building..'.bold.green
+  system 'middleman s'
 end
 
 task :default => :s

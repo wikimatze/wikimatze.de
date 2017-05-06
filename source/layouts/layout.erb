@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="True" name='HandheldFriendly'>
+
+    <title><%= current_page.data.title || title %></title>
+    <meta name="description" content="<%= current_page.data.description || current_page.data.title %>">
+    <meta name="author" content="Matthias Günther">
+
+    <meta name="robots" content="noodp"/>
+
+    <link rel="canonical" href="https://wikimatze.de<%= current_page.url %>" />
+
+    <meta content="wikimatze" property="og:site_name" />
+    <meta content="<%= description %>" property="og:description" />
+    <meta content="https://wikimatze.de" property="og:url" />
+    <meta content="website" property="og:type" />
+    <meta content="<%= icke %>" property="og:image" />
+
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="@wikimatze" name="twitter:creator" />
+    <meta content="@wikimatze" name="twitter:site" />
+    <meta content="<%= current_page.data.title || title %>" name="twitter:title" />
+    <meta content="<%= current_page.data.description || description %>" name="twitter:description" />
+    <meta content="https://wikimatze.de" name="twitter:url" />
+    <meta content="<%= current_page.data.twitter_src || icke %>" name="twitter:image:src" /> <meta content="en_US" property="og:locale" />
+    <meta content="article" property="og:type" />
+    <meta content="<%= current_page.data.title || title %>" property="og:title" />
+    <meta content="<%= current_page.data.description || description %>" property="og:description" />
+    <meta content="https://staging.wikimatze.de/<%= current_page.url %>" property="og:url" />
+    <meta content="wikimatze - Matthias Günther" property="og:site_name" />
+    <meta content="<%= current_page.data.facebook_src || icke %>" property="og:image" />
+
+    <% if update? %>
+    <meta content="<%= current_resource.data[:update] %>" property="og:updated_time" />
+    <meta content="<%= current_resource.data[:update] %>" property="article:modified_time" />
+    <% else %>
+    <meta content="<%= config[:build] %>" property="og:updated_time" />
+    <% end %>
+
+    <meta content="Social" property="article:section" />
+    <% if date? %>
+    <meta content="<%= current_page.data[:date] %>" property="article:published_time"/>
+    <% end %>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="/images/favicons/manifest.json" />
+    <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" />
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png" />
+    <meta name="msapplication-config" content="/images/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog feed for wikimatze.de" href="https://www.feedio.co/@wikimatze/feed" />
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css" />
+    <%= stylesheet_link_tag :site %>
+    <%= javascript_include_tag :all, 'https://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.2.2/anchor.min.js' %>
+
+    <% if !development? %>
+    <script src="//load.sumome.com/" data-sumo-site-id="b5cbfbe08511fedd10d8c2a0ce5af716a684c1b561e22a84244d5d6913c6c041" async="async"></script>
+    <% end %>
+  </head>
+
+  <body>
+    <%= partial "layouts/shared/navigation" %>
+
+    <div class="row">
+      <div class="large-12 columns content">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= partial "layouts/shared/footer" %>
+
+    <% if !development? %>
+          <%= insert_piwik_tracker %>
+
+      <!-- Hotjar Tracking Code for http://wikimatze.de/ -->
+      <script>
+          (function(h,o,t,j,a,r){
+              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+              h._hjSettings={hjid:370621,hjsv:5};
+              a=o.getElementsByTagName('head')[0];
+              r=o.createElement('script');r.async=1;
+              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+              a.appendChild(r);
+          })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+      </script>
+    <% end %>
+    <script>
+       $(document).ready(function() {
+         $(document).foundation();
+       })
+      anchors.add();
+    </script>
+  </body>
+</html>

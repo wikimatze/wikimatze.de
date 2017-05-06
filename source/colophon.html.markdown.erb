@@ -1,0 +1,19 @@
+---
+title: Some detail about wikimatze
+description: Some detail about wikimatze
+---
+
+<header>
+  <h1 class="lead">Colophon</h1>
+</header>
+
+
+This website is written by various technologies: [foundation CSS framework](http://foundation.zurb.com/) for the responsive layout, [fancybox 2](http://fancyapps.com/fancybox/) for the images, [rsync](http://en.wikipedia.org/wiki/Rsync) for uploading the static html pages, [markdown](http://daringfireball.net/projects/markdown/) the format in which I'm writing blog posts, [sweetie gem](https://github.com/wikimatze/sweetie) for gathering different information of the website like last build date, and [Jekyll](http://jekyllrb.com) for creating the website. For fast hacking and creating new blog posts on the fly [Vim](http://www.vim.org) is my advocate.
+
+
+## Status of the page
+
+- <span class="danger label">Last build:</span> <%= config[:build] %>
+- <span class="warning label">Number of images:</span> <%= config[:images] %>
+- <span class="success label">Number of links:</span> <%= config[:links] %>
+

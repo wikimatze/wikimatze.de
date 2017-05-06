@@ -1,0 +1,39 @@
+    <div class="row">
+      <div class="large-12 columns">
+        <span id="title">
+          <a href="/">wikimatze</a>
+        </span>
+        <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+          <button class="menu-icon" type="button" data-toggle></button>
+          <div class="title-bar-title"> Navigation</div>
+        </div>
+
+        <div class="top-bar navbar" id="example-menu">
+          <div class="top-bar-right" data-hide-for="medium">
+            <ul class="menu">
+            </ul>
+          </div>
+          <div class="top-bar-left">
+            <ul class=" medium-horizontal vertical dropdown menu" data-responsive-menu="accordion medium-dropdown">
+              <li class="<%= "active" if current?("articles") %>"><a href="/articles" title="Overview of latest articles">Articles</a></li>
+              <li class="<%= "active" if current?("about") %>"><a href="/about" title="Some words about me">About</a></li>
+              <li><a href="http://eepurl.com/cFwsEP" title="Newsletter sign up link">Newsletter</a></li>
+              <!--
+              <li class="<%= "active" if current?("reading") %>"><a href="/reading" title="What I'm reading so far">Reading</a></li>
+              <li class="<%= "active" if current?("projects") %>"><a href="/projects" title="Projects I'm working on">Projects</a></li>
+              -->
+            </ul>
+          </div>
+          <div class="top-bar-right">
+            <ul class=" medium-horizontal vertical dropdown menu" data-responsive-menu="accordion medium-dropdown">
+              <li><a href="http://www.feedio.co/@wikimatze" title="Follow my RSS feed" target="_blank"><i class="fa fa-rss"></i></a></li>
+              <li><a href="https://twitter.com/wikimatze" title="Follow @wikimatze on twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://github.com/wikimatze" title="Follow wikimatze on GitHub" target="_blank"><i class="fa fa-github"></i></a></li>
+              <!--
+              <li><a rel="nofollow" data-open="modal"><i class="fa fa-share"></i></a></li>
+              -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
