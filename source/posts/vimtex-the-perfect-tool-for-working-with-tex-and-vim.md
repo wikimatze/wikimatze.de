@@ -137,7 +137,7 @@ Latexmk: All targets (kanban.pdf) are up-to-date
 The `synctex` option is needed for forward/backward search.
 
 
-## Ensure that libsynctex libgtk-3-dev is on your system
+## Ensure that libsynctex and libgtk-3-dev is on your system
 
 One must also ensure that `libsynctex` exists in the system! The normal way to do it, is to:
 
