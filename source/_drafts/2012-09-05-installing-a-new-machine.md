@@ -8,7 +8,7 @@ meta-description: ...
 article describes the steps I need perfom when installing a new machine.*
 
 
-## Getting the latest (X)ubuntu image (16.10)
+## Getting the latest (X)ubuntu image (16.04)
 
 I'm having an old Netbook with an Intel Atom processor and a Modern Desktop PC. I need to from the Download page:
 
@@ -73,18 +73,15 @@ I added the `-y` option to confirm all occuring messages with **yes** to keep up
 After applying all the changes to the system, we need run `sudo init 6`. After that, all should be running and you should have a bunch of new programms installed on your machine.
 
 
-## Getting owncloud
+## Getting nextcloud
 
 I'm using owncloud to manager my files on my own server. All you have to is to install the client:
 
 
-```bash
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/xUbuntu_16.10/ /' >> /etc/apt/sources.list.d/owncloud-client.list"
-sudo apt-get update
-sudo apt-get install owncloud-client -y
-```
 
-You can get the latest version of this install script under <https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/owncloud_install.sh>
+```bash
+wget -O ubuntu_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/nextcloud_install.sh' && bash nextcloud_install.sh
+```
 
 
 ## Symlinks
