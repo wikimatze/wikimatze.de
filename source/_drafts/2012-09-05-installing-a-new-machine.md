@@ -80,7 +80,7 @@ I'm using owncloud to manager my files on my own server. All you have to is to i
 
 
 ```bash
-wget -O ubuntu_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/nextcloud_install.sh' && bash nextcloud_install.sh
+wget -O nextcloud_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/nextcloud_install.sh' && bash nextcloud_install.sh
 ```
 
 
