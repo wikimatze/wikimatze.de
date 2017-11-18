@@ -1,6 +1,6 @@
 ---
 title: My Talk at Ruby Midwest 2013
-date: 2013-05-02-my
+date: 2013-05-02
 update: 2015-03-01
 categories: talk
 ---

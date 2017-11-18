@@ -1,5 +1,6 @@
 ---
 title: Vimtex the perfect tool for working with tex and Vim and Zathura
+nav: articles
 date: 2016-05-15
 description: Vimtex the perfect tool for working with tex and Vim and Zathura
 categories: vim latex tools
