@@ -1,12 +1,14 @@
 ---
 title: Observers in Padrino
 description: Observers in Padrino
+date: 2017-11-19
+update: 2017-11-19
 categories: padrino ruby
 ---
 
-{% include leanpub.html %}
+<%= partial "layouts/shared/book" %>
 
-{% include newsletter.html %}
+<%= partial "layouts/shared/newsletter" %>
 
 
 You may come to the point, where you to have certain elements that are bound to your model but don't belong either there
@@ -30,7 +32,7 @@ class UserObserver < ActiveRecord::Observer
   end
 
   def after_save(user)
-    JobVacancy::App.deliver(:confirmation, :confirmation_email, user.name, user.email, user.id, user.confirmation_code) unless user.confirmation
+    JobVacancy::App.deliver(:confirmation, :confirmation_email, user.name, user.email, user.id)
   end
 
   private
@@ -73,7 +75,7 @@ end
 ```
 
 
-and disable the observer for the specs:
+and disable the observer in our specs to make writing more easier:
 
 
 ```ruby
