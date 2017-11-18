@@ -17,7 +17,7 @@ pre, code {
   }
 }
 
-.highlight, p > pre, p > code, p > nobr > code, li > code, h5 > code, .note > code {
+div.highlight, p > pre, p > code, p > nobr > code, li > code, h5 > code, .note > code {
   background: #333;
   color: #fff;
   border-radius: 5px;
@@ -27,7 +27,7 @@ pre, code {
   background-color: #3F3F3F;
 }
 
-.highlight {
+div.highlight {
   padding: 10px 0;
   width: 100%;
   overflow: auto;
@@ -42,13 +42,13 @@ pre, code {
   border-radius: 1em;
 }
 
-.highlight pre code,
+div.highlight pre code,
 .container p code {
   font-family: monospace;
   white-space: pre;
 }
 
-.highlight {
+div.highlight {
   box-shadow: 6px 10px 10px grey;;
 }
 
