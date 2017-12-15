@@ -2,7 +2,7 @@
 title: Ranger a terminal browser for Vim
 nav: articles
 date: 2016-05-30
-update: 2016-05-41
+update: 2017-12-13
 description: Ranger a terminal browser for Vim
 categories: vim tool
 ---
@@ -10,6 +10,8 @@ categories: vim tool
 [Ranger](http://ranger.nongnu.org/ "Ranger") is a file manager with VI key bindings. It provides a minimalistic and nice curses
 interface with a view on the directory hierarchy. I stumbled upon this tool during a
 [vimberlin meetup](http://vimberlin.de/ "vimberlin meetup").
+
+(This article has been tested with NVIM v0.2.2, Vim 8.0 with 1-692, and ranger 1.8.1)
 
 
 ## Installation
@@ -26,7 +28,7 @@ Or per source:
 
 
 ```sh
-$ git clone git://git.savannah.nongnu.org/ranger.git /tmp/ranger && cd /tmp/ranger && git checkout v1.7.2 && sudo make install ```
+$ git clone git://git.savannah.nongnu.org/ranger.git /tmp/ranger && cd /tmp/ranger && git checkout v1.8.1 && sudo make install ```
 
 
 ## First start
@@ -35,7 +37,9 @@ $ git clone git://git.savannah.nongnu.org/ranger.git /tmp/ranger && cd /tmp/rang
 $ ranger
 ```
 
-TBD: Image
+<img src="https://farm5.staticflickr.com/4568/25153021168_9f9d43657e_h_d.jpg" class="big center" alt="https://farm5.staticflickr.com/4568/25153021168_e17079b38c_o_d.png"/>
+<div class="caption">Miller columns of ranger</div>
+
 
 What you see are `Miller columns`, where the middle pane is the current directory, the left pane is the parent
 directory, and the right pane displays a preview for the file your are currently browser in the middle column. All in
@@ -84,7 +88,7 @@ And get out of it via `q`.
 - `<Tab>` ... jump to the next tab
 - `<Shift-Tab>` ... jump to the previous tab
 - `q` ... will quit ranger
-- `?` ... open the man, keybindings, commands, or settings
+- `?` ... open the man, key bindings, commands, or settings
 
 
 
@@ -107,6 +111,7 @@ It will create the `rifle.conf`, `commands.py`, `commands_full.py`, `rc.conf`, a
 files in your `~/.config/ranger` folder. `rifle.conf` is rangers file executor/opener.
 
 E.g.:
+
 
 ```sh
 #--------------------------------------------
@@ -135,33 +140,27 @@ map J     history_go -2
 map K     history_go 0
 ```
 
-My file is pretty empty because I want only that.
 
-
-## Vim command to start the browser mode
-
-```sh
-function RangerExplorer()
-    exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . system('echo "' . expand("%:p:h") . '" | sed -E "s/\ /\\\ /g"')
-    if filereadable('/tmp/vim_ranger_current_file')
-      exec 'edit ' . system('cat /tmp/vim_ranger_current_file | sed -E "s/\ /\\\ /g"')
-      call system('rm /tmp/vim_ranger_current_file')
-  endif
-redraw!
-endfun
-
-map <Leader>r :call RangerExplorer()<CR>
-```
-
+## Vim plugins for ranger
 
 There are a bunch of plugins out there, which all uses Ranger in different ways:
 
-- [vim-ranger will open files in tabs instead of buffers](https://github.com/Mizuchi/vim-ranger "vim-ranger will open files in tabs instead of buffers")
-- [ranger.vim several commands for splitting selected files](https://github.com/rafaqz/ranger.vim "ranger.vim several commands for splitting selected files")
+- [vim-ranger](https://github.com/Mizuchi/vim-ranger "vim-ranger will"): will open files in tabs instead of buffers
+- [ranger.vim by rafaqz](https://github.com/rafaqz/ranger.vim "ranger.vim"): several commands for opening ranger explorer, splitting selected files, appending current file path in insert mode
+- [ranger.vim by francoiscabrol](https://github.com/francoiscabrol/ranger.vim "ranger.vim"): several commands for opening ranger explorer, splitting selected files, not shortcut for appending current file path in insert mode
 
 
-I prefer [ranger.vim](https://github.com/francoiscabrol/ranger.vim "ranger.vim") because it quickly opens a file browser
-and open the selected files in a new buffer.
+The plugin author [rafaqz](https://github.com/rafaqz "rafaqz") pointed out the differences between his plugin and the
+one [francoiscabrol](https://github.com/francoiscabrol "francoiscabrol"):
+
+
+- You can open selected file(s) in current buffer and tabs, but also in splits and vsplits.
+- It opens multiple files.
+- As well as opening files, you can insert file paths or change existing file paths with a vim movement operator.
+- It doesn't have a workspace path option, just current path.
+
+
+So feel free to use the extension which best fits to your needs.
 
 
 ## VCS awareness
@@ -182,10 +181,8 @@ set vcs_backend_bzr disabled
 ```
 
 
-https://github.com/hut/ranger/wiki/VCS-integration
-
-
-But then loading a big repo may slow down opening ranger.
+You can read more about [under the wiki VCS integration of Ranger](https://github.com/hut/ranger/wiki/VCS-integration "VCS integration of Ranger").
+Be aware then loading a big repo may slow down opening ranger.
 
 
 ## Links
