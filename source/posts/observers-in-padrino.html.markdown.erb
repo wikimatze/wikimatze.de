@@ -1,0 +1,117 @@
+---
+title: Observers in Padrino
+nav: articles
+description: Observers in Padrino
+date: 2017-11-18
+updated: 2017-11-18
+categories: padrino ruby
+---
+
+<%= partial "layouts/shared/book" %>
+<%= partial "layouts/shared/newsletter" %>
+
+You may come to the point, where you to have certain elements that are bound to your model but don't belong either there
+nor in the controller. This article will explain how you can use Observers in your application:
+
+
+## Define observers
+Let's create the observer with the name `user_observer` in the models folder:
+
+
+```ruby
+# app/models/user_observer.rb
+
+class UserObserver < ActiveRecord::Observer
+  def before_save(user)
+    if user.new_record?
+      encrypt_confirmation_code(user)
+      JobVacancy::App.deliver(:registration, :registration_email, user.name, user.email)
+    end
+  end
+
+  def after_save(user)
+    JobVacancy::App.deliver(:confirmation, :confirmation_email, user.name, user.email, user.id)
+  end
+
+  private
+  def encrypt_confirmation_code(user)
+    user.confirmation_code = set_confirmation_code(user)
+  end
+
+  def set_confirmation_code(user)
+    require 'bcrypt'
+    salt = BCrypt::Engine.generate_salt
+    confirmation_code = BCrypt::Engine.hash_secret(user.password, salt)
+    normalize_confirmation_code(confirmation_code)
+  end
+
+  def normalize_confirmation_code(confirmation_code)
+    confirmation_code.gsub("/", "")
+  end
+end
+```
+
+
+We are defining our user observer with extends from the [ActiveRecord::Observer](https://github.com/rails/rails-observers#active-record-observer "ActiveRecord Observer"). Inside this class we can define any callbacks for each action we want to use. The most commons ones are `before_<action>` and `after_<action>` where `<action>` is the ActiveRecord trigger method like save, update, delete, show, or get.
+
+
+## Register the observer
+
+Since the observer is created we need to register it:
+
+
+```ruby
+# app/app.rb.
+module JobVacancy
+  class App < Padrino::Application
+    ...
+    # Activating the user_observer
+    ActiveRecord::Base.add_observer UserObserver.instance
+    ...
+  end
+end
+```
+
+
+and disable the observer in our specs to make writing more easier:
+
+
+```ruby
+# spec/spec_helper.rb
+
+RSpec.configure do |conf|
+  ...
+  conf.before do
+    User.observers.disable :all # <-- turn of user observers for testing reasons
+  end
+  ...
+end
+```
+
+
+## Thoughts about Observers
+
+[Observers](http://en.wikipedia.org/wiki/Observer_pattern "Observers") are a design pattern where an object has a list
+of its dependents called observers, and notifies them automatically if its state has changed by calling one of their
+methods. Observers means to be decoupling responsibility. They can serve as a connection point between your models and
+some other functionality of another subsystem. Observers "lives" longer in your application and can be attached/detached
+at any time.
+
+
+[Callbacks](http://guides.rubyonrails.org/active_record_callbacks.html "Callbacks") life shorter - you pass it to a
+function to be called only once. *Rule of the thumb*: When you use callbacks with code that isn't directly related to
+your model, you better put this into an observer.
+
+
+The Observer pattern decouples event producers from event consumers but tightly couples models to them - and that make
+it hard to test them and you always have to take them with you.
+
+Besides they add a kind of hidden magic to your code,
+you may forget when you that they are always around you. Better way is to make those calls explicit in your controller.
+
+
+## Further reading
+
+- [Problem with Callbacks](http://samuelmullen.com/2013/05/the-problem-with-rails-callbacks/ "Problem with Callbacks")
+- [Alternatives to ActiveRecord Observers](http://stackoverflow.com/questions/15165260/rails-observer-alternatives-for-4-0 "Alternatives to ActiveRecord Observers")
+- [POROs](http://blog.steveklabnik.com/posts/2011-09-06-the-secret-to-rails-oo-design "POROs")

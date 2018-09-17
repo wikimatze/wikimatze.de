@@ -1,0 +1,52 @@
+<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= current_page.data.title || title %></title>
+    <meta name="description" content="<%= current_page.data.description || description %>">
+    <meta name="author" content="<%= author %>">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="canonical" href="<%= host %><%= current_page.url %>" />
+
+    <meta content="en_US" property="og:locale" />
+    <meta content="<%= host_simplegraph %>" property="og:site_name" />
+    <meta content="<%= current_page.data[:title] || title %>" property="og:title" />
+    <meta content="<%= current_page.data[:description] || description %>" property="og:description" />
+    <meta content="<%= host %><%= current_page.url %>" property="og:url" />
+    <meta content="<%= current_page_type %>" property="og:type" />
+    <meta content="<%= current_page.data[:facebook_src] || icke %>" property="og:image" />
+
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="<%= twitter_card_creator %>" name="twitter:creator" />
+    <meta content="<%= twitter_card_creator %>" name="twitter:site" />
+    <meta content="<%= current_page.data[:title] || title %>" name="twitter:title" />
+    <meta content="<%= current_page.data[:description] || description %>" name="twitter:description" />
+    <meta content="https://twitter.com/wikimatze" name="twitter:url" />
+    <meta content="<%= current_page.data.twitter_src || icke %>" name="twitter:image:src" />
+    <% if updated? %>
+    <meta content="<%= current_page.data[:updated] %>" property="og:updated_time" />
+    <meta content="<%= current_page.data[:updated] %>" property="article:modified_time" />
+    <% else %>
+    <meta content="<%= app.config[:build] %>" property="og:updated_time" />
+    <% end %>
+    <% if date? %>
+    <meta content="<%= current_page.data[:date] %>" property="article:published_time"/>
+    <% end %>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="/images/favicons/manifest.json" />
+    <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" />
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png" />
+    <meta name="msapplication-config" content="/images/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="alternate" type="application/rss+xml" title="Blog feed for wikimatze.de" href="https://www.feedio.co/@wikimatze/feed" />
+    <%= stylesheet_link_tag "site"  %>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" %>
+    <% if current_resource.data[:appsumo] %>
+    <script src="//load.sumome.com/" data-sumo-site-id="b5cbfbe08511fedd10d8c2a0ce5af716a684c1b561e22a84244d5d6913c6c041" async="async"></script>
+    <% end %>

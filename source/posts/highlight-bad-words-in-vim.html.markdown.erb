@@ -1,0 +1,52 @@
+---
+title: Highlight Bad Words In Vim
+date: 2014-07-11
+updated: 2014-11-20
+categories: padrino vim
+---
+
+<%= partial "layouts/shared/book" %>
+
+<%= partial "layouts/shared/newsletter" %>
+
+
+I'm currently writing, reviewing, and deleting a lot of words for my [padrinobook](http://padrinobook.com/). Words like `easy`, `however`, `so`, or `just` are growing in some parts of the book like a disease. The term for bad words is **clutter**, which I learned after reading [On Writing Well](http://www.amazon.com/Writing-Well-30th-Anniversary-Nonfiction/dp/0060891548/ref=sr_1_1?s=books&ie=UTF8&qid=1359744126&sr=1-1&keywords=On+Writing+Well) by William Zinsser.
+
+
+Clutter is not everywhere in the documents. It usually occurs when you are writing on a late evening or you are just thinking in technical terms.
+
+
+After finishing a section it would be nice to browse through the text on the screen and scan for bad words. See them and get rid of them. It helps you to be more precise and you stay focus on what you want to write.
+
+
+## Clutter Highlighting Function in  Vim
+
+The idea is to have a list of bad words and then give them a red background. To highlight the words vims [ctermbg](http://vimdoc.sourceforge.net/htmldoc/syntax.html#highlight-ctermbg) and [ctermfg](http://vimdoc.sourceforge.net/htmldoc/syntax.html#highlight-ctermfg) can be used in combination with the [highlight function](http://vimdoc.sourceforge.net/htmldoc/syntax.html#:highlight). After that we can use the [match](http://vimdoc.sourceforge.net/htmldoc/pattern.html#:match) function in combination of the predefined color highlighting.
+
+
+``` vim
+highlight TechWordsToAvoid ctermbg=red ctermfg=white
+
+function MatchTechWordsToAvoid()
+  match TechWordsToAvoid /\c\<\(obviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so\|easy\)\>/
+endfunction
+```
+
+
+Since I'm writing my book with the help of [markdown](http://daringfireball.net/projects/markdown/) I only want to highlight words the words if I'm on those files. Let's use the [autocmd](http://vimdoc.sourceforge.net/htmldoc/autocmd.html#:autocmd) with the [FileType](http://vimdoc.sourceforge.net/htmldoc/autocmd.html#FileType) option for markdown:
+
+
+```vim
+autocmd FileType markdown call MatchTechWordsToAvoid()
+```
+
+
+Now a file with many bad words will look like the following:
+
+
+<img src="https://farm3.staticflickr.com/2929/14614949161_6fa3bc1c2b_o.png" class="big center" alt="Highlight Bad Words in Vim"/>
+<div class="caption">Highlight Bad Words in Vim</div>
+
+
+<%= partial "layouts/shared/newsletter" %>
+

@@ -64,4 +64,13 @@ task :s => :b do
   system 'middleman s'
 end
 
+require 'sweetie'
+
+desc 'write stats in the config.rb file'
+task :create_stati do
+  sweetie = Sweetie::Conversion.new('./build', './config.rb')
+  sweetie.create_stati
+end
+
+
 task :default => :s

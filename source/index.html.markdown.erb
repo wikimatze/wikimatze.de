@@ -1,18 +1,33 @@
 ---
-description: Writings, and talks by Matthias Günther. Günther works as a developer and agile coach at MyHammer, loves painting Warhammer figures, writing, giving talks, and enjoys making cakes.
+title: wikimatze
+nav: home
 ---
-<a href="https://www.softcover.io/books/fd219c19/padrinobook" title="PadrinoBook" class="center" target="_blank"><img id="padrino" src="https://farm8.staticflickr.com/7016/13441187154_58d220c784_o_d.png" alt="PadrinoBook"/></a>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="columns is-vcentered">
+        <div class="column is-6">
+          <a href="https://padrinobook.com/">
+            <img src="https://farm8.staticflickr.com/7016/13441187154_8cfa735cb7_z_d.jpg" alt="Description">
+          </a>
+        </div>
+        <div class="column is-6">
+          <h1 class="title is-2">
+            Padrino Book
+          </h1>
+          <p>
+            I'm writing a book about the web framework <a href="http://www.padrinorb.com/">Padrino</a>. It is other than <a href="http://rubyonrails.org/">Rails</a>, more light weight, flexible, powerful, and fast. You can learn more about it under <a href="https://padrinobook.com">padrinobook.com</a>.
+          </p>
+          <br>
+          <p class="has-text-centered">
+          <a class="button is-medium is-info is-outlined" href="https://padrinobook.com/">
+            Learn more
+          </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-I'm writing a book about the web framework [Padrino](http://www.padrinorb.com/). It is other than [Rails](http://rubyonrails.org/), more light weight, flexible, powerful, and fast. You can learn more about it under [padrinobook.com](https://padrinobook.com).
-
-<%= partial "layouts/shared/newsletter" %>
-
-<!--
-<h2>Categories</h2>
-<ul>
-  <% all_categories.each do |category, articles| %>
-    <li><%= link_to "#{category} (#{articles.size})", category_path(category) %></li>
-  <% end %>
-</ul>
--->
+<div class="container content">
+  <%= partial "layouts/shared/newsletter" %>
+</div>

@@ -2,17 +2,27 @@
 <div class="default alert">
   <h4>Learn more about Padrino Book? Sign Up!</h4>
   <br>
-  <link href="https://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+  <link href="https://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet">
+  <style>
+    #mc_embed_signup {
+      background:#fff; clear:left; font: 14px Helvetica,Arial,sans-serif;
+    }
   </style>
-  <div id="mc_embed_signup">
-  <form action="https://wikimatze.us6.list-manage.com/subscribe/post?u=4010f8ce18503766e176536f1&amp;id=198f8c0321" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button pretty medium info btn"></div>
+  <form id="contact-form" action="https://wikimatze.us6.list-manage.com/subscribe/post?u=4010f8ce18503766e176536f1&amp;id=198f8c0321" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" novalidate>
+    <div class="field">
+      <label for="form-email" class="label">Email</label>
+      <div class="control has-icons-left">
+        <input class="input" id="mce-EMAIL" class="email" name="EMAIL" placeholder="Email" value="" type="email" required>
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button is-large is-link">Send</button>
+      </div>
+    </div>
   </form>
-  </div>
 </div>
 <br>
