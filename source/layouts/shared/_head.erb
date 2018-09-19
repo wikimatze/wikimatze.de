@@ -34,19 +34,10 @@
     <meta name="twitter:url" content="https://twitter.com/wikimatze" />
     <meta name="twitter:image:src" content="<%= current_page.data.twitter_src || icke %>" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16" />
-    <link rel="manifest" href="/images/favicons/manifest.json" />
-    <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" />
-    <link rel="shortcut icon" href="/images/favicons/favicon.ico" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png" />
-    <meta name="msapplication-config" content="/images/favicons/browserconfig.xml" />
-    <meta name="theme-color" content="#ffffff" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
 
-    <link rel="alternate" type="application/rss+xml" title="Blog feed for wikimatze.de" href="https://www.feedio.co/@wikimatze/feed" />
-    <%= stylesheet_link_tag "site"  %>
+    <link rel="alternate" type="application/rss+xml" title="Blog feed for wikimatze.de" href="https://www.feedio.co/@wikimatze/feed" >
+    <%= stylesheet_link_tag "site" %>
     <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" %>
     <% if current_resource.data[:appsumo] %>
     <script src="//load.sumome.com/" data-sumo-site-id="b5cbfbe08511fedd10d8c2a0ce5af716a684c1b561e22a84244d5d6913c6c041" async="async"></script>
