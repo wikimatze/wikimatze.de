@@ -55,7 +55,7 @@ end
 
 task :b do
   puts 'Building middleman ..'.bold.green
-  system 'middleman b'
+  system 'middleman b -e development'
 end
 
 desc 'Startup Middleman'
