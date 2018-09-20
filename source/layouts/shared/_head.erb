@@ -42,7 +42,7 @@
     <% else %>
     <%= stylesheet_link_tag "site" %>
     <% end %>
-    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" %>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.1/anchor.min.js"></script>
     <% if current_resource.data[:appsumo] %>
     <script src="//load.sumome.com/" data-sumo-site-id="b5cbfbe08511fedd10d8c2a0ce5af716a684c1b561e22a84244d5d6913c6c041" async="async"></script>
     <% end %>

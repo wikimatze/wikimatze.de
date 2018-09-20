@@ -12,16 +12,6 @@
     <% if !app.development? %>
     <%= motomo %>
     <% end %>
-    <script>
-      anchors.add();
-      (function() {
-      var burger = document.querySelector('.burger');
-      var menu = document.querySelector('#'+burger.dataset.target);
-      burger.addEventListener('click', function() {
-          burger.classList.toggle('is-active');
-          menu.classList.toggle('is-active');
-      });
-      })();
-    </script>
+    <script async src="/javascripts/burger_menue_navigation.js"></script>
   </body>
 </html>
