@@ -55,7 +55,8 @@ end
 
 task :b do
   puts 'Building middleman ..'.bold.green
-  system 'middleman b -e development'
+  system "cp build/stylesheets/site.css source/stylesheets/application.css"
+  system 'middleman b'
 end
 
 desc 'Startup Middleman'
