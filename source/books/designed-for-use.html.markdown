@@ -1,5 +1,5 @@
 ---
-title: Designed for Use - Create Usable Interfaces for Applications and the Web
+title: Designed for Use - Create Usable Interfaces
 nav: reading
 ---
 

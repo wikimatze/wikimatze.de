@@ -1,5 +1,5 @@
 ---
-title:  Scaling Lean & Agile Development by Craig Larman and Bas Vodde
+title: Scaling Lean & Agile Development by Craig Larman Bas Vodde
 nav: reading
 ---
 
