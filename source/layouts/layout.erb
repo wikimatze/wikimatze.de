@@ -10,8 +10,11 @@
     </div>
     <%= partial "layouts/shared/footer" %>
     <% if !app.development? %>
-    <%= motomo %>
+      <%= motomo %>
     <% end %>
-    <script async src="/javascripts/burger_menue_navigation.js"></script>
+    <script defer>
+    <%= sitemap.resources.find{|r| r.source_file.match('anchor.js')}.render %>
+    <%= sitemap.resources.find{|r| r.source_file.match('application.js')}.render %>
+    </script>
   </body>
 </html>
