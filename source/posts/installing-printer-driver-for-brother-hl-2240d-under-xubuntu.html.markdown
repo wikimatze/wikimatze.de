@@ -1,12 +1,12 @@
 ---
 title: Installing Printer Driver For Brother HL-2240D Under Xubuntu
 date: 2014-09-30
-updated: 2015-09-14
-description: Sometimes you need a printer today and this blog post is a reminder for me
+updated: 2018-09-22
+description: You can go and install the default printer driver but that will not work for Duplex Printer under Xubuntu. The best choice is to install the official Brother tools for Linux.  Sometimes you need a printer today and this blog post is a reminder for me
 categories: xubuntu linux
 ---
 
-You can go and install the default printer driver but that will not work for Duplex Printer under Xubuntu. The best choice is to install the official Brother Tools for Linux.
+You can go and install the default printer driver but that will not work for Duplex Printer under Xubuntu. The best choice is to install the official Brother tools for Linux.
 
 
 ## Get the sources

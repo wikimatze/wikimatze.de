@@ -3,7 +3,7 @@ title: Ranger a terminal browser for Vim
 nav: articles
 date: 2016-05-30
 updated: 2017-12-13
-description: Ranger a terminal browser for Vim
+description: Ranger a terminal browser for Vim. Ranger is a file manager with VI key bindings. It provides a minimalistic and nice curses interface with a view on the directory hierarchy. I stumbled upon this tool during a vimberlin meetup.
 categories: vim tool
 ---
 

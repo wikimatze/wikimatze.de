@@ -2,12 +2,13 @@
 title: Vimtex tool for working Vim, tex and Zathura
 nav: articles
 date: 2016-05-15
-description: Vimtex the perfect tool for working with tex and Vim and Zathura
+updated: 2018-09-22
+description: Vimtex the perfect tool for working with tex and Vim and Zathura. In the past I have used first vim-latex for compiling my LaTeX projects. And later on I discoverd vim-latexsuite, which amazed me because of forward searching and backward searching which were totally new to me.
 categories: vim latex tools
 ---
 
 In the past I have used first [vim-latex](https://github.com/jcf/vim-latex "vim-latex") for compiling my LaTeX projects.
-And later on I discoverd [vim-latexsuite](http://vim-latex.sourceforge.net/ "vim-latexsuite"), wich amazed me because of
+And later on I discovered [vim-latexsuite](http://vim-latex.sourceforge.net/ "vim-latexsuite"), which amazed me because of
 [forward searching](http://vim-latex.sourceforge.net/documentation/latex-suite/forward-searching.html "forward searching")
 and [backward searching](http://vim.wikia.com/wiki/Backward_search_for_LaTeX_documents "backward searching") which were
 totally new to me. Then the config stopped working for me when I updated vim.

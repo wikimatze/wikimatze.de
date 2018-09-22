@@ -2,7 +2,7 @@
 title: Talk about Weechat another IRC client
 nav: articles
 date: 2016-06-09
-description: Talk about Weechat another IRC client
+description: Talk about Weechat another IRC client. Follow me through my travel exploring the way to get Vim and Git running in a friendly coexistence.  Here are the slides of the talk.
 categories: talk tool
 ---
 

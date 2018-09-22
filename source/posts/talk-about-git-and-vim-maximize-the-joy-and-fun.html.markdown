@@ -1,7 +1,7 @@
 ---
 title: Talk about Git and Vim - maximize the joy and fun
 date: 2015-02-03
-description: Talk about Git and Vim - maximize the joy and fun
+description: Talk about Git and Vim - maximize the joy and fun. Follow me through my travel exploring the way to get Vim and Git running in a friendly coexistence.
 categories: vim, talk
 ---
 

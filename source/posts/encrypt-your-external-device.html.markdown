@@ -2,7 +2,7 @@
 title: Encrypt Your External Device
 date: 2015-05-05
 updated: 2015-01-26
-description: Encrypt your external device
+description: I recently bought a new External Hardware with 2 TB space Transcend StoreJet 25M3 Anti-Shock 2TB and I use it as a backup for my music, images, and all other documents. I always wanted to encrypt my whole device so here is how I started my journey. First let’s check where our newly plugged in device can be found.
 categories: encrypt device ops
 ---
 
