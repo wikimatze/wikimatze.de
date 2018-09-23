@@ -1,14 +1,14 @@
 ---
 title: Global Coderetreat 2011 in Berlin
 date: 2011-12-04
-updated: 2014-11-20
+updated: 2018-09-22
 categories: learning programming
 ---
 
 I attended the [**Global Coderetreat**](http://coderetreat.org/) event initialized by [Corey Haines](http://coreyhaines.com/). The general purpose of this event was to get a bunch of hackers together to implement [Conway's Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life).
 
 
-<img src="http://farm8.staticflickr.com/7029/6452198253_ca6e01b7f4_b.jpg" class="center" alt="Coderetreat@Immobilienscout - Photo was taken from http://www.flickr.com/photos/60906583@N08/6452198253/"/></a>
+<img src="http://farm8.staticflickr.com/7029/6452198253_ca6e01b7f4_b.jpg" class="center" alt="Coderetreat@Immobilienscout - Photo was taken from http://www.flickr.com/photos/60906583@N08/6452198253/"/>
 
 
 ## Setting up goals

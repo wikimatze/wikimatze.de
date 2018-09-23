@@ -1,10 +1,9 @@
 ---
 title: Getting started with RSpec Puppet
 date: 2012-09-27
-updated: 2014-11-20
+updated: 2018-09-22
 categories: ruby howto
 ---
-
 <blockquote>
   <p>You never improve if you can't change at all.</p>
   <strong>Tom DeMarco</strong>
@@ -14,7 +13,7 @@ categories: ruby howto
 Writing your service configuration with Puppet can be easy. But when it comes to debugging, it can be very difficult to edit things and to find certain errors. This article presents your the basic of setting up your environment for testing Puppet modules in a BDD way.
 
 
-<img src="https://farm9.staticflickr.com/8291/7804199724_37c12fbbc0_b.jpg" class="center" alt="Prevention of bad code with tests."/></a>
+<img src="https://farm9.staticflickr.com/8291/7804199724_37c12fbbc0_b.jpg" class="center" alt="Prevention of bad code with tests."/>
 <div class="caption">Prevention of bad code with tests.</div>
 
 
