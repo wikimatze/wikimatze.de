@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="field">
               <label for="form-email" class="label"><?php echo $config->get('fields.email'); ?></label>
               <div class="control has-icons-left">
-                <input type="email" class="input" id="form-email" name="form-email" placeholder="<?php echo $config->get('fields.email'); ?>" required>
+                <input type="email" class="input" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" id="form-email" name="form-email" placeholder="<?php echo $config->get('fields.email'); ?>" required>
                 <span class="icon is-small is-left">
                   <i class="fas fa-envelope"></i>
                 </span>
@@ -117,19 +117,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <%= partial "layouts/shared/footer" %>
 
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
-    <script type="text/javascript" src="mail/public/js/contact-form.js"></script>
-    <script type="text/javascript">
-        new ContactForm('#contact-form');
+    <% if !app.development? %>
+      <%= motomo %>
+    <% end %>
+    <script>
+    <%= sitemap.resources.find{|r| r.source_file.match('anchor.js')}.render %>
+    <%= sitemap.resources.find{|r| r.source_file.match('application.js')}.render %>
+    </script>
 
-      (function() {
-      var burger = document.querySelector('.burger');
-      var menu = document.querySelector('#'+burger.dataset.target);
-      burger.addEventListener('click', function() {
-          burger.classList.toggle('is-active');
-          menu.classList.toggle('is-active');
-      });
-      })();
+    <script defer type="text/javascript" src="mail/public/js/contact-form.js"></script>
     </script>
   </body>
 </html>

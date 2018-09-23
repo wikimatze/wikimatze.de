@@ -1,93 +1,30 @@
-(function (root, factory) {
-    'use strict';
+document.querySelector("#form-email").addEventListener("invalid", function(){
+  document.getElementById('form-email').setAttribute("class","input is-danger");
+});
 
-    if (typeof define === 'function' && define.amd) {
-        define([], factory);
-    } else if (typeof exports === 'object') {
-        module.exports = factory();
-    } else {
-        root.ContactForm = factory();
-    }
-}(this, function () {
-    'use strict';
+document.querySelector("#form-email").addEventListener('input', function () {
+  if (document.querySelector("#form-email").validity.valid) {
+    document.getElementById('form-email').setAttribute("class","input is-success");
+  }
+});
 
-    var ContactForm = function (target) {
-        if (!this || !(this instanceof ContactForm)) {
-            return new ContactForm(target);
-        }
+document.querySelector("#form-subject").addEventListener("invalid", function(){
+  document.getElementById('form-subject').setAttribute("class","input is-danger");
+});
 
-        this.form = target instanceof Node ? target : document.querySelector(target);
+document.querySelector("#form-subject").addEventListener('input', function () {
+  if (document.querySelector("#form-subject").validity.valid) {
+    document.getElementById('form-subject').setAttribute("class","input is-success");
+  }
+});
 
-        if (this.form === null) {
-            return;
-        }
+document.querySelector("#form-message").addEventListener("invalid", function(){
+  document.getElementById('form-message').setAttribute("class","textarea is-danger");
+});
 
-        this.init();
-    };
+document.querySelector("#form-message").addEventListener('input', function () {
+  if (document.querySelector("#form-message").validity.valid) {
+    document.getElementById('form-message').setAttribute("class","textarea is-success");
+  }
+});
 
-    ContactForm.prototype = {
-        hasClass: function (el, name) {
-            return new RegExp('(\\s|^)' + name + '(\\s|$)').test(el.className);
-        },
-        addClass: function (el, name) {
-            if (!this.hasClass(el, name)) {
-                el.className += (el.className ? ' ' : '') + name;
-            }
-        },
-        addError: function (el) {
-            return this.addClass(el.parentNode, 'has-error');
-        },
-        removeClass: function (el, name) {
-            if (this.hasClass(el, name)) {
-                el.className = el.className.replace(new RegExp('(\\s|^)' + name + '(\\s|$)'), ' ').replace(/^\s+|\s+$/g, '');
-            }
-        },
-        validate: function () {
-            var elements = Array.prototype.slice.call(document.querySelectorAll('.form-control'));
-
-            this.form.addEventListener('submit', function(e) {
-                if (!event.target.checkValidity()) {
-                    e.preventDefault();
-
-                    elements.map(function(element) {
-                        if (this.hasClass(element.parentNode, 'has-error')) {
-                            this.removeClass(element.parentNode, 'has-error');
-                        }
-                    }.bind(this));
-
-                    var hasError = false,
-                        email    = document.querySelector('#form-email'),
-                        subject  = document.querySelector('#form-subject'),
-                        message  = document.querySelector('#form-message'),
-                        // @from: https://html.spec.whatwg.org/multipage/forms.html#e-mail-state-(type=email)
-                        testmail = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-
-                    if (!testmail.test(email.value)) {
-                        hasError = true;
-                        this.addError(email);
-                    }
-
-                    if (subject.value === '') {
-                        hasError = true;
-                        this.addError(subject);
-                    }
-
-                    if (message.value === '') {
-                        hasError = true;
-                        this.addError(message);
-                    }
-
-                    if (hasError === false) {
-                        this.form.submit();
-                    }
-                }
-            }.bind(this), false);
-        },
-        init: function () {
-            document.addEventListener('DOMContentLoaded', this.validate.bind(this), false);
-        }
-    };
-
-
-    return ContactForm;
-}));
