@@ -1,22 +1,22 @@
 <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <span id="title">
-            <a class="navbar-item" href="/"> wikimatze</a>
-          </span>
-          <span class="navbar-burger burger" data-target="navbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </div>
-        <div id="navbarMenu" class="navbar-menu">
-          <div class="navbar-end">
-            <a class="navbar-item <%="is-active" if current?("home") %>" href="/">Home</a>
-            <a class="navbar-item <%="is-active" if current?("articles") %>" href="/articles" title="Overview of latest articles">Articles</a>
-            <a class="navbar-item <%= "is-active" if current?("about") %>" href="/about" title="Some words about me">About</a>
-            <a class="navbar-item <%= "is-active" if current?("contact") %>" href="/mail.php" title="Contact me">Contact</a>
-          </div>
-        </div>
+  <div class="container">
+    <div class="navbar-brand">
+      <span id="title">
+        <a class="navbar-item" href="/"> wikimatze</a>
+      </span>
+      <span class="navbar-burger burger" data-target="navbarMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </div>
+    <div id="navbarMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item <%="is-active" if current?("home") %>" href="/">Home</a>
+        <a class="navbar-item <%="is-active" if current?("articles") %>" href="/articles" title="Overview of latest articles">Articles</a>
+        <a class="navbar-item <%="is-active" if current?("about") %>" href="/about" title="Some words about me">About</a>
+        <a class="navbar-item <%="is-active" if current?("contact") %>" href="/mail.php" title="Contact me">Contact</a>
       </div>
-    </nav>
+    </div>
+  </div>
+</nav>

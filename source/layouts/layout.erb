@@ -5,14 +5,12 @@
   </head>
   <body>
     <%= partial "layouts/shared/navbar" %>
-    <div class="container content">
-      <%= yield %>
-    </div>
+    <div class="container content"><%= yield %></div>
     <%= partial "layouts/shared/footer" %>
     <% if !app.development? %>
       <%= motomo %>
     <% end %>
-    <script defer>
+    <script>
     <%= sitemap.resources.find{|r| r.source_file.match('anchor.js')}.render %>
     <%= sitemap.resources.find{|r| r.source_file.match('application.js')}.render %>
     </script>
