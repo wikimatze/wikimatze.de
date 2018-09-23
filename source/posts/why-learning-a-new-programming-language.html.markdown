@@ -310,7 +310,7 @@ This was my first essay. I tried to cover the things which whom I'm actually dea
 - [Ruby on Rails](http://rubyonrails.org/screencasts)
 - [Scala](http://www.scala-lang.org/)
 - [Text-Driven Development](http://en.wikipedia.org/wiki/Test-driven_development)
-- [The Linux commandline](http://gd.tuwien.ac.at/linuxcommand.org/tlcl.php)
+- [The Linux commandline](http://linuxcommand.org/tlcl.php)
 - [The Passionate Programmer](http://www.pragprog.com/titles/cfcar2/the-passionate-programmer )
 - [generic](http://en.wikipedia.org/wiki/Generic_programming#Templates_in_C.2B.2B)
 - [pointer](http://en.wikipedia.org/wiki/Pointer_%28computing%29)
