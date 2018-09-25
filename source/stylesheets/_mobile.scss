@@ -1,16 +1,18 @@
-@media screen and (max-width: 1023px) {
+@media (max-width: 900px) {
   footer {
-    p {
-      color: white;
-    }
-    svg.fa-copyright, span.copyright {
+    span.copyright,
+    span.footer-separater,
+    a.footer-desktop,
+    i.fa-copyright {
       display: none;
     }
-  }
-  footer.footer a {
-    display: block;
-    margin-top: 10px;
-    font-size: 25px;
+
+    a {
+      display: block;
+      margin-top: 10px;
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
   }
 }
 
@@ -105,26 +107,41 @@
     font-size: 99% !important;
   }
 
-  h1.lead {
-    font-size: 2.0rem;
+  .content {
+    h1 {
+      &.lead {
+        font-size: 2.1rem;
+        font-family: Helvetica,Arial,sans-serif;
+      }
+      &.news {
+        font-size: 1.6rem;
+        font-family: Helvetica,Arial,sans-serif;
+      }
+    }
+    h2 {
+      font-size: 1.8rem;
+      border-left: none;
+      font-family: Helvetica,Arial,sans-serif;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-family: Helvetica,Arial,sans-serif;
+    }
+    h4 {
+      font-size: 1.4rem;
+      font-family: Helvetica,Arial,sans-serif;
+    }
   }
 
-  .content h2 {
-    font-size: 1.8rem;
-    border-left: none;
-  }
-
-  .content h3 {
-    font-size: 1.5rem
-  }
-
-  .share a {
-    display: block;
-    font-size: 2.2rem;
-    margin: 1rem -1.7rem 1.6rem 3.9rem;
-  }
-  .share h4 {
-    font-size: 1.9rem;
+  .share {
+    a {
+      display: block;
+      font-size: 2.2rem;
+      margin: 1rem -1.7rem 1.6rem 3.9rem;
+    }
+    h4 {
+      font-size: 1.9rem;
+    }
   }
 
   img.center {
@@ -176,6 +193,10 @@
 
   .share a {
     margin: 1rem -3.7rem 1.6rem 5.3rem;
+  }
+
+  h1.news {
+    font-size: 1.6rem;
   }
 
   #contact-form {
