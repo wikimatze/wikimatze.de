@@ -14,5 +14,6 @@
     <%= sitemap.resources.find{|r| r.source_file.match('anchor.js')}.render %>
     <%= sitemap.resources.find{|r| r.source_file.match('application.js')}.render %>
     </script>
+    <script async defer src="/javascripts/lazyload.js"></script>
   </body>
 </html>
