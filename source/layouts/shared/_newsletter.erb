@@ -1,5 +1,3 @@
-<br>
-<br>
 <div class="default alert">
   <br>
   <h4>Learn more about Padrino Book? Sign Up!</h4>
@@ -8,7 +6,7 @@
   <form action="https://subscribe.minutemailer.com/1kdgVZ5W" method="post">
       <div class="field">
         <div class="control has-icons-left">
-          <input class="input" name="email" placeholder="Email" value="" type="email" required>
+          <input id="form-padrinobook-email" class="input" name="email" placeholder="Email" value="" type="email" required>
           <span class="icon is-small is-left">
             <i class="fas fa-envelope"></i>
           </span>
@@ -21,4 +19,16 @@
       </div>
   </form>
 </div>
-<br>
+
+<script>
+document.querySelector("#form-padrinobook-email").addEventListener("invalid", function(){
+  document.getElementById('form-padrinobook-email').setAttribute("class","input is-danger");
+});
+
+document.querySelector("#form-padrinobook-email").addEventListener('input', function () {
+  if (document.querySelector("#form-padrinobook-email").validity.valid) {
+    document.getElementById('form-padrinobook-email').setAttribute("class","input is-success");
+  }
+});
+</script>
+
