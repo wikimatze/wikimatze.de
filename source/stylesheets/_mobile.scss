@@ -40,6 +40,7 @@
   }
 }
 
+
 @media screen and (max-width: 730px) {
   span.written,
   span.reading-time {
@@ -74,6 +75,10 @@
   }
   h3 {
     font-size: 1.4rem
+  }
+
+  .padrinobook-newsletter {
+    margin: 0 0 1rem 0.9rem;
   }
 
   .related {

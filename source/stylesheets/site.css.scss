@@ -20,10 +20,18 @@ body {
   color: #0a0a0a;
 }
 
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
+}
+
 .padrinobook-newsletter {
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 }
+
 // general font-size of body
 .content {
   font-size: 1.20em;
