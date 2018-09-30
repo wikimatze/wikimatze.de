@@ -333,3 +333,6 @@
 
   return AnchorJS;
 }));
+
+anchors.add();
+

@@ -10,8 +10,10 @@
     <% if !app.development? %>
       <%= motomo %>
     <% end %>
+    <% if !current?("home") %>
+    <script src="/javascripts/anchor.js"></script>
+    <% end %>
     <script>
-    <%= sitemap.resources.find{|r| r.source_file.match('anchor.js')}.render %>
     <%= sitemap.resources.find{|r| r.source_file.match('application.js')}.render %>
     </script>
     <script async defer src="/javascripts/lazyload.js"></script>
