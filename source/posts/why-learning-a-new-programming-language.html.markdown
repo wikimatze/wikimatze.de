@@ -13,7 +13,7 @@ categories: learning programming
 The first language I learned was Turbo Pascal. Everything (not only the programs) looked like a great "geek nerving god tool". I quite don't understand what I was doing with Turbo Pascal as my computer science teacher told me to make some simple calculation the perimeter for triangular and other geometric object. It was great to declare your variables and then put them into a function and print line the outcome.  Here are some code snippets:
 
 
-<script src="https://gist.github.com/wikimatze/435584.js"></script>
+<script async defer src="https://gist.github.com/wikimatze/435584.js"></script>
 
 
 Turbo Pascal was my first procedural language and later during my studies I learned in a lecture about compiler construction that this language was developed 1970 by Niklaus Wirth (whom I admire for building such easy and effective techniques like the recursive descendant, but thats another tale). If you want to have this retro feeling check out Ubuntu resources (or other things if you want to stay up).

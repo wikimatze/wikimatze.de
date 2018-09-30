@@ -20,7 +20,7 @@ The topic of my talk: **"We all love Open Source work and Pomodoro will help you
 ## Slides
 
 <br>
-<script src="https://speakerdeck.com/embed/9e6577708e71013090591231391735e3.js"></script>
+<script defer async class="speakerdeck-embed" data-id="9e6577708e71013090591231391735e3" data-ratio="1.70666666666667" src="//speakerdeck.com/assets/embed.js"></script>
 
 You can find the slides on [speakerdeck](httpss://speakerdeck.com/wikimatze/more-time-for-open-source-work-with-the-help-of-the-pomodoro-technique).
 
