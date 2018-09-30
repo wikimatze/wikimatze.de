@@ -16,7 +16,6 @@ page "/mail/**/*", :directory_index => false
 # https://middlemanapp.com/basics/layouts/
 
 # Per-page layout changes
-page '/test.php', layout: false
 page '/mail.php', layout: false
 page '/*.xml', layout: false
 page '/*.json', layout: false
@@ -38,8 +37,8 @@ set :pmwiki_linkicons_recipe, '2013-01-20'
 set :pmwiki_headlineimage_recipe, '2013-01-20'
 
 # page stats
-set :build, '4-8-2018'
-set :images, 76
+set :build, '9-30-2018'
+set :images, 75
 set :htmlpages, 102
 set :links, 606
 
@@ -80,7 +79,6 @@ set :markdown,
   footnotes: true,
   link_attributes: { rel: 'nofollow' },
   tables: true
-
 
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
