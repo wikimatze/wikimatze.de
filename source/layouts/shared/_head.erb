@@ -4,8 +4,11 @@
     <title><%= current_page.data.title || title %></title>
     <meta name="description" content="<%= current_page.data.description || description %>">
     <meta name="author" content="<%= author %>">
+    <% if !app.development? %>
+    <meta name="robots" content="index,folow"/>
+    <% else %>
     <meta name="robots" content="noodp"/>
-
+    <% end %>
     <link rel="canonical" href="<%= host %><%= current_page.url %>" />
 
     <meta property="og:locale" content="en_US"  />
@@ -43,7 +46,7 @@
     <%= stylesheet_link_tag "site" %>
     <% end %>
 
-    <% if current_resource.data[:appsumo] %>
+    <% if current_resource.data[:appsumo] && !app.development?%>
     <script async src="//load.sumome.com/" data-sumo-site-id="b5cbfbe08511fedd10d8c2a0ce5af716a684c1b561e22a84244d5d6913c6c041"></script>
     <% end %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" onload="if(media!=='all')media='all'" >
