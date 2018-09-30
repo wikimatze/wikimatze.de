@@ -28,9 +28,7 @@
 
     <%= partial "layouts/shared/share" %>
 
-    <% if !development? %>
-      <div id="hashover"></div>
-      <script async defer src="/hashover.php"></script>
-    <% end %>
+    <div id="hashover"></div>
+    <script defer src="/hashover.php"></script>
   </article>
 <% end %>
