@@ -1,5 +1,6 @@
 ---
 title: Github Two-Factor Authentication Failed For HTTPS
+nav: articles
 date: 2014-03-27
 updated: 2014-11-20
 categories: git learning

@@ -1,5 +1,6 @@
 ---
 title: Why I use Jekyll for blogging
+nav: articles
 date: 2011-07-03
 updated: 2014-11-20
 categories: writing

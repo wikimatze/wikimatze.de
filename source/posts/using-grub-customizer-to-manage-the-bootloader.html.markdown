@@ -1,5 +1,6 @@
 ---
 title: Using Grub Customizer to manage the Bootloader
+nav: articles
 date: 2015-07-09
 description: Using Grub Customizer to manage the Bootloader. I have Xubuntu and Windows installed on my machine. When booting my machine I can switch between those two systems. (This article was written for Xubuntu 14.04 and runs grub-customizer 4.06.)
 categories: linux, howto

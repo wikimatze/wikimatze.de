@@ -1,5 +1,6 @@
 ---
 title: Global Gitignore
+nav: articles
 date: 2014-04-08
 updated: 2014-11-20
 categories: git learning

@@ -1,5 +1,6 @@
 ---
 title: Speaking at Ruby Midwest 2013
+nav: articles
 date: 2013-02-12
 updated: 2014-11-20
 categories: talk

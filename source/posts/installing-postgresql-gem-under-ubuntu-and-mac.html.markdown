@@ -1,5 +1,6 @@
 ---
 title: Installing PostgreSQL gem under Ubuntu and Mac
+nav: articles
 date: 2012-02-26
 updated: 2014-12-20
 categories: howto

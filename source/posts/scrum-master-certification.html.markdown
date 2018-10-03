@@ -1,5 +1,6 @@
 ---
 title: Scrum Master Certification
+nav: articles
 date: 2015-07-24
 description: Prepare for Professional Scrum Master Certificate. I had the pleasure to become a Certified ScrumMaster and did an advanced Certified ScrumMaster workshop at it-agile in Hamburg. Before and after the coaching (and even) before, you have to prepare yourself for the exam and learn more Scrum.
 categories: scrum learning agile-coach it-agile

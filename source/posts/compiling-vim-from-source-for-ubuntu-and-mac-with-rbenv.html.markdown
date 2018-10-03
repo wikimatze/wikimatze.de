@@ -1,5 +1,6 @@
 ---
 title: Compiling Vim for Linux/Mac with ruby and python support
+nav: articles
 date: 2012-02-19
 updated: 2019-09-20
 categories: vim linux ruby howto

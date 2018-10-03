@@ -1,5 +1,6 @@
 ---
 title: Benefits of Scala
+nav: articles
 date: 2011-10-29
 updated: 2014-11-20
 categories: programming

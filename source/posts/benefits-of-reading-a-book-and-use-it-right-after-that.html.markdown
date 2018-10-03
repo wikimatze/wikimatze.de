@@ -1,5 +1,6 @@
 ---
 title: Benefits of reading a book - and use it right after that
+nav: articles
 date: 2011-10-15
 updated: 2014-11-20
 categories: learning reading

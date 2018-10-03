@@ -1,5 +1,6 @@
 ---
 title: SMART principle
+nav: articles
 date: 2012-01-12
 updated: 2014-11-20
 categories: learning

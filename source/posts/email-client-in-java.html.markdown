@@ -1,5 +1,6 @@
 ---
 title: Mail Client in Java
+nav: articles
 date: 2011-10-22
 updated: 2014-11-20
 categories: programming howto

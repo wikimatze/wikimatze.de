@@ -1,5 +1,6 @@
 ---
 title: Using Hub for faster Open-Source contribution
+nav: articles
 date: 2013-06-04
 updated: 2018-09-20
 categories: howto programming learning git

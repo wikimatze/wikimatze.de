@@ -1,5 +1,6 @@
 ---
 title: Getting started with RSpec Puppet
+nav: articles
 date: 2012-09-27
 updated: 2018-09-22
 categories: ruby howto

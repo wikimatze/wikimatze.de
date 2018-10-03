@@ -1,5 +1,6 @@
 ---
 title: Why learning a new programming language
+nav: articles
 date: 2011-10-08
 updated: 2014-11-20
 categories: learning programming

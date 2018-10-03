@@ -1,5 +1,6 @@
 ---
 title: RespImgPageCache not found in cache.inc file for Drupal
+nav: articles
 date: 2014-06-05
 categories: php drupal
 ---

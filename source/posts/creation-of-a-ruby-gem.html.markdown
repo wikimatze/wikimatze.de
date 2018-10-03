@@ -1,5 +1,6 @@
 ---
 title: Creation of a Ruby Gem
+nav: articles
 date: 2012-06-07
 updated: 2014-11-20
 categories: ruby programming

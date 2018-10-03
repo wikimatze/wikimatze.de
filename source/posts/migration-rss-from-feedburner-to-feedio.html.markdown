@@ -1,5 +1,6 @@
 ---
 title: Migration RSS from FeedBurner to Feedio
+nav: articles
 date: 2016-04-21
 description: I was wondering - FeedBurner was acquired around 2011 by Google. Google announced that the feedburner API is going to be no longer available.  My intent to use this tool was to track how many people sign up and how many people subscribed to it.
 categories: rss

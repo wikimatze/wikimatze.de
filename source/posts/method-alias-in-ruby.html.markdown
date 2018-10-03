@@ -1,5 +1,6 @@
 ---
 title: Method alias in ruby
+nav: articles
 date: 2011-10-01
 updated: 2014-11-20
 categories: ruby programming

@@ -1,5 +1,6 @@
 ---
 title: Global Coderetreat 2011 in Berlin
+nav: articles
 date: 2011-12-04
 updated: 2018-09-22
 categories: learning programming

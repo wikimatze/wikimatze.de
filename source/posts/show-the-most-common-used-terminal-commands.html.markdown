@@ -1,5 +1,6 @@
 ---
 title: Show the most common used terminal commands
+nav: articles
 date: 2014-11-12
 updated: 2014-11-20
 description: Show the most common used terminal commands for bash and zsh, thanks @r00k and @jayeff for the inspiration

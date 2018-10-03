@@ -1,5 +1,6 @@
 ---
 title: Checking your HDD
+nav: articles
 date: 2012-07-12
 updated: 2017-01-21
 categories: howto linux learning

@@ -1,5 +1,6 @@
 ---
 title: Searching Haml files with ack
+nav: articles
 date: 2012-05-14
 updated: 2014-11-20
 categories: vim
