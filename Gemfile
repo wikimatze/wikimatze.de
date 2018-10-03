@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 
+gem 'middleman', '~> 4.2'
+gem 'middleman-autoprefixer', '~> 2.7'
+gem 'middleman-livereload', '~> 3.4.3'
+gem 'middleman-syntax', '~> 3.0.0'
+gem 'middleman-blog'
+
+gem 'motomo-middleman', :path => '~/git/motomo-middleman'
 gem 'sweetie', :path => '~/git/sweetie'
 
-# Middleman Gems
-gem 'middleman', '3.4.1'
-gem 'middleman-blog'
-gem 'middleman-livereload'
-gem 'middleman-piwik'
-gem 'middleman-search_engine_sitemap'
-gem 'middleman-syntax'
 
 # For feed.xml.builder
 gem 'builder'
@@ -18,4 +18,4 @@ gem 'fileutils'
 gem 'rake'
 gem 'readingtime'
 gem 'redcarpet'
-gem 'stringex'
+

@@ -1,7 +1,7 @@
 # www.robotstxt.org/
-# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
+# www.google.com/nswer=156449
 User-agent: *
-Disallow: Sitemap: http://www.feedio.co/@wikimatze/feed
 Disallow: /*.js
 Disallow: /*.css
+Sitemap: https://www.wikimatze.de/sitemap.xml
 

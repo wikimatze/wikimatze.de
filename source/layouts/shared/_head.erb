@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= current_page.data.title || title %></title>
+    <meta name="description" content="<%= current_page.data.description || description %>">
+    <meta name="author" content="<%= author %>">
+    <% if !development? %>
+    <meta name="robots" content="index,folow"/>
+    <% else %>
+    <meta name="robots" content="noodp"/>
+    <% end %>
+    <link rel="canonical" href="<%= host %><%= current_page.url %>" />
+
+    <meta property="og:locale" content="en_US"  />
+    <meta property="og:site_name" content="<%= host_simplegraph %>"  />
+    <meta property="og:title" content="<%= current_page.data[:title] || title %>" />
+    <meta property="og:description" content="<%= current_page.data[:description] || description %>" />
+    <meta property="og:url" content="<%= host %><%= current_page.url %>" />
+    <meta property="og:type" content="<%= current_page_type %>" />
+    <meta property="og:image" content="<%= current_page.data[:facebook_src] || icke %>" />
+    <% if updated? %>
+    <meta property="og:updated_time" content="<%= current_page.data[:updated] %>" />
+    <meta property="article:modified_time" content="<%= current_page.data[:updated] %>" />
+    <% else %>
+    <meta property="og:updated_time" content="<%= app.config[:build] %>" />
+    <% end %>
+    <% if date? %>
+    <meta property="article:published_time" content="<%= current_page.data[:date] %>" />
+    <% end %>
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="<%= twitter_card_creator %>" />
+    <meta name="twitter:site" content="<%= twitter_card_creator %>" />
+    <meta name="twitter:title" content="<%= current_page.data[:title] || title %>" />
+    <meta name="twitter:description" content="<%= current_page.data[:description] || description %>" />
+    <meta name="twitter:url" content="https://twitter.com/wikimatze" />
+    <meta name="twitter:image:src" content="<%= current_page.data.twitter_src || icke %>" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <link rel="alternate" type="application/rss+xml" title="Blog feed for wikimatze.de" href="https://www.feedio.co/@wikimatze/feed" >
+    <% if !development? %>
+    <style><%= sitemap.resources.find{|r| r.source_file.match('application.css')}.render %></style>
+    <% else %>
+    <%= stylesheet_link_tag 'application' %>
+    <% end %>
+
+    <% if current_resource.data[:appsumo] && !development?%>
+    <script async src="//load.sumome.com/" data-sumo-site-id="b5cbfbe08511fedd10d8c2a0ce5af716a684c1b561e22a84244d5d6913c6c041"></script>
+    <% end %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" onload="if(media!=='all')media='all'" >

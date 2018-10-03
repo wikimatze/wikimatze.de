@@ -3,7 +3,9 @@
 </header>
 
 <ul>
-  <% all_categories[category].each_with_index do |article, i| %>
-    <li><%= link_to article.title, article %> <span><!--(<%= article.date.strftime('%B %e, %Y') %>)</span></li>-->
+  <% blog.articles.select do |article| %>
+    <% if article.data.categories.include?(category) %>
+      <li><%= link_to article.title, article %></li> <span><!--(<%= article.date.strftime('%B %e, %Y') %>)</span></li>-->
+    <% end %>
   <% end %>
 </ul>

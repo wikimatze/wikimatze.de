@@ -1,42 +1,72 @@
-@media (max-width: 815px) {
+@media (max-width: 900px) {
   footer {
-    display: none;
+    span.copyright,
+    span.footer-separater,
+    a.footer-desktop,
+    i.fa-copyright {
+      display: none;
+    }
+
+    a {
+      display: block;
+      margin-top: 10px;
+      font-size: 25px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .alert.default {
+    border: none;
   }
 }
 
-@media (max-width: 700px) {
-  article {
-    margin-left: -24px;
-  }
-  // hide stuff
-  .prev, .next, .fa-copyright {
-    display: none;
-  }
-  .content {
-    font-size: 1.0em;
-  }
-  #title {
-    font: 500 3.0em 'FFFTusjBold', Arial, sans-serif;
-  }
-  .share  {
-    left: 6%;
-    position: relative;
-    top: 0.5rem;
-  }
-  .share h4 {
-    padding-left: 3px;
-    margin: 0 0 -1.5rem;
-  }
-  .share a {
-    color: #bbc7cc;
-    display: inline-block;
-    font-size: 1.3rem;
-    margin: 0 1.3rem 1.6rem 0;
-    text-decoration: none;
+@media screen and (max-width: 800px) {
+  img {
+    max-width: 85%;
   }
 
-  .lead {
-    font-size: 250%;
+  h1.lead {
+    font-size: 2.5rem;
+  }
+
+  .content {
+    h2 {
+      font-size: 1.9rem;
+      border-left: none;
+    }
+    h3 {
+      font-size: 1.4rem
+    }
+  }
+}
+
+
+@media screen and (max-width: 730px) {
+  span.written,
+  span.reading-time {
+    display: none;
+  }
+  #title {
+    font: 500 2.0em 'FFFTusjBold', Arial, sans-serif;
+  }
+
+
+  .alert.default {
+    border: none;
+  }
+
+  .share {
+    left: 0;
+
+    h2 {
+      font-size: 1.9rem;
+      padding-left: 0;
+      margin-left: 1.2rem;
+    }
+    a {
+      font-size: 2.2rem;
+      margin: 1rem -1.7rem 1.6rem 5rem;
+    }
   }
 
   h2 {
@@ -45,6 +75,10 @@
   }
   h3 {
     font-size: 1.4rem
+  }
+
+  .padrinobook-newsletter {
+    margin: 0 0 1rem 0.9rem;
   }
 
   .related {
@@ -64,30 +98,128 @@
   #hashover form div.cmtbox, #hashover .cmtdiv .cmtbubble {
       margin-left: 1.7rem;
   }
+
+  footer p {
+    color: white;
+  }
+  #contact-form {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 }
 
-@media (max-width: 651px) {
-  .menu-icon {
-    display: inline-block;
-  }
-  .title-bar {
-    font-size: 18px;
-  }
-}
 
-@media (max-width: 550px) {
-  // hide stuff
-  .prev, .next {
+@media screen and (max-width: 550px) {
+  img {
+    max-width: 90%;
+  }
+
+  #title {
     display: none;
   }
+  html {
+    font-size: 99% !important;
+  }
+
+  .content {
+    h1 {
+      &.lead {
+        font-size: 2.1rem;
+        font-family: Helvetica,Arial,sans-serif;
+      }
+      &.news {
+        font-size: 1.6rem;
+        font-family: Helvetica,Arial,sans-serif;
+      }
+    }
+    h2 {
+      font-size: 1.8rem;
+      border-left: none;
+      font-family: Helvetica,Arial,sans-serif;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-family: Helvetica,Arial,sans-serif;
+    }
+    h4 {
+      font-size: 1.4rem;
+      font-family: Helvetica,Arial,sans-serif;
+    }
+  }
+
+  .share {
+    left: 0;
+
+    h2 {
+      font-size: 1.9rem;
+      padding-left: 0;
+      margin-left: 1.2rem;
+    }
+    a {
+      font-size: 2.2rem;
+      margin: 1rem -1.7rem 1.6rem 4rem;
+    }
+  }
+
+  img.center {
+    margin: 0;
+  }
+
+  #contact-form {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media screen and (max-device-width: 480px) {
   #title {
-    font: 500 2.0em 'FFFTusjBold', Arial, sans-serif;
+    display: none;
   }
   html {
     font-size: 105% !important;
   }
-  .share a {
-    margin: 0.8rem 2rem 1.6rem 0;
+
+  .center {
+    margin: 0;
+  }
+
+  span.written,
+  span.reading-time {
+    display: none;
+  }
+
+  footer.footer a {
+    display: block;
+    margin-top: 5px;
+    font-size: 25px;
+  }
+  footer p {
+    color: white;
+  }
+  footer i.author {
+    color: black;
+  }
+
+  h1.news {
+    font-size: 1.6rem;
+  }
+
+  .share {
+    left: 0;
+
+    h2 {
+      font-size: 1.9rem;
+      padding-left: 0;
+      margin-left: 1.4rem;
+    }
+    a {
+      font-size: 2.0rem;
+      margin: 1rem -1.7rem 1.6rem 3.5rem;
+    }
+  }
+
+  #contact-form {
+    margin-left: 15px;
+    margin-right: 15px;
   }
 }
-

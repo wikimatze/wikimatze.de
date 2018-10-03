@@ -1,0 +1,35 @@
+.share  {
+  left: 39%;
+  position: relative;
+  top: 0.5rem;
+}
+
+.share a {
+  color: #bbc7cc;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 1rem 1.3rem 1.6rem 0;
+  text-decoration: none;
+}
+
+.share h4 {
+  padding-left: 33px;
+  margin: 0 0 -1.5rem;
+}
+
+.share .fa-twitter:hover {
+  color: #55acee;
+}
+.share .fa-facebook-f:hover {
+  color: #3b5998;
+}
+.share .fa-reddit-alien:hover {
+  color: #ff5700;
+}
+.share .fa-stumbleupon:hover {
+  color: #eb4823;
+}
+.share .fa-google-plus:hover {
+  color: #d34836;
+}
+

@@ -1,0 +1,53 @@
+#hashover .cmtdiv reply input.btn {
+  width: 82% !important;
+  float: right;
+}
+
+#hashover form input.btn.post_cmt {
+  background: #2ba6cb !important;
+  width: 15rem !important;
+}
+
+#hashover form div textarea {
+  width: 100%;
+}
+
+#hashover form div.cmtbox, #hashover .cmtbubble {
+    background-color: white !important;
+}
+
+#hashover form input.btn.post_cmt {
+  font-size: 1.25rem !important;
+  vertical-align: middle !important;
+  margin: 0 0 1rem 0!important;
+  padding: 0.85em 1em !important;
+  -webkit-appearance: none !important;
+  border: 1px solid transparent !important;
+  border-radius: 3px !important;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out !important;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  background-color: #2ba6cb;
+  color: #fefefe;
+}
+
+#hashover form input.btn.post_cmt:hover, #hashover form input.btn.post_cmt:focus {
+  background-color: #258dad !important;
+  color: #fefefe !important;
+}
+
+#hashover .cmtfont#message {
+  background-color: #2ba6cb !important;
+  border: none !important;
+  color: #fefefe !important;
+}
+
+#message.cmtfont {
+  color: #f35959;
+}
+
+#hashover form div.cmtbox {
+  padding: 0 !important;
+}
+

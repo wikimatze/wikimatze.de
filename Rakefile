@@ -55,7 +55,8 @@ end
 
 task :b do
   puts 'Building middleman ..'.bold.green
-  system 'middleman b'
+  system "cp build/stylesheets/site.css source/stylesheets/application.css"
+  system 'middleman b -e development'
 end
 
 desc 'Startup Middleman'
@@ -63,5 +64,14 @@ task :s => :b do
   puts 'Middleman is finished with building..'.bold.green
   system 'middleman s'
 end
+
+require 'sweetie'
+
+desc 'write stats in the config.rb file'
+task :create_stati do
+  sweetie = Sweetie::Conversion.new('./build', './config.rb')
+  sweetie.create_stati
+end
+
 
 task :default => :s

@@ -1,0 +1,17 @@
+blockquote strong, b {
+  font-weight: bold;
+  line-height: inherit;
+  color: #8a8a8a;
+}
+
+blockquote {
+  border-left: 1px solid #cacaca !important;
+  margin: 0 0 1rem 1.7rem;
+  padding: 0.5625rem 1.25rem 0 1.1875rem;
+}
+
+blockquote, blockquote p {
+  color: #8a8a8a;
+  line-height: 1.6;
+}
+

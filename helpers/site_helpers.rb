@@ -5,8 +5,28 @@ module SiteHelpers
     nav == current_resource.data.nav
   end
 
+  def current_page_type
+    if current_resource.data.nav == 'articles'
+      'articles'
+    else
+      'website'
+    end
+  end
+
   def author
-    "Matthias Günther"
+    app.config[:author]
+  end
+
+  def host_simplegraph
+    app.config[:host_simplegraph]
+  end
+
+  def twitter_card_creator
+    app.config[:twitter_card_creator]
+  end
+
+  def host
+    app.config[:host]
   end
 
   def title
@@ -25,8 +45,8 @@ module SiteHelpers
     "https://wikimatze.de#{current_page.url}".chomp('/')
   end
 
-  def update?
-    if current_page.data[:update]
+  def updated?
+    if current_page.data[:updated]
       return true
     end
     return false
@@ -44,33 +64,9 @@ module SiteHelpers
     URI.escape(current_page.data.title)
   end
 
-  # blog-categories
-  def categories(page)
-    category_array(page.data[:categories])
-  end
-
+  # link to blog-categories
   def category_path(category)
     "/category/#{category.parameterize}/index.html"
-  end
-
-  def all_categories
-    @all_categories ||= Hash[all_categories_unsorted.sort]
-  end
-
-  def category_array(categories)
-    (categories || "Uncategorized").split(" ")
-  end
-
-  private
-
-  def all_categories_unsorted
-    Hash.new { [] }.tap do |all_categories|
-      blog.articles.each do |article|
-        categories(article).each do |ac|
-          all_categories[ac] <<= article
-        end
-      end
-    end
   end
 end
 

@@ -1,0 +1,267 @@
+---
+title: Code Coverage Tools For Padrino
+date: 2014-07-24
+updated: 2018-09-22
+description: As long as your application exists, some developers leave others will join. It's good to have some metrics about certain code smells. A code smell is part of your source code which may be the root of a design problem but is not actually a bug. Don't let smells lower the quality of your project.
+categories: padrino ruby
+---
+<%= partial "layouts/shared/book" %>
+
+<%= partial "layouts/shared/newsletter" %>
+
+
+As long as your application exists, some developers leave others will join. It's good to have some metrics about certain code smells. A code smell is part of your source code which may be the root of a design problem but is not actually a bug. It's good to have some tools to be "lord of the smells" for [Padrino](http://www.padrinorb.com/) - don't let smells lower the quality of your project.
+
+
+(Note: This post is tested with [padrino 0.12.2](http://www.padrinorb.com/blog/padrino-0-12-0-activesupport-4-rewritten-reloader-smarter-rendering-and-loads-more), [simplecov 0.9](https://github.com/colszowka/simplecov), [metric_fu 4.11.1](https://github.com/metricfu/metric_fu/), and [ruby 2.1.2p95](https://www.ruby-lang.org/en/news/2013/09/23/ruby-2-1-0-preview1-is-released/))
+
+
+## Available Tools
+
+I will go through the following tools and will explain how you can use them.
+
+- [simplecov](https://github.com/colszowka/simplecov): It will automatically detect the tests you are using Rubies 1.9's [built-in Coverage library](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/coverage/rdoc/Coverage.html) to gather code coverage data.
+- [metric_fu](https://github.com/metricfu/metric_fu/): Creates churn, code smells, and other coverage tools that generate reports about your code.
+- [codeclimate.com](https://codeclimate.com/): Online tool for measuring quality and security for your application.
+
+
+## Simplecov
+
+Add the gem to your `Gemfile`:
+
+
+```ruby
+gem 'simplecov'
+```
+
+
+Next, I want to start the code coverage generation every time I run the tests. So we need to add the following line to the `spec_helper.rb`:
+
+
+```ruby
+require 'simplecov'
+SimpleCov.start
+```
+
+
+And that's all. Next time when you run the tests you can detect lines with the following output:
+
+
+```bash
+Coverage report generated for RSpec to ~/git/job-vacancy/coverage. 209 / 252 LOC (82.94%) covered.
+/
+```
+
+
+After all tests have been passed, you can see the output in the `coverage/index.html` file:
+
+
+<img src="https://farm4.staticflickr.com/3754/13240488444_f4a2a02afc_o.png" class="big center" alt="Simplecover overview without any special configuration"/>
+<div class="caption">Simplecover overview without any special configuration</div>
+
+
+<img src="https://farm8.staticflickr.com/7341/13240163115_7acfa5bab0_o.png" class="big center" alt="Simplecov with an detailed view"/>
+<div class="caption">Clicking on a single class will give you a brief overview which lines are not tested</div>
+
+
+It is also possible to divide parts of your application into several groups. Add options to the `Simplecov.start` block:
+
+
+```ruby
+SimpleCov.start do
+  add_group "Models", "app/models"
+  add_group "Controllers", "app/controllers"
+  add_group "Helpers", "app/helpers"
+  add_group "Mailers", "app/mailers"
+end
+```
+
+
+<img src="https://farm8.staticflickr.com/7302/13240489074_f8fce593fb_o.png" class="big center" alt="Simplecov grouped output"/>
+<div class="caption"> Simplecov - a more structured view of different components</div>
+
+
+## metric_fu
+
+Add the following line to your `Gemfile`:
+
+
+```ruby
+gem 'metric_fu'
+```
+
+
+When this is done you need to start the `metric_fu` command from your command line:
+
+
+```bash
+$ ~/git/job-vacancy: metric_fu
+******* STARTING METRIC reek
+******* ENDING METRIC reek
+******* STARTING METRIC flog
+******* ENDING METRIC flog
+******* STARTING METRIC flay
+******* ENDING METRIC flay
+******* STARTING METRIC saikuro
+******* ENDING METRIC saikuro
+******* STARTING METRIC roodi
+******* ENDING METRIC roodi
+******* STARTING METRIC cane
+******* ENDING METRIC cane
+******* STARTING METRIC churn
+******* ENDING METRIC churn
+******* STARTING METRIC stats
+******* ENDING METRIC stats
+******* STARTING METRIC hotspots
+******* ENDING METRIC hotspots
+******* SAVING REPORTS
+******* GENERATING GRAPHS
+*****Generating graphs
+*****Generating graphs for tmp/metric_fu/_data/20140318.yml
+all done
+```
+
+
+It will generate a `tmp/metric_fu` directory with the following contents:
+
+
+```bash
+tmp/metric_fu
+├── _data
+│   └── 20140318.yml
+├── output
+│   ├── app_app.rb.html
+│   ├── app_controllers_page.rb.html
+│   ├── app_controllers_sessions.rb.html
+│   ├── app_controllers_users.rb.html
+│   ├── app_helpers_page_helper.rb.html
+│   ├── app_helpers_sessions_helper.rb.html
+│   ├── app_helpers_users_helper.rb.html
+│   ├── app_mailers_confirmation.rb.html
+│   ├── app_mailers_registration.rb.html
+│   ├── app_models_job_offer.rb.html
+│   ├── app_models_user_observer.rb.html
+│   ├── app_models_user.rb.html
+│   ├── app_views_application.erb.html
+│   ├── app_views_users_edit.erb.html
+│   ├── app_views_users_new.erb.html
+│   ├── bluff-min.js
+│   ├── cane.html
+│   ├── cane.js
+│   ├── churn.html
+│   ├── excanvas.js
+│   ├── flay.html
+│   ├── flay.js
+│   ├── flog.html
+│   ├── flog.js
+│   ├── Gemfile.html
+│   ├── Gemfile.lock.html
+│   ├── hotspots.html
+│   ├── index.html
+│   ├── js-class.js
+│   ├── lib_tasks_auth_token_attribute.rake.html
+│   ├── reek.html
+│   ├── reek.js
+│   ├── roodi.html
+│   ├── roodi.js
+│   ├── saikuro.html
+│   ├── spec_app_controllers_users_controller_spec.rb.html
+│   ├── stats.html
+│   └── stats.js
+├── report.yml
+└── scratch
+    └── churn
+        └── 873660ae5973b77b09c47d1dcf03577222095d6e.json
+
+4 directories, 41 files
+```
+
+
+The following metrics are created by `cane` can be used if code quality thresholds are met.
+
+
+<img src="https://farm3.staticflickr.com/2828/13240306993_eb90332075_c.jpg" class="big center" alt="Cane metric to measure code quality thresholds."/>
+<div class="caption">Cane metric to measure code quality thresholds.</div>
+
+`churn` measures the change ratio of files and you can use this indicator to have more code review, refactoring, more tests for this **beast of a file**.
+
+
+<img src="https://farm3.staticflickr.com/2857/13240489654_8ffbb16bae_c.jpg" class="big center" alt="Churn measures the change ratio of files"/>
+<div class="caption">Churn measures the change ratio of files</div>
+
+`flog` a high flog score is an indicator for code complexity.
+
+
+<img src="https://farm8.staticflickr.com/7036/13240164005_35459cc33c_z.jpg" class="big center" alt="Flog measures the complexity of a file by giving several flaws in the code a certain ranking."/>
+<div class="caption">Flog measures the complexity of a file by giving several flaws in the code a certain ranking.</div>
+
+
+`flay` analyzes code similarities in your code base - good way to stay clean with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
+
+
+<img src="https://farm4.staticflickr.com/3715/13240307803_7f55db88f8_c.jpg" class="big center" alt="Flay measures code duplication."/>
+<div class="caption">Flay measures code duplication.</div>
+
+
+`reek` checks your classes and modules after code smells. Under the [reek wiki](https://github.com/troessner/reek/wiki/Code-Smells) you can find all code smells and what they actually mean.
+
+
+<img src="https://farm8.staticflickr.com/7026/13240165265_dc06f44db4_c.jpg" class="big center" alt="reek checks your classes, and modules after code smells."/>
+<div class="caption">reek checks your classes, and modules after code smells.</div>
+
+
+`hotspot` a gathering of the flog, flay and reek score of the files in your application.
+
+
+<img src="https://farm8.staticflickr.com/7444/13240490574_536339c8df_c.jpg" class="big center" alt="Hotspot measure overview."/>
+<div class="caption">Hotspot measure overview.</div>
+
+
+<img src="https://farm8.staticflickr.com/7430/13240491094_1dcb0e3188_c.jpg" class="big center" alt="Hotspot measure detailed."/>
+
+
+`roodi` scans your code and informs you about design issues you may have.
+
+
+<img src="https://farm8.staticflickr.com/7202/13240309053_1686a6705d_c.jpg" class="big center" alt="Roodi detect issues with your design."/>
+<div class="caption">Roodi detect issues with your design.</div>
+
+
+`saikuro` generates a list of cyclomatic complexity of each method found in your application.
+
+
+<img src="https://farm3.staticflickr.com/2869/13240165955_8113b4c859_z.jpg" class="big center" alt="Sailuro meases the cyclomatic complexity of all methods in your application."/>
+<div class="caption">Sailuro meases the cyclomatic complexity of all methods in your application.caption"></div>
+
+
+## Code Climate
+
+Go to the website [codeclimate.com](https://codeclimate.com) and register. Once you are logged, you can add any ruby related open source project for free.
+
+
+<img src="https://farm4.staticflickr.com/3699/13245245445_50c46c74d2_z.jpg" class="big center" alt="Code Climate - add a repository."/>
+<div class="caption">Code Climate - add a repository.</div>
+
+
+It will take a while till the metrics are generated for your application:
+
+
+<img src="https://farm4.staticflickr.com/3682/13245246155_8679cb3c79_c.jpg" class="big center" alt="Refreshing the metrics takes a while on Code Climate"/>
+<div class="caption">Refreshing the metrics takes a while on Code Climate</div>
+
+
+But when it's ready, you get a nice overview:
+
+
+<img src="https://farm4.staticflickr.com/3766/13245396213_2ba6fbefeb_b_d.jpg" class="big center" alt="Code Climate overview"/>
+<div class="caption">Code Climate overview</div>
+
+
+Or a more detailed overview of single classes:
+
+
+<img src="https://farm3.staticflickr.com/2900/14748209173_2d561a0e99_c.jpg" class="big center" alt="Detailed information about a single file in Code Climate"/>
+<div class="caption">Detailed information about a single file in Code Climate</div>
+
+<%= partial "layouts/shared/newsletter" %>
+

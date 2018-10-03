@@ -1,0 +1,38 @@
+h1.lead {
+  border-bottom: 1px dotted #cccccc;
+  font-size: 3rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444;
+  font-family: "Bebas",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  line-height: 1.0665em;
+  padding: 1rem 0 1rem 1.5rem;
+  text-transform: normal;
+}
+h2 {
+  border-left: 0.3rem solid #eee;
+  margin: 1.2rem 0 1.2rem;
+  padding: 1rem 0 1rem 1.5rem;
+}
+h3 {
+  border-left: 3px solid #eee;
+  margin: 50px -30px 20px -27px;
+  padding: 15px 30px;
+}
+
+// to have visuals for anchor change
+h2:hover, h3:hover {
+  color: #bbc7cc;
+}
+
+.lead {
+  border-bottom: 1px dotted rgb(204, 204, 204);
+  font-size: 350%;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+

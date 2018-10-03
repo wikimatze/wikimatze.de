@@ -1,141 +1,69 @@
-@charset "utf-8";
+@import "bulma";
+@import "fonts";
+@import "logo";
+@import "headlines";
+@import "blockquote";
+@import "share";
+@import "pygments";
+@import "hashover";
 
 html {
-  font-size: 110% !important;
+  font-size: 110%;
 }
 
-@import "foundation";
-@import "font-awesome";
-@import "pygments";
-
-// custom_fonts
-@font-face {
-  font-family: 'FFFTusjBold';
-  src: url('/fonts/tusj/FFF_Tusj-webfont.eot');
-  src: url('/fonts/tusj/FFF_Tusj-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/tusj/FFF_Tusj-webfont.woff') format('woff'),
-       url('/fonts/tusj/FFF_Tusj-webfont.ttf') format('truetype'),
-       url('/fonts/tusj/FFF_Tusj-webfont.svg#FFFTusjBold') format('svg');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-weight: normal;
-  font-style: normal;
+  line-height: 1.5;
+  color: #0a0a0a;
 }
 
-@font-face {
-  font-family: 'Bebas';
-  src: url('/fonts/bebas-neue/BebasNeue-webfont.eot');
-  src: url('/fonts/bebas-neue/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
-       url('/fonts/bebas-neue/BebasNeue-webfont.woff') format('woff'),
-       url('/fonts/bebas-neue/BebasNeue-webfont.ttf') format('truetype'),
-       url('/fonts/bebas-neue/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
-  font-weight: normal;
-  font-style: normal;
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #ffffff;
 }
 
-// general body font-size
+.padrinobook-newsletter {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+// general font-size of body
 .content {
   font-size: 1.20em;
 }
 
-// headname wikimatze
-#title {
-  font: 500 3.8em 'FFFTusjBold', Arial, sans-serif;
-  letter-spacing: -0.1em;
-  text-transform: uppercase;
-}
-#title a {
-  color: black;
-  text-decoration: none;
-  transition: color 2s ease 0s;
-}
-#title a:hover {
-  color: #bdbbbb;
-}
-
-
-// navbar
-.top-bar, .top-bar ul, .title-bar {
-  background: #4a4d50 none repeat scroll 0 0;
-}
-
-ul.medium-horizontal li a {
-  color: #fff;
-  font-family: "Bebas";
-  font-size: 1.2rem;
-  line-height: 57.3682px;
-  padding: 0 16px;
-  text-shadow: 0 1px 2px #191a1b, 0 1px 0 #191a1b;
-}
-
-ul.medium-horizontal li:hover
-{
-  background: #d0e1e7;
-}
-
-
-// reading-header
-.author {
-  color: #bdbbbb;
-  font-size: 90%;
-  margin: 0 0 1rem 1.6rem;
-}
-
 // footer
+footer {
+  background-color: white;
+}
+
+.menu > li {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
+.menu > li > a {
+  display: block;
+  padding: 0.7rem 1rem;
+  line-height: 1;
+}
+
 ul.menu {
   display:table;
   margin:0 auto;
-
   li {
     font-size: 1.1rem;
   }
 }
 
-// ul
-ul {
-  margin-left: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-
-// headlines (h1, h2, ...)
-h1, h2, h3, h4, h5, h6 {
-  color: #444;
-  font-family: "Bebas",Helvetica,Arial,sans-serif;
-  font-weight: 300;
-  line-height: 1.0665em;
-  padding: 1rem 0 1rem 1.5rem;
-}
-h2 {
-  border-left: 0.3rem solid #eee;
-  margin: 1.2rem 0 1.2rem;
-  padding: 1rem 0 1rem 1.5rem;
-}
-h3 {
-  border-left: 3px solid #eee;
-  margin: 50px -30px 20px -27px;
-  padding: 15px 30px;
-}
-
-// to have visuals for anchor change
-h2:hover, h3:hover {
-  color: #bbc7cc;
-}
-
-.lead {
-  border-bottom: 1px dotted rgb(204, 204, 204);
-  font-size: 350%;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-
-// projects
-.lastupdate {
-  color: #bdbbbb;
-  margin: 0 0 0 1.7rem;
-}
-
-
 // general
+
 p {
   font-size: inherit;
   line-height: 1.6;
@@ -148,6 +76,67 @@ p {
   display: block;
   margin: 2.5rem auto;
   text-align: center;
+}
+
+ul {
+  margin-left: 3rem !important;
+  margin-bottom: 1.5rem;
+}
+
+footer p > span.copyright, .fa-copyright {
+  color: black;
+}
+
+label {
+  border-radius: 0.25em;
+  display: inline;
+  font-weight: bold;
+  line-height: 1;
+  font-size: 1.0rem;
+}
+
+[type="text"], [type="password"], [type="date"], [type="datetime"], [type="datetime-local"], [type="month"], [type="week"], [type="email"], [type="number"], [type="search"], [type="tel"], [type="time"], [type="url"], [type="color"], textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 2.4375rem;
+    margin: 0 0 1rem;
+    padding: 0.5rem;
+    border: 1px solid #cacaca;
+    border-radius: 3px;
+    background-color: #fefefe;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #0a0a0a;
+    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+// navbar
+.navbar-menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: .5rem 0;
+}
+
+.navbar-end > a {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom-color: #dbdbdb;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    margin-bottom: -1px;
+    padding: .5em 2em;
+}
+
+.navbar-end > a.is-active {
+  color: white;
+  background-color: black !important;
 }
 
 // images
@@ -166,58 +155,43 @@ img {
   width: 35%;
 }
 
-// blockquotes
-blockquote {
-  border-left: 1px solid #cacaca;
-  margin: 0 0 1rem 1.7rem;
-  padding: 0.5625rem 1.25rem 0 1.1875rem;
-}
-blockquote, blockquote p {
-  color: #8a8a8a;
-  line-height: 1.6;
+// link colors
+a {
+  line-height: inherit;
+  color: #2ba6cb;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-// blog => previous and next link
-a.prev {
-  float: left;
-  margin: 1em 0;
-  width: 50%;
-}
-
-a.next {
-  float: right;
-  margin: 1em 0;
-  text-align: right;
-  width: 50%;
+a:hover, a:focus {
+  color: #258faf;
 }
 
 
-// ol
-ol {
-  margin-left: 4rem;
+// projects headlines
+.lastupdate {
+  color: #bdbbbb;
+  margin: 0 0 0 2em;
 }
 
-
-// embedded-twitter
-#twitter-widget-0 {
-  display: block;
-  margin: 2.5rem auto;
-  text-align: center;
+// reading-header
+.author {
+  color: #bdbbbb;
+  font-size: 90%;
+  margin: 0 0 1rem 1.6rem;
 }
-
 
 // newsletter partial
 .alert.default {
-  background: black none repeat scroll 0 0;
-  border: 1px solid #f2f2f2;
-  border-radius: 4px;
-  margin-bottom: 20px;
-  padding: 8px 35px 8px 14px;
-}
-.alert.default h4 {
-  color: white;
+  border: 0.5px dotted grey;
+  padding: 0px 35px 8px 14px;
 }
 
+.alert.default h4 {
+  color: black;
+  padding: 0;
+  margin-bottom: -2rem;
+}
 
 // article overview
 .related {
@@ -243,119 +217,10 @@ ol {
   text-decoration: none;
 }
 
-
-// share
-.share  {
-  left: 39%;
-  position: relative;
-  top: 0.5rem;
-}
-
-.share a {
-  color: #bbc7cc;
-  display: inline-block;
-  font-size: 1.3rem;
-  margin: 1rem 1.3rem 1.6rem 0;
-  text-decoration: none;
-}
-
-.share h4 {
-  padding-left: 33px;
-  margin: 0 0 -1.5rem;
-}
-
-.social a.icon-stumbleupon:hover, a.fa-stumbleupon:hover {
-  color: #eb4823;
-}
-.social a.fa-twitter-square:hover, a.fa-twitter:hover {
-  color: #55acee;
-}
-.social a.fa-facebook-square:hover, a.fa-facebook:hover {
-  color: #3b5998;
-}
-.social a.fa-google-plus-square:hover, a.fa-google-plus:hover {
-  color: #d34836;
-}
-.social a.fa-youtube-square:hover {
-  color: #bb0000;
-}
-.social a.fa-vimeo-square:hover {
-  color: #45bbff;
-}
-.social a.fa-github-square:hover {
-  color: #2f2f2f;
-}
-a.fa-reddit-alien:hover {
-  color: #ff5700;
-}
-
-
-// hashover
-
-#hashover .cmtdiv reply input.btn {
-  width: 82% !important;
-  float: right;
-}
-
-#hashover form div textarea {
-  width: 100%;
-}
-
-
-label {
-  border-radius: 0.25em;
-  display: inline;
-  font-weight: bold;
-  line-height: 1;
-}
-
-#hashover form input.btn.post_cmt {
-  font-size: 1.25rem !important;
-  vertical-align: middle !important;
-    margin: 0 0 1rem 0!important;
-    padding: 0.85em 1em !important;
-    -webkit-appearance: none !important;
-    border: 1px solid transparent !important;
-    border-radius: 3px !important;
-    transition: background-color 0.25s ease-out, color 0.25s ease-out !important;
-    line-height: 1;
-    text-align: center;
-    cursor: pointer;
-    background-color: #2ba6cb;
-    color: #fefefe;
-}
-
-#hashover form input.btn.post_cmt:hover, #hashover form input.btn.post_cmt:focus {
-    background-color: #258dad !important;
-    color: #fefefe !important;
-}
-
-#hashover .cmtfont#message {
-    background-color: #2ba6cb !important;
-    border: none !important;
-    color: #fefefe !important;
-  }
-
-#message.cmtfont {
-  color: #f35959;
-}
-
-
-// Get rid of tobbar flickering
-.title-bar, .menu-icon {
-  display: none;
-  font-size: 0px;
+// contact
+#contact-form {
+  margin-left: 30px;
+  margin-right: 10px;
 }
 
 @import "mobile";
-@import "contact";
-
-.lastupdate {
-  color: #bdbbbb;
-  margin: 0 0 0 2em;
-}
-
-a[title="SumoMe"] {
-  display: none !important;
-}
-
