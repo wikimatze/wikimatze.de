@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <%= partial "layouts/shared/footer" %>
 
     <% if !app.development? %>
-      <%= motomo %>
+      <%= matomo %>
     <% end %>
 
     <% if !current?("home") %>
