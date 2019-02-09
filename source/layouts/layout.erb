@@ -8,7 +8,7 @@
     <div class="container content"><%= yield %></div>
     <%= partial "layouts/shared/footer" %>
     <% if !app.development? %>
-      <%= motomo %>
+      <%= matomo %>
     <% end %>
     <% if !current?("home") %>
     <script src="/javascripts/anchor.js"></script>

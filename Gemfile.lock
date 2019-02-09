@@ -1,15 +1,15 @@
 PATH
-  remote: ../motomo-middleman
-  specs:
-    motomo-middleman (0.0.1)
-      middleman-core (~> 4.2)
-
-PATH
   remote: ../sweetie
   specs:
     sweetie (2.0.0)
       json (~> 1.8)
       nokogiri (~> 1.6)
+
+PATH
+  remote: ../matomo-middleman
+  specs:
+    matomo-middleman (0.0.1)
+      middleman-core (~> 4.2)
 
 GEM
   remote: https://rubygems.org/
@@ -146,12 +146,12 @@ DEPENDENCIES
   builder
   colorator
   fileutils
+  matomo-middleman!
   middleman (~> 4.2)
   middleman-autoprefixer (~> 2.7)
   middleman-blog
   middleman-livereload (~> 3.4.3)
   middleman-syntax (~> 3.0.0)
-  motomo-middleman!
   rake
   readingtime
   redcarpet

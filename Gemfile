@@ -6,7 +6,7 @@ gem 'middleman-livereload', '~> 3.4.3'
 gem 'middleman-syntax', '~> 3.0.0'
 gem 'middleman-blog'
 
-gem 'motomo-middleman', :path => '~/git/motomo-middleman'
+gem 'matomo-middleman', :path => '~/git/matomo-middleman'
 gem 'sweetie', :path => '~/git/sweetie'
 
 
