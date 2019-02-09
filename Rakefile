@@ -45,8 +45,7 @@ task :staging => :b do
 end
 
 desc 'Deploy'
-task :deploy  do
-  system 'middleman b'
+task :deploy => :b  do
   puts 'Deploying site with lovely rsync ..'.bold.green
   system "rsync -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
 
