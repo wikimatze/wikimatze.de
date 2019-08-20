@@ -14,7 +14,7 @@ task :p do
   date = Time.now.to_s.split(" ").first
 
   title = "#{name.gsub(/&/, '&amp;')}"
-  filename = "#{posts_dir}/#{name.to_url}.md"
+  filename = "#{posts_dir}/#{name.to_url}.html.markdown"
   puts "Created new post: #{filename}".bold.green
 
   post_content = <<-MARKDOWN
@@ -40,14 +40,18 @@ desc 'Staging'
 task :staging => :b do
   puts 'Deploying site with lovely rsync ..'.bold.green
 
-  system "rsync -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/stagingwikimatze/"
+  system "rsync --exclude=recaptcha/ -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/stagingwikimatze/"
   puts '# Please refer to https://staging.wikimatze.de to visit the staging system'.green
 end
 
 desc 'Deploy'
-task :deploy => :b  do
+task :deploy do
+  puts 'Building middleman ..'.bold.green
+  system "cp build/stylesheets/site.css source/stylesheets/application.css"
+  system 'middleman b -e production'
+
   puts 'Deploying site with lovely rsync ..'.bold.green
-  system "rsync -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
+  system "rsync --exclude=recaptcha/ -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
 
   puts 'Done!'.green
 end

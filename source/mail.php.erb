@@ -4,6 +4,7 @@ nav: contact
 ---
 <?php
 require_once './mail/vendor/autoload.php';
+require 'recaptcha/recaptcha-master/src/autoload.php';
 
 $helperLoader = new SplClassLoader('Helpers', './mail/vendor');
 $mailLoader   = new SplClassLoader('SimpleMail', './mail/vendor');
@@ -29,7 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $emailIsValid = filter_var($email, FILTER_VALIDATE_EMAIL);
 
-    if ($email && $emailIsValid && $subject && $message) {
+    $recaptcha = new \ReCaptcha\ReCaptcha('6Ld69LMUAAAAAJxV7-queACAC29wG-xFJntMZCPg', new \ReCaptcha\RequestMethod\CurlPost());
+    $response = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+
+    if ($email && $emailIsValid && $subject && $message && $response->isSuccess()) {
         $mail = new SimpleMail();
 
         $mail->setTo($config->get('emails.to'));
@@ -106,6 +110,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <textarea class="textarea" id="form-message" name="form-message" placeholder="<?php echo $config->get('fields.message'); ?>" required></textarea>
               </div>
             </div>
+
+           <script src='https://www.google.com/recaptcha/api.js'></script>
+           <div class="g-recaptcha" data-sitekey="6Ld69LMUAAAAAFwyr89_2CcyqFlj2qOwuC0-2Kx7"></div>
+           <br>
 
             <div class="field is-grouped">
               <div class="control">
