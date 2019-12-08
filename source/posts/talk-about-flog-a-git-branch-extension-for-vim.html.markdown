@@ -17,7 +17,7 @@ How to use flog to browse a git repo. Gave this talk at the Vimberlin March 2019
 ## Video of the talk
 
 <div class="video-responsive">
-<iframe src="https://www.youtube-nocookie.com/embed/7cHvO5NXsJY?controls=0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube-nocookie.com/embed/7cHvO5NXsJY?controls=0" allowfullscreen></iframe>
 </div>
 
 
