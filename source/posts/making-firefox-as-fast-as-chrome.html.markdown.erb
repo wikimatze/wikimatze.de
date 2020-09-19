@@ -28,8 +28,6 @@ After everything was installed and I was ready to use the new system. Starting F
 
 I didn't had any plugins, only the basic installation with the default settings. I spend the evening fiddling around with the settings, tried this and that, checked my Internet connection, but all what I did was senseless. Firefox was loading 2000 times slower than Chrome. But don't give up in such situations, just clear your mind and think about what you want solve.
 
-<%= partial "layouts/shared/newsletter_wikimatze" %>
-
 ## Fast Firefox
 
 I stick around the Internet and found the `about:config` setting in Firefox (it's nearly the same when you call the `chrome://settings/` URL in Chrome but has more options). This is the place where you can change security, stability, and performance. That what I was searching for and this is the place you can't find in the normal graphical settings of Firefox. There you can see a list preferences names with either `string`, `integer`, or `boolean` values. Than I stumbled upon the `network.dns.disableIPv6` option. There is an error in IPv6-capable DNS servers where an IPv4 address is returned although an IPv6 was requested. Firefox can recover from this error but due to lack of performance. So my solution was to setting this option to `true`.
@@ -56,9 +54,6 @@ Create the new value [nglayout.initialpaint.delay](http://kb.mozillazine.org/Ngl
 ### Fast Rendering
 
 Create the new value [content.notify.interval](http://kb.mozillazine.org/Content.notify.interval) to 500000. This preference specifies the minimum amount of time to wait between reflows to 1/2 of a second. Lowering the interval will lower the perceived page loading time but increase the total loading time. To make use of the content.notify.interval setting you need to add the boolean setting [content.notify.ontime](http://kb.mozillazine.org/Content.notify.ontimer) to true. This means that pages are not reflowed at an interval any higher than that specified by the content.notify.interval.
-
-<%= partial "layouts/shared/newsletter_wikimatze" %>
-
 
 ### Frequency Mode
 
@@ -88,9 +83,6 @@ The following improvements are based on [Gheorghe Sarcov](http://www.gheorghesar
 ## Final Thoughts
 
 There is not the perfect setup here for everyone. You can type in `about:cache?device=memory` and see your current number of entries, maximum storage size, storage in use and inactive storage. Chrome make better use of a modern multi-core CPU, as described under [howtogeek.com](http://www.howtogeek.com/165264/heres-why-firefox-is-still-years-behind-google-chrome/ "howtogeek.com") - where Firefox uses a single-process architecture.
-
-
-<%= partial "layouts/shared/newsletter_wikimatze" %>
 
 
 ## Further reading
