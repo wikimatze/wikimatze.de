@@ -2,5 +2,5 @@ bin/
 build
 .mucksrc
 source/stylesheets/application.css
-
+.rake_tasks~
 
