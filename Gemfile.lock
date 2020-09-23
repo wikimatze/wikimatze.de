@@ -126,6 +126,7 @@ GEM
     sassc (2.4.0)
       ffi (~> 1.9)
     servolux (0.13.0)
+    stringex (2.8.5)
     temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
@@ -151,6 +152,7 @@ DEPENDENCIES
   rake
   readingtime
   redcarpet
+  stringex
   sweetie!
 
 BUNDLED WITH

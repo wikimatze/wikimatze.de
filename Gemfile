@@ -18,4 +18,5 @@ gem 'fileutils'
 gem 'rake'
 gem 'readingtime'
 gem 'redcarpet'
+gem 'stringex'
 
