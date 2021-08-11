@@ -36,6 +36,14 @@ sudo apt-get install unetbootin
 You can get the latest version of this install script under <https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/unetbootin_install.sh>
 
 
+## Update Packages information
+
+
+```
+sudo apt-get -y update
+```
+
+
 ## Installing Ubuntu Packages
 
 Afte the syncing of all my files is done, it's time to install all the other packages and programs I need on the
@@ -70,7 +78,7 @@ I added the `-y` option to confirm all occuring messages with **yes** to keep up
 
 ## Reboot
 
-After applying all the changes to the system, we need run `sudo init 6`. After that, all should be running and you should have a bunch of new programms installed on your machine.
+After applying all the changes to the system, we need run `sudo reboot`. After that, all should be running and you should have a bunch of new programms installed on your machine.
 
 
 ## Getting nextcloud
