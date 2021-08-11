@@ -8,32 +8,66 @@ meta-description: ...
 article describes the steps I need perfom when installing a new machine.*
 
 
-## Getting the latest (X)ubuntu image (16.04)
+## Getting the latest (X)ubuntu image (20.04)
 
-I'm having an old Netbook with an Intel Atom processor and a Modern Desktop PC. I need to from the Download page:
+Grab the iso from one of the Download pages:
 
-
-- [PC Intel 86 - 16.04.01](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/16.04/release/xubuntu-16.04.1-desktop-i386.iso)
-- [64-bit (AMD64)](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/16.04/release/xubuntu-16.04.1-desktop-amd64.iso)
+- [64-bit (AMD64)](http://ftp.uni-kl.de/pub/linux/ubuntu-dvd/xubuntu/releases/20.04/release/xubuntu-20.04.2.0-desktop-amd64.iso)
 
 
 ## Creating a Bootable Startup USB Stick
 
-I'm using a tool called [unetbootin](https://unetbootin.github.io/ "unetbootin") to create a bootable device. After the USBstick is reader I'm pluggin in
-the stick and chose in the BIOS to start from this location.
+
+[Ventoy](https://www.ventoy.net/en/index.html "Ventoy") is an open source tool to create bootable USB drive for ISO files.
+With ventoy, you don't need to format the disk again and again,
+you just need to copy the iso file to the USB drive and boot it. You can copy many iso files at a time and ventoy will give you a boot menu to select them.
 
 
-To install the tool, you need to run the following command:
-
+Get the latest release from <https://github.com/ventoy/Ventoy/releases> and decompress it.
 
 ```sh
-sudo add-apt-repository ppa:gezakovacs/ppa
-sudo apt-get update
-sudo apt-get install unetbootin
+wm~/Downloads/ventoy-1.0.21-linux/ventoy-1.0.21  % sudo sh Ventoy2Disk.sh -i /dev/sda
+
+**********************************************
+      Ventoy: 1.0.21
+      longpanda admin@ventoy.net
+      https://www.ventoy.net
+**********************************************
+
+Disk : /dev/sda
+Model: Flash USB Disk (scsi)
+Size : 7 GB
+Style: MBR
+
+
+Attention:
+You will install Ventoy to /dev/sda.
+All the data on the disk /dev/sda will be lost!!!
+
+Continue? (y/n)
+
+All the data on the disk /dev/sda will be lost!!!
+Double-check. Continue? (y/n) y
+
+Create partitions on /dev/sda by parted in MBR style ...
+Done
+mkfs on disk partitions ...
+create efi fat fs /dev/sda2 ...
+mkfs.fat 4.1 (2017-01-24)
+success
+mkexfatfs 1.3.0
+Creating... done.
+Flushing... done.
+File system created successfully.
+writing data to disk ...
+sync data ...
+esp partition processing ...
+
+Install Ventoy to /dev/sda successfully finished.
 ```
 
 
-You can get the latest version of this install script under <https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/unetbootin_install.sh>
+Now can just copy the iso directly on the stick and use that
 
 
 ## Update Packages information
@@ -42,6 +76,12 @@ You can get the latest version of this install script under <https://raw.githubu
 ```
 sudo apt-get -y update
 ```
+
+
+## Start the Software Updater
+
+
+Install all suggested updates before you proceed. Then reboot the machine.
 
 
 ## Installing Ubuntu Packages
