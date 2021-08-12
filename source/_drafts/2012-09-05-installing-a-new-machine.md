@@ -159,6 +159,11 @@ wget -O ~/.gitconfig 'https://raw.githubusercontent.com/wikimatze/dotfiles/maste
 `wget -O git_repositories_checkout_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_repositories_checkout_install.sh' && bash git_repositories_checkout_install.sh`
 
 
+## Clone bitbuckets repositories
+
+wget -O bitbucket_repos_clone.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/bitbucket_repos_clone.sh' && bash bitbucket_repos_clone.sh
+
+
 ## Symlinks
 
 Symlinks are great. They are a special type of a file that contains a reference to another file or directory. I need them to set up my `*.dot` config files and directory structure. Creating a symlink is easy:
@@ -181,9 +186,7 @@ wget -O symlink_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles
 
 ```bash
 wget -O git_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_install.sh' && bash git_install.sh
-wget -O prezto_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/prezto_install.sh' && bash prezto_install.sh
 wget -O git_forked_repositories_checkout_install 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_forked_repositories_checkout_install.sh' && bash git_forked_repositories_checkout_install
-wget -O bitbucket_repos_clone.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/bitbucket_repos_clone.sh' && bash bitbucket_repos_clone.sh
 wget -O symlink_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/symlink_install.sh' && bash symlink_install.sh
 ```
 
@@ -193,21 +196,18 @@ Why running symlinks again? Because now the git repositories are there and I'm s
 
 
 ## Installing Ruby with rvm
-```bash
-command curl -sSL https://rvm.io/mpapis.asc | gpg --import -
-unset GEM_HOME
-curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+```
+wget -O rvm_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/rvm_install.sh' && bash rvm_install.sh
 ```
 
 Now, you are able to install different ruby versions with the `rvm install ruby-*` command. To change between different ruby
 versions you need to call `rvm use <the-version>`
 
-
-The combination of the commands is summarized in the following script:
-
+To install more ruby versions, just execute the following script:
 
 ```
-wget -O rvm_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/rvm_install.sh' && bash rvm_install.sh
+wget -O rvm_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/rvm_versions_install.sh' && bash rvm_versions_install.sh
 ```
 
 
