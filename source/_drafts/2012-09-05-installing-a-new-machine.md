@@ -84,7 +84,7 @@ sudo apt-get -y update
 Install all suggested updates before you proceed. Then reboot the machine.
 
 
-## Installing Ubuntu Packages
+## Installing Packages
 
 Afte the syncing of all my files is done, it's time to install all the other packages and programs I need on the
 machine with:
@@ -123,13 +123,40 @@ After applying all the changes to the system, we need run `sudo reboot`. After t
 
 ## Getting nextcloud
 
-I'm using owncloud to manager my files on my own server. All you have to is to install the client:
+I'm using [nextcloud](https://nextcloud.com/ "nextcloud") to manager my files on my own server. All you have to is to install the client:
 
 
 
 ```bash
 wget -O nextcloud_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/nextcloud_install.sh' && bash nextcloud_install.sh
 ```
+
+
+## Copy Keys:
+
+wm~  % cp -R .ssh /media/wm/transcend
+wm~  % cp -R .gnupg /media/wm/transcend
+wm~  % cp .netrc /media/wm/transcend
+
+
+## Setting permissions
+
+`sudo chmod 600 ~/.ssh/*`
+
+
+## Get gitconfig
+
+wget -O ~/.gitconfig 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/gitconfig'
+
+
+## Clone dotfiles
+
+`$ git clone https://github.com/wikimatze/dotfiles.git ~/git/dotfiles`
+
+
+## Clone git repositories
+
+`wget -O git_repositories_checkout_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_repositories_checkout_install.sh' && bash git_repositories_checkout_install.sh`
 
 
 ## Symlinks
@@ -155,7 +182,6 @@ wget -O symlink_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles
 ```bash
 wget -O git_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_install.sh' && bash git_install.sh
 wget -O prezto_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/prezto_install.sh' && bash prezto_install.sh
-wget -O git_repositories_checkout_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_repositories_checkout_install.sh' && bash git_repositories_checkout_install.sh
 wget -O git_forked_repositories_checkout_install 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_forked_repositories_checkout_install.sh' && bash git_forked_repositories_checkout_install
 wget -O bitbucket_repos_clone.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/bitbucket_repos_clone.sh' && bash bitbucket_repos_clone.sh
 wget -O symlink_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/symlink_install.sh' && bash symlink_install.sh
