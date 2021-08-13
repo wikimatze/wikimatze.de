@@ -286,12 +286,15 @@ chsh -s $(which zsh)
 
 ## Install chrome
 
-wget -O chrome_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/chrome_install.sh' && bash chrome_install.sh
+`wget -O chrome_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/chrome_install.sh' && bash chrome_install.sh`
+
 
 ## Install search tools (ack, ag, pt)
 
 `wget -O ack_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/ack_install.sh' && bash ack_install.sh`
+
 `wget -O ag_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/ag_install.sh' && bash ag_install.sh`
+
 `wget -O pt_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/pt_install.sh' && bash pt_install.sh`
 
 # Conclusion
