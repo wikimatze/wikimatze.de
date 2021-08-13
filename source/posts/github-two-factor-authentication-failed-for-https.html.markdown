@@ -2,7 +2,7 @@
 title: Github Two-Factor Authentication Failed For HTTPS
 nav: articles
 date: 2014-03-27
-updated: 2014-11-20
+updated: 2021-08-11
 categories: git learning
 ---
 
@@ -30,7 +30,7 @@ Since you have enabled 2FA, you can create a personal access token.
 
 
 1. Open your Account Settings.
-2. Click on Applications - this is where you can find a section to  create your _Personal Access Token_
+2. Click on Developer settings - this is where you can find a section to  create your _Personal Access Token_
 3. Save the password in some encrypted file.
 
 
@@ -51,8 +51,9 @@ If everything works fine then you should get following JSON output:
 {
   "login": "wikimatze",
   "id": 264708,
-  "avatar_url": "https://avatars.githubusercontent.com/u/264708?",
-  "gravatar_id": "9172bb642e29e9959f078f329308faa1",
+  "node_id": "MDQ6VXNlcjI2NDcwOA==",
+  "avatar_url": "https://avatars.githubusercontent.com/u/264708?v=4",
+  "gravatar_id": "",
   "url": "https://api.github.com/users/wikimatze",
   "html_url": "https://github.com/wikimatze",
   "followers_url": "https://api.github.com/users/wikimatze/followers",
@@ -67,30 +68,22 @@ If everything works fine then you should get following JSON output:
   "type": "User",
   "site_admin": false,
   "name": "Matthias Günther",
-  "company": "",
-  "blog": "http://wikimatze.de/about.html",
+  "company": "MyHammer AG",
+  "blog": "https://wikimatze.de",
   "location": "Berlin",
-  "email": "matthias@wikimatze.de",
-  "hireable": true,
-  "bio": "software developer, writer, hiker, jogger, and mobile apps lover",
-  "public_repos": 64,
-  "public_gists": 11,
-  "followers": 54,
-  "following": 65,
+  "email": "matze@wikimatze.de",
+  "hireable": null,
+  "bio": "Writing @padrinobook, running @vimberlin, updating @padrinorb, and organizing @vim_fest",
+  "twitter_username": null,
+  "public_repos": 86,
+  "public_gists": 57,
+  "followers": 95,
+  "following": 124,
   "created_at": "2010-05-04T16:46:36Z",
-  "updated_at": "2014-03-26T04:43:54Z",
-  "private_gists": 0,
-  "total_private_repos": 0,
-  "owned_private_repos": 0,
-  "disk_usage": 57682,
-  "collaborators": 0,
-  "plan": {
-    "name": "free",
-    "space": 307200,
-    "collaborators": 0,
-    "private_repos": 0
-  }
+  "updated_at": "2021-08-11T19:40:03Z"
 }
+
+
 ```
 
 
@@ -98,10 +91,9 @@ If something went wrong, you should get a message like:
 
 
 ```json
-
 {
-  "message": "Not Found",
-  "documentation_url": "http://developer.github.com/v3"
+  "message": "Requires authentication",
+  "documentation_url": "https://docs.github.com/rest/reference/users#get-the-authenticated-user"
 }
 ```
 
@@ -165,11 +157,6 @@ machine github.com
 login wikimatze
 password <token>
 protocol https
-
-machine gist.github.com
-login wikimatze
-password <token>
-protocol https
 ```
 
 
@@ -195,6 +182,26 @@ $ git config --global credential.helper "netrc -f ~/.netrc.asc -v"
 
 
 Now you should be able to push again.
+
+
+## netrc not found
+
+TBD => what is the message?
+
+Solution:
+https://my-take-on.tech/2019/08/23/safely-storing-git-credentials/
+
+$ sudo cp /usr/share/doc/git/contrib/credential/netrc/git-credential-netrc /usr/local/bin/
+
+setting correct rights:
+- sudo chmod 777 /usr/local/bin/git-credential-netrc
+- sudo chmod 600 ~/.netrc
+
+
+update gitconfig:
+[credential]
+	helper = /usr/local/bin/git-credential-netrc -f ~/.netrc -v -d
+
 
 
 ## Update About the organization push problem
