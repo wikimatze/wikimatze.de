@@ -143,6 +143,15 @@ wm~  % cp .netrc /media/wm/transcend
 
 `sudo chmod 600 ~/.ssh/*`
 
+`sudo chmod 600 ~/.netrc`
+
+
+## Getting
+
+`sudo chmod 600 ~/.ssh/*`
+
+`sudo chmod 600 ~/.netrc`
+
 
 ## Get gitconfig
 
@@ -151,7 +160,7 @@ wget -O ~/.gitconfig 'https://raw.githubusercontent.com/wikimatze/dotfiles/maste
 
 ## Clone dotfiles
 
-`$ git clone https://github.com/wikimatze/dotfiles.git ~/git/dotfiles`
+`git clone https://github.com/wikimatze/dotfiles.git ~/git/dotfiles`
 
 
 ## Clone git repositories
@@ -161,7 +170,7 @@ wget -O ~/.gitconfig 'https://raw.githubusercontent.com/wikimatze/dotfiles/maste
 
 ## Clone bitbuckets repositories
 
-wget -O bitbucket_repos_clone.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/bitbucket_repos_clone.sh' && bash bitbucket_repos_clone.sh
+`wget -O bitbucket_repos_clone.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/bitbucket_repos_clone.sh' && bash bitbucket_repos_clone.sh`
 
 
 ## Symlinks
@@ -207,7 +216,7 @@ versions you need to call `rvm use <the-version>`
 To install more ruby versions, just execute the following script:
 
 ```
-wget -O rvm_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/rvm_versions_install.sh' && bash rvm_versions_install.sh
+wget -O rvm_versions_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/rvm_versions_install.sh' && bash rvm_versions_install.sh
 ```
 
 
@@ -224,7 +233,7 @@ wget -O gem_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/mas
 ## Installing tmux
 
 
-Install version 2.3 by executing the following script:
+Install version 3.2 by executing the following script:
 
 
 ```sh
@@ -239,8 +248,24 @@ wget -O tmux_plugins_install.sh 'https://raw.githubusercontent.com/wikimatze/dot
 ```
 
 
-## Installing vim
+## Installing nvim
 
+
+```sh
+wget -O nvim_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/nvim_install_linux.sh' && bash nvim_install.sh
+
+
+When compilation is succesful grab the configs:
+
+
+```
+git clone https://github.com/wikimatze/nvim.git ~/.config/nvim
+```
+
+Next, start vim and run `:PlugInstall` - happy neo-vimming!
+
+
+```
 You can find more about this on my post about ["Compiling Vim from source with Ruby and Python Support"](/compiling-vim-from-source-for-ubuntu-and-mac-with-rbenv/).
 
 
@@ -258,24 +283,6 @@ Need for tmux
 ```sh
 chsh -s $(which zsh)
 ```
-
-
-## Installing dropbox
-
-```bash
-if [$(uname -m) == "x86_64"]; then
-  cd ~ && wget -O "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
-else
-  cd ~ && wget -O "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-fi
-
-~/.dropbox-dist/dropboxd
-```
-
-I leave all my not security relevant files on this account.
-
-
-You can get the latest version of this install script under <https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/dropbox_install.sh>
 
 
 # Conclusion
