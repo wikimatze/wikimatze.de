@@ -168,6 +168,11 @@ wget -O ~/.gitconfig 'https://raw.githubusercontent.com/wikimatze/dotfiles/maste
 `wget -O git_repositories_checkout_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_repositories_checkout_install.sh' && bash git_repositories_checkout_install.sh`
 
 
+## Clone forked git repositories
+
+`wget -O git_forked_repositories_checkout_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_forked_repositories_checkout_install.sh' && bash git_forked_repositories_checkout_install`
+
+
 ## Clone bitbuckets repositories
 
 `wget -O bitbucket_repos_clone.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/bitbucket_repos_clone.sh' && bash bitbucket_repos_clone.sh`
@@ -191,7 +196,7 @@ wget -O symlink_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles
 ```
 
 
-## Install git, prezto checkout repositories, git checkout forked repositories, bitbucket repositories and run symlinks again
+## Install git, checkout forked repositories, and run symlinks again
 
 ```bash
 wget -O git_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_install.sh' && bash git_install.sh
@@ -220,10 +225,17 @@ wget -O rvm_versions_install.sh 'https://raw.githubusercontent.com/wikimatze/dot
 ```
 
 
-### Installing Gems
+## Installing Gems
 
-After setting up the correct version of ruby, it's time to install the different gems.
+After setting up the correct version of ruby, it's time to install the different gems. But first set a default ruby
+version:
 
+
+```
+rvm --default ruby-2.7.2
+```
+
+And now install the gems:
 
 ```
 wget -O gem_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/gem_install.sh' && bash gem_install.sh
@@ -253,6 +265,7 @@ wget -O tmux_plugins_install.sh 'https://raw.githubusercontent.com/wikimatze/dot
 
 ```sh
 wget -O nvim_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/nvim_install_linux.sh' && bash nvim_install.sh
+```
 
 
 When compilation is succesful grab the configs:
@@ -284,6 +297,10 @@ Need for tmux
 chsh -s $(which zsh)
 ```
 
+
+## Install chrome
+
+wget -O chrome_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/chrome_install.sh' && bash chrome_install.sh
 
 # Conclusion
 
