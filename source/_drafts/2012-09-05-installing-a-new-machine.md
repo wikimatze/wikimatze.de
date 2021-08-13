@@ -268,24 +268,10 @@ wget -O nvim_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/ma
 ```
 
 
-When compilation is succesful grab the configs:
+This script will also automatically clone the configs to `~/.config/nvim`
 
-
-```
-git clone https://github.com/wikimatze/nvim.git ~/.config/nvim
-```
 
 Next, start vim and run `:PlugInstall` - happy neo-vimming!
-
-
-```
-You can find more about this on my post about ["Compiling Vim from source with Ruby and Python Support"](/compiling-vim-from-source-for-ubuntu-and-mac-with-rbenv/).
-
-
-```sh
-git clone https://github.com/wikimatze/vimfiles.git ~/.vim
-bash ~/.vim/install.sh
-```
 
 
 Install ag (silver searcher)
@@ -301,6 +287,12 @@ chsh -s $(which zsh)
 ## Install chrome
 
 wget -O chrome_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/chrome_install.sh' && bash chrome_install.sh
+
+## Install search tools (ack, ag, pt)
+
+`wget -O ack_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/ack_install.sh' && bash ack_install.sh`
+`wget -O ag_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/ag_install.sh' && bash ag_install.sh`
+`wget -O pt_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/pt_install.sh' && bash pt_install.sh`
 
 # Conclusion
 
