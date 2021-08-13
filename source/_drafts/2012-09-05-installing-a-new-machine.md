@@ -297,9 +297,16 @@ chsh -s $(which zsh)
 
 `wget -O pt_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/pt_install.sh' && bash pt_install.sh`
 
-## Install node
 
-`wget -O node_npm_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/node_npm_install.sh' && bash node_npm_install.sh`
+## Install LaTeX
+
+`wget -O latex_basics_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/latex_basics_install.sh' && bash latex_basics_install.sh`
+
+`wget -O latexmk_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/latexmk_install.sh' && bash latexmk_install.sh`
+
+`wget -O latex_packages_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/latex_packages_install.sh' && bash latex_packages_install.sh`
+
+`wget -O libsynctex_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/libsynctex_install.sh' && bash libsynctex_install.sh`
 
 
 # Conclusion
