@@ -297,6 +297,11 @@ chsh -s $(which zsh)
 
 `wget -O pt_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/pt_install.sh' && bash pt_install.sh`
 
+## Install node
+
+`wget -O node_npm_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/node_npm_install.sh' && bash node_npm_install.sh`
+
+
 # Conclusion
 
 I spend a much of time inventing this simple plain format of installing a new machine with a bunch of shell script. I know
