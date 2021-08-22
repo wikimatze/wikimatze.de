@@ -16,8 +16,6 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    autoprefixer-rails (9.8.6.5)
-      execjs
     backports (3.21.0)
     builder (3.2.4)
     coffee-script (2.4.1)
@@ -62,9 +60,6 @@ GEM
       kramdown (>= 2.3.0)
       middleman-cli (= 4.4.0)
       middleman-core (= 4.4.0)
-    middleman-autoprefixer (2.10.1)
-      autoprefixer-rails (~> 9.1)
-      middleman-core (>= 3.3.3)
     middleman-blog (4.0.3)
       addressable (~> 2.3)
       middleman-core (>= 4.0.0)
@@ -151,7 +146,6 @@ DEPENDENCIES
   fileutils
   matomo-middleman (= 0.0.3)
   middleman (~> 4.4)
-  middleman-autoprefixer (~> 2.7)
   middleman-blog (~> 4.0)
   middleman-livereload (~> 3.4)
   middleman-syntax (~> 3.0)
