@@ -37,10 +37,10 @@ set :pmwiki_linkicons_recipe, '2013-01-20'
 set :pmwiki_headlineimage_recipe, '2013-01-20'
 
 # page stats
-set :build, '9-30-2018'
-set :images, 75
-set :htmlpages, 102
-set :links, 606
+set :build, '9-23-2020'
+set :images, 76
+set :htmlpages, 105
+set :links, 617
 
 # for the blog-categories (otherwise building will fail)
 ignore '/category.html'

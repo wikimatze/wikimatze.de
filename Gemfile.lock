@@ -103,6 +103,7 @@ GEM
     middleman-syntax (3.0.0)
       middleman-core (>= 3.2)
       rouge (~> 2.0)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     nokogiri (1.12.3-x86_64-linux)
       racc (~> 1.4)
