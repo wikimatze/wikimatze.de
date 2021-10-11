@@ -260,7 +260,7 @@ wget -O tmux_plugins_install.sh 'https://raw.githubusercontent.com/wikimatze/dot
 ```
 
 
-## Installing nvim
+## Installing nvim and related tools
 
 
 ```sh
@@ -274,13 +274,27 @@ This script will also automatically clone the configs to `~/.config/nvim`
 Next, start vim and run `:PlugInstall` - happy neo-vimming!
 
 
-Install ag (silver searcher)
-Install faasd
-Install gitter
+Install ctags:
 
-Need for tmux
-```sh
-chsh -s $(which zsh)
+`wget -O ctags_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/ctags_install.sh' && bash ctags_install.sh`
+
+
+## Install zsh and switch to it
+
+Install zsh:
+
+`wget -O zsh_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/zsh_install.sh' && bash zsh_install.sh`
+
+
+
+The switch to the `zsh` happens via the settings in the `bashrc` file:
+
+
+```
+which zsh > /dev/null 2>&1
+if [ $? = 0  ]; then
+  exec zsh
+fi
 ```
 
 
@@ -308,6 +322,162 @@ chsh -s $(which zsh)
 
 `wget -O libsynctex_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/libsynctex_install.sh' && bash libsynctex_install.sh`
 
+
+## Install zimfv (zsh completion thing)
+
+First add zsh to your `/etc/shells`
+
+```
+command -v zsh | sudo tee -a /etc/shells
+```
+
+
+Then change the default shell to zsh:
+
+
+```
+sudo chsh -s "$(command -v zsh)" "${USER}"
+```
+
+
+Then you need to log out again so that these changes take effect in `/etc/passwd` file:
+
+
+```
+wm:x:1000:1000:wm,,,:/home/wm:/usr/local/bin/zsh
+```
+
+
+Validate your installation:
+
+
+```
+wm~  % echo $SHELL
+/usr/local/bin/zsh
+```
+
+
+## Install pass
+
+
+My tool to store passwords:
+
+`wget -O pass_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/pass_install.sh' && bash pass_install.sh`
+
+
+Copy keys:
+
+
+```
+cp -R /media/wm/transcend/.password-store ~
+```
+
+
+## Install i3 window manager
+
+To manage the task bar I use conky:
+
+
+`wget -O conky_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/conky_install.sh' && bash conky_install.sh`
+
+
+To have a a fast starter menu I use rofi:
+
+
+`wget -O rofi_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/rofi_install.sh' && bash rofi_install.sh`
+
+
+And to have access to passwords I use rofi-pass:
+
+
+`wget -O rofi_pass_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/rofi_pass_install.sh' && bash rofi_pass_install.sh`
+
+
+And finally install i3:
+
+
+`wget -O i3_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/i3_install.sh' && bash i3_install.sh`
+
+
+
+## Install cmd line tools
+
+fasd (fuzzy directory and file jumping):
+
+
+`wget -O fasd_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/fasd_install.sh' && bash fasd_install.sh`
+
+
+cmus (commandline music player):
+
+
+`wget -O cmus_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/cmus_install.sh' && bash cmus_install.sh`
+
+
+gromit-mpx (nice drawing tool for screens):
+
+
+`wget -O gromit_mpx_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/gromit_mpx_install.sh' && bash gromit_mpx_install.sh`
+
+
+gitter (chat like tool for all OS repos):
+
+
+`wget -O gitter_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/gitter_install.sh' && bash gitter_install.sh`
+
+
+grub-customizer (change the boot order):
+
+
+`wget -O grub_customizer.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/grub_customizer.sh' && bash grub_customizer.sh`
+
+
+weechat (nice IRC client):
+
+
+`wget -O weechat_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/weechat_install.sh' && bash weechat_install.sh`
+
+
+pdftk (good tool to manipulate PDFs on the commandline):
+
+
+`wget -O pdftk_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/pdftk_install.sh' && bash pdftk_install.sh`
+
+
+qutebrowser (minimalistic browser with a lot of vim keybindings):
+
+
+`wget -O qutebrowser_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/qutebrowser_install.sh' && bash qutebrowser_install.sh`
+
+
+pip (python dependencies):
+
+
+`wget -O pip_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/pip_install.sh' && bash pip_install.sh`
+
+
+simplescreenrecorder (screencasting tool):
+
+
+`wget -O simplescreenrecorder_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/simplescreenrecorder_install.sh' && bash simplescreenrecorder_install.sh`
+
+
+tig (git diff like tool):
+
+
+`wget -O tig_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/tig_install.sh' && bash tig_install.sh`
+
+
+ttygif (generate gifs out of your commandline):
+
+
+`wget -O ttygif_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/ttygif_install.sh' && bash ttygif_install.sh`
+
+
+zathura (pdf viewer mostly for my latex projects):
+
+
+`wget -O zathura_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/zathura_install.sh' && bash zathura_install.sh`
 
 # Conclusion
 
