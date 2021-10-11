@@ -51,7 +51,7 @@ task :deploy do
   system 'middleman b -e production'
 
   puts 'Deploying site with lovely rsync ..'.bold.green
-  system "rsync --exclude=recaptcha/ -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
+  system "rsync -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/wikimatze/"
 
   puts 'Done!'.green
 end
