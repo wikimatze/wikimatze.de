@@ -67,7 +67,7 @@ Install Ventoy to /dev/sda successfully finished.
 ```
 
 
-Now can just copy the iso directly on the stick and use that
+Now can just copy the iso directly on the stick and use that.
 
 
 ## Update Packages information
@@ -132,30 +132,44 @@ wget -O nextcloud_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfil
 ```
 
 
-## Copy Keys:
+## Copy Keys and settings permissions
 
-wm~  % cp -R .ssh /media/wm/transcend
-wm~  % cp -R .gnupg /media/wm/transcend
-wm~  % cp .netrc /media/wm/transcend
-
-
-## Setting permissions
-
-`sudo chmod 600 ~/.ssh/*`
-
-`sudo chmod 600 ~/.netrc`
+```
+cp -R .ssh /media/wm/verbatim/.ssh ~
+cp -R /media/wm/transcend/.gnupg ~
+cp .netrc /media/wm/transcend
+sudo chmod 600 ~/.ssh/*
+sudo chmod 600 ~/.netrc
+```
 
 
-## Getting
+Import gpg keys:
 
-`sudo chmod 600 ~/.ssh/*`
 
-`sudo chmod 600 ~/.netrc`
+```
+gpg --import ~/.gnupg/secring.gpg
+```
+
+
+Make sure, that `gpg --list-secret-keys` has an output like:
+
+
+```
+wm~/.gnupg  % gpg -K
+/home/wm/.gnupg/pubring.gpg
+---------------------------
+sec   dsa2048 2012-12-08 [SC]
+      53155B8E04005CFECA8965C75287E11BD64C14E5
+uid           [ultimate] Matthias Günther <matthias.guenther@wikimatze.de>
+uid           [ultimate] Matthias Günther <matthias@wikimatze.de>
+uid           [ultimate] Matthias Guenther <matthias@wikimatze.de>
+ssb   elg2048 2012-12-08 [E]
+```
 
 
 ## Get gitconfig
 
-wget -O ~/.gitconfig 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/gitconfig'
+`wget -O ~/.gitconfig 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/gitconfig'`
 
 
 ## Clone dotfiles
@@ -170,7 +184,7 @@ wget -O ~/.gitconfig 'https://raw.githubusercontent.com/wikimatze/dotfiles/maste
 
 ## Clone forked git repositories
 
-`wget -O git_forked_repositories_checkout_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_forked_repositories_checkout_install.sh' && bash git_forked_repositories_checkout_install`
+`wget -O git_forked_repositories_checkout_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_forked_repositories_checkout_install.sh' && bash git_forked_repositories_checkout_install.sh`
 
 
 ## Clone bitbuckets repositories
@@ -271,7 +285,9 @@ wget -O nvim_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/ma
 This script will also automatically clone the configs to `~/.config/nvim`
 
 
-Next, start vim and run `:PlugInstall` - happy neo-vimming!
+Next, start `nvim` and you will see a black screen :). Just open a new terminal tab and start `nvim`
+
+and run `:PlugInstall` - happy neo-vimming!
 
 
 Install ctags:
@@ -369,7 +385,7 @@ Copy keys:
 
 
 ```
-cp -R /media/wm/transcend/.password-store ~
+cp -R /media/wm/verbatim/.password-store ~
 ```
 
 
