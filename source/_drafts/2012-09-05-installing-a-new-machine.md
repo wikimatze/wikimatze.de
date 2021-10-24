@@ -135,9 +135,9 @@ wget -O nextcloud_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfil
 ## Copy Keys and settings permissions
 
 ```
-cp -R .ssh /media/wm/verbatim/.ssh ~
+cp -R /media/wm/transcend/.ssh ~
 cp -R /media/wm/transcend/.gnupg ~
-cp .netrc /media/wm/transcend
+cp /media/wm/transcend/.netrc
 sudo chmod 600 ~/.ssh/*
 sudo chmod 600 ~/.netrc
 ```
