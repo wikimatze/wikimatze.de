@@ -137,7 +137,7 @@ wget -O nextcloud_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfil
 ```
 cp -R /media/wm/transcend/.ssh ~
 cp -R /media/wm/transcend/.gnupg ~
-cp /media/wm/transcend/.netrc
+cp /media/wm/transcend/.netrc ~
 sudo chmod 600 ~/.ssh/*
 sudo chmod 600 ~/.netrc
 ```
@@ -210,19 +210,6 @@ wget -O symlink_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles
 ```
 
 
-## Install git, checkout forked repositories, and run symlinks again
-
-```bash
-wget -O git_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_install.sh' && bash git_install.sh
-wget -O git_forked_repositories_checkout_install 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/git_forked_repositories_checkout_install.sh' && bash git_forked_repositories_checkout_install
-wget -O symlink_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/symlink_install.sh' && bash symlink_install.sh
-```
-
-
-Why running symlinks again? Because now the git repositories are there and I'm symlinking some configuration files into them.
-
-
-
 ## Installing Ruby with rvm
 
 ```
@@ -274,7 +261,7 @@ wget -O tmux_plugins_install.sh 'https://raw.githubusercontent.com/wikimatze/dot
 ```
 
 
-## Installing nvim and related tools
+## Installing nvim
 
 
 ```sh
@@ -285,32 +272,55 @@ wget -O nvim_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/ma
 This script will also automatically clone the configs to `~/.config/nvim`
 
 
-Next, start `nvim` and you will see a black screen :). Just open a new terminal tab and start `nvim`
+Next, start `nvim` and you will see a black screen :) (don't know why exactly). Just open a new terminal tab and start `nvim`
 
 and run `:PlugInstall` - happy neo-vimming!
 
 
-Install ctags:
+## Install ctags:
 
 `wget -O ctags_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/ctags_install.sh' && bash ctags_install.sh`
 
 
 ## Install zsh and switch to it
 
-Install zsh:
+Installation:
+
 
 `wget -O zsh_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/zsh_install.sh' && bash zsh_install.sh`
 
 
 
-The switch to the `zsh` happens via the settings in the `bashrc` file:
+Next add zsh to your `/etc/shells`
 
 
 ```
-which zsh > /dev/null 2>&1
-if [ $? = 0  ]; then
-  exec zsh
-fi
+which zsh | sudo tee -a /etc/shells
+```
+
+
+Then change the default shell to zsh:
+
+
+```
+sudo chsh -s "$(which zsh)" "${USER}"
+```
+
+
+Then you need to log out again so that these changes take effect in `/etc/passwd` file:
+
+
+```
+wm:x:1000:1000:wm,,,:/home/wm:/usr/local/bin/zsh
+```
+
+
+Validate your installation:
+
+
+```
+wm~  % echo $SHELL
+/usr/local/bin/zsh
 ```
 
 
@@ -339,38 +349,9 @@ fi
 `wget -O libsynctex_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/libsynctex_install.sh' && bash libsynctex_install.sh`
 
 
-## Install zimfv (zsh completion thing)
+## Install zimfw (zsh completion thing)
 
-First add zsh to your `/etc/shells`
-
-```
-command -v zsh | sudo tee -a /etc/shells
-```
-
-
-Then change the default shell to zsh:
-
-
-```
-sudo chsh -s "$(command -v zsh)" "${USER}"
-```
-
-
-Then you need to log out again so that these changes take effect in `/etc/passwd` file:
-
-
-```
-wm:x:1000:1000:wm,,,:/home/wm:/usr/local/bin/zsh
-```
-
-
-Validate your installation:
-
-
-```
-wm~  % echo $SHELL
-/usr/local/bin/zsh
-```
+`wget -O latex_basics_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/zimfv_install.sh' && bash zimfv_install.sh`
 
 
 ## Install pass
