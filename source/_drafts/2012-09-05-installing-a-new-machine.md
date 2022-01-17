@@ -351,7 +351,7 @@ wm~  % echo $SHELL
 
 ## Install zimfw (zsh completion thing)
 
-`wget -O latex_basics_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/zimfv_install.sh' && bash zimfv_install.sh`
+`wget -O zimfv_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/zimfv_install.sh' && bash zimfv_install.sh`
 
 
 ## Install pass
@@ -421,12 +421,6 @@ gitter (chat like tool for all OS repos):
 
 
 `wget -O gitter_install.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/gitter_install.sh' && bash gitter_install.sh`
-
-
-grub-customizer (change the boot order):
-
-
-`wget -O grub_customizer.sh 'https://raw.githubusercontent.com/wikimatze/dotfiles/master/scripts/grub_customizer.sh' && bash grub_customizer.sh`
 
 
 weechat (nice IRC client):
