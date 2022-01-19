@@ -1,16 +1,19 @@
 ---
-title: Ventoy an Open Source tool to create bootable USB drive
+title: Ventoy an Open Source tool to create a bootable USB drive
 description: How can you use Ventoy to create bootable USB drive for ISO files.
 nav: articles
-date: 2021-08-22
-updated: 2021-08-23
-categories: linux howto
+date: 2022-01-19
+updated: 2022-01-19
+categories: linux howto ventoy
 ---
 
 [Ventoy](https://www.ventoy.net/en/index.html "Ventoy") is an open source tool to create bootable USB drive for ISO files. With ventoy,
 you don't need to format the disk again and again,
 you just need to copy the iso file to the USB drive and boot it. You can copy many iso files at a time and ventoy will give
-you a boot menu to select them.
+you a boot menu to select them - easy and simple.
+
+<img class="lazy center" src="/images/ventoy_medium.png" data-src="/images/ventoy.png" data-srcset="/images/ventoy.png 2000w, /images/ventoy.png 1000w, /images/ventoy_medium.png 700w" sizes="100%" alt="Ventoy start screen">
+<div class="caption">Ventoy start screen</div>
 
 
 ## Installation
@@ -59,13 +62,20 @@ Install Ventoy to /dev/sda successfully finished.
 ```
 
 
-## Update
+Now you are ready to drop in iso files on the USB-stick.
 
-Get the latest release from <https://github.com/ventoy/Ventoy/releases> and decompress it.
 
-cd /home/wm/Downloads/ventoy-1.0.50-linux/ventoy-1.0.50
+## Update ventoy
+
+In order to update an already just Get the latest release from <https://github.com/ventoy/Ventoy/releases> and decompress it.
+
+
+Next go into that folder, run the installation script but don't forget to use the `-u` option to update it.
+
 
 ```sh
+cd /home/wm/Downloads/ventoy-1.0.50-linux/ventoy-1.0.50
+
 sudo sh Ventoy2Disk.sh -u /dev/sda
 
 **********************************************
