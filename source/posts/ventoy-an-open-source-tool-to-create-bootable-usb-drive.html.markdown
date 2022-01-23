@@ -2,8 +2,8 @@
 title: Ventoy an Open Source tool to create a bootable USB drive
 description: How can you use Ventoy to create bootable USB drive for ISO files.
 nav: articles
-date: 2022-01-19
-updated: 2022-01-19
+date: 2022-01-23
+updated: 2022-01-23
 categories: linux howto ventoy
 ---
 
