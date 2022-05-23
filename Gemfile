@@ -7,7 +7,7 @@ gem 'middleman-blog', '~> 4.0'
 
 gem 'matomo-middleman', '0.0.3'
 
-gem 'sweetie', '2.0.0'
+gem 'sweetie', '2.0.1'
 
 # For feed.xml.builder
 gem 'builder'
