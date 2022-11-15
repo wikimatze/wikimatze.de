@@ -19,8 +19,10 @@ task :p do
 
   post_content = <<-MARKDOWN
 ---
-title: TITLE
+title: #{name}
 description: TITLE
+date: #{date}
+updated: #{date}
 twitter_src:
 facebook_src:
 categories:
@@ -41,7 +43,7 @@ task :staging => :b do
   puts 'Deploying site with lovely rsync ..'.bold.green
 
   system "rsync --exclude=recaptcha/ -vru -e \"ssh\" --del build/* xa6195@xa6.serverdomain.org:/home/www/stagingwikimatze/"
-  puts '# Please refer to https://staging.wikimatze.de to visit the staging system'.green
+  puts '# Please refer to https://stagingwikimatze.wikimatze.de to visit the staging system'.green
 end
 
 desc 'Deploy'
