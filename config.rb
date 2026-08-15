@@ -36,10 +36,10 @@ set :pmwiki_linkicons_recipe, '2013-01-20'
 set :pmwiki_headlineimage_recipe, '2013-01-20'
 
 # page stats
-set :build, '9-23-2020'
+set :build, '8-15-2026'
 set :images, 76
-set :htmlpages, 105
-set :links, 617
+set :htmlpages, 109
+set :links, 625
 
 # for the blog-categories (otherwise building will fail)
 ignore '/category.html'
@@ -92,7 +92,6 @@ end
 configure :development do
   set :host, 'localhost'
 end
-
 
 configure :build do
   activate :minify_css
