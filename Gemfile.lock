@@ -44,8 +44,8 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    matomo-middleman (0.0.3)
-      middleman-core (~> 4)
+    matomo-middleman (0.0.4)
+      middleman-core (>= 4.2)
     memoist (0.16.2)
     middleman (4.4.2)
       coffee-script (~> 2.2)
@@ -140,7 +140,7 @@ DEPENDENCIES
   builder
   colorator
   fileutils
-  matomo-middleman (= 0.0.3)
+  matomo-middleman (= 0.0.4)
   middleman (~> 4.4)
   middleman-blog (~> 4.0)
   middleman-livereload (~> 3.4)
