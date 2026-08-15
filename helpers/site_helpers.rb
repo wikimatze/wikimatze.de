@@ -21,10 +21,6 @@ module SiteHelpers
     app.config[:host_simplegraph]
   end
 
-  def twitter_card_creator
-    app.config[:twitter_card_creator]
-  end
-
   def host
     app.config[:host]
   end

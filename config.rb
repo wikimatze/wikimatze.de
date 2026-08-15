@@ -23,7 +23,6 @@ page '/*.txt', layout: false
 page '/books/*', layout: 'reading'
 
 set :author, 'Matthias Günther'
-set :twitter_card_creator, '@wikimatze'
 set :host_simplegraph, 'wikimatze.de'
 set :host, 'https://wikimatze.de'
 

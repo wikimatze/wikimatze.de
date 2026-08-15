@@ -28,14 +28,6 @@
     <meta property="article:published_time" content="<%= current_page.data[:date] %>" />
     <% end %>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content="<%= twitter_card_creator %>" />
-    <meta name="twitter:site" content="<%= twitter_card_creator %>" />
-    <meta name="twitter:title" content="<%= current_page.data[:title] || title %>" />
-    <meta name="twitter:description" content="<%= current_page.data[:description] || description %>" />
-    <meta name="twitter:url" content="https://twitter.com/wikimatze" />
-    <meta name="twitter:image:src" content="<%= current_page.data.twitter_src || icke %>" />
-
     <link rel="shortcut icon" href="/images/favicon.ico">
 
     <link rel="alternate" type="application/rss+xml" title="Blog feed for wikimatze.de" href="https://www.feedio.co/@wikimatze/feed" >
